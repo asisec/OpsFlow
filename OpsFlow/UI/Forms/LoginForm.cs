@@ -19,5 +19,10 @@ namespace OpsFlow.UI.Forms
         {
 
         }
+
+        private void lnkForgotText_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+
+        }
     }
 }
