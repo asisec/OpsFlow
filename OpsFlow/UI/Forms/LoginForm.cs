@@ -12,7 +12,7 @@ namespace OpsFlow.UI.Forms
 
         private void button1_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("merhaba... ali.... nasılsın.....");
+            MessageBox.Show("merhaba... ali.... nasılsın....."); // bu satır olmamış.
         }
     }
 }
