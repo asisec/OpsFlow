@@ -24,5 +24,10 @@ namespace OpsFlow.UI.Forms
         {
 
         }
+
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

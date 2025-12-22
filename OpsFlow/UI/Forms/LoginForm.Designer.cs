@@ -164,6 +164,7 @@
             btnLogin.Size = new Size(459, 61);
             btnLogin.TabIndex = 5;
             btnLogin.Text = "Giriş Yap";
+            btnLogin.Click += btnLogin_Click;
             // 
             // lnkForgotText
             // 
