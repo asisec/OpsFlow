@@ -12,7 +12,7 @@ namespace OpsFlow.UI.Forms
     {
         public ForgotPasswordForm()
         {
-            InitializeComponent();
+            InitializeComponent(); // test
         }
     }
 }
