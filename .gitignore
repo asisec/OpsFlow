@@ -482,3 +482,35 @@ $RECYCLE.BIN/
 
 # Vim temporary swap files
 *.swp
+
+# Custom Environment Variables (ISO 27001 Security Compliance)
+# Prevents sensitive API keys and secrets from being leaked
+.env.development.local
+.env.test.local
+.env.production.local
+.env.local
+# Also ignore backup env files
+*.env.bak
+*.env.old
+
+# Modern Visual Studio Indexing & Cache (VS 2022+)
+# These are large binary files that can cause 'Permission Denied' errors
+.vsidx/
+FileContentIndex/
+*.vsproj.CopyComplete
+*.suo.old
+
+# Database & Storage (Local Development)
+# Excluding local DB instances often used in C# Forms apps
+*.db-shm
+*.db-wal
+*.sqlite-journal
+
+# Secrets Manager (Local development secrets)
+# This is where 'dotnet user-secrets' stores data
+[Aa]pp[Dd]ata/
+secrets.json
+
+# OS Specific (Additional)
+# Local settings that vary between developers
+.public
