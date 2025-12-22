@@ -1,4 +1,5 @@
 using OpsFlow.UI.Forms;
+using DotNetEnv;
 
 namespace OpsFlow
 {
@@ -7,8 +8,9 @@ namespace OpsFlow
         [STAThread]
         static void Main()
         {
+            Env.Load();
             ApplicationConfiguration.Initialize();
-            Application.Run(new ForgotPasswordForm());
+            Application.Run(new LoginForm());
         }
     }
 }
