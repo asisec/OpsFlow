@@ -16,7 +16,9 @@ namespace OpsFlow.UI.Forms
 
         private void lnkForgotText_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-
+            ForgotPasswordForm forgotForm = new ForgotPasswordForm();
+            forgotForm.Show();
+            this.Hide();
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
