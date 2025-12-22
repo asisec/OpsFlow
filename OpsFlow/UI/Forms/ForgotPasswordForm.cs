@@ -12,7 +12,14 @@ namespace OpsFlow.UI.Forms
     {
         public ForgotPasswordForm()
         {
-            InitializeComponent(); // test
+            InitializeComponent();
+        }
+
+        private void lnkBackToLogin_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            LoginForm loginForm = new LoginForm();
+            loginForm.Show();
+            this.Hide();
         }
     }
 }
