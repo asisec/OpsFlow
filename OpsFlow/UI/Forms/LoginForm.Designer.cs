@@ -40,7 +40,7 @@
             guna2ControlBox1 = new Guna.UI2.WinForms.Guna2ControlBox();
             guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             label1 = new Label();
-            guna2TextBox1 = new Guna.UI2.WinForms.Guna2TextBox();
+            txtEposta = new Guna.UI2.WinForms.Guna2TextBox();
             ((System.ComponentModel.ISupportInitialize)guna2PictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -84,25 +84,26 @@
             label1.TabIndex = 2;
             label1.Text = "Giriş Yap.";
             // 
-            // guna2TextBox1
+            // txtEposta
             // 
-            guna2TextBox1.CustomizableEdges = customizableEdges1;
-            guna2TextBox1.DefaultText = "";
-            guna2TextBox1.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
-            guna2TextBox1.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
-            guna2TextBox1.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
-            guna2TextBox1.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
-            guna2TextBox1.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-            guna2TextBox1.Font = new Font("Segoe UI", 9F);
-            guna2TextBox1.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            guna2TextBox1.Location = new Point(411, 264);
-            guna2TextBox1.Margin = new Padding(3, 4, 3, 4);
-            guna2TextBox1.Name = "guna2TextBox1";
-            guna2TextBox1.PlaceholderText = "";
-            guna2TextBox1.SelectedText = "";
-            guna2TextBox1.ShadowDecoration.CustomizableEdges = customizableEdges2;
-            guna2TextBox1.Size = new Size(286, 60);
-            guna2TextBox1.TabIndex = 3;
+            txtEposta.CustomizableEdges = customizableEdges1;
+            txtEposta.DefaultText = "";
+            txtEposta.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
+            txtEposta.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
+            txtEposta.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
+            txtEposta.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
+            txtEposta.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
+            txtEposta.Font = new Font("Segoe UI", 9F);
+            txtEposta.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
+            txtEposta.Location = new Point(411, 264);
+            txtEposta.Margin = new Padding(3, 4, 3, 4);
+            txtEposta.Name = "txtEposta";
+            txtEposta.PlaceholderText = "";
+            txtEposta.SelectedText = "";
+            txtEposta.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            txtEposta.Size = new Size(286, 60);
+            txtEposta.TabIndex = 3;
+            txtEposta.TextChanged += txtEposta_TextChanged;
             // 
             // LoginForm
             // 
@@ -110,7 +111,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(17, 19, 25);
             ClientSize = new Size(1200, 720);
-            Controls.Add(guna2TextBox1);
+            Controls.Add(txtEposta);
             Controls.Add(label1);
             Controls.Add(guna2PictureBox1);
             Controls.Add(guna2ControlBox1);
@@ -129,6 +130,6 @@
         private Label label1;
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox1;
         private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox1;
-        private Guna.UI2.WinForms.Guna2TextBox guna2TextBox1;
+        private Guna.UI2.WinForms.Guna2TextBox txtEposta;
     }
 }
