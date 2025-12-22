@@ -85,7 +85,7 @@
             label1.AutoSize = true;
             label1.Font = new Font("Poppins", 28.2F, FontStyle.Bold, GraphicsUnit.Point, 162);
             label1.ForeColor = Color.White;
-            label1.Location = new Point(424, 159);
+            label1.Location = new Point(468, 159);
             label1.Name = "label1";
             label1.Size = new Size(264, 82);
             label1.TabIndex = 2;
@@ -106,7 +106,7 @@
             txtEmail.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             txtEmail.Font = new Font("Poppins", 13F);
             txtEmail.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtEmail.Location = new Point(351, 273);
+            txtEmail.Location = new Point(395, 273);
             txtEmail.Margin = new Padding(8, 14, 8, 14);
             txtEmail.Name = "txtEmail";
             txtEmail.Padding = new Padding(46, 0, 0, 0);
@@ -133,7 +133,7 @@
             txtPassword.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             txtPassword.Font = new Font("Poppins", 13.2000008F, FontStyle.Regular, GraphicsUnit.Point, 162);
             txtPassword.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtPassword.Location = new Point(351, 366);
+            txtPassword.Location = new Point(395, 366);
             txtPassword.Margin = new Padding(6, 12, 6, 12);
             txtPassword.Name = "txtPassword";
             txtPassword.PasswordChar = '*';
@@ -158,7 +158,7 @@
             btnLogin.Font = new Font("Poppins", 15F, FontStyle.Bold);
             btnLogin.ForeColor = Color.White;
             btnLogin.HoverState.FillColor = Color.FromArgb(125, 85, 214);
-            btnLogin.Location = new Point(327, 459);
+            btnLogin.Location = new Point(371, 459);
             btnLogin.Name = "btnLogin";
             btnLogin.ShadowDecoration.CustomizableEdges = customizableEdges2;
             btnLogin.Size = new Size(459, 61);
@@ -173,7 +173,7 @@
             lnkForgotText.Font = new Font("Poppins", 11F);
             lnkForgotText.LinkBehavior = LinkBehavior.HoverUnderline;
             lnkForgotText.LinkColor = Color.White;
-            lnkForgotText.Location = new Point(467, 552);
+            lnkForgotText.Location = new Point(511, 552);
             lnkForgotText.Name = "lnkForgotText";
             lnkForgotText.Size = new Size(178, 34);
             lnkForgotText.TabIndex = 6;

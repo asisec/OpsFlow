@@ -35,11 +35,15 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             label1 = new Label();
             label2 = new Label();
             txtEmail = new Guna.UI2.WinForms.Guna2TextBox();
             btnResetPassword = new Guna.UI2.WinForms.Guna2Button();
+            lnkBackToLogin = new LinkLabel();
+            guna2ControlBox1 = new Guna.UI2.WinForms.Guna2ControlBox();
             ((System.ComponentModel.ISupportInitialize)guna2PictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -60,7 +64,7 @@
             label1.AutoSize = true;
             label1.Font = new Font("Poppins", 28.2F, FontStyle.Bold);
             label1.ForeColor = Color.White;
-            label1.Location = new Point(328, 177);
+            label1.Location = new Point(376, 178);
             label1.Name = "label1";
             label1.Size = new Size(448, 82);
             label1.TabIndex = 3;
@@ -71,7 +75,7 @@
             label2.AutoSize = true;
             label2.Font = new Font("Poppins", 11F);
             label2.ForeColor = Color.FromArgb(156, 163, 175);
-            label2.Location = new Point(327, 284);
+            label2.Location = new Point(375, 288);
             label2.Name = "label2";
             label2.Size = new Size(451, 34);
             label2.TabIndex = 4;
@@ -92,7 +96,7 @@
             txtEmail.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             txtEmail.Font = new Font("Poppins", 13F);
             txtEmail.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtEmail.Location = new Point(347, 343);
+            txtEmail.Location = new Point(395, 350);
             txtEmail.Margin = new Padding(8, 14, 8, 14);
             txtEmail.Name = "txtEmail";
             txtEmail.Padding = new Padding(46, 0, 0, 0);
@@ -116,12 +120,38 @@
             btnResetPassword.Font = new Font("Poppins", 15F, FontStyle.Bold);
             btnResetPassword.ForeColor = Color.White;
             btnResetPassword.HoverState.FillColor = Color.FromArgb(125, 85, 214);
-            btnResetPassword.Location = new Point(323, 429);
+            btnResetPassword.Location = new Point(371, 439);
             btnResetPassword.Name = "btnResetPassword";
             btnResetPassword.ShadowDecoration.CustomizableEdges = customizableEdges6;
             btnResetPassword.Size = new Size(459, 61);
             btnResetPassword.TabIndex = 5;
             btnResetPassword.Text = "Şifremi Sıfırla";
+            // 
+            // lnkBackToLogin
+            // 
+            lnkBackToLogin.ActiveLinkColor = Color.FromArgb(108, 64, 200);
+            lnkBackToLogin.AutoSize = true;
+            lnkBackToLogin.Font = new Font("Poppins", 11F);
+            lnkBackToLogin.LinkBehavior = LinkBehavior.HoverUnderline;
+            lnkBackToLogin.LinkColor = Color.White;
+            lnkBackToLogin.Location = new Point(506, 528);
+            lnkBackToLogin.Name = "lnkBackToLogin";
+            lnkBackToLogin.Size = new Size(188, 34);
+            lnkBackToLogin.TabIndex = 7;
+            lnkBackToLogin.TabStop = true;
+            lnkBackToLogin.Text = "Giriş ekranına dön";
+            // 
+            // guna2ControlBox1
+            // 
+            guna2ControlBox1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            guna2ControlBox1.CustomizableEdges = customizableEdges7;
+            guna2ControlBox1.FillColor = Color.FromArgb(139, 152, 166);
+            guna2ControlBox1.IconColor = Color.White;
+            guna2ControlBox1.Location = new Point(1141, 1);
+            guna2ControlBox1.Name = "guna2ControlBox1";
+            guna2ControlBox1.ShadowDecoration.CustomizableEdges = customizableEdges8;
+            guna2ControlBox1.Size = new Size(56, 36);
+            guna2ControlBox1.TabIndex = 8;
             // 
             // ForgotPasswordForm
             // 
@@ -129,6 +159,8 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(17, 19, 25);
             ClientSize = new Size(1200, 720);
+            Controls.Add(guna2ControlBox1);
+            Controls.Add(lnkBackToLogin);
             Controls.Add(btnResetPassword);
             Controls.Add(txtEmail);
             Controls.Add(label2);
@@ -150,5 +182,7 @@
         private Label label2;
         private Guna.UI2.WinForms.Guna2TextBox txtEmail;
         private Guna.UI2.WinForms.Guna2Button btnResetPassword;
+        private LinkLabel lnkBackToLogin;
+        private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox1;
     }
 }

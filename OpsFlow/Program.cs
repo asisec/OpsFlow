@@ -8,7 +8,7 @@ namespace OpsFlow
         static void Main()
         {
             ApplicationConfiguration.Initialize();
-            Application.Run(new ForgotPasswordForm());
+            Application.Run(new LoginForm());
         }
     }
 }
