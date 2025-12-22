@@ -28,12 +28,108 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "LoginForm";
+            components = new System.ComponentModel.Container();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginForm));
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(components);
+            guna2ControlBox1 = new Guna.UI2.WinForms.Guna2ControlBox();
+            guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
+            label1 = new Label();
+            txtEposta = new Guna.UI2.WinForms.Guna2TextBox();
+            ((System.ComponentModel.ISupportInitialize)guna2PictureBox1).BeginInit();
+            SuspendLayout();
+            // 
+            // guna2Elipse1
+            // 
+            guna2Elipse1.BorderRadius = 20;
+            guna2Elipse1.TargetControl = this;
+            // 
+            // guna2ControlBox1
+            // 
+            guna2ControlBox1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            guna2ControlBox1.CustomizableEdges = customizableEdges5;
+            guna2ControlBox1.FillColor = Color.FromArgb(139, 152, 166);
+            guna2ControlBox1.IconColor = Color.White;
+            guna2ControlBox1.Location = new Point(1142, 1);
+            guna2ControlBox1.Name = "guna2ControlBox1";
+            guna2ControlBox1.ShadowDecoration.CustomizableEdges = customizableEdges6;
+            guna2ControlBox1.Size = new Size(56, 36);
+            guna2ControlBox1.TabIndex = 0;
+            // 
+            // guna2PictureBox1
+            // 
+            guna2PictureBox1.CustomizableEdges = customizableEdges3;
+            guna2PictureBox1.Image = (Image)resources.GetObject("guna2PictureBox1.Image");
+            guna2PictureBox1.ImageRotate = 0F;
+            guna2PictureBox1.Location = new Point(12, 1);
+            guna2PictureBox1.Name = "guna2PictureBox1";
+            guna2PictureBox1.ShadowDecoration.CustomizableEdges = customizableEdges4;
+            guna2PictureBox1.Size = new Size(238, 75);
+            guna2PictureBox1.TabIndex = 1;
+            guna2PictureBox1.TabStop = false;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 24F, FontStyle.Bold, GraphicsUnit.Point, 162);
+            label1.ForeColor = Color.White;
+            label1.Location = new Point(460, 153);
+            label1.Name = "label1";
+            label1.Size = new Size(196, 54);
+            label1.TabIndex = 2;
+            label1.Text = "Giriş Yap.";
+            // 
+            // txtEposta
+            // 
+            txtEposta.CustomizableEdges = customizableEdges1;
+            txtEposta.DefaultText = "";
+            txtEposta.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
+            txtEposta.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
+            txtEposta.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
+            txtEposta.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
+            txtEposta.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
+            txtEposta.Font = new Font("Segoe UI", 9F);
+            txtEposta.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
+            txtEposta.Location = new Point(411, 264);
+            txtEposta.Margin = new Padding(3, 4, 3, 4);
+            txtEposta.Name = "txtEposta";
+            txtEposta.PlaceholderText = "";
+            txtEposta.SelectedText = "";
+            txtEposta.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            txtEposta.Size = new Size(286, 60);
+            txtEposta.TabIndex = 3;
+            txtEposta.TextChanged += txtEposta_TextChanged;
+            // 
+            // LoginForm
+            // 
+            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.FromArgb(17, 19, 25);
+            ClientSize = new Size(1200, 720);
+            Controls.Add(txtEposta);
+            Controls.Add(label1);
+            Controls.Add(guna2PictureBox1);
+            Controls.Add(guna2ControlBox1);
+            FormBorderStyle = FormBorderStyle.None;
+            Name = "LoginForm";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "LoginForm";
+            ((System.ComponentModel.ISupportInitialize)guna2PictureBox1).EndInit();
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
+
+        private Guna.UI2.WinForms.Guna2Elipse guna2Elipse1;
+        private Label label1;
+        private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox1;
+        private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox1;
+        private Guna.UI2.WinForms.Guna2TextBox txtEposta;
     }
 }
