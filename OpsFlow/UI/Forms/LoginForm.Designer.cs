@@ -83,11 +83,11 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 28F, FontStyle.Bold);
+            label1.Font = new Font("Poppins", 28.2F, FontStyle.Bold, GraphicsUnit.Point, 162);
             label1.ForeColor = Color.White;
             label1.Location = new Point(445, 159);
             label1.Name = "label1";
-            label1.Size = new Size(231, 62);
+            label1.Size = new Size(264, 82);
             label1.TabIndex = 2;
             label1.Text = "Giriş Yap.";
             // 
@@ -104,12 +104,12 @@
             txtEposta.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
             txtEposta.FillColor = Color.FromArgb(26, 29, 38);
             txtEposta.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtEposta.Font = new Font("Segoe UI", 13F);
+            txtEposta.Font = new Font("Poppins", 13F);
             txtEposta.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtEposta.Location = new Point(361, 252);
-            txtEposta.Margin = new Padding(5, 7, 5, 7);
+            txtEposta.Location = new Point(361, 270);
+            txtEposta.Margin = new Padding(8, 14, 8, 14);
             txtEposta.Name = "txtEposta";
-            txtEposta.Padding = new Padding(28, 0, 0, 0);
+            txtEposta.Padding = new Padding(46, 0, 0, 0);
             txtEposta.PlaceholderText = "E-mail";
             txtEposta.SelectedText = "";
             txtEposta.ShadowDecoration.CustomizableEdges = customizableEdges6;
@@ -131,10 +131,10 @@
             txtPassword.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
             txtPassword.FillColor = Color.FromArgb(26, 29, 38);
             txtPassword.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtPassword.Font = new Font("Segoe UI", 13F);
+            txtPassword.Font = new Font("Poppins", 13.2000008F, FontStyle.Regular, GraphicsUnit.Point, 162);
             txtPassword.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtPassword.Location = new Point(361, 351);
-            txtPassword.Margin = new Padding(4, 6, 4, 6);
+            txtPassword.Location = new Point(361, 357);
+            txtPassword.Margin = new Padding(6, 12, 6, 12);
             txtPassword.Name = "txtPassword";
             txtPassword.PasswordChar = '*';
             txtPassword.PlaceholderText = "Şifre";
@@ -155,26 +155,27 @@
             btnLogin.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
             btnLogin.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
             btnLogin.FillColor = Color.FromArgb(108, 64, 200);
-            btnLogin.Font = new Font("Segoe UI Semibold", 15F, FontStyle.Bold, GraphicsUnit.Point, 162);
+            btnLogin.Font = new Font("Poppins", 15F, FontStyle.Bold);
             btnLogin.ForeColor = Color.White;
             btnLogin.HoverState.FillColor = Color.FromArgb(125, 85, 214);
-            btnLogin.Location = new Point(333, 454);
+            btnLogin.Location = new Point(333, 448);
             btnLogin.Name = "btnLogin";
             btnLogin.ShadowDecoration.CustomizableEdges = customizableEdges2;
             btnLogin.Size = new Size(459, 61);
             btnLogin.TabIndex = 5;
             btnLogin.Text = "Giriş Yap";
+            btnLogin.Click += btnLogin_Click;
             // 
             // lnkForgotText
             // 
             lnkForgotText.ActiveLinkColor = Color.FromArgb(108, 64, 200);
             lnkForgotText.AutoSize = true;
-            lnkForgotText.Font = new Font("Segoe UI", 11F);
+            lnkForgotText.Font = new Font("Poppins", 11F);
             lnkForgotText.LinkBehavior = LinkBehavior.HoverUnderline;
             lnkForgotText.LinkColor = Color.White;
-            lnkForgotText.Location = new Point(481, 557);
+            lnkForgotText.Location = new Point(467, 554);
             lnkForgotText.Name = "lnkForgotText";
-            lnkForgotText.Size = new Size(157, 25);
+            lnkForgotText.Size = new Size(178, 34);
             lnkForgotText.TabIndex = 6;
             lnkForgotText.TabStop = true;
             lnkForgotText.Text = "Şifremi unuttum?";
