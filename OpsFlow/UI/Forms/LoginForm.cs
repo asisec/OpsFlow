@@ -12,7 +12,7 @@ namespace OpsFlow.UI.Forms
 
         private void txtEposta_TextChanged(object sender, EventArgs e)
         {
-            // e posta kontrol
+
         }
 
         private void txtPassword_TextChanged(object sender, EventArgs e)
