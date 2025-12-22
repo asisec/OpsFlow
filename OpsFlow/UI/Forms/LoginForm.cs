@@ -7,7 +7,7 @@ namespace OpsFlow.UI.Forms
     {
         public LoginForm()
         {
-            InitializeComponent();
+            InitializeComponent(); 
         }
     }
 }
