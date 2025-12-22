@@ -29,10 +29,12 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginForm));
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginForm));
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
@@ -41,6 +43,7 @@
             guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             label1 = new Label();
             txtEposta = new Guna.UI2.WinForms.Guna2TextBox();
+            txtPassword = new Guna.UI2.WinForms.Guna2TextBox();
             ((System.ComponentModel.ISupportInitialize)guna2PictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -52,23 +55,23 @@
             // guna2ControlBox1
             // 
             guna2ControlBox1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            guna2ControlBox1.CustomizableEdges = customizableEdges5;
+            guna2ControlBox1.CustomizableEdges = customizableEdges7;
             guna2ControlBox1.FillColor = Color.FromArgb(139, 152, 166);
             guna2ControlBox1.IconColor = Color.White;
             guna2ControlBox1.Location = new Point(1142, 1);
             guna2ControlBox1.Name = "guna2ControlBox1";
-            guna2ControlBox1.ShadowDecoration.CustomizableEdges = customizableEdges6;
+            guna2ControlBox1.ShadowDecoration.CustomizableEdges = customizableEdges8;
             guna2ControlBox1.Size = new Size(56, 36);
             guna2ControlBox1.TabIndex = 0;
             // 
             // guna2PictureBox1
             // 
-            guna2PictureBox1.CustomizableEdges = customizableEdges3;
+            guna2PictureBox1.CustomizableEdges = customizableEdges5;
             guna2PictureBox1.Image = (Image)resources.GetObject("guna2PictureBox1.Image");
             guna2PictureBox1.ImageRotate = 0F;
             guna2PictureBox1.Location = new Point(12, 1);
             guna2PictureBox1.Name = "guna2PictureBox1";
-            guna2PictureBox1.ShadowDecoration.CustomizableEdges = customizableEdges4;
+            guna2PictureBox1.ShadowDecoration.CustomizableEdges = customizableEdges6;
             guna2PictureBox1.Size = new Size(238, 75);
             guna2PictureBox1.TabIndex = 1;
             guna2PictureBox1.TabStop = false;
@@ -86,24 +89,52 @@
             // 
             // txtEposta
             // 
-            txtEposta.CustomizableEdges = customizableEdges1;
-            txtEposta.DefaultText = "";
+            txtEposta.BorderColor = Color.FromArgb(45, 50, 62);
+            txtEposta.BorderRadius = 18;
+            txtEposta.CustomizableEdges = customizableEdges3;
+            txtEposta.DefaultText = "E-mail";
             txtEposta.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             txtEposta.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
             txtEposta.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
             txtEposta.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
+            txtEposta.FillColor = Color.FromArgb(26, 29, 38);
             txtEposta.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             txtEposta.Font = new Font("Segoe UI", 9F);
             txtEposta.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtEposta.Location = new Point(411, 264);
+            txtEposta.Location = new Point(411, 246);
             txtEposta.Margin = new Padding(3, 4, 3, 4);
             txtEposta.Name = "txtEposta";
+            txtEposta.Padding = new Padding(18, 0, 0, 0);
             txtEposta.PlaceholderText = "";
             txtEposta.SelectedText = "";
-            txtEposta.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            txtEposta.ShadowDecoration.CustomizableEdges = customizableEdges4;
             txtEposta.Size = new Size(286, 60);
             txtEposta.TabIndex = 3;
             txtEposta.TextChanged += txtEposta_TextChanged;
+            // 
+            // txtPassword
+            // 
+            txtPassword.BorderColor = Color.FromArgb(45, 50, 62);
+            txtPassword.BorderRadius = 18;
+            txtPassword.CustomizableEdges = customizableEdges1;
+            txtPassword.DefaultText = "Şifre";
+            txtPassword.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
+            txtPassword.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
+            txtPassword.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
+            txtPassword.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
+            txtPassword.FillColor = Color.FromArgb(26, 29, 38);
+            txtPassword.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
+            txtPassword.Font = new Font("Segoe UI", 9F);
+            txtPassword.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
+            txtPassword.Location = new Point(411, 361);
+            txtPassword.Margin = new Padding(3, 4, 3, 4);
+            txtPassword.Name = "txtPassword";
+            txtPassword.PlaceholderText = "";
+            txtPassword.SelectedText = "";
+            txtPassword.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            txtPassword.Size = new Size(286, 60);
+            txtPassword.TabIndex = 4;
+            txtPassword.TextChanged += txtPassword_TextChanged;
             // 
             // LoginForm
             // 
@@ -111,6 +142,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(17, 19, 25);
             ClientSize = new Size(1200, 720);
+            Controls.Add(txtPassword);
             Controls.Add(txtEposta);
             Controls.Add(label1);
             Controls.Add(guna2PictureBox1);
@@ -131,5 +163,6 @@
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox1;
         private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox1;
         private Guna.UI2.WinForms.Guna2TextBox txtEposta;
+        private Guna.UI2.WinForms.Guna2TextBox txtPassword;
     }
 }

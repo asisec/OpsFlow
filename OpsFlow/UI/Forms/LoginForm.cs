@@ -10,17 +10,12 @@ namespace OpsFlow.UI.Forms
             InitializeComponent(); 
         }
 
-        private void guna2TextBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void LoginForm_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void txtEposta_TextChanged(object sender, EventArgs e)
+        {
+            // e posta kontrol
+        }
+
+        private void txtPassword_TextChanged(object sender, EventArgs e)
         {
 
         }
