@@ -1,0 +1,28 @@
+version: '3.8'
+
+name: opsflow-infrastructure
+
+services:
+  opsflow-database-service:
+    image: postgres:15-alpine
+    container_name: opsflow-database-container
+    restart: always
+    environment:
+      POSTGRES_DB: ${DB_DATABASE}
+      POSTGRES_USER: ${DB_USERNAME}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+    ports:
+      - "127.0.0.1:${DB_PORT}:5432"
+    volumes:
+      - opsflow-storage-volume:/var/lib/postgresql/data
+    networks:
+      - opsflow-bridge-network
+
+volumes:
+  opsflow-storage-volume:
+    name: opsflow-persistent-data
+
+networks:
+  opsflow-bridge-network:
+    name: opsflow-internal-net
+    driver: bridge

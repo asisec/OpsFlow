@@ -7,9 +7,8 @@ namespace OpsFlow.UI.Forms
     {
         public LoginForm()
         {
-            InitializeComponent();
+            InitializeComponent(); 
         }
-
         private void txtPassword_TextChanged(object sender, EventArgs e)
         {
 
