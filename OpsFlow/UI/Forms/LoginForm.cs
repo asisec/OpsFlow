@@ -9,12 +9,6 @@ namespace OpsFlow.UI.Forms
         {
             InitializeComponent(); 
         }
-
-        private void txtEposta_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void txtPassword_TextChanged(object sender, EventArgs e)
         {
 
@@ -26,6 +20,11 @@ namespace OpsFlow.UI.Forms
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtEmail_TextChanged(object sender, EventArgs e)
         {
 
         }

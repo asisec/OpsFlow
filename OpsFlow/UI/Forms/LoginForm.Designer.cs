@@ -44,7 +44,7 @@
             guna2ControlBox1 = new Guna.UI2.WinForms.Guna2ControlBox();
             guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             label1 = new Label();
-            txtEposta = new Guna.UI2.WinForms.Guna2TextBox();
+            txtEmail = new Guna.UI2.WinForms.Guna2TextBox();
             txtPassword = new Guna.UI2.WinForms.Guna2TextBox();
             btnLogin = new Guna.UI2.WinForms.Guna2Button();
             lnkForgotText = new LinkLabel();
@@ -85,38 +85,38 @@
             label1.AutoSize = true;
             label1.Font = new Font("Poppins", 28.2F, FontStyle.Bold, GraphicsUnit.Point, 162);
             label1.ForeColor = Color.White;
-            label1.Location = new Point(445, 159);
+            label1.Location = new Point(468, 159);
             label1.Name = "label1";
             label1.Size = new Size(264, 82);
             label1.TabIndex = 2;
             label1.Text = "Giriş Yap.";
             // 
-            // txtEposta
+            // txtEmail
             // 
-            txtEposta.BorderColor = Color.FromArgb(45, 50, 62);
-            txtEposta.BorderRadius = 18;
-            txtEposta.BorderThickness = 4;
-            txtEposta.CustomizableEdges = customizableEdges5;
-            txtEposta.DefaultText = "";
-            txtEposta.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
-            txtEposta.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
-            txtEposta.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
-            txtEposta.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
-            txtEposta.FillColor = Color.FromArgb(26, 29, 38);
-            txtEposta.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtEposta.Font = new Font("Poppins", 13F);
-            txtEposta.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtEposta.Location = new Point(361, 270);
-            txtEposta.Margin = new Padding(8, 14, 8, 14);
-            txtEposta.Name = "txtEposta";
-            txtEposta.Padding = new Padding(46, 0, 0, 0);
-            txtEposta.PlaceholderText = "E-mail";
-            txtEposta.SelectedText = "";
-            txtEposta.ShadowDecoration.CustomizableEdges = customizableEdges6;
-            txtEposta.Size = new Size(411, 61);
-            txtEposta.TabIndex = 3;
-            txtEposta.TextOffset = new Point(6, 0);
-            txtEposta.TextChanged += txtEposta_TextChanged;
+            txtEmail.BorderColor = Color.FromArgb(45, 50, 62);
+            txtEmail.BorderRadius = 18;
+            txtEmail.BorderThickness = 4;
+            txtEmail.CustomizableEdges = customizableEdges5;
+            txtEmail.DefaultText = "";
+            txtEmail.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
+            txtEmail.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
+            txtEmail.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
+            txtEmail.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
+            txtEmail.FillColor = Color.FromArgb(26, 29, 38);
+            txtEmail.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
+            txtEmail.Font = new Font("Poppins", 13F);
+            txtEmail.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
+            txtEmail.Location = new Point(395, 273);
+            txtEmail.Margin = new Padding(8, 14, 8, 14);
+            txtEmail.Name = "txtEmail";
+            txtEmail.Padding = new Padding(46, 0, 0, 0);
+            txtEmail.PlaceholderText = "E-mail";
+            txtEmail.SelectedText = "";
+            txtEmail.ShadowDecoration.CustomizableEdges = customizableEdges6;
+            txtEmail.Size = new Size(411, 61);
+            txtEmail.TabIndex = 3;
+            txtEmail.TextOffset = new Point(6, 0);
+            txtEmail.TextChanged += txtEmail_TextChanged;
             // 
             // txtPassword
             // 
@@ -133,7 +133,7 @@
             txtPassword.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             txtPassword.Font = new Font("Poppins", 13.2000008F, FontStyle.Regular, GraphicsUnit.Point, 162);
             txtPassword.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtPassword.Location = new Point(361, 357);
+            txtPassword.Location = new Point(395, 366);
             txtPassword.Margin = new Padding(6, 12, 6, 12);
             txtPassword.Name = "txtPassword";
             txtPassword.PasswordChar = '*';
@@ -158,7 +158,7 @@
             btnLogin.Font = new Font("Poppins", 15F, FontStyle.Bold);
             btnLogin.ForeColor = Color.White;
             btnLogin.HoverState.FillColor = Color.FromArgb(125, 85, 214);
-            btnLogin.Location = new Point(333, 448);
+            btnLogin.Location = new Point(371, 459);
             btnLogin.Name = "btnLogin";
             btnLogin.ShadowDecoration.CustomizableEdges = customizableEdges2;
             btnLogin.Size = new Size(459, 61);
@@ -173,7 +173,7 @@
             lnkForgotText.Font = new Font("Poppins", 11F);
             lnkForgotText.LinkBehavior = LinkBehavior.HoverUnderline;
             lnkForgotText.LinkColor = Color.White;
-            lnkForgotText.Location = new Point(467, 554);
+            lnkForgotText.Location = new Point(511, 552);
             lnkForgotText.Name = "lnkForgotText";
             lnkForgotText.Size = new Size(178, 34);
             lnkForgotText.TabIndex = 6;
@@ -191,7 +191,7 @@
             Controls.Add(lnkForgotText);
             Controls.Add(btnLogin);
             Controls.Add(txtPassword);
-            Controls.Add(txtEposta);
+            Controls.Add(txtEmail);
             Controls.Add(label1);
             Controls.Add(guna2PictureBox1);
             Controls.Add(guna2ControlBox1);
@@ -210,7 +210,7 @@
         private Label label1;
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox1;
         private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox1;
-        private Guna.UI2.WinForms.Guna2TextBox txtEposta;
+        private Guna.UI2.WinForms.Guna2TextBox txtEmail;
         private Guna.UI2.WinForms.Guna2TextBox txtPassword;
         private Guna.UI2.WinForms.Guna2Button btnLogin;
         private LinkLabel lnkForgotText;
