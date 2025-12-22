@@ -69,7 +69,7 @@
             guna2PictureBox1.CustomizableEdges = customizableEdges5;
             guna2PictureBox1.Image = (Image)resources.GetObject("guna2PictureBox1.Image");
             guna2PictureBox1.ImageRotate = 0F;
-            guna2PictureBox1.Location = new Point(12, 1);
+            guna2PictureBox1.Location = new Point(0, 53);
             guna2PictureBox1.Name = "guna2PictureBox1";
             guna2PictureBox1.ShadowDecoration.CustomizableEdges = customizableEdges6;
             guna2PictureBox1.Size = new Size(238, 75);
@@ -92,7 +92,7 @@
             txtEposta.BorderColor = Color.FromArgb(45, 50, 62);
             txtEposta.BorderRadius = 18;
             txtEposta.CustomizableEdges = customizableEdges3;
-            txtEposta.DefaultText = "E-mail";
+            txtEposta.DefaultText = "";
             txtEposta.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             txtEposta.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
             txtEposta.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
@@ -101,15 +101,16 @@
             txtEposta.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             txtEposta.Font = new Font("Segoe UI", 9F);
             txtEposta.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtEposta.Location = new Point(411, 246);
+            txtEposta.Location = new Point(360, 256);
             txtEposta.Margin = new Padding(3, 4, 3, 4);
             txtEposta.Name = "txtEposta";
             txtEposta.Padding = new Padding(18, 0, 0, 0);
-            txtEposta.PlaceholderText = "";
+            txtEposta.PlaceholderText = "E-mail";
             txtEposta.SelectedText = "";
             txtEposta.ShadowDecoration.CustomizableEdges = customizableEdges4;
-            txtEposta.Size = new Size(286, 60);
+            txtEposta.Size = new Size(411, 61);
             txtEposta.TabIndex = 3;
+            txtEposta.TextOffset = new Point(5, 0);
             txtEposta.TextChanged += txtEposta_TextChanged;
             // 
             // txtPassword
@@ -117,7 +118,7 @@
             txtPassword.BorderColor = Color.FromArgb(45, 50, 62);
             txtPassword.BorderRadius = 18;
             txtPassword.CustomizableEdges = customizableEdges1;
-            txtPassword.DefaultText = "Şifre";
+            txtPassword.DefaultText = "";
             txtPassword.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             txtPassword.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
             txtPassword.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
@@ -126,14 +127,16 @@
             txtPassword.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             txtPassword.Font = new Font("Segoe UI", 9F);
             txtPassword.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtPassword.Location = new Point(411, 361);
+            txtPassword.Location = new Point(360, 363);
             txtPassword.Margin = new Padding(3, 4, 3, 4);
             txtPassword.Name = "txtPassword";
-            txtPassword.PlaceholderText = "";
+            txtPassword.PasswordChar = '*';
+            txtPassword.PlaceholderText = "Şifre";
             txtPassword.SelectedText = "";
             txtPassword.ShadowDecoration.CustomizableEdges = customizableEdges2;
-            txtPassword.Size = new Size(286, 60);
+            txtPassword.Size = new Size(411, 61);
             txtPassword.TabIndex = 4;
+            txtPassword.TextOffset = new Point(5, 0);
             txtPassword.TextChanged += txtPassword_TextChanged;
             // 
             // LoginForm
