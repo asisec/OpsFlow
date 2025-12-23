@@ -18,9 +18,27 @@ services:
     networks:
       - opsflow-bridge-network
 
+  opsflow-pgadmin-service:
+    image: dpage/pgadmin4:latest
+    container_name: opsflow-pgadmin-container
+    restart: always
+    environment:
+      PGADMIN_DEFAULT_EMAIL: ${PGADMIN_EMAIL}
+      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_PASSWORD}
+    ports:
+      - "5050:80"
+    volumes:
+      - opsflow-pgadmin-volume:/var/lib/pgadmin
+    networks:
+      - opsflow-bridge-network
+    depends_on:
+      - opsflow-database-service
+
 volumes:
   opsflow-storage-volume:
     name: opsflow-persistent-data
+  opsflow-pgadmin-volume:
+    name: opsflow-pgadmin-data
 
 networks:
   opsflow-bridge-network:
