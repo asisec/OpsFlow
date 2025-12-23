@@ -24,5 +24,14 @@ namespace OpsFlow.UI.Forms
         {
 
         }
+
+        private void SadeceRakamGirisi(object sender, KeyPressEventArgs e)
+        {
+            // Gelen tuş Rakam DEĞİLSE (!) ve Kontrol tuşu (Silme/Backspace) DEĞİLSE (!)
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true; // İşlemi iptal et (Yani kutuya yazma)
+            }
+        }
     }
 }
