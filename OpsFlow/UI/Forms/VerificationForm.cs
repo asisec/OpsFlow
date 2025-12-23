@@ -19,5 +19,10 @@ namespace OpsFlow.UI.Forms
         {
 
         }
+
+        private void VerificationForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
