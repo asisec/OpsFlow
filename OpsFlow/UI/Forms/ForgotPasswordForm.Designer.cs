@@ -28,47 +28,36 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges9 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ForgotPasswordForm));
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges10 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges11 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges12 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges13 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges14 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges15 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges16 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
-            label1 = new Label();
             label2 = new Label();
             txtEmail = new Guna.UI2.WinForms.Guna2TextBox();
             btnResetPassword = new Guna.UI2.WinForms.Guna2Button();
             lnkBackToLogin = new LinkLabel();
             guna2ControlBox1 = new Guna.UI2.WinForms.Guna2ControlBox();
+            label1 = new Label();
             ((System.ComponentModel.ISupportInitialize)guna2PictureBox1).BeginInit();
             SuspendLayout();
             // 
             // guna2PictureBox1
             // 
-            guna2PictureBox1.CustomizableEdges = customizableEdges9;
+            guna2PictureBox1.CustomizableEdges = customizableEdges1;
             guna2PictureBox1.Image = (Image)resources.GetObject("guna2PictureBox1.Image");
             guna2PictureBox1.ImageRotate = 0F;
             guna2PictureBox1.Location = new Point(24, 48);
             guna2PictureBox1.Name = "guna2PictureBox1";
-            guna2PictureBox1.ShadowDecoration.CustomizableEdges = customizableEdges10;
+            guna2PictureBox1.ShadowDecoration.CustomizableEdges = customizableEdges2;
             guna2PictureBox1.Size = new Size(238, 75);
             guna2PictureBox1.TabIndex = 2;
             guna2PictureBox1.TabStop = false;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Microsoft Sans Serif", 28.2F, FontStyle.Bold);
-            label1.ForeColor = Color.White;
-            label1.Location = new Point(407, 178);
-            label1.Name = "label1";
-            label1.Size = new Size(386, 54);
-            label1.TabIndex = 3;
-            label1.Text = "Şifremi Unuttum.";
             // 
             // label2
             // 
@@ -86,7 +75,7 @@
             txtEmail.BorderColor = Color.FromArgb(45, 50, 62);
             txtEmail.BorderRadius = 18;
             txtEmail.BorderThickness = 4;
-            txtEmail.CustomizableEdges = customizableEdges11;
+            txtEmail.CustomizableEdges = customizableEdges3;
             txtEmail.DefaultText = "";
             txtEmail.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             txtEmail.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -102,7 +91,7 @@
             txtEmail.Padding = new Padding(46, 0, 0, 0);
             txtEmail.PlaceholderText = "E-mail";
             txtEmail.SelectedText = "";
-            txtEmail.ShadowDecoration.CustomizableEdges = customizableEdges12;
+            txtEmail.ShadowDecoration.CustomizableEdges = customizableEdges4;
             txtEmail.Size = new Size(411, 61);
             txtEmail.TabIndex = 5;
             txtEmail.TextOffset = new Point(6, 0);
@@ -111,7 +100,7 @@
             // 
             btnResetPassword.BorderRadius = 13;
             btnResetPassword.Cursor = Cursors.Hand;
-            btnResetPassword.CustomizableEdges = customizableEdges13;
+            btnResetPassword.CustomizableEdges = customizableEdges5;
             btnResetPassword.DisabledState.BorderColor = Color.DarkGray;
             btnResetPassword.DisabledState.CustomBorderColor = Color.DarkGray;
             btnResetPassword.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -122,7 +111,7 @@
             btnResetPassword.HoverState.FillColor = Color.FromArgb(125, 85, 214);
             btnResetPassword.Location = new Point(371, 428);
             btnResetPassword.Name = "btnResetPassword";
-            btnResetPassword.ShadowDecoration.CustomizableEdges = customizableEdges14;
+            btnResetPassword.ShadowDecoration.CustomizableEdges = customizableEdges6;
             btnResetPassword.Size = new Size(459, 61);
             btnResetPassword.TabIndex = 5;
             btnResetPassword.Text = "Şifremi Sıfırla";
@@ -145,14 +134,25 @@
             // guna2ControlBox1
             // 
             guna2ControlBox1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            guna2ControlBox1.CustomizableEdges = customizableEdges15;
+            guna2ControlBox1.CustomizableEdges = customizableEdges7;
             guna2ControlBox1.FillColor = Color.FromArgb(139, 152, 166);
             guna2ControlBox1.IconColor = Color.White;
             guna2ControlBox1.Location = new Point(1141, 1);
             guna2ControlBox1.Name = "guna2ControlBox1";
-            guna2ControlBox1.ShadowDecoration.CustomizableEdges = customizableEdges16;
+            guna2ControlBox1.ShadowDecoration.CustomizableEdges = customizableEdges8;
             guna2ControlBox1.Size = new Size(56, 36);
             guna2ControlBox1.TabIndex = 8;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Microsoft Sans Serif", 28.2F, FontStyle.Bold);
+            label1.ForeColor = Color.White;
+            label1.Location = new Point(407, 178);
+            label1.Name = "label1";
+            label1.Size = new Size(386, 54);
+            label1.TabIndex = 3;
+            label1.Text = "Şifremi Unuttum.";
             // 
             // ForgotPasswordForm
             // 
@@ -180,11 +180,11 @@
         #endregion
 
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox1;
-        private Label label1;
         private Label label2;
         private Guna.UI2.WinForms.Guna2TextBox txtEmail;
         private Guna.UI2.WinForms.Guna2Button btnResetPassword;
         private LinkLabel lnkBackToLogin;
         private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox1;
+        private Label label1;
     }
 }

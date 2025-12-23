@@ -20,7 +20,7 @@ namespace OpsFlow
             Database = new DatabaseConnectionService();
 
             ApplicationConfiguration.Initialize();
-            Application.Run(new UI.Forms.LoginForm());
+            Application.Run(new UI.Forms.ResetPasswordForm());
         }
     }
 }
