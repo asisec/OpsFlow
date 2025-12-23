@@ -10,7 +10,7 @@ namespace OpsFlow
         {
             Env.Load();
             ApplicationConfiguration.Initialize();
-            Application.Run(new VerificationForm());
+            Application.Run(new LoginForm());
         }
     }
 }
