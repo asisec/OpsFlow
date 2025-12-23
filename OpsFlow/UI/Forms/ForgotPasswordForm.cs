@@ -14,5 +14,10 @@ namespace OpsFlow.UI.Forms
         {
             InitializeComponent(); // test
         }
+
+        private void ForgotPasswordForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
