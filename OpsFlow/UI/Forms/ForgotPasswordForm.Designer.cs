@@ -171,6 +171,7 @@
             Name = "ForgotPasswordForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "ForgotPasswordForm";
+            Load += ForgotPasswordForm_Load;
             ((System.ComponentModel.ISupportInitialize)guna2PictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();

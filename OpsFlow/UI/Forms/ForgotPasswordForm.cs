@@ -21,5 +21,10 @@ namespace OpsFlow.UI.Forms
             loginForm.Show();
             this.Hide();
         }
+
+        private void ForgotPasswordForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
