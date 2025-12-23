@@ -4,15 +4,15 @@ using System.Text;
 
 namespace OpsFlow.Core.Exceptions
 {
-    public sealed class DatabaseConnectionException : Exception
+    public sealed class InvalidConfigurationException : Exception
     {
-        public DatabaseConnectionException(string message) 
+        public InvalidConfigurationException(string message)
             : base(message)
         {
 
         }
 
-        public DatabaseConnectionException(string message, Exception inner)
+        public InvalidConfigurationException(string message, Exception inner)
             : base(message, inner)
         {
 
