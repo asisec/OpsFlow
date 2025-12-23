@@ -64,7 +64,7 @@
             label1.AutoSize = true;
             label1.Font = new Font("Microsoft Sans Serif", 28.2F, FontStyle.Bold);
             label1.ForeColor = Color.White;
-            label1.Location = new Point(376, 178);
+            label1.Location = new Point(407, 178);
             label1.Name = "label1";
             label1.Size = new Size(386, 54);
             label1.TabIndex = 3;
@@ -75,7 +75,7 @@
             label2.AutoSize = true;
             label2.Font = new Font("Microsoft Sans Serif", 11F);
             label2.ForeColor = Color.FromArgb(156, 163, 175);
-            label2.Location = new Point(375, 288);
+            label2.Location = new Point(408, 269);
             label2.Name = "label2";
             label2.Size = new Size(385, 24);
             label2.TabIndex = 4;
@@ -96,7 +96,7 @@
             txtEmail.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             txtEmail.Font = new Font("Microsoft Sans Serif", 13F);
             txtEmail.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtEmail.Location = new Point(395, 350);
+            txtEmail.Location = new Point(395, 330);
             txtEmail.Margin = new Padding(8, 14, 8, 14);
             txtEmail.Name = "txtEmail";
             txtEmail.Padding = new Padding(46, 0, 0, 0);
@@ -120,7 +120,7 @@
             btnResetPassword.Font = new Font("Microsoft Sans Serif", 15F, FontStyle.Bold);
             btnResetPassword.ForeColor = Color.White;
             btnResetPassword.HoverState.FillColor = Color.FromArgb(125, 85, 214);
-            btnResetPassword.Location = new Point(371, 439);
+            btnResetPassword.Location = new Point(371, 428);
             btnResetPassword.Name = "btnResetPassword";
             btnResetPassword.ShadowDecoration.CustomizableEdges = customizableEdges6;
             btnResetPassword.Size = new Size(459, 61);
@@ -134,7 +134,7 @@
             lnkBackToLogin.Font = new Font("Microsoft Sans Serif", 11F);
             lnkBackToLogin.LinkBehavior = LinkBehavior.HoverUnderline;
             lnkBackToLogin.LinkColor = Color.White;
-            lnkBackToLogin.Location = new Point(506, 528);
+            lnkBackToLogin.Location = new Point(519, 526);
             lnkBackToLogin.Name = "lnkBackToLogin";
             lnkBackToLogin.Size = new Size(162, 24);
             lnkBackToLogin.TabIndex = 7;
