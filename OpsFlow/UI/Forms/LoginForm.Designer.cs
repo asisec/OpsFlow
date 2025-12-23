@@ -1,4 +1,5 @@
-﻿namespace OpsFlow.UI.Forms
+﻿
+namespace OpsFlow.UI.Forms
 {
     partial class LoginForm
     {
@@ -52,10 +53,11 @@
             txtPassword = new Guna.UI2.WinForms.Guna2TextBox();
             btnLogin = new Guna.UI2.WinForms.Guna2Button();
             lnkForgotText = new LinkLabel();
-            guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            guna2HtmlLabel2 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            lblErrorTitle = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            lblErrorMessage = new Guna.UI2.WinForms.Guna2HtmlLabel();
             pnlErrorToast = new Guna.UI2.WinForms.Guna2GradientPanel();
             btnCloseError = new Guna.UI2.WinForms.Guna2Button();
+            tmrAutoClose = new System.Windows.Forms.Timer(components);
             ((System.ComponentModel.ISupportInitialize)guna2PictureBox1).BeginInit();
             pnlErrorToast.SuspendLayout();
             SuspendLayout();
@@ -173,7 +175,7 @@
             btnLogin.Size = new Size(459, 61);
             btnLogin.TabIndex = 5;
             btnLogin.Text = "Giriş Yap";
-
+            btnLogin.Click += btnVerifyCode_Click;
             // 
             // lnkForgotText
             // 
@@ -190,33 +192,33 @@
             lnkForgotText.Text = "Şifremi unuttum?";
             lnkForgotText.LinkClicked += lnkForgotText_LinkClicked;
             // 
-            // guna2HtmlLabel1
+            // lblErrorTitle
             // 
-            guna2HtmlLabel1.BackColor = Color.Transparent;
-            guna2HtmlLabel1.Font = new Font("Poppins", 8F);
-            guna2HtmlLabel1.ForeColor = Color.White;
-            guna2HtmlLabel1.Location = new Point(10, 12);
-            guna2HtmlLabel1.Name = "guna2HtmlLabel1";
-            guna2HtmlLabel1.Size = new Size(91, 25);
-            guna2HtmlLabel1.TabIndex = 9;
-            guna2HtmlLabel1.Text = "Giriş Başarısız";
+            lblErrorTitle.BackColor = Color.Transparent;
+            lblErrorTitle.Font = new Font("Poppins Medium", 9.2F, FontStyle.Bold);
+            lblErrorTitle.ForeColor = Color.White;
+            lblErrorTitle.Location = new Point(10, 5);
+            lblErrorTitle.Name = "lblErrorTitle";
+            lblErrorTitle.Size = new Size(122, 28);
+            lblErrorTitle.TabIndex = 9;
+            lblErrorTitle.Text = "Giriş Başarısız";
             // 
-            // guna2HtmlLabel2
+            // lblErrorMessage
             // 
-            guna2HtmlLabel2.BackColor = Color.Transparent;
-            guna2HtmlLabel2.ForeColor = Color.FromArgb(224, 224, 224);
-            guna2HtmlLabel2.Location = new Point(10, 36);
-            guna2HtmlLabel2.Name = "guna2HtmlLabel2";
-            guna2HtmlLabel2.Size = new Size(214, 22);
-            guna2HtmlLabel2.TabIndex = 10;
-            guna2HtmlLabel2.Text = "Giriş başarısız lütfen tekrar dene";
+            lblErrorMessage.BackColor = Color.Transparent;
+            lblErrorMessage.ForeColor = Color.FromArgb(224, 224, 224);
+            lblErrorMessage.Location = new Point(10, 36);
+            lblErrorMessage.Name = "lblErrorMessage";
+            lblErrorMessage.Size = new Size(214, 22);
+            lblErrorMessage.TabIndex = 10;
+            lblErrorMessage.Text = "Giriş başarısız lütfen tekrar dene";
             // 
             // pnlErrorToast
             // 
             pnlErrorToast.BorderRadius = 12;
             pnlErrorToast.Controls.Add(btnCloseError);
-            pnlErrorToast.Controls.Add(guna2HtmlLabel1);
-            pnlErrorToast.Controls.Add(guna2HtmlLabel2);
+            pnlErrorToast.Controls.Add(lblErrorTitle);
+            pnlErrorToast.Controls.Add(lblErrorMessage);
             pnlErrorToast.CustomizableEdges = customizableEdges5;
             pnlErrorToast.FillColor = Color.FromArgb(255, 106, 0);
             pnlErrorToast.FillColor2 = Color.FromArgb(255, 106, 0);
@@ -247,6 +249,12 @@
             btnCloseError.Size = new Size(35, 30);
             btnCloseError.TabIndex = 12;
             btnCloseError.Text = "X";
+            btnCloseError.Click += btnCloseError_Click;
+            // 
+            // tmrAutoClose
+            // 
+            tmrAutoClose.Interval = 3000;
+            tmrAutoClose.Tick += tmrAutoClose_Tick;
             // 
             // LoginForm
             // 
@@ -274,6 +282,11 @@
             PerformLayout();
         }
 
+        private void btnVerifyCode_Click(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
         #endregion
 
         private Guna.UI2.WinForms.Guna2Elipse guna2Elipse1;
@@ -284,9 +297,10 @@
         private Guna.UI2.WinForms.Guna2TextBox txtPassword;
         private Guna.UI2.WinForms.Guna2Button btnLogin;
         private LinkLabel lnkForgotText;
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel1;
+        private Guna.UI2.WinForms.Guna2HtmlLabel lblErrorTitle;
         private Guna.UI2.WinForms.Guna2GradientPanel pnlErrorToast;
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel2;
+        private Guna.UI2.WinForms.Guna2HtmlLabel lblErrorMessage;
         private Guna.UI2.WinForms.Guna2Button btnCloseError;
+        private System.Windows.Forms.Timer tmrAutoClose;
     }
 }
