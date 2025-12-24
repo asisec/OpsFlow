@@ -73,5 +73,10 @@ namespace OpsFlow.UI.Forms
             tmrAutoClose.Stop();
             pnlErrorToast.Visible = false;
         }
+
+        private void btnVerifyCode_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
