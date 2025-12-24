@@ -29,27 +29,29 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges21 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VerificationForm));
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges9 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges10 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges11 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges12 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges13 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges14 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges15 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges16 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges19 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges20 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges17 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges18 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges22 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges23 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges24 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges25 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges26 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges27 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges28 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges29 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges30 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges31 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges32 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges33 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges34 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges37 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges38 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges35 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges36 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges39 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges40 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges41 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges42 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             label3 = new Label();
             label1 = new Label();
@@ -59,7 +61,6 @@
             pnlVerificationCode4 = new Guna.UI2.WinForms.Guna2TextBox();
             pnlVerificationCode5 = new Guna.UI2.WinForms.Guna2TextBox();
             pnlVerificationCode6 = new Guna.UI2.WinForms.Guna2TextBox();
-            btnVerifyCode = new Guna.UI2.WinForms.Guna2Button();
             lnkForgotText2 = new LinkLabel();
             lnkForgotText1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             pnlErrorToast = new Guna.UI2.WinForms.Guna2GradientPanel();
@@ -67,18 +68,20 @@
             lblErrorTitle = new Guna.UI2.WinForms.Guna2HtmlLabel();
             lblErrorMessage = new Guna.UI2.WinForms.Guna2HtmlLabel();
             tmrAutoClose = new System.Windows.Forms.Timer(components);
+            btnVerifyCode = new Guna.UI2.WinForms.Guna2Button();
+            guna2ControlBox1 = new Guna.UI2.WinForms.Guna2ControlBox();
             ((System.ComponentModel.ISupportInitialize)guna2PictureBox1).BeginInit();
             pnlErrorToast.SuspendLayout();
             SuspendLayout();
             // 
             // guna2PictureBox1
             // 
-            guna2PictureBox1.CustomizableEdges = customizableEdges1;
+            guna2PictureBox1.CustomizableEdges = customizableEdges21;
             guna2PictureBox1.Image = (Image)resources.GetObject("guna2PictureBox1.Image");
             guna2PictureBox1.ImageRotate = 0F;
             guna2PictureBox1.Location = new Point(24, 48);
             guna2PictureBox1.Name = "guna2PictureBox1";
-            guna2PictureBox1.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            guna2PictureBox1.ShadowDecoration.CustomizableEdges = customizableEdges22;
             guna2PictureBox1.Size = new Size(238, 75);
             guna2PictureBox1.TabIndex = 3;
             guna2PictureBox1.TabStop = false;
@@ -111,7 +114,7 @@
             // 
             pnlVerificationCode1.BorderColor = Color.FromArgb(45, 50, 62);
             pnlVerificationCode1.BorderThickness = 3;
-            pnlVerificationCode1.CustomizableEdges = customizableEdges3;
+            pnlVerificationCode1.CustomizableEdges = customizableEdges23;
             pnlVerificationCode1.DefaultText = "";
             pnlVerificationCode1.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             pnlVerificationCode1.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -127,7 +130,7 @@
             pnlVerificationCode1.Name = "pnlVerificationCode1";
             pnlVerificationCode1.PlaceholderText = "";
             pnlVerificationCode1.SelectedText = "";
-            pnlVerificationCode1.ShadowDecoration.CustomizableEdges = customizableEdges4;
+            pnlVerificationCode1.ShadowDecoration.CustomizableEdges = customizableEdges24;
             pnlVerificationCode1.Size = new Size(50, 65);
             pnlVerificationCode1.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
             pnlVerificationCode1.TabIndex = 0;
@@ -139,7 +142,7 @@
             // 
             pnlVerificationCode2.BorderColor = Color.FromArgb(45, 50, 62);
             pnlVerificationCode2.BorderThickness = 3;
-            pnlVerificationCode2.CustomizableEdges = customizableEdges5;
+            pnlVerificationCode2.CustomizableEdges = customizableEdges25;
             pnlVerificationCode2.DefaultText = "";
             pnlVerificationCode2.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             pnlVerificationCode2.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -155,7 +158,7 @@
             pnlVerificationCode2.Name = "pnlVerificationCode2";
             pnlVerificationCode2.PlaceholderText = "";
             pnlVerificationCode2.SelectedText = "";
-            pnlVerificationCode2.ShadowDecoration.CustomizableEdges = customizableEdges6;
+            pnlVerificationCode2.ShadowDecoration.CustomizableEdges = customizableEdges26;
             pnlVerificationCode2.Size = new Size(50, 65);
             pnlVerificationCode2.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
             pnlVerificationCode2.TabIndex = 1;
@@ -167,7 +170,7 @@
             // 
             pnlVerificationCode3.BorderColor = Color.FromArgb(45, 50, 62);
             pnlVerificationCode3.BorderThickness = 3;
-            pnlVerificationCode3.CustomizableEdges = customizableEdges7;
+            pnlVerificationCode3.CustomizableEdges = customizableEdges27;
             pnlVerificationCode3.DefaultText = "";
             pnlVerificationCode3.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             pnlVerificationCode3.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -183,7 +186,7 @@
             pnlVerificationCode3.Name = "pnlVerificationCode3";
             pnlVerificationCode3.PlaceholderText = "";
             pnlVerificationCode3.SelectedText = "";
-            pnlVerificationCode3.ShadowDecoration.CustomizableEdges = customizableEdges8;
+            pnlVerificationCode3.ShadowDecoration.CustomizableEdges = customizableEdges28;
             pnlVerificationCode3.Size = new Size(50, 65);
             pnlVerificationCode3.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
             pnlVerificationCode3.TabIndex = 2;
@@ -195,7 +198,7 @@
             // 
             pnlVerificationCode4.BorderColor = Color.FromArgb(45, 50, 62);
             pnlVerificationCode4.BorderThickness = 3;
-            pnlVerificationCode4.CustomizableEdges = customizableEdges9;
+            pnlVerificationCode4.CustomizableEdges = customizableEdges29;
             pnlVerificationCode4.DefaultText = "";
             pnlVerificationCode4.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             pnlVerificationCode4.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -211,7 +214,7 @@
             pnlVerificationCode4.Name = "pnlVerificationCode4";
             pnlVerificationCode4.PlaceholderText = "";
             pnlVerificationCode4.SelectedText = "";
-            pnlVerificationCode4.ShadowDecoration.CustomizableEdges = customizableEdges10;
+            pnlVerificationCode4.ShadowDecoration.CustomizableEdges = customizableEdges30;
             pnlVerificationCode4.Size = new Size(50, 65);
             pnlVerificationCode4.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
             pnlVerificationCode4.TabIndex = 3;
@@ -223,7 +226,7 @@
             // 
             pnlVerificationCode5.BorderColor = Color.FromArgb(45, 50, 62);
             pnlVerificationCode5.BorderThickness = 3;
-            pnlVerificationCode5.CustomizableEdges = customizableEdges11;
+            pnlVerificationCode5.CustomizableEdges = customizableEdges31;
             pnlVerificationCode5.DefaultText = "";
             pnlVerificationCode5.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             pnlVerificationCode5.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -239,7 +242,7 @@
             pnlVerificationCode5.Name = "pnlVerificationCode5";
             pnlVerificationCode5.PlaceholderText = "";
             pnlVerificationCode5.SelectedText = "";
-            pnlVerificationCode5.ShadowDecoration.CustomizableEdges = customizableEdges12;
+            pnlVerificationCode5.ShadowDecoration.CustomizableEdges = customizableEdges32;
             pnlVerificationCode5.Size = new Size(50, 65);
             pnlVerificationCode5.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
             pnlVerificationCode5.TabIndex = 4;
@@ -251,7 +254,7 @@
             // 
             pnlVerificationCode6.BorderColor = Color.FromArgb(45, 50, 62);
             pnlVerificationCode6.BorderThickness = 3;
-            pnlVerificationCode6.CustomizableEdges = customizableEdges13;
+            pnlVerificationCode6.CustomizableEdges = customizableEdges33;
             pnlVerificationCode6.DefaultText = "";
             pnlVerificationCode6.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             pnlVerificationCode6.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -267,7 +270,7 @@
             pnlVerificationCode6.Name = "pnlVerificationCode6";
             pnlVerificationCode6.PlaceholderText = "";
             pnlVerificationCode6.SelectedText = "";
-            pnlVerificationCode6.ShadowDecoration.CustomizableEdges = customizableEdges14;
+            pnlVerificationCode6.ShadowDecoration.CustomizableEdges = customizableEdges34;
             pnlVerificationCode6.Size = new Size(50, 65);
             pnlVerificationCode6.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
             pnlVerificationCode6.TabIndex = 5;
@@ -306,14 +309,14 @@
             pnlErrorToast.Controls.Add(btnCloseError);
             pnlErrorToast.Controls.Add(lblErrorTitle);
             pnlErrorToast.Controls.Add(lblErrorMessage);
-            pnlErrorToast.CustomizableEdges = customizableEdges19;
+            pnlErrorToast.CustomizableEdges = customizableEdges37;
             pnlErrorToast.FillColor = Color.FromArgb(255, 106, 0);
             pnlErrorToast.FillColor2 = Color.FromArgb(255, 106, 0);
             pnlErrorToast.Location = new Point(871, 137);
             pnlErrorToast.Name = "pnlErrorToast";
-            customizableEdges20.BottomRight = false;
-            customizableEdges20.TopRight = false;
-            pnlErrorToast.ShadowDecoration.CustomizableEdges = customizableEdges20;
+            customizableEdges38.BottomRight = false;
+            customizableEdges38.TopRight = false;
+            pnlErrorToast.ShadowDecoration.CustomizableEdges = customizableEdges38;
             pnlErrorToast.Size = new Size(327, 68);
             pnlErrorToast.TabIndex = 12;
             pnlErrorToast.Visible = false;
@@ -322,7 +325,7 @@
             // 
             btnCloseError.BackColor = Color.Transparent;
             btnCloseError.BorderColor = Color.Transparent;
-            btnCloseError.CustomizableEdges = customizableEdges17;
+            btnCloseError.CustomizableEdges = customizableEdges35;
             btnCloseError.DisabledState.BorderColor = Color.DarkGray;
             btnCloseError.DisabledState.CustomBorderColor = Color.DarkGray;
             btnCloseError.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -332,7 +335,7 @@
             btnCloseError.ForeColor = Color.White;
             btnCloseError.Location = new Point(279, 3);
             btnCloseError.Name = "btnCloseError";
-            btnCloseError.ShadowDecoration.CustomizableEdges = customizableEdges18;
+            btnCloseError.ShadowDecoration.CustomizableEdges = customizableEdges36;
             btnCloseError.Size = new Size(35, 30);
             btnCloseError.TabIndex = 12;
             btnCloseError.Text = "X";
@@ -359,16 +362,49 @@
             lblErrorMessage.TabIndex = 10;
             lblErrorMessage.Text = "Lütfen E-mail'inize gelen kodu tekrar deneyiniz";
             // 
+            // btnVerifyCode
+            // 
+            btnVerifyCode.BorderRadius = 13;
+            btnVerifyCode.Cursor = Cursors.Hand;
+            btnVerifyCode.CustomizableEdges = customizableEdges39;
+            btnVerifyCode.DisabledState.BorderColor = Color.DarkGray;
+            btnVerifyCode.DisabledState.CustomBorderColor = Color.DarkGray;
+            btnVerifyCode.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            btnVerifyCode.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            btnVerifyCode.FillColor = Color.FromArgb(108, 64, 200);
+            btnVerifyCode.Font = new Font("Microsoft Sans Serif", 15F, FontStyle.Bold);
+            btnVerifyCode.ForeColor = Color.White;
+            btnVerifyCode.HoverState.FillColor = Color.FromArgb(125, 85, 214);
+            btnVerifyCode.Location = new Point(370, 454);
+            btnVerifyCode.Name = "btnVerifyCode";
+            btnVerifyCode.ShadowDecoration.CustomizableEdges = customizableEdges40;
+            btnVerifyCode.Size = new Size(459, 61);
+            btnVerifyCode.TabIndex = 13;
+            btnVerifyCode.Text = "Kodu Doğrula";
+            // 
+            // guna2ControlBox1
+            // 
+            guna2ControlBox1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            guna2ControlBox1.CustomizableEdges = customizableEdges41;
+            guna2ControlBox1.FillColor = Color.FromArgb(139, 152, 166);
+            guna2ControlBox1.IconColor = Color.White;
+            guna2ControlBox1.Location = new Point(1142, 0);
+            guna2ControlBox1.Name = "guna2ControlBox1";
+            guna2ControlBox1.ShadowDecoration.CustomizableEdges = customizableEdges42;
+            guna2ControlBox1.Size = new Size(56, 36);
+            guna2ControlBox1.TabIndex = 14;
+            // 
             // VerificationForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(17, 19, 25);
             ClientSize = new Size(1200, 720);
+            Controls.Add(guna2ControlBox1);
+            Controls.Add(btnVerifyCode);
             Controls.Add(pnlErrorToast);
             Controls.Add(lnkForgotText1);
             Controls.Add(lnkForgotText2);
-            Controls.Add(btnVerifyCode);
             Controls.Add(pnlVerificationCode6);
             Controls.Add(pnlVerificationCode5);
             Controls.Add(pnlVerificationCode4);
@@ -401,7 +437,6 @@
         private Guna.UI2.WinForms.Guna2TextBox pnlVerificationCode4;
         private Guna.UI2.WinForms.Guna2TextBox pnlVerificationCode5;
         private Guna.UI2.WinForms.Guna2TextBox pnlVerificationCode6;
-        private Guna.UI2.WinForms.Guna2Button btnVerifyCode;
         private LinkLabel lnkForgotText2;
         private Guna.UI2.WinForms.Guna2HtmlLabel lnkForgotText1;
         private Guna.UI2.WinForms.Guna2GradientPanel pnlErrorToast;
@@ -409,5 +444,7 @@
         private Guna.UI2.WinForms.Guna2HtmlLabel lblErrorTitle;
         private Guna.UI2.WinForms.Guna2HtmlLabel lblErrorMessage;
         private System.Windows.Forms.Timer tmrAutoClose;
+        private Guna.UI2.WinForms.Guna2Button btnVerifyCode;
+        private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox1;
     }
 }
