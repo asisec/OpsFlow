@@ -1,26 +1,19 @@
-using DotNetEnv;
-using OpsFlow.Services.Implementations;
-using OpsFlow.Services.Interfaces;
+using OpsFlow.UI.Forms;
+using System;
+using System.Windows.Forms;
 
 namespace OpsFlow
 {
     internal static class Program
     {
-        public static IDatabaseConnectionService Database { get; private set; }
-
         [STAThread]
         static void Main()
         {
-            var envPath = Path.Combine(Directory.GetCurrentDirectory(), ".env");
-
-            Env.Load(envPath);
-
-            AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
-
-            Database = new DatabaseConnectionService();
+            DotNetEnv.Env.Load();
 
             ApplicationConfiguration.Initialize();
-            Application.Run(new UI.Forms.LoginForm());
+
+            Application.Run(new LoginForm());
         }
     }
 }
