@@ -213,5 +213,10 @@ namespace OpsFlow.Services.Implementations
             if (user.RoleId <= 0)
                 throw new ValidationException("Rol seçimi yapılmalıdır.");
         }
+
+        public bool UserExists(string email)
+        {
+            return _context.Users.Any(u => u.Email == email);
+        }
     }
 }

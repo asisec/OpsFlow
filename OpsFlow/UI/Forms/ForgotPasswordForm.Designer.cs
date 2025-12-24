@@ -115,6 +115,7 @@
             btnResetPassword.Size = new Size(459, 61);
             btnResetPassword.TabIndex = 5;
             btnResetPassword.Text = "Şifremi Sıfırla";
+            btnResetPassword.Click += btnResetPassword_Click;
             // 
             // lnkBackToLogin
             // 
