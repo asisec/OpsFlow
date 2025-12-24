@@ -1,5 +1,4 @@
-﻿
-namespace OpsFlow.UI.Forms
+﻿namespace OpsFlow.UI.Forms
 {
     partial class LoginForm
     {
@@ -30,21 +29,22 @@ namespace OpsFlow.UI.Forms
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges13 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges14 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges11 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginForm));
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges12 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges9 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges10 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges9 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges10 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges11 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges12 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges13 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges14 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+
             guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(components);
             guna2ControlBox1 = new Guna.UI2.WinForms.Guna2ControlBox();
             guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
@@ -58,14 +58,17 @@ namespace OpsFlow.UI.Forms
             pnlErrorToast = new Guna.UI2.WinForms.Guna2GradientPanel();
             btnCloseError = new Guna.UI2.WinForms.Guna2Button();
             tmrAutoClose = new System.Windows.Forms.Timer(components);
+
             ((System.ComponentModel.ISupportInitialize)guna2PictureBox1).BeginInit();
             pnlErrorToast.SuspendLayout();
             SuspendLayout();
+
             // 
             // guna2Elipse1
             // 
             guna2Elipse1.BorderRadius = 20;
             guna2Elipse1.TargetControl = this;
+
             // 
             // guna2ControlBox1
             // 
@@ -78,6 +81,7 @@ namespace OpsFlow.UI.Forms
             guna2ControlBox1.ShadowDecoration.CustomizableEdges = customizableEdges14;
             guna2ControlBox1.Size = new Size(56, 36);
             guna2ControlBox1.TabIndex = 0;
+
             // 
             // guna2PictureBox1
             // 
@@ -90,6 +94,7 @@ namespace OpsFlow.UI.Forms
             guna2PictureBox1.Size = new Size(238, 75);
             guna2PictureBox1.TabIndex = 1;
             guna2PictureBox1.TabStop = false;
+
             // 
             // label1
             // 
@@ -101,6 +106,7 @@ namespace OpsFlow.UI.Forms
             label1.Size = new Size(264, 82);
             label1.TabIndex = 2;
             label1.Text = "Giriş Yap.";
+
             // 
             // txtEmail
             // 
@@ -128,6 +134,7 @@ namespace OpsFlow.UI.Forms
             txtEmail.TabIndex = 3;
             txtEmail.TextOffset = new Point(6, 0);
             txtEmail.TextChanged += txtEmail_TextChanged;
+
             // 
             // txtPassword
             // 
@@ -155,6 +162,7 @@ namespace OpsFlow.UI.Forms
             txtPassword.TabIndex = 4;
             txtPassword.TextOffset = new Point(6, 0);
             txtPassword.TextChanged += txtPassword_TextChanged;
+
             // 
             // btnLogin
             // 
@@ -175,7 +183,8 @@ namespace OpsFlow.UI.Forms
             btnLogin.Size = new Size(459, 61);
             btnLogin.TabIndex = 5;
             btnLogin.Text = "Giriş Yap";
-            btnLogin.Click += btnVerifyCode_Click;
+            btnLogin.Click += btnLogin_Click; // DÜZELTİLDİ
+
             // 
             // lnkForgotText
             // 
@@ -191,6 +200,7 @@ namespace OpsFlow.UI.Forms
             lnkForgotText.TabStop = true;
             lnkForgotText.Text = "Şifremi unuttum?";
             lnkForgotText.LinkClicked += lnkForgotText_LinkClicked;
+
             // 
             // lblErrorTitle
             // 
@@ -202,6 +212,7 @@ namespace OpsFlow.UI.Forms
             lblErrorTitle.Size = new Size(122, 28);
             lblErrorTitle.TabIndex = 9;
             lblErrorTitle.Text = "Giriş Başarısız";
+
             // 
             // lblErrorMessage
             // 
@@ -212,6 +223,7 @@ namespace OpsFlow.UI.Forms
             lblErrorMessage.Size = new Size(214, 22);
             lblErrorMessage.TabIndex = 10;
             lblErrorMessage.Text = "Giriş başarısız lütfen tekrar dene";
+
             // 
             // pnlErrorToast
             // 
@@ -230,31 +242,7 @@ namespace OpsFlow.UI.Forms
             pnlErrorToast.Size = new Size(266, 68);
             pnlErrorToast.TabIndex = 11;
             pnlErrorToast.Visible = false;
-            // 
-            // btnCloseError
-            // 
-            btnCloseError.BackColor = Color.Transparent;
-            btnCloseError.BorderColor = Color.Transparent;
-            btnCloseError.CustomizableEdges = customizableEdges3;
-            btnCloseError.DisabledState.BorderColor = Color.DarkGray;
-            btnCloseError.DisabledState.CustomBorderColor = Color.DarkGray;
-            btnCloseError.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
-            btnCloseError.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            btnCloseError.FillColor = Color.FromArgb(255, 77, 77);
-            btnCloseError.Font = new Font("Segoe UI", 9F);
-            btnCloseError.ForeColor = Color.White;
-            btnCloseError.Location = new Point(221, 3);
-            btnCloseError.Name = "btnCloseError";
-            btnCloseError.ShadowDecoration.CustomizableEdges = customizableEdges4;
-            btnCloseError.Size = new Size(35, 30);
-            btnCloseError.TabIndex = 12;
-            btnCloseError.Text = "X";
-            btnCloseError.Click += btnCloseError_Click;
-            // 
-            // tmrAutoClose
-            // 
-            tmrAutoClose.Interval = 3000;
-            tmrAutoClose.Tick += tmrAutoClose_Tick;
+
             // 
             // LoginForm
             // 
@@ -280,11 +268,6 @@ namespace OpsFlow.UI.Forms
             pnlErrorToast.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
-        }
-
-        private void btnVerifyCode_Click(object sender, EventArgs e)
-        {
-            throw new NotImplementedException();
         }
 
         #endregion

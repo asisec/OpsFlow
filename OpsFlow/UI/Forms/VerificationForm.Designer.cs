@@ -275,27 +275,6 @@
             pnlVerificationCode6.KeyDown += GeriyeDon;
             pnlVerificationCode6.KeyPress += SadeceRakamGirisi;
             // 
-            // btnVerifyCode
-            // 
-            btnVerifyCode.BorderRadius = 13;
-            btnVerifyCode.Cursor = Cursors.Hand;
-            btnVerifyCode.CustomizableEdges = customizableEdges15;
-            btnVerifyCode.DisabledState.BorderColor = Color.DarkGray;
-            btnVerifyCode.DisabledState.CustomBorderColor = Color.DarkGray;
-            btnVerifyCode.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
-            btnVerifyCode.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            btnVerifyCode.FillColor = Color.FromArgb(108, 64, 200);
-            btnVerifyCode.Font = new Font("Poppins", 15F, FontStyle.Bold);
-            btnVerifyCode.ForeColor = Color.White;
-            btnVerifyCode.HoverState.FillColor = Color.FromArgb(125, 85, 214);
-            btnVerifyCode.Location = new Point(371, 455);
-            btnVerifyCode.Name = "btnVerifyCode";
-            btnVerifyCode.ShadowDecoration.CustomizableEdges = customizableEdges16;
-            btnVerifyCode.Size = new Size(459, 61);
-            btnVerifyCode.TabIndex = 6;
-            btnVerifyCode.Text = "Kodu Doğrula";
-            btnVerifyCode.Click += btnVerifyCode_Click;
-            // 
             // lnkForgotText2
             // 
             lnkForgotText2.ActiveLinkColor = Color.FromArgb(108, 64, 200);
@@ -379,11 +358,6 @@
             lblErrorMessage.Size = new Size(312, 22);
             lblErrorMessage.TabIndex = 10;
             lblErrorMessage.Text = "Lütfen E-mail'inize gelen kodu tekrar deneyiniz";
-            // 
-            // tmrAutoClose
-            // 
-            tmrAutoClose.Interval = 3000;
-            tmrAutoClose.Tick += tmrAutoClose_Tick_1;
             // 
             // VerificationForm
             // 

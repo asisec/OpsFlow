@@ -24,8 +24,7 @@ namespace OpsFlow.UI.Forms
             this.Hide();
         }
 
-
-        private void txtEmail_TextChanged(object sender, EventArgs e)
+        private void btnLogin_Click(object sender, EventArgs e)
         {
             try
             {
