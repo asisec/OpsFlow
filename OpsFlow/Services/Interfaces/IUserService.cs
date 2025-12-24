@@ -12,5 +12,6 @@ namespace OpsFlow.Services.Interfaces
         void DeleteUser(int id);
         User Authenticate(string email, string password);
         bool UserExists(string email);
+        void ResetPassword(string email, string newPassword);
     }
 }
