@@ -29,59 +29,50 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges21 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VerificationForm));
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges22 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges23 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges24 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges25 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges26 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges27 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges28 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges29 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges30 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges31 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges32 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges33 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges34 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges37 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges38 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges35 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges36 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges39 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges40 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges41 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges42 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges9 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges10 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges11 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges12 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges13 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges14 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges15 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges16 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges17 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges18 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             label3 = new Label();
             label1 = new Label();
-            pnlVerificationCode1 = new Guna.UI2.WinForms.Guna2TextBox();
-            pnlVerificationCode2 = new Guna.UI2.WinForms.Guna2TextBox();
-            pnlVerificationCode3 = new Guna.UI2.WinForms.Guna2TextBox();
-            pnlVerificationCode4 = new Guna.UI2.WinForms.Guna2TextBox();
-            pnlVerificationCode5 = new Guna.UI2.WinForms.Guna2TextBox();
-            pnlVerificationCode6 = new Guna.UI2.WinForms.Guna2TextBox();
+            txtDigit1 = new Guna.UI2.WinForms.Guna2TextBox();
+            txtDigit2 = new Guna.UI2.WinForms.Guna2TextBox();
+            txtDigit3 = new Guna.UI2.WinForms.Guna2TextBox();
+            txtDigit4 = new Guna.UI2.WinForms.Guna2TextBox();
+            txtDigit5 = new Guna.UI2.WinForms.Guna2TextBox();
+            txtDigit6 = new Guna.UI2.WinForms.Guna2TextBox();
             lnkForgotText2 = new LinkLabel();
             lnkForgotText1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            pnlErrorToast = new Guna.UI2.WinForms.Guna2GradientPanel();
-            btnCloseError = new Guna.UI2.WinForms.Guna2Button();
-            lblErrorTitle = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            lblErrorMessage = new Guna.UI2.WinForms.Guna2HtmlLabel();
             tmrAutoClose = new System.Windows.Forms.Timer(components);
             btnVerifyCode = new Guna.UI2.WinForms.Guna2Button();
             guna2ControlBox1 = new Guna.UI2.WinForms.Guna2ControlBox();
             ((System.ComponentModel.ISupportInitialize)guna2PictureBox1).BeginInit();
-            pnlErrorToast.SuspendLayout();
             SuspendLayout();
             // 
             // guna2PictureBox1
             // 
-            guna2PictureBox1.CustomizableEdges = customizableEdges21;
+            guna2PictureBox1.CustomizableEdges = customizableEdges1;
             guna2PictureBox1.Image = (Image)resources.GetObject("guna2PictureBox1.Image");
             guna2PictureBox1.ImageRotate = 0F;
             guna2PictureBox1.Location = new Point(24, 48);
             guna2PictureBox1.Name = "guna2PictureBox1";
-            guna2PictureBox1.ShadowDecoration.CustomizableEdges = customizableEdges22;
+            guna2PictureBox1.ShadowDecoration.CustomizableEdges = customizableEdges2;
             guna2PictureBox1.Size = new Size(238, 75);
             guna2PictureBox1.TabIndex = 3;
             guna2PictureBox1.TabStop = false;
@@ -108,175 +99,174 @@
             label1.TabIndex = 5;
             label1.Text = "E-posta adresine gönderilen 6 haneli\r\ndoğrulama kodunu giriniz.";
             label1.TextAlign = ContentAlignment.MiddleCenter;
-            label1.Click += label1_Click;
             // 
-            // pnlVerificationCode1
+            // txtDigit1
             // 
-            pnlVerificationCode1.BorderColor = Color.FromArgb(45, 50, 62);
-            pnlVerificationCode1.BorderThickness = 3;
-            pnlVerificationCode1.CustomizableEdges = customizableEdges23;
-            pnlVerificationCode1.DefaultText = "";
-            pnlVerificationCode1.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
-            pnlVerificationCode1.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
-            pnlVerificationCode1.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
-            pnlVerificationCode1.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
-            pnlVerificationCode1.FillColor = Color.FromArgb(17, 19, 25);
-            pnlVerificationCode1.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-            pnlVerificationCode1.Font = new Font("Poppins", 24F, FontStyle.Bold, GraphicsUnit.Point, 162);
-            pnlVerificationCode1.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            pnlVerificationCode1.Location = new Point(404, 354);
-            pnlVerificationCode1.Margin = new Padding(10, 13, 10, 13);
-            pnlVerificationCode1.MaxLength = 1;
-            pnlVerificationCode1.Name = "pnlVerificationCode1";
-            pnlVerificationCode1.PlaceholderText = "";
-            pnlVerificationCode1.SelectedText = "";
-            pnlVerificationCode1.ShadowDecoration.CustomizableEdges = customizableEdges24;
-            pnlVerificationCode1.Size = new Size(50, 65);
-            pnlVerificationCode1.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
-            pnlVerificationCode1.TabIndex = 0;
-            pnlVerificationCode1.TextChanged += SiradakiKutuyaGec;
-            pnlVerificationCode1.KeyDown += GeriyeDon;
-            pnlVerificationCode1.KeyPress += SadeceRakamGirisi;
+            txtDigit1.BorderColor = Color.FromArgb(45, 50, 62);
+            txtDigit1.BorderThickness = 3;
+            txtDigit1.CustomizableEdges = customizableEdges3;
+            txtDigit1.DefaultText = "";
+            txtDigit1.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
+            txtDigit1.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
+            txtDigit1.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
+            txtDigit1.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
+            txtDigit1.FillColor = Color.FromArgb(17, 19, 25);
+            txtDigit1.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
+            txtDigit1.Font = new Font("Poppins", 24F, FontStyle.Bold, GraphicsUnit.Point, 162);
+            txtDigit1.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
+            txtDigit1.Location = new Point(404, 354);
+            txtDigit1.Margin = new Padding(10, 13, 10, 13);
+            txtDigit1.MaxLength = 1;
+            txtDigit1.Name = "txtDigit1";
+            txtDigit1.PlaceholderText = "";
+            txtDigit1.SelectedText = "";
+            txtDigit1.ShadowDecoration.CustomizableEdges = customizableEdges4;
+            txtDigit1.Size = new Size(50, 65);
+            txtDigit1.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
+            txtDigit1.TabIndex = 0;
+            txtDigit1.TextChanged += SiradakiKutuyaGec;
+            txtDigit1.KeyDown += GeriyeDon;
+            txtDigit1.KeyPress += SadeceRakamGirisi;
             // 
-            // pnlVerificationCode2
+            // txtDigit2
             // 
-            pnlVerificationCode2.BorderColor = Color.FromArgb(45, 50, 62);
-            pnlVerificationCode2.BorderThickness = 3;
-            pnlVerificationCode2.CustomizableEdges = customizableEdges25;
-            pnlVerificationCode2.DefaultText = "";
-            pnlVerificationCode2.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
-            pnlVerificationCode2.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
-            pnlVerificationCode2.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
-            pnlVerificationCode2.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
-            pnlVerificationCode2.FillColor = Color.FromArgb(17, 19, 25);
-            pnlVerificationCode2.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-            pnlVerificationCode2.Font = new Font("Poppins", 24F, FontStyle.Bold, GraphicsUnit.Point, 162);
-            pnlVerificationCode2.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            pnlVerificationCode2.Location = new Point(474, 354);
-            pnlVerificationCode2.Margin = new Padding(10, 13, 10, 13);
-            pnlVerificationCode2.MaxLength = 1;
-            pnlVerificationCode2.Name = "pnlVerificationCode2";
-            pnlVerificationCode2.PlaceholderText = "";
-            pnlVerificationCode2.SelectedText = "";
-            pnlVerificationCode2.ShadowDecoration.CustomizableEdges = customizableEdges26;
-            pnlVerificationCode2.Size = new Size(50, 65);
-            pnlVerificationCode2.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
-            pnlVerificationCode2.TabIndex = 1;
-            pnlVerificationCode2.TextChanged += SiradakiKutuyaGec;
-            pnlVerificationCode2.KeyDown += GeriyeDon;
-            pnlVerificationCode2.KeyPress += SadeceRakamGirisi;
+            txtDigit2.BorderColor = Color.FromArgb(45, 50, 62);
+            txtDigit2.BorderThickness = 3;
+            txtDigit2.CustomizableEdges = customizableEdges5;
+            txtDigit2.DefaultText = "";
+            txtDigit2.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
+            txtDigit2.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
+            txtDigit2.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
+            txtDigit2.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
+            txtDigit2.FillColor = Color.FromArgb(17, 19, 25);
+            txtDigit2.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
+            txtDigit2.Font = new Font("Poppins", 24F, FontStyle.Bold, GraphicsUnit.Point, 162);
+            txtDigit2.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
+            txtDigit2.Location = new Point(474, 354);
+            txtDigit2.Margin = new Padding(10, 13, 10, 13);
+            txtDigit2.MaxLength = 1;
+            txtDigit2.Name = "txtDigit2";
+            txtDigit2.PlaceholderText = "";
+            txtDigit2.SelectedText = "";
+            txtDigit2.ShadowDecoration.CustomizableEdges = customizableEdges6;
+            txtDigit2.Size = new Size(50, 65);
+            txtDigit2.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
+            txtDigit2.TabIndex = 1;
+            txtDigit2.TextChanged += SiradakiKutuyaGec;
+            txtDigit2.KeyDown += GeriyeDon;
+            txtDigit2.KeyPress += SadeceRakamGirisi;
             // 
-            // pnlVerificationCode3
+            // txtDigit3
             // 
-            pnlVerificationCode3.BorderColor = Color.FromArgb(45, 50, 62);
-            pnlVerificationCode3.BorderThickness = 3;
-            pnlVerificationCode3.CustomizableEdges = customizableEdges27;
-            pnlVerificationCode3.DefaultText = "";
-            pnlVerificationCode3.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
-            pnlVerificationCode3.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
-            pnlVerificationCode3.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
-            pnlVerificationCode3.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
-            pnlVerificationCode3.FillColor = Color.FromArgb(17, 19, 25);
-            pnlVerificationCode3.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-            pnlVerificationCode3.Font = new Font("Poppins", 24F, FontStyle.Bold, GraphicsUnit.Point, 162);
-            pnlVerificationCode3.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            pnlVerificationCode3.Location = new Point(544, 354);
-            pnlVerificationCode3.Margin = new Padding(10, 13, 10, 13);
-            pnlVerificationCode3.MaxLength = 1;
-            pnlVerificationCode3.Name = "pnlVerificationCode3";
-            pnlVerificationCode3.PlaceholderText = "";
-            pnlVerificationCode3.SelectedText = "";
-            pnlVerificationCode3.ShadowDecoration.CustomizableEdges = customizableEdges28;
-            pnlVerificationCode3.Size = new Size(50, 65);
-            pnlVerificationCode3.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
-            pnlVerificationCode3.TabIndex = 2;
-            pnlVerificationCode3.TextChanged += SiradakiKutuyaGec;
-            pnlVerificationCode3.KeyDown += GeriyeDon;
-            pnlVerificationCode3.KeyPress += SadeceRakamGirisi;
+            txtDigit3.BorderColor = Color.FromArgb(45, 50, 62);
+            txtDigit3.BorderThickness = 3;
+            txtDigit3.CustomizableEdges = customizableEdges7;
+            txtDigit3.DefaultText = "";
+            txtDigit3.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
+            txtDigit3.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
+            txtDigit3.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
+            txtDigit3.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
+            txtDigit3.FillColor = Color.FromArgb(17, 19, 25);
+            txtDigit3.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
+            txtDigit3.Font = new Font("Poppins", 24F, FontStyle.Bold, GraphicsUnit.Point, 162);
+            txtDigit3.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
+            txtDigit3.Location = new Point(544, 354);
+            txtDigit3.Margin = new Padding(10, 13, 10, 13);
+            txtDigit3.MaxLength = 1;
+            txtDigit3.Name = "txtDigit3";
+            txtDigit3.PlaceholderText = "";
+            txtDigit3.SelectedText = "";
+            txtDigit3.ShadowDecoration.CustomizableEdges = customizableEdges8;
+            txtDigit3.Size = new Size(50, 65);
+            txtDigit3.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
+            txtDigit3.TabIndex = 2;
+            txtDigit3.TextChanged += SiradakiKutuyaGec;
+            txtDigit3.KeyDown += GeriyeDon;
+            txtDigit3.KeyPress += SadeceRakamGirisi;
             // 
-            // pnlVerificationCode4
+            // txtDigit4
             // 
-            pnlVerificationCode4.BorderColor = Color.FromArgb(45, 50, 62);
-            pnlVerificationCode4.BorderThickness = 3;
-            pnlVerificationCode4.CustomizableEdges = customizableEdges29;
-            pnlVerificationCode4.DefaultText = "";
-            pnlVerificationCode4.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
-            pnlVerificationCode4.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
-            pnlVerificationCode4.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
-            pnlVerificationCode4.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
-            pnlVerificationCode4.FillColor = Color.FromArgb(17, 19, 25);
-            pnlVerificationCode4.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-            pnlVerificationCode4.Font = new Font("Poppins", 24F, FontStyle.Bold, GraphicsUnit.Point, 162);
-            pnlVerificationCode4.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            pnlVerificationCode4.Location = new Point(614, 354);
-            pnlVerificationCode4.Margin = new Padding(10, 13, 10, 13);
-            pnlVerificationCode4.MaxLength = 1;
-            pnlVerificationCode4.Name = "pnlVerificationCode4";
-            pnlVerificationCode4.PlaceholderText = "";
-            pnlVerificationCode4.SelectedText = "";
-            pnlVerificationCode4.ShadowDecoration.CustomizableEdges = customizableEdges30;
-            pnlVerificationCode4.Size = new Size(50, 65);
-            pnlVerificationCode4.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
-            pnlVerificationCode4.TabIndex = 3;
-            pnlVerificationCode4.TextChanged += SiradakiKutuyaGec;
-            pnlVerificationCode4.KeyDown += GeriyeDon;
-            pnlVerificationCode4.KeyPress += SadeceRakamGirisi;
+            txtDigit4.BorderColor = Color.FromArgb(45, 50, 62);
+            txtDigit4.BorderThickness = 3;
+            txtDigit4.CustomizableEdges = customizableEdges9;
+            txtDigit4.DefaultText = "";
+            txtDigit4.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
+            txtDigit4.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
+            txtDigit4.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
+            txtDigit4.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
+            txtDigit4.FillColor = Color.FromArgb(17, 19, 25);
+            txtDigit4.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
+            txtDigit4.Font = new Font("Poppins", 24F, FontStyle.Bold, GraphicsUnit.Point, 162);
+            txtDigit4.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
+            txtDigit4.Location = new Point(614, 354);
+            txtDigit4.Margin = new Padding(10, 13, 10, 13);
+            txtDigit4.MaxLength = 1;
+            txtDigit4.Name = "txtDigit4";
+            txtDigit4.PlaceholderText = "";
+            txtDigit4.SelectedText = "";
+            txtDigit4.ShadowDecoration.CustomizableEdges = customizableEdges10;
+            txtDigit4.Size = new Size(50, 65);
+            txtDigit4.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
+            txtDigit4.TabIndex = 3;
+            txtDigit4.TextChanged += SiradakiKutuyaGec;
+            txtDigit4.KeyDown += GeriyeDon;
+            txtDigit4.KeyPress += SadeceRakamGirisi;
             // 
-            // pnlVerificationCode5
+            // txtDigit5
             // 
-            pnlVerificationCode5.BorderColor = Color.FromArgb(45, 50, 62);
-            pnlVerificationCode5.BorderThickness = 3;
-            pnlVerificationCode5.CustomizableEdges = customizableEdges31;
-            pnlVerificationCode5.DefaultText = "";
-            pnlVerificationCode5.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
-            pnlVerificationCode5.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
-            pnlVerificationCode5.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
-            pnlVerificationCode5.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
-            pnlVerificationCode5.FillColor = Color.FromArgb(17, 19, 25);
-            pnlVerificationCode5.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-            pnlVerificationCode5.Font = new Font("Poppins", 24F, FontStyle.Bold, GraphicsUnit.Point, 162);
-            pnlVerificationCode5.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            pnlVerificationCode5.Location = new Point(684, 354);
-            pnlVerificationCode5.Margin = new Padding(10, 13, 10, 13);
-            pnlVerificationCode5.MaxLength = 1;
-            pnlVerificationCode5.Name = "pnlVerificationCode5";
-            pnlVerificationCode5.PlaceholderText = "";
-            pnlVerificationCode5.SelectedText = "";
-            pnlVerificationCode5.ShadowDecoration.CustomizableEdges = customizableEdges32;
-            pnlVerificationCode5.Size = new Size(50, 65);
-            pnlVerificationCode5.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
-            pnlVerificationCode5.TabIndex = 4;
-            pnlVerificationCode5.TextChanged += SiradakiKutuyaGec;
-            pnlVerificationCode5.KeyDown += GeriyeDon;
-            pnlVerificationCode5.KeyPress += SadeceRakamGirisi;
+            txtDigit5.BorderColor = Color.FromArgb(45, 50, 62);
+            txtDigit5.BorderThickness = 3;
+            txtDigit5.CustomizableEdges = customizableEdges11;
+            txtDigit5.DefaultText = "";
+            txtDigit5.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
+            txtDigit5.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
+            txtDigit5.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
+            txtDigit5.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
+            txtDigit5.FillColor = Color.FromArgb(17, 19, 25);
+            txtDigit5.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
+            txtDigit5.Font = new Font("Poppins", 24F, FontStyle.Bold, GraphicsUnit.Point, 162);
+            txtDigit5.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
+            txtDigit5.Location = new Point(684, 354);
+            txtDigit5.Margin = new Padding(10, 13, 10, 13);
+            txtDigit5.MaxLength = 1;
+            txtDigit5.Name = "txtDigit5";
+            txtDigit5.PlaceholderText = "";
+            txtDigit5.SelectedText = "";
+            txtDigit5.ShadowDecoration.CustomizableEdges = customizableEdges12;
+            txtDigit5.Size = new Size(50, 65);
+            txtDigit5.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
+            txtDigit5.TabIndex = 4;
+            txtDigit5.TextChanged += SiradakiKutuyaGec;
+            txtDigit5.KeyDown += GeriyeDon;
+            txtDigit5.KeyPress += SadeceRakamGirisi;
             // 
-            // pnlVerificationCode6
+            // txtDigit6
             // 
-            pnlVerificationCode6.BorderColor = Color.FromArgb(45, 50, 62);
-            pnlVerificationCode6.BorderThickness = 3;
-            pnlVerificationCode6.CustomizableEdges = customizableEdges33;
-            pnlVerificationCode6.DefaultText = "";
-            pnlVerificationCode6.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
-            pnlVerificationCode6.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
-            pnlVerificationCode6.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
-            pnlVerificationCode6.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
-            pnlVerificationCode6.FillColor = Color.FromArgb(17, 19, 25);
-            pnlVerificationCode6.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-            pnlVerificationCode6.Font = new Font("Poppins", 24F, FontStyle.Bold, GraphicsUnit.Point, 162);
-            pnlVerificationCode6.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            pnlVerificationCode6.Location = new Point(754, 354);
-            pnlVerificationCode6.Margin = new Padding(10, 13, 10, 13);
-            pnlVerificationCode6.MaxLength = 1;
-            pnlVerificationCode6.Name = "pnlVerificationCode6";
-            pnlVerificationCode6.PlaceholderText = "";
-            pnlVerificationCode6.SelectedText = "";
-            pnlVerificationCode6.ShadowDecoration.CustomizableEdges = customizableEdges34;
-            pnlVerificationCode6.Size = new Size(50, 65);
-            pnlVerificationCode6.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
-            pnlVerificationCode6.TabIndex = 5;
-            pnlVerificationCode6.TextChanged += SiradakiKutuyaGec;
-            pnlVerificationCode6.KeyDown += GeriyeDon;
-            pnlVerificationCode6.KeyPress += SadeceRakamGirisi;
+            txtDigit6.BorderColor = Color.FromArgb(45, 50, 62);
+            txtDigit6.BorderThickness = 3;
+            txtDigit6.CustomizableEdges = customizableEdges13;
+            txtDigit6.DefaultText = "";
+            txtDigit6.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
+            txtDigit6.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
+            txtDigit6.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
+            txtDigit6.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
+            txtDigit6.FillColor = Color.FromArgb(17, 19, 25);
+            txtDigit6.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
+            txtDigit6.Font = new Font("Poppins", 24F, FontStyle.Bold, GraphicsUnit.Point, 162);
+            txtDigit6.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
+            txtDigit6.Location = new Point(754, 354);
+            txtDigit6.Margin = new Padding(10, 13, 10, 13);
+            txtDigit6.MaxLength = 1;
+            txtDigit6.Name = "txtDigit6";
+            txtDigit6.PlaceholderText = "";
+            txtDigit6.SelectedText = "";
+            txtDigit6.ShadowDecoration.CustomizableEdges = customizableEdges14;
+            txtDigit6.Size = new Size(50, 65);
+            txtDigit6.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
+            txtDigit6.TabIndex = 5;
+            txtDigit6.TextChanged += SiradakiKutuyaGec;
+            txtDigit6.KeyDown += GeriyeDon;
+            txtDigit6.KeyPress += SadeceRakamGirisi;
             // 
             // lnkForgotText2
             // 
@@ -303,70 +293,11 @@
             lnkForgotText1.TabIndex = 8;
             lnkForgotText1.Text = "Kodu alamadın mı?";
             // 
-            // pnlErrorToast
-            // 
-            pnlErrorToast.BorderRadius = 12;
-            pnlErrorToast.Controls.Add(btnCloseError);
-            pnlErrorToast.Controls.Add(lblErrorTitle);
-            pnlErrorToast.Controls.Add(lblErrorMessage);
-            pnlErrorToast.CustomizableEdges = customizableEdges37;
-            pnlErrorToast.FillColor = Color.FromArgb(255, 106, 0);
-            pnlErrorToast.FillColor2 = Color.FromArgb(255, 106, 0);
-            pnlErrorToast.Location = new Point(871, 137);
-            pnlErrorToast.Name = "pnlErrorToast";
-            customizableEdges38.BottomRight = false;
-            customizableEdges38.TopRight = false;
-            pnlErrorToast.ShadowDecoration.CustomizableEdges = customizableEdges38;
-            pnlErrorToast.Size = new Size(327, 68);
-            pnlErrorToast.TabIndex = 12;
-            pnlErrorToast.Visible = false;
-            // 
-            // btnCloseError
-            // 
-            btnCloseError.BackColor = Color.Transparent;
-            btnCloseError.BorderColor = Color.Transparent;
-            btnCloseError.CustomizableEdges = customizableEdges35;
-            btnCloseError.DisabledState.BorderColor = Color.DarkGray;
-            btnCloseError.DisabledState.CustomBorderColor = Color.DarkGray;
-            btnCloseError.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
-            btnCloseError.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            btnCloseError.FillColor = Color.FromArgb(255, 77, 77);
-            btnCloseError.Font = new Font("Segoe UI", 9F);
-            btnCloseError.ForeColor = Color.White;
-            btnCloseError.Location = new Point(279, 3);
-            btnCloseError.Name = "btnCloseError";
-            btnCloseError.ShadowDecoration.CustomizableEdges = customizableEdges36;
-            btnCloseError.Size = new Size(35, 30);
-            btnCloseError.TabIndex = 12;
-            btnCloseError.Text = "X";
-            btnCloseError.Click += btnCloseError_Click_1;
-            // 
-            // lblErrorTitle
-            // 
-            lblErrorTitle.BackColor = Color.Transparent;
-            lblErrorTitle.Font = new Font("Poppins Medium", 9.2F, FontStyle.Bold);
-            lblErrorTitle.ForeColor = Color.White;
-            lblErrorTitle.Location = new Point(10, 5);
-            lblErrorTitle.Name = "lblErrorTitle";
-            lblErrorTitle.Size = new Size(91, 28);
-            lblErrorTitle.TabIndex = 9;
-            lblErrorTitle.Text = "Hatalı Kod";
-            // 
-            // lblErrorMessage
-            // 
-            lblErrorMessage.BackColor = Color.Transparent;
-            lblErrorMessage.ForeColor = Color.FromArgb(224, 224, 224);
-            lblErrorMessage.Location = new Point(10, 36);
-            lblErrorMessage.Name = "lblErrorMessage";
-            lblErrorMessage.Size = new Size(312, 22);
-            lblErrorMessage.TabIndex = 10;
-            lblErrorMessage.Text = "Lütfen E-mail'inize gelen kodu tekrar deneyiniz";
-            // 
             // btnVerifyCode
             // 
             btnVerifyCode.BorderRadius = 13;
             btnVerifyCode.Cursor = Cursors.Hand;
-            btnVerifyCode.CustomizableEdges = customizableEdges39;
+            btnVerifyCode.CustomizableEdges = customizableEdges15;
             btnVerifyCode.DisabledState.BorderColor = Color.DarkGray;
             btnVerifyCode.DisabledState.CustomBorderColor = Color.DarkGray;
             btnVerifyCode.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -377,20 +308,21 @@
             btnVerifyCode.HoverState.FillColor = Color.FromArgb(125, 85, 214);
             btnVerifyCode.Location = new Point(370, 454);
             btnVerifyCode.Name = "btnVerifyCode";
-            btnVerifyCode.ShadowDecoration.CustomizableEdges = customizableEdges40;
+            btnVerifyCode.ShadowDecoration.CustomizableEdges = customizableEdges16;
             btnVerifyCode.Size = new Size(459, 61);
             btnVerifyCode.TabIndex = 13;
             btnVerifyCode.Text = "Kodu Doğrula";
+            btnVerifyCode.Click += btnVerifyCode_Click;
             // 
             // guna2ControlBox1
             // 
             guna2ControlBox1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            guna2ControlBox1.CustomizableEdges = customizableEdges41;
+            guna2ControlBox1.CustomizableEdges = customizableEdges17;
             guna2ControlBox1.FillColor = Color.FromArgb(139, 152, 166);
             guna2ControlBox1.IconColor = Color.White;
             guna2ControlBox1.Location = new Point(1142, 0);
             guna2ControlBox1.Name = "guna2ControlBox1";
-            guna2ControlBox1.ShadowDecoration.CustomizableEdges = customizableEdges42;
+            guna2ControlBox1.ShadowDecoration.CustomizableEdges = customizableEdges18;
             guna2ControlBox1.Size = new Size(56, 36);
             guna2ControlBox1.TabIndex = 14;
             // 
@@ -402,15 +334,14 @@
             ClientSize = new Size(1200, 720);
             Controls.Add(guna2ControlBox1);
             Controls.Add(btnVerifyCode);
-            Controls.Add(pnlErrorToast);
             Controls.Add(lnkForgotText1);
             Controls.Add(lnkForgotText2);
-            Controls.Add(pnlVerificationCode6);
-            Controls.Add(pnlVerificationCode5);
-            Controls.Add(pnlVerificationCode4);
-            Controls.Add(pnlVerificationCode3);
-            Controls.Add(pnlVerificationCode2);
-            Controls.Add(pnlVerificationCode1);
+            Controls.Add(txtDigit6);
+            Controls.Add(txtDigit5);
+            Controls.Add(txtDigit4);
+            Controls.Add(txtDigit3);
+            Controls.Add(txtDigit2);
+            Controls.Add(txtDigit1);
             Controls.Add(label1);
             Controls.Add(label3);
             Controls.Add(guna2PictureBox1);
@@ -420,8 +351,6 @@
             Text = "VerificationForm";
             Load += VerificationForm_Load;
             ((System.ComponentModel.ISupportInitialize)guna2PictureBox1).EndInit();
-            pnlErrorToast.ResumeLayout(false);
-            pnlErrorToast.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -431,18 +360,14 @@
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox1;
         private Label label3;
         private Label label1;
-        private Guna.UI2.WinForms.Guna2TextBox pnlVerificationCode1;
-        private Guna.UI2.WinForms.Guna2TextBox pnlVerificationCode2;
-        private Guna.UI2.WinForms.Guna2TextBox pnlVerificationCode3;
-        private Guna.UI2.WinForms.Guna2TextBox pnlVerificationCode4;
-        private Guna.UI2.WinForms.Guna2TextBox pnlVerificationCode5;
-        private Guna.UI2.WinForms.Guna2TextBox pnlVerificationCode6;
+        private Guna.UI2.WinForms.Guna2TextBox txtDigit1;
+        private Guna.UI2.WinForms.Guna2TextBox txtDigit2;
+        private Guna.UI2.WinForms.Guna2TextBox txtDigit3;
+        private Guna.UI2.WinForms.Guna2TextBox txtDigit4;
+        private Guna.UI2.WinForms.Guna2TextBox txtDigit5;
+        private Guna.UI2.WinForms.Guna2TextBox txtDigit6;
         private LinkLabel lnkForgotText2;
         private Guna.UI2.WinForms.Guna2HtmlLabel lnkForgotText1;
-        private Guna.UI2.WinForms.Guna2GradientPanel pnlErrorToast;
-        private Guna.UI2.WinForms.Guna2Button btnCloseError;
-        private Guna.UI2.WinForms.Guna2HtmlLabel lblErrorTitle;
-        private Guna.UI2.WinForms.Guna2HtmlLabel lblErrorMessage;
         private System.Windows.Forms.Timer tmrAutoClose;
         private Guna.UI2.WinForms.Guna2Button btnVerifyCode;
         private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox1;

@@ -1,4 +1,6 @@
-﻿using OpsFlow.Services.Implementations;
+﻿using OpsFlow.Core.Exceptions;
+using OpsFlow.Services.Implementations;
+using OpsFlow.Services.Interfaces;
 using System;
 using System.Windows.Forms;
 
@@ -6,9 +8,14 @@ namespace OpsFlow.UI.Forms
 {
     public partial class ForgotPasswordForm : Form
     {
+        private readonly IEmailService _emailService;
+        private readonly ISecurityService _securityService;
+
         public ForgotPasswordForm()
         {
             InitializeComponent();
+            _emailService = new EmailService();
+            _securityService = new SecurityService();
         }
 
         private void lnkBackToLogin_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -42,10 +49,17 @@ namespace OpsFlow.UI.Forms
 
                     if (exists)
                     {
-                        ResetPasswordForm resetForm = new ResetPasswordForm();
-                        resetForm.Show();
+                        // Kod oluşturuluyor
+                        string code = _securityService.CreateVerificationSession(email);
+
+                        // E-posta gönderiliyor (Test mesajı kaldırıldı)
+                        _emailService.SendEmail(email, "OpsFlow Doğrulama Kodu", $"Doğrulama kodunuz: {code}");
+
+                        // Doğrulama ekranına geçiş
+                        VerificationForm vForm = new VerificationForm(email);
+                        vForm.Show();
                         this.Hide();
-                        resetForm.FormClosed += (s, args) => this.Close();
+                        vForm.FormClosed += (s, args) => this.Close();
                     }
                     else
                     {

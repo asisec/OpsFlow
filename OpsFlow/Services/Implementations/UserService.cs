@@ -7,7 +7,6 @@ using OpsFlow.Services.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace OpsFlow.Services.Implementations
 {
@@ -217,6 +216,21 @@ namespace OpsFlow.Services.Implementations
         public bool UserExists(string email)
         {
             return _context.Users.Any(u => u.Email == email);
+        }
+
+        public void ResetPassword(string email, string newPassword)
+        {
+            if (string.IsNullOrEmpty(newPassword) || newPassword.Length < 6)
+                throw new ValidationException("Şifre en az 6 karakter olmalıdır.");
+
+            var user = _context.Users.FirstOrDefault(u => u.Email == email);
+
+            if (user == null)
+                throw new NotFoundException("Kullanıcı bulunamadı.");
+
+            user.Password = HashingHelper.HashPassword(newPassword);
+
+            _context.SaveChanges();
         }
     }
 }
