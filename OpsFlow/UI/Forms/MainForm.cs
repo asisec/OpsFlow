@@ -14,5 +14,20 @@ namespace OpsFlow.UI.Forms
         {
             InitializeComponent();
         }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void sidebarNavList_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void guna2Button7_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
