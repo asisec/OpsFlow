@@ -1,5 +1,4 @@
-﻿using OpsFlow.Core.Exceptions;
-using OpsFlow.Services.Implementations;
+﻿using Microsoft.EntityFrameworkCore;
 using System;
 using System.Windows.Forms;
 
@@ -11,7 +10,6 @@ namespace OpsFlow.UI.Forms
         {
             InitializeComponent();
         }
-
         private void txtPassword_TextChanged(object sender, EventArgs e)
         {
 
@@ -32,35 +30,7 @@ namespace OpsFlow.UI.Forms
 
         private void btnCloseError_Click(object sender, EventArgs e)
         {
-            try
-            {
-                var connectionService = new DatabaseConnectionService();
-
-                using (var context = connectionService.CreateContext())
-                {
-                    var userService = new UserService(context);
-
-                    var user = userService.Authenticate(txtEmail.Text.Trim(), txtPassword.Text.Trim());
-
-                    MainForm mainForm = new MainForm();
-                    mainForm.Show();
-                    this.Hide();
-
-                    mainForm.FormClosed += (s, args) => this.Close();
-                }
-            }
-            catch (ValidationException ex)
-            {
-                MessageBox.Show(ex.Message, "Eksik Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-            catch (AuthenticationException ex)
-            {
-                MessageBox.Show(ex.Message, "Giriş Başarısız", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Beklenmedik bir hata oluştu: {ex.Message}", "Sistem Hatası", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            
         }
 
         private void btnVerifyCode_Click(object sender, EventArgs e,string baslik, string mesaj)
