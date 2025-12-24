@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VerificationForm));
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
@@ -45,6 +46,10 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges14 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges15 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges16 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges19 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges20 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges17 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges18 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             label3 = new Label();
             label1 = new Label();
@@ -57,7 +62,13 @@
             btnVerifyCode = new Guna.UI2.WinForms.Guna2Button();
             lnkForgotText2 = new LinkLabel();
             lnkForgotText1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            pnlErrorToast = new Guna.UI2.WinForms.Guna2GradientPanel();
+            btnCloseError = new Guna.UI2.WinForms.Guna2Button();
+            lblErrorTitle = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            lblErrorMessage = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            tmrAutoClose = new System.Windows.Forms.Timer(components);
             ((System.ComponentModel.ISupportInitialize)guna2PictureBox1).BeginInit();
+            pnlErrorToast.SuspendLayout();
             SuspendLayout();
             // 
             // guna2PictureBox1
@@ -75,11 +86,11 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Font = new Font("Microsoft Sans Serif", 28.2F, FontStyle.Bold);
+            label3.Font = new Font("Poppins", 28.2F, FontStyle.Bold, GraphicsUnit.Point, 162);
             label3.ForeColor = Color.White;
-            label3.Location = new Point(404, 160);
+            label3.Location = new Point(370, 151);
             label3.Name = "label3";
-            label3.Size = new Size(401, 54);
+            label3.Size = new Size(461, 82);
             label3.TabIndex = 4;
             label3.Text = "Doğrulama Kodu.";
             // 
@@ -283,6 +294,7 @@
             btnVerifyCode.Size = new Size(459, 61);
             btnVerifyCode.TabIndex = 6;
             btnVerifyCode.Text = "Kodu Doğrula";
+            btnVerifyCode.Click += btnVerifyCode_Click;
             // 
             // lnkForgotText2
             // 
@@ -309,12 +321,77 @@
             lnkForgotText1.TabIndex = 8;
             lnkForgotText1.Text = "Kodu alamadın mı?";
             // 
+            // pnlErrorToast
+            // 
+            pnlErrorToast.BorderRadius = 12;
+            pnlErrorToast.Controls.Add(btnCloseError);
+            pnlErrorToast.Controls.Add(lblErrorTitle);
+            pnlErrorToast.Controls.Add(lblErrorMessage);
+            pnlErrorToast.CustomizableEdges = customizableEdges19;
+            pnlErrorToast.FillColor = Color.FromArgb(255, 106, 0);
+            pnlErrorToast.FillColor2 = Color.FromArgb(255, 106, 0);
+            pnlErrorToast.Location = new Point(871, 137);
+            pnlErrorToast.Name = "pnlErrorToast";
+            customizableEdges20.BottomRight = false;
+            customizableEdges20.TopRight = false;
+            pnlErrorToast.ShadowDecoration.CustomizableEdges = customizableEdges20;
+            pnlErrorToast.Size = new Size(327, 68);
+            pnlErrorToast.TabIndex = 12;
+            pnlErrorToast.Visible = false;
+            // 
+            // btnCloseError
+            // 
+            btnCloseError.BackColor = Color.Transparent;
+            btnCloseError.BorderColor = Color.Transparent;
+            btnCloseError.CustomizableEdges = customizableEdges17;
+            btnCloseError.DisabledState.BorderColor = Color.DarkGray;
+            btnCloseError.DisabledState.CustomBorderColor = Color.DarkGray;
+            btnCloseError.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            btnCloseError.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            btnCloseError.FillColor = Color.FromArgb(255, 77, 77);
+            btnCloseError.Font = new Font("Segoe UI", 9F);
+            btnCloseError.ForeColor = Color.White;
+            btnCloseError.Location = new Point(279, 3);
+            btnCloseError.Name = "btnCloseError";
+            btnCloseError.ShadowDecoration.CustomizableEdges = customizableEdges18;
+            btnCloseError.Size = new Size(35, 30);
+            btnCloseError.TabIndex = 12;
+            btnCloseError.Text = "X";
+            btnCloseError.Click += btnCloseError_Click_1;
+            // 
+            // lblErrorTitle
+            // 
+            lblErrorTitle.BackColor = Color.Transparent;
+            lblErrorTitle.Font = new Font("Poppins Medium", 9.2F, FontStyle.Bold);
+            lblErrorTitle.ForeColor = Color.White;
+            lblErrorTitle.Location = new Point(10, 5);
+            lblErrorTitle.Name = "lblErrorTitle";
+            lblErrorTitle.Size = new Size(91, 28);
+            lblErrorTitle.TabIndex = 9;
+            lblErrorTitle.Text = "Hatalı Kod";
+            // 
+            // lblErrorMessage
+            // 
+            lblErrorMessage.BackColor = Color.Transparent;
+            lblErrorMessage.ForeColor = Color.FromArgb(224, 224, 224);
+            lblErrorMessage.Location = new Point(10, 36);
+            lblErrorMessage.Name = "lblErrorMessage";
+            lblErrorMessage.Size = new Size(312, 22);
+            lblErrorMessage.TabIndex = 10;
+            lblErrorMessage.Text = "Lütfen E-mail'inize gelen kodu tekrar deneyiniz";
+            // 
+            // tmrAutoClose
+            // 
+            tmrAutoClose.Interval = 3000;
+            tmrAutoClose.Tick += tmrAutoClose_Tick_1;
+            // 
             // VerificationForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(17, 19, 25);
             ClientSize = new Size(1200, 720);
+            Controls.Add(pnlErrorToast);
             Controls.Add(lnkForgotText1);
             Controls.Add(lnkForgotText2);
             Controls.Add(btnVerifyCode);
@@ -333,6 +410,8 @@
             Text = "VerificationForm";
             Load += VerificationForm_Load;
             ((System.ComponentModel.ISupportInitialize)guna2PictureBox1).EndInit();
+            pnlErrorToast.ResumeLayout(false);
+            pnlErrorToast.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -351,5 +430,10 @@
         private Guna.UI2.WinForms.Guna2Button btnVerifyCode;
         private LinkLabel lnkForgotText2;
         private Guna.UI2.WinForms.Guna2HtmlLabel lnkForgotText1;
+        private Guna.UI2.WinForms.Guna2GradientPanel pnlErrorToast;
+        private Guna.UI2.WinForms.Guna2Button btnCloseError;
+        private Guna.UI2.WinForms.Guna2HtmlLabel lblErrorTitle;
+        private Guna.UI2.WinForms.Guna2HtmlLabel lblErrorMessage;
+        private System.Windows.Forms.Timer tmrAutoClose;
     }
 }

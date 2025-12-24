@@ -24,7 +24,13 @@ namespace OpsFlow.UI.Forms
             this.Hide();
         }
 
-        private void btnLogin_Click(object sender, EventArgs e)
+
+        private void txtEmail_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnCloseError_Click(object sender, EventArgs e)
         {
             try
             {
@@ -57,9 +63,16 @@ namespace OpsFlow.UI.Forms
             }
         }
 
-        private void txtEmail_TextChanged(object sender, EventArgs e)
+        private void btnVerifyCode_Click(object sender, EventArgs e,string baslik, string mesaj)
         {
+            lblErrorTitle.Text = baslik;
+            lblErrorMessage.Text = mesaj;
 
+            pnlErrorToast.BringToFront();
+            pnlErrorToast.Visible = true;
+
+            tmrAutoClose.Stop();
+            tmrAutoClose.Start();
         }
     }
 }
