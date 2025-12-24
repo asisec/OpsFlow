@@ -1,8 +1,6 @@
 using DotNetEnv;
 using OpsFlow.Services.Implementations;
 using OpsFlow.Services.Interfaces;
-using OpsFlow.Core.Exceptions;
-using Guna.UI2.WinForms;
 
 namespace OpsFlow
 {
@@ -13,46 +11,16 @@ namespace OpsFlow
         [STAThread]
         static void Main()
         {
-            try
-            {
-                var envPath = Path.Combine(Directory.GetCurrentDirectory(), ".env");
-                if (File.Exists(envPath))
-                    Env.Load(envPath);
+            var envPath = Path.Combine(Directory.GetCurrentDirectory(), ".env");
 
-                AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
+            Env.Load(envPath);
 
-                Database = new DatabaseConnectionService();
+            AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
 
-                ApplicationConfiguration.Initialize();
-                Application.Run(new UI.Forms.LoginForm());
-            }
-            catch (InvalidConfigurationException ex)
-            {
-                MessageBox.Show(
-                    $"Config hatası: {ex.Message}",
-                    "Hata",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Error
-                );
-            }
-            catch (DatabaseConnectionException ex)
-            {
-                MessageBox.Show(
-                    $"DB bağlantı hatası: {ex.Message}",
-                    "Hata",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Error
-                );
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(
-                    $"Bilinmeyen hata: {ex.Message}",
-                    "Hata",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Error
-                );
-            }
+            Database = new DatabaseConnectionService();
+
+            ApplicationConfiguration.Initialize();
+            Application.Run(new UI.Forms.LoginForm());
         }
     }
 }

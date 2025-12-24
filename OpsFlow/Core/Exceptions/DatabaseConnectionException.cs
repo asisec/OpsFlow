@@ -11,11 +11,5 @@ namespace OpsFlow.Core.Exceptions
         {
 
         }
-
-        public DatabaseConnectionException(string message, Exception inner)
-            : base(message, inner)
-        {
-
-        }
     }
 }
