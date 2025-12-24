@@ -22,20 +22,34 @@ namespace OpsFlow.UI.Forms
             this.Hide();
         }
 
-        private void btnLogin_Click(object sender, EventArgs e, string baslik, string mesaj)
-        {
-            lblErrorTitle.Text = baslik;
-            lblErrorMessage.Text = mesaj;
-            pnlErrorToast.BringToFront();
-            pnlErrorToast.Visible = true;
-            
-            tmrAutoClose.Stop();
-            tmrAutoClose.Start();
-        }
 
         private void txtEmail_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnCloseError_Click(object sender, EventArgs e)
+        {
+            tmrAutoClose.Stop();
+            pnlErrorToast.Visible = false;
+        }
+
+        private void tmrAutoClose_Tick(object sender, EventArgs e)
+        {
+            tmrAutoClose.Stop();
+            pnlErrorToast.Visible = false;
+        }
+
+        private void btnVerifyCode_Click(object sender, EventArgs e,string baslik, string mesaj)
+        {
+            lblErrorTitle.Text = baslik;
+            lblErrorMessage.Text = mesaj;
+
+            pnlErrorToast.BringToFront();
+            pnlErrorToast.Visible = true;
+
+            tmrAutoClose.Stop();
+            tmrAutoClose.Start();
         }
     }
 }
