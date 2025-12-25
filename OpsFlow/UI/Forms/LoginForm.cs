@@ -65,5 +65,20 @@ namespace OpsFlow.UI.Forms
         {
 
         }
+
+        private void timerFadeIn_Tick(object sender, EventArgs e)
+        {
+            // Eğer form tam görünür değilse (Opacity 1.0 demek %100 demek)
+            if (this.Opacity < 1.0)
+            {
+                // Görünürlüğü %5 artır
+                this.Opacity += 0.05;
+            }
+            else
+            {
+                // Form tamamen göründü, artık sayacı durdur (Bilgisayarı yormasın)
+                tmrFadeIn.Stop();
+            }
+        }
     }
 }
