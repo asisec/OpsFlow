@@ -1,46 +1,85 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
+﻿using OpsFlow.Core.Enums;
+using OpsFlow.Core.Exceptions;
+using OpsFlow.Services.Implementations;
+using OpsFlow.Services.Interfaces;
+using OpsFlow.UI.Forms.Dialogs;
+using System;
 using System.Windows.Forms;
 
 namespace OpsFlow.UI.Forms
 {
     public partial class ResetPasswordForm : Form
     {
-        private void BildirimGoster(string baslik, string mesaj)
+        private readonly string _email;
+        private readonly IDatabaseConnectionService _dbService;
+        private readonly ISecurityService _securityService;
+
+        public ResetPasswordForm(string email)
         {
-            lblSuccessTitle.Text = baslik;
-            lblSuccessMessage.Text = mesaj;
-
-            pnlSuccessToast.BringToFront(); // En öne getir
-            pnlSuccessToast.Visible = true; // Göster
-
-            tmrAutoClose.Stop();
-            tmrAutoClose.Start(); // 3 saniye saymaya başla
+            InitializeComponent();
+            _email = email;
+            _dbService = new DatabaseConnectionService();
+            _securityService = new SecurityService();
         }
+
         public ResetPasswordForm()
         {
             InitializeComponent();
-        }
-
-        private void btnCloseError_Click(object sender, EventArgs e)
-        {
-            tmrAutoClose.Stop();
-            pnlSuccessToast.Visible = false;
-        }
-
-        private void tmrAutoClose_Tick(object sender, EventArgs e)
-        {
-            tmrAutoClose.Stop();
-            pnlSuccessToast.Visible = false;
+            _dbService = new DatabaseConnectionService();
+            _securityService = new SecurityService();
+            _email = string.Empty;
         }
 
         private void btnSavePassword_Click(object sender, EventArgs e)
         {
-            BildirimGoster("Şifreniz Oluşturuldu", "Şifreniz başarılı bir şekilde oluşturuldu");
+            if (txtPassword.Text != txtConfirmPassword.Text)
+            {
+                Notifier.Show("Hata", "Şifreler birbiriyle uyuşmuyor!", NotificationType.Warning);
+                return;
+            }
+
+            if (string.IsNullOrEmpty(_email))
+            {
+                Notifier.Show("Eksik Bilgi", "E-posta adresi alınamadı. Lütfen işlemi baştan başlatın.", NotificationType.Error);
+                return;
+            }
+
+            try
+            {
+                using (var context = _dbService.CreateContext())
+                {
+                    var userService = new UserService(context);
+                    userService.ResetPassword(_email, txtPassword.Text);
+
+                    _securityService.ClearSession(_email);
+
+                    Notifier.Show("Başarılı", "Şifreniz başarıyla güncellendi. Giriş yapabilirsiniz.", NotificationType.Success);
+
+                    LoginForm login = new LoginForm();
+                    login.Show();
+                    this.Close();
+                }
+            }
+            catch (ValidationException ex)
+            {
+                Notifier.Show("Uyarı", ex.Message, NotificationType.Warning);
+            }
+            catch (Exception ex)
+            {
+                string errorMessage = ex.Message;
+                if (ex.InnerException != null)
+                {
+                    errorMessage += "\nDetay: " + ex.InnerException.Message;
+                }
+                Notifier.Show("Sistem Hatası", errorMessage, NotificationType.Error);
+            }
+        }
+
+        private void lnkBackToLogin_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            LoginForm login = new LoginForm();
+            login.Show();
+            this.Close();
         }
     }
 }
