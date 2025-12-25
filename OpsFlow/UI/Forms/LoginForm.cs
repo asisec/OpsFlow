@@ -1,5 +1,7 @@
-﻿using OpsFlow.Core.Exceptions;
+﻿using OpsFlow.Core.Enums;
+using OpsFlow.Core.Exceptions;
 using OpsFlow.Services.Implementations;
+using OpsFlow.UI.Forms.Dialogs;
 using System;
 using System.Windows.Forms;
 
@@ -10,11 +12,6 @@ namespace OpsFlow.UI.Forms
         public LoginForm()
         {
             InitializeComponent();
-        }
-
-        private void txtPassword_TextChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void lnkForgotText_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -36,6 +33,8 @@ namespace OpsFlow.UI.Forms
 
                     var user = userService.Authenticate(txtEmail.Text.Trim(), txtPassword.Text.Trim());
 
+                    Notifier.Show("Başarılı", "Giriş yapıldı, yönlendiriliyorsunuz...", NotificationType.Success);
+
                     MainForm mainForm = new MainForm();
                     mainForm.Show();
                     this.Hide();
@@ -45,19 +44,24 @@ namespace OpsFlow.UI.Forms
             }
             catch (ValidationException ex)
             {
-                MessageBox.Show(ex.Message, "Eksik Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                Notifier.Show("Eksik Bilgi", ex.Message, NotificationType.Warning);
             }
             catch (AuthenticationException ex)
             {
-                MessageBox.Show(ex.Message, "Giriş Başarısız", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Notifier.Show("Giriş Başarısız", ex.Message, NotificationType.Error);
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Beklenmedik bir hata oluştu: {ex.Message}", "Sistem Hatası", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Notifier.Show("Sistem Hatası", $"Beklenmedik bir hata oluştu: {ex.Message}", NotificationType.Error);
             }
         }
 
         private void txtEmail_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtPassword_TextChanged(object sender, EventArgs e)
         {
 
         }

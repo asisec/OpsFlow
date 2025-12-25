@@ -1,6 +1,9 @@
-﻿using OpsFlow.Core.Exceptions;
+﻿using Guna.UI2.WinForms;
+using OpsFlow.Core.Enums;
+using OpsFlow.Core.Exceptions;
 using OpsFlow.Services.Implementations;
 using OpsFlow.Services.Interfaces;
+using OpsFlow.UI.Forms.Dialogs;
 using System;
 using System.Windows.Forms;
 
@@ -25,13 +28,18 @@ namespace OpsFlow.UI.Forms
             _securityService = new SecurityService();
         }
 
+        private void VerificationForm_Load(object sender, EventArgs e)
+        {
+            txtDigit1.Focus();
+        }
+
         private void btnVerifyCode_Click(object sender, EventArgs e)
         {
             string code = $"{txtDigit1.Text}{txtDigit2.Text}{txtDigit3.Text}{txtDigit4.Text}{txtDigit5.Text}{txtDigit6.Text}";
 
             if (code.Length < 6)
             {
-                MessageBox.Show("Lütfen 6 haneli kodu eksiksiz giriniz.", "Eksik Kod", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                Notifier.Show("Eksik Kod", "Lütfen 6 haneli kodu eksiksiz giriniz.", NotificationType.Warning);
                 return;
             }
 
@@ -39,7 +47,7 @@ namespace OpsFlow.UI.Forms
             {
                 _securityService.VerifyCode(_email, code);
 
-                MessageBox.Show("Kod doğrulandı! Şifre sıfırlama ekranına yönlendiriliyorsunuz.", "Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Notifier.Show("Başarılı", "Kod doğrulandı! Şifre sıfırlama ekranına yönlendiriliyorsunuz.", NotificationType.Success);
 
                 ResetPasswordForm resetForm = new ResetPasswordForm(_email);
                 resetForm.Show();
@@ -49,17 +57,17 @@ namespace OpsFlow.UI.Forms
             }
             catch (VerificationException ex)
             {
-                MessageBox.Show(ex.Message, "Hatalı Kod", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                TemizleVeBasaDon();
+                Notifier.Show("Doğrulama Hatası", ex.Message, NotificationType.Error);
+                ClearAndResetInput();
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Sistem hatası: " + ex.Message, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                TemizleVeBasaDon();
+                Notifier.Show("Hata", "Sistem hatası: " + ex.Message, NotificationType.Error);
+                ClearAndResetInput();
             }
         }
 
-        private void TemizleVeBasaDon()
+        private void ClearAndResetInput()
         {
             txtDigit1.Clear();
             txtDigit2.Clear();
@@ -70,11 +78,7 @@ namespace OpsFlow.UI.Forms
             txtDigit1.Focus();
         }
 
-        private void VerificationForm_Load(object sender, EventArgs e)
-        {
-        }
-
-        private void SadeceRakamGirisi(object sender, KeyPressEventArgs e)
+        private void HandleDigitKeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
             {
@@ -82,29 +86,28 @@ namespace OpsFlow.UI.Forms
             }
         }
 
-        private void SiradakiKutuyaGec(object sender, EventArgs e)
+        private void HandleDigitTextChanged(object sender, EventArgs e)
         {
-            Guna.UI2.WinForms.Guna2TextBox suankiKutu = (Guna.UI2.WinForms.Guna2TextBox)sender;
+            var currentBox = (Guna2TextBox)sender;
 
-            if (suankiKutu.Text.Length == 1)
+            if (currentBox.Text.Length == 1)
             {
-                this.SelectNextControl(suankiKutu, true, true, true, true);
+                this.SelectNextControl(currentBox, true, true, true, true);
             }
         }
 
-        private void GeriyeDon(object sender, KeyEventArgs e)
+        private void HandleDigitKeyDown(object sender, KeyEventArgs e)
         {
-            Guna.UI2.WinForms.Guna2TextBox suankiKutu = (Guna.UI2.WinForms.Guna2TextBox)sender;
+            var currentBox = (Guna2TextBox)sender;
 
-            if (e.KeyCode == Keys.Back && suankiKutu.Text.Length == 0)
+            if (e.KeyCode == Keys.Back && currentBox.Text.Length == 0)
             {
                 e.SuppressKeyPress = true;
-                bool odakDegisti = this.SelectNextControl(suankiKutu, false, true, true, true);
+                bool focusChanged = this.SelectNextControl(currentBox, false, true, true, true);
 
-                if (odakDegisti && this.ActiveControl is Guna.UI2.WinForms.Guna2TextBox)
+                if (focusChanged && this.ActiveControl is Guna2TextBox previousBox)
                 {
-                    Guna.UI2.WinForms.Guna2TextBox oncekiKutu = (Guna.UI2.WinForms.Guna2TextBox)this.ActiveControl;
-                    oncekiKutu.Clear();
+                    previousBox.Clear();
                 }
             }
         }

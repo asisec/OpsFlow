@@ -1,6 +1,8 @@
-﻿using OpsFlow.Core.Exceptions;
+﻿using OpsFlow.Core.Enums;
+using OpsFlow.Core.Exceptions;
 using OpsFlow.Services.Implementations;
 using OpsFlow.Services.Interfaces;
+using OpsFlow.UI.Forms.Dialogs;
 using System;
 using System.Windows.Forms;
 
@@ -32,13 +34,13 @@ namespace OpsFlow.UI.Forms
         {
             if (txtPassword.Text != txtConfirmPassword.Text)
             {
-                MessageBox.Show("Şifreler uyuşmuyor!");
+                Notifier.Show("Hata", "Şifreler birbiriyle uyuşmuyor!", NotificationType.Warning);
                 return;
             }
 
             if (string.IsNullOrEmpty(_email))
             {
-                MessageBox.Show("E-posta adresi alınamadı. Lütfen işlemi baştan başlatın.");
+                Notifier.Show("Eksik Bilgi", "E-posta adresi alınamadı. Lütfen işlemi baştan başlatın.", NotificationType.Error);
                 return;
             }
 
@@ -47,12 +49,11 @@ namespace OpsFlow.UI.Forms
                 using (var context = _dbService.CreateContext())
                 {
                     var userService = new UserService(context);
-
                     userService.ResetPassword(_email, txtPassword.Text);
 
                     _securityService.ClearSession(_email);
 
-                    MessageBox.Show("Şifreniz başarıyla değiştirildi. Giriş yapabilirsiniz.");
+                    Notifier.Show("Başarılı", "Şifreniz başarıyla güncellendi. Giriş yapabilirsiniz.", NotificationType.Success);
 
                     LoginForm login = new LoginForm();
                     login.Show();
@@ -61,17 +62,24 @@ namespace OpsFlow.UI.Forms
             }
             catch (ValidationException ex)
             {
-                MessageBox.Show(ex.Message);
+                Notifier.Show("Uyarı", ex.Message, NotificationType.Warning);
             }
             catch (Exception ex)
             {
-                string hataMesaji = ex.Message;
+                string errorMessage = ex.Message;
                 if (ex.InnerException != null)
                 {
-                    hataMesaji += "\nDetay: " + ex.InnerException.Message;
+                    errorMessage += "\nDetay: " + ex.InnerException.Message;
                 }
-                MessageBox.Show("Hata: " + hataMesaji);
+                Notifier.Show("Sistem Hatası", errorMessage, NotificationType.Error);
             }
+        }
+
+        private void lnkBackToLogin_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            LoginForm login = new LoginForm();
+            login.Show();
+            this.Close();
         }
     }
 }

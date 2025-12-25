@@ -2,15 +2,8 @@
 {
     partial class VerificationForm
     {
-        /// <summary>
-        /// Required designer variable.
-        /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary>
-        /// Clean up any resources being used.
-        /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -22,10 +15,6 @@
 
         #region Windows Form Designer generated code
 
-        /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
-        /// </summary>
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
@@ -124,9 +113,9 @@
             txtDigit1.Size = new Size(50, 65);
             txtDigit1.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
             txtDigit1.TabIndex = 0;
-            txtDigit1.TextChanged += SiradakiKutuyaGec;
-            txtDigit1.KeyDown += GeriyeDon;
-            txtDigit1.KeyPress += SadeceRakamGirisi;
+            txtDigit1.TextChanged += HandleDigitTextChanged;
+            txtDigit1.KeyDown += HandleDigitKeyDown;
+            txtDigit1.KeyPress += HandleDigitKeyPress;
             // 
             // txtDigit2
             // 
@@ -152,9 +141,9 @@
             txtDigit2.Size = new Size(50, 65);
             txtDigit2.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
             txtDigit2.TabIndex = 1;
-            txtDigit2.TextChanged += SiradakiKutuyaGec;
-            txtDigit2.KeyDown += GeriyeDon;
-            txtDigit2.KeyPress += SadeceRakamGirisi;
+            txtDigit2.TextChanged += HandleDigitTextChanged;
+            txtDigit2.KeyDown += HandleDigitKeyDown;
+            txtDigit2.KeyPress += HandleDigitKeyPress;
             // 
             // txtDigit3
             // 
@@ -180,9 +169,9 @@
             txtDigit3.Size = new Size(50, 65);
             txtDigit3.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
             txtDigit3.TabIndex = 2;
-            txtDigit3.TextChanged += SiradakiKutuyaGec;
-            txtDigit3.KeyDown += GeriyeDon;
-            txtDigit3.KeyPress += SadeceRakamGirisi;
+            txtDigit3.TextChanged += HandleDigitTextChanged;
+            txtDigit3.KeyDown += HandleDigitKeyDown;
+            txtDigit3.KeyPress += HandleDigitKeyPress;
             // 
             // txtDigit4
             // 
@@ -208,9 +197,9 @@
             txtDigit4.Size = new Size(50, 65);
             txtDigit4.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
             txtDigit4.TabIndex = 3;
-            txtDigit4.TextChanged += SiradakiKutuyaGec;
-            txtDigit4.KeyDown += GeriyeDon;
-            txtDigit4.KeyPress += SadeceRakamGirisi;
+            txtDigit4.TextChanged += HandleDigitTextChanged;
+            txtDigit4.KeyDown += HandleDigitKeyDown;
+            txtDigit4.KeyPress += HandleDigitKeyPress;
             // 
             // txtDigit5
             // 
@@ -236,9 +225,9 @@
             txtDigit5.Size = new Size(50, 65);
             txtDigit5.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
             txtDigit5.TabIndex = 4;
-            txtDigit5.TextChanged += SiradakiKutuyaGec;
-            txtDigit5.KeyDown += GeriyeDon;
-            txtDigit5.KeyPress += SadeceRakamGirisi;
+            txtDigit5.TextChanged += HandleDigitTextChanged;
+            txtDigit5.KeyDown += HandleDigitKeyDown;
+            txtDigit5.KeyPress += HandleDigitKeyPress;
             // 
             // txtDigit6
             // 
@@ -264,9 +253,9 @@
             txtDigit6.Size = new Size(50, 65);
             txtDigit6.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
             txtDigit6.TabIndex = 5;
-            txtDigit6.TextChanged += SiradakiKutuyaGec;
-            txtDigit6.KeyDown += GeriyeDon;
-            txtDigit6.KeyPress += SadeceRakamGirisi;
+            txtDigit6.TextChanged += HandleDigitTextChanged;
+            txtDigit6.KeyDown += HandleDigitKeyDown;
+            txtDigit6.KeyPress += HandleDigitKeyPress;
             // 
             // lnkForgotText2
             // 

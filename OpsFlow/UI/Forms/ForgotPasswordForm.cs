@@ -1,6 +1,7 @@
-﻿using OpsFlow.Core.Exceptions;
+﻿using OpsFlow.Core.Enums;
 using OpsFlow.Services.Implementations;
 using OpsFlow.Services.Interfaces;
+using OpsFlow.UI.Forms.Dialogs;
 using System;
 using System.Windows.Forms;
 
@@ -18,15 +19,16 @@ namespace OpsFlow.UI.Forms
             _securityService = new SecurityService();
         }
 
+        private void ForgotPasswordForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
         private void lnkBackToLogin_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             LoginForm loginForm = new LoginForm();
             loginForm.Show();
             this.Close();
-        }
-
-        private void ForgotPasswordForm_Load(object sender, EventArgs e)
-        {
         }
 
         private void btnResetPassword_Click(object sender, EventArgs e)
@@ -35,7 +37,7 @@ namespace OpsFlow.UI.Forms
 
             if (string.IsNullOrEmpty(email))
             {
-                MessageBox.Show("Lütfen bir e-posta adresi giriniz.", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                Notifier.Show("Eksik Bilgi", "Lütfen geçerli bir e-posta adresi giriniz.", NotificationType.Warning);
                 return;
             }
 
@@ -45,31 +47,30 @@ namespace OpsFlow.UI.Forms
                 using (var context = connectionService.CreateContext())
                 {
                     var userService = new UserService(context);
-                    bool exists = userService.UserExists(email);
+                    bool userExists = userService.UserExists(email);
 
-                    if (exists)
+                    if (userExists)
                     {
-                        // Kod oluşturuluyor
                         string code = _securityService.CreateVerificationSession(email);
 
-                        // E-posta gönderiliyor (Test mesajı kaldırıldı)
                         _emailService.SendEmail(email, "OpsFlow Doğrulama Kodu", $"Doğrulama kodunuz: {code}");
 
-                        // Doğrulama ekranına geçiş
-                        VerificationForm vForm = new VerificationForm(email);
-                        vForm.Show();
+                        Notifier.Show("Bilgi", "Doğrulama kodu e-posta adresinize gönderildi.", NotificationType.Info);
+
+                        VerificationForm verificationForm = new VerificationForm(email);
+                        verificationForm.Show();
                         this.Hide();
-                        vForm.FormClosed += (s, args) => this.Close();
+                        verificationForm.FormClosed += (s, args) => this.Close();
                     }
                     else
                     {
-                        MessageBox.Show("Bu e-posta adresine kayıtlı bir kullanıcı bulunamadı.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        Notifier.Show("Hata", "Bu e-posta adresine kayıtlı bir kullanıcı bulunamadı.", NotificationType.Error);
                     }
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Bir hata oluştu: {ex.Message}", "Sistem Hatası", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Notifier.Show("Sistem Hatası", $"Bir hata oluştu: {ex.Message}", NotificationType.Error);
             }
         }
     }
