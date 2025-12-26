@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang='tr'>
+<head>
+    <meta charset='UTF-8'>
+    <style>
+        body { margin: 0; padding: 0; background-color: #17181E; font-family: 'Segoe UI', Arial, sans-serif; color: #e4e4e7; }
+        .email-wrapper { width: 100%; background-color: #17181E; padding: 40px 0; }
+        .container { width: 95%; max-width: 480px; margin: 0 auto; background: #17181E; border-radius: 16px; border: 1px solid rgba(255, 255, 255, 0.1); overflow: hidden; }
+        .logo-header { padding: 24px; text-align: center; border-bottom: 1px solid rgba(255, 255, 255, 0.1); background: rgba(0, 0, 0, 0.2); }
+        .logo-image { height: 35px; width: auto; }
+        .content { padding: 40px 30px; text-align: center; }
+        h1 { font-size: 22px; color: #ffffff; margin: 0 0 10px 0; }
+        .code-card { background: #4F30BC; border-radius: 12px; padding: 30px; margin: 20px auto; display: inline-block; }
+        .code-text { font-size: 44px; font-weight: 800; color: #ffffff; letter-spacing: 12px; margin: 0; }
+        .footer { text-align: center; padding: 20px; border-top: 1px solid rgba(255, 255, 255, 0.1); font-size: 11px; color: #555; }
+    </style>
+</head>
+<body>
+    <div class='email-wrapper'>
+        <div class='container'>
+            <div class='logo-header'>
+                <img src='https://raw.githubusercontent.com/asisec/OpsFlow/refs/heads/master/OpsFlow/Resources/Images/Logo.png' alt='OpsFlow' class='logo-image'>
+            </div>
+            <div class='content'>
+                <h1>Güvenlik Doğrulaması</h1>
+                <p>İşleminizi tamamlamak için kullanacağınız doğrulama kodu:</p>
+                <div class='code-card'>
+                    <p class='code-text'>{{CODE}}</p>
+                </div>
+                <p>Bu kod 3 dakika boyunca geçerlidir.</p>
+            </div>
+            <div class='footer'>© 2025 OpsFlow System</div>
+        </div>
+    </div>
+</body>
+</html>
