@@ -1,4 +1,4 @@
-name: .NET Core Desktop
+name: OpsFlow Advanced CI
 
 on:
   push:
@@ -12,14 +12,25 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
 
     - name: Setup .NET
       uses: actions/setup-dotnet@v4
       with:
-        dotnet-version: 10.0.x
+        dotnet-version: 8.0.x
 
     - name: Restore dependencies
       run: dotnet restore
 
-    - name: Build
+    - name: Build Project
       run: dotnet build --no-restore --configuration Release
+
+    - name: Upload Build Output
+      uses: actions/upload-artifact@v4
+      with:
+        name: OpsFlow-Release-Package
+        path: |
+          **/bin/Release/**/OpsFlow.exe
+          **/bin/Release/**/*.dll
+          **/bin/Release/**/*.config
