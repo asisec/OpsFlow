@@ -3,6 +3,7 @@ using OpsFlow.Services.Interfaces;
 using System;
 using System.Net;
 using System.Net.Mail;
+using System.Threading.Tasks;
 
 namespace OpsFlow.Services.Implementations
 {
@@ -17,28 +18,18 @@ namespace OpsFlow.Services.Implementations
             var email = Environment.GetEnvironmentVariable("SMTP_EMAIL");
             var password = Environment.GetEnvironmentVariable("SMTP_PASSWORD");
 
-            if (string.IsNullOrWhiteSpace(host))
-                throw new Exception("SMTP_HOST env değeri eksik.");
-
-            if (string.IsNullOrWhiteSpace(email))
-                throw new Exception("SMTP_EMAIL env değeri eksik.");
-
-            if (string.IsNullOrWhiteSpace(password))
-                throw new Exception("SMTP_PASSWORD env değeri eksik.");
-
-            if (!int.TryParse(portValue, out int port))
-                port = 587;
+            if (!int.TryParse(portValue, out int port)) port = 587;
 
             _settings = new SmtpSettings
             {
-                Host = host,
+                Host = host ?? "smtp.gmail.com",
                 Port = port,
-                Email = email,
-                Password = password
+                Email = email ?? "",
+                Password = password ?? ""
             };
         }
 
-        public void SendEmail(string to, string subject, string body)
+        public async Task SendEmailAsync(string to, string subject, string body)
         {
             using (var client = new SmtpClient(_settings.Host, _settings.Port))
             {
@@ -57,7 +48,7 @@ namespace OpsFlow.Services.Implementations
 
                 mailMessage.To.Add(to);
 
-                client.Send(mailMessage);
+                await client.SendMailAsync(mailMessage);
             }
         }
     }

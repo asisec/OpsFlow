@@ -21,7 +21,7 @@ namespace OpsFlow.UI.Forms.Notifications
         private bool _isClosing = false;
         private System.ComponentModel.IContainer? components = null;
 
-        protected BaseNotificationForm(string title, string message, Color themeColor, Icon icon)
+        protected BaseNotificationForm(string title, string message, Color themeColor, Icon icon, Form? owner)
         {
             InitializeUI(themeColor);
 
@@ -29,11 +29,31 @@ namespace OpsFlow.UI.Forms.Notifications
             MessageLabel.Text = message;
             IconPictureBox.Image = icon.ToBitmap();
 
-            this.Load += (s, e) => SetPosition();
+            int minHeight = 85;
+            int paddingBottom = 20;
+            int requiredHeight = MessageLabel.Location.Y + MessageLabel.Height + paddingBottom;
+
+            if (requiredHeight > minHeight)
+            {
+                this.Height = requiredHeight;
+            }
+
+            this.Load += (s, e) => SetPosition(owner);
+
+            BindClickEvent(this);
 
             _animationTimer = new System.Windows.Forms.Timer { Interval = 10 };
             _animationTimer.Tick += HandleAnimationTick;
             _animationTimer.Start();
+        }
+
+        private void BindClickEvent(Control control)
+        {
+            control.Click += (s, e) => InitiateClose();
+            foreach (Control child in control.Controls)
+            {
+                BindClickEvent(child);
+            }
         }
 
         private void InitializeUI(Color themeColor)
@@ -41,12 +61,13 @@ namespace OpsFlow.UI.Forms.Notifications
             this.components = new System.ComponentModel.Container();
 
             this.FormBorderStyle = FormBorderStyle.None;
-            this.Size = new Size(400, 85);
+            this.Size = new Size(450, 85);
             this.ShowInTaskbar = false;
             this.TopMost = true;
             this.BackColor = _darkBackgroundColor;
             this.StartPosition = FormStartPosition.Manual;
             this.Opacity = 0;
+            this.Cursor = Cursors.Hand;
 
             BorderlessForm = new Guna2BorderlessForm(this.components)
             {
@@ -101,7 +122,8 @@ namespace OpsFlow.UI.Forms.Notifications
             MessageLabel = new Label
             {
                 Location = new Point(78, 44),
-                Size = new Size(280, 35),
+                AutoSize = true,
+                MaximumSize = new Size(340, 0),
                 Font = new Font("Segoe UI", 9.5F, FontStyle.Regular),
                 ForeColor = Color.FromArgb(200, 200, 200),
                 BackColor = Color.Transparent
@@ -112,7 +134,7 @@ namespace OpsFlow.UI.Forms.Notifications
             {
                 Anchor = AnchorStyles.Top | AnchorStyles.Right,
                 Size = new Size(30, 30),
-                Location = new Point(362, 8),
+                Location = new Point(412, 8),
                 BorderRadius = 15,
                 Text = "×",
                 Font = new Font("Arial", 16, FontStyle.Regular),
@@ -131,17 +153,26 @@ namespace OpsFlow.UI.Forms.Notifications
             autoCloseTimer.Start();
         }
 
-        private void SetPosition()
+        private void SetPosition(Form? owner)
         {
-            var screen = Screen.PrimaryScreen;
-            if (screen != null)
+            this.StartPosition = FormStartPosition.Manual;
+
+            if (owner != null && !owner.IsDisposed && owner.Visible && owner.WindowState != FormWindowState.Minimized)
             {
+                int x = owner.Location.X + owner.Width - this.Width - 20;
+                int y = owner.Location.Y + owner.Height - this.Height - 20;
+                this.Location = new Point(x, y);
+            }
+            else
+            {
+                var screen = Screen.FromPoint(Cursor.Position);
                 this.Location = new Point(screen.WorkingArea.Right - this.Width - 20, screen.WorkingArea.Bottom - this.Height - 20);
             }
         }
 
         private void InitiateClose()
         {
+            if (_isClosing) return;
             _isClosing = true;
             _animationTimer.Start();
         }
@@ -151,7 +182,7 @@ namespace OpsFlow.UI.Forms.Notifications
             if (_isClosing)
             {
                 if (this.Opacity > 0)
-                    this.Opacity -= 0.08;
+                    this.Opacity -= 0.15;
                 else
                 {
                     _animationTimer.Stop();
@@ -161,7 +192,7 @@ namespace OpsFlow.UI.Forms.Notifications
             else
             {
                 if (this.Opacity < 1)
-                    this.Opacity += 0.08;
+                    this.Opacity += 0.15;
                 else
                     _animationTimer.Stop();
             }

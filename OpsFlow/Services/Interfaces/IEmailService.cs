@@ -1,7 +1,9 @@
-﻿namespace OpsFlow.Services.Interfaces
+﻿using System.Threading.Tasks;
+
+namespace OpsFlow.Services.Interfaces
 {
     public interface IEmailService
     {
-        void SendEmail(string to, string subject, string body);
+        Task SendEmailAsync(string to, string subject, string body);
     }
 }

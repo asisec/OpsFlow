@@ -5,8 +5,8 @@ namespace OpsFlow.UI.Forms.Notifications
 {
     public class WarningNotification : BaseNotificationForm
     {
-        public WarningNotification(string title, string message)
-            : base(title, message, Color.FromArgb(243, 156, 18), SystemIcons.Warning)
+        public WarningNotification(string title, string message, Form? owner = null)
+            : base(title, message, Color.FromArgb(243, 156, 18), SystemIcons.Warning, owner)
         {
         }
     }

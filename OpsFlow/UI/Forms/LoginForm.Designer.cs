@@ -39,14 +39,10 @@
             lnkForgotText = new LinkLabel();
             ((System.ComponentModel.ISupportInitialize)guna2PictureBox1).BeginInit();
             SuspendLayout();
-            // 
-            // guna2Elipse1
-            // 
+
             guna2Elipse1.BorderRadius = 20;
             guna2Elipse1.TargetControl = this;
-            // 
-            // guna2ControlBox1
-            // 
+
             guna2ControlBox1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             guna2ControlBox1.CustomizableEdges = customizableEdges9;
             guna2ControlBox1.FillColor = Color.FromArgb(139, 152, 166);
@@ -56,9 +52,7 @@
             guna2ControlBox1.ShadowDecoration.CustomizableEdges = customizableEdges10;
             guna2ControlBox1.Size = new Size(56, 36);
             guna2ControlBox1.TabIndex = 0;
-            // 
-            // guna2PictureBox1
-            // 
+
             guna2PictureBox1.CustomizableEdges = customizableEdges7;
             guna2PictureBox1.Image = (Image)resources.GetObject("guna2PictureBox1.Image");
             guna2PictureBox1.ImageRotate = 0F;
@@ -68,9 +62,7 @@
             guna2PictureBox1.Size = new Size(238, 75);
             guna2PictureBox1.TabIndex = 1;
             guna2PictureBox1.TabStop = false;
-            // 
-            // label1
-            // 
+
             label1.AutoSize = true;
             label1.Font = new Font("Microsoft Sans Serif", 28.2F, FontStyle.Bold, GraphicsUnit.Point, 162);
             label1.ForeColor = Color.White;
@@ -79,9 +71,7 @@
             label1.Size = new Size(238, 54);
             label1.TabIndex = 2;
             label1.Text = "Giriş Yap.";
-            // 
-            // txtEmail
-            // 
+
             txtEmail.BorderColor = Color.FromArgb(45, 50, 62);
             txtEmail.BorderRadius = 18;
             txtEmail.BorderThickness = 4;
@@ -105,10 +95,7 @@
             txtEmail.Size = new Size(411, 61);
             txtEmail.TabIndex = 3;
             txtEmail.TextOffset = new Point(6, 0);
-            txtEmail.TextChanged += txtEmail_TextChanged;
-            // 
-            // txtPassword
-            // 
+
             txtPassword.BorderColor = Color.FromArgb(45, 50, 62);
             txtPassword.BorderRadius = 18;
             txtPassword.BorderThickness = 4;
@@ -132,10 +119,7 @@
             txtPassword.Size = new Size(411, 61);
             txtPassword.TabIndex = 4;
             txtPassword.TextOffset = new Point(6, 0);
-            txtPassword.TextChanged += txtPassword_TextChanged;
-            // 
-            // btnLogin
-            // 
+
             btnLogin.BorderRadius = 13;
             btnLogin.Cursor = Cursors.Hand;
             btnLogin.CustomizableEdges = customizableEdges1;
@@ -154,9 +138,7 @@
             btnLogin.TabIndex = 5;
             btnLogin.Text = "Giriş Yap";
             btnLogin.Click += btnLogin_Click;
-            // 
-            // lnkForgotText
-            // 
+
             lnkForgotText.ActiveLinkColor = Color.FromArgb(108, 64, 200);
             lnkForgotText.AutoSize = true;
             lnkForgotText.Font = new Font("Microsoft Sans Serif", 11F);
@@ -169,9 +151,7 @@
             lnkForgotText.TabStop = true;
             lnkForgotText.Text = "Şifremi unuttum?";
             lnkForgotText.LinkClicked += lnkForgotText_LinkClicked;
-            // 
-            // LoginForm
-            // 
+
             AcceptButton = btnLogin;
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
