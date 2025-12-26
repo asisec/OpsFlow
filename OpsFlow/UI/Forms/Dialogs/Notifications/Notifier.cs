@@ -1,5 +1,6 @@
 ﻿using OpsFlow.Core.Enums;
 using OpsFlow.UI.Forms.Notifications;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace OpsFlow.UI.Forms.Dialogs
@@ -16,12 +17,8 @@ namespace OpsFlow.UI.Forms.Dialogs
                 _currentNotification.Dispose();
             }
 
-            Form? activeOwner = Form.ActiveForm;
-
-            if (activeOwner != null && !activeOwner.Visible)
-            {
-                activeOwner = null;
-            }
+            Form? activeOwner = Application.OpenForms.Cast<Form>()
+                .LastOrDefault(f => f.Visible && f.WindowState != FormWindowState.Minimized);
 
             BaseNotificationForm notification = type switch
             {
@@ -33,7 +30,16 @@ namespace OpsFlow.UI.Forms.Dialogs
             };
 
             _currentNotification = notification;
-            notification.Show();
+
+            if (activeOwner != null && !activeOwner.IsDisposed)
+            {
+                notification.Show(activeOwner);
+            }
+            else
+            {
+                notification.TopMost = true;
+                notification.Show();
+            }
         }
     }
 }

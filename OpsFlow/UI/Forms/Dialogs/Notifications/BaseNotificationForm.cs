@@ -21,6 +21,8 @@ namespace OpsFlow.UI.Forms.Notifications
         private bool _isClosing = false;
         private System.ComponentModel.IContainer? components = null;
 
+        protected override bool ShowWithoutActivation => true;
+
         protected BaseNotificationForm(string title, string message, Color themeColor, Icon icon, Form? owner)
         {
             InitializeUI(themeColor);
@@ -36,6 +38,11 @@ namespace OpsFlow.UI.Forms.Notifications
             if (requiredHeight > minHeight)
             {
                 this.Height = requiredHeight;
+            }
+
+            if (owner != null && !owner.IsDisposed)
+            {
+                this.Owner = owner;
             }
 
             this.Load += (s, e) => SetPosition(owner);
@@ -63,11 +70,12 @@ namespace OpsFlow.UI.Forms.Notifications
             this.FormBorderStyle = FormBorderStyle.None;
             this.Size = new Size(450, 85);
             this.ShowInTaskbar = false;
-            this.TopMost = true;
+            this.TopMost = false;
             this.BackColor = _darkBackgroundColor;
             this.StartPosition = FormStartPosition.Manual;
             this.Opacity = 0;
             this.Cursor = Cursors.Hand;
+            this.ShowIcon = false;
 
             BorderlessForm = new Guna2BorderlessForm(this.components)
             {
