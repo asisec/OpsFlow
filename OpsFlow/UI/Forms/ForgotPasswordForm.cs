@@ -59,7 +59,7 @@ namespace OpsFlow.UI.Forms
                         if (userExists)
                         {
                             string code = _securityService.CreateVerificationSession(email);
-                            await _emailService.SendEmailAsync(email, "OpsFlow Doğrulama Kodu", $"Doğrulama kodunuz: {code}");
+                            await _emailService.SendEmailAsync(email, "OpsFlow Doğrulama Kodu", code);
 
                             this.Invoke((MethodInvoker)delegate
                             {
