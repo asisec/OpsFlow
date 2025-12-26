@@ -51,13 +51,13 @@ namespace OpsFlow.UI.Forms
             {
                 _securityService.VerifyCode(_email, code);
 
-                MainForm mainForm = new MainForm();
-                mainForm.Show();
+                ResetPasswordForm resetPasswordForm = new ResetPasswordForm(_email);
+                resetPasswordForm.Show();
                 this.Hide();
 
-                Notifier.Show("Başarılı", "Kod doğrulandı! Hoş geldiniz.", NotificationType.Success);
+                Notifier.Show("Başarılı", "Kod doğrulandı! Yeni şifrenizi giriniz.", NotificationType.Success);
 
-                mainForm.FormClosed += (s, args) => this.Close();
+                resetPasswordForm.FormClosed += (s, args) => this.Close();
             }
             catch (VerificationException ex)
             {
