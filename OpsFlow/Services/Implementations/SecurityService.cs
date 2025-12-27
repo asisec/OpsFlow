@@ -57,8 +57,8 @@ namespace OpsFlow.Services.Implementations
 
             history.RemoveAll(t => (now - t).TotalMinutes >= 1);
 
-            if (history.Count >= 2)
-                throw new BusinessException("Dakikada en fazla 2 kod isteyebilirsiniz. Lütfen bekleyip tekrar deneyin.");
+            if (history.Count >= 3)
+                throw new BusinessException("Dakikada en fazla 3 kod isteyebilirsiniz. Lütfen bekleyip tekrar deneyin.");
 
             history.Add(now);
         }
