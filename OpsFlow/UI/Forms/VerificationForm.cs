@@ -82,7 +82,7 @@ namespace OpsFlow.UI.Forms
             {
                 string newCode = _securityService.ResendVerificationCode(_email);
                 await _emailService.SendEmailAsync(_email, "OpsFlow Yeni Doğrulama Kodu", $"Yeni doğrulama kodunuz: {newCode}");
-                Notifier.Show("Kod Gönderildi", "Yeni doğrulama kodu başarıyla gönderildi.", NotificationType.Info);
+                Notifier.Show("Kod Gönderildi", "Yeni doğrulama kodu başarıyla gönderildi.", NotificationType.Information);
             }
             catch (BusinessException ex)
             {

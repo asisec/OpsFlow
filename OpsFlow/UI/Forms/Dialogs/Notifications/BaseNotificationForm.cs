@@ -1,7 +1,9 @@
 ﻿using Guna.UI2.WinForms;
+using OpsFlow.Core.Enums;
 using System;
 using System.Drawing;
 using System.Drawing.Drawing2D;
+using System.IO;
 using System.Windows.Forms;
 
 namespace OpsFlow.UI.Forms.Notifications
@@ -23,14 +25,62 @@ namespace OpsFlow.UI.Forms.Notifications
 
         protected override bool ShowWithoutActivation => true;
 
-        protected BaseNotificationForm(string title, string message, Color themeColor, Icon icon, Form? owner)
+        protected BaseNotificationForm(string title, string message, NotificationType type, Form? owner)
         {
-            InitializeUI(themeColor);
+            // Logic Centralization: Determine Theme based on Type
+            var theme = GetThemeByType(type);
+
+            InitializeUI(theme.Color);
 
             TitleLabel.Text = title;
             MessageLabel.Text = message;
-            IconPictureBox.Image = icon.ToBitmap();
 
+            // Dynamic Icon Loading based on Enum Name (e.g., "Success" -> "Success.png")
+            string iconName = $"{type}.png";
+            IconPictureBox.Image = LoadNotificationImage(iconName);
+
+            AdjustHeight();
+            SetOwner(owner);
+
+            this.Load += (s, e) => SetPosition(owner);
+            BindClickEvent(this);
+
+            _animationTimer = new System.Windows.Forms.Timer { Interval = 10 };
+            _animationTimer.Tick += HandleAnimationTick;
+            _animationTimer.Start();
+        }
+
+        private (Color Color, string Icon) GetThemeByType(NotificationType type)
+        {
+            return type switch
+            {
+                NotificationType.Success => (Color.FromArgb(39, 174, 96), "Success.png"),
+                NotificationType.Error => (Color.FromArgb(231, 76, 60), "Error.png"),
+                NotificationType.Warning => (Color.FromArgb(243, 156, 18), "Warning.png"),
+                NotificationType.Information => (Color.FromArgb(52, 152, 219), "Information.png"),
+                _ => (Color.FromArgb(52, 152, 219), "Information.png")
+            };
+        }
+
+        private Image? LoadNotificationImage(string iconName)
+        {
+            try
+            {
+                string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Resources", "Icons", iconName);
+                if (File.Exists(path))
+                {
+                    using (var stream = new FileStream(path, FileMode.Open, FileAccess.Read))
+                    {
+                        return Image.FromStream(stream);
+                    }
+                }
+            }
+            catch { }
+            return null;
+        }
+
+        private void AdjustHeight()
+        {
             int minHeight = 85;
             int paddingBottom = 20;
             int requiredHeight = MessageLabel.Location.Y + MessageLabel.Height + paddingBottom;
@@ -39,19 +89,14 @@ namespace OpsFlow.UI.Forms.Notifications
             {
                 this.Height = requiredHeight;
             }
+        }
 
+        private void SetOwner(Form? owner)
+        {
             if (owner != null && !owner.IsDisposed)
             {
                 this.Owner = owner;
             }
-
-            this.Load += (s, e) => SetPosition(owner);
-
-            BindClickEvent(this);
-
-            _animationTimer = new System.Windows.Forms.Timer { Interval = 10 };
-            _animationTimer.Tick += HandleAnimationTick;
-            _animationTimer.Start();
         }
 
         private void BindClickEvent(Control control)
@@ -66,7 +111,6 @@ namespace OpsFlow.UI.Forms.Notifications
         private void InitializeUI(Color themeColor)
         {
             this.components = new System.ComponentModel.Container();
-
             this.FormBorderStyle = FormBorderStyle.None;
             this.Size = new Size(450, 85);
             this.ShowInTaskbar = false;
@@ -121,7 +165,7 @@ namespace OpsFlow.UI.Forms.Notifications
             {
                 Location = new Point(78, 18),
                 Size = new Size(270, 24),
-                Font = new Font("Segoe UI", 11F, FontStyle.Bold),
+                Font = new Font("Poppins", 11F, FontStyle.Bold),
                 ForeColor = Color.White,
                 BackColor = Color.Transparent
             };
@@ -132,7 +176,7 @@ namespace OpsFlow.UI.Forms.Notifications
                 Location = new Point(78, 44),
                 AutoSize = true,
                 MaximumSize = new Size(340, 0),
-                Font = new Font("Segoe UI", 9.5F, FontStyle.Regular),
+                Font = new Font("Poppins", 9.5F, FontStyle.Regular),
                 ForeColor = Color.FromArgb(200, 200, 200),
                 BackColor = Color.Transparent
             };

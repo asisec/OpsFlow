@@ -25,8 +25,8 @@ namespace OpsFlow.UI.Forms.Dialogs
                 NotificationType.Success => new SuccessNotification(title, message, activeOwner),
                 NotificationType.Error => new ErrorNotification(title, message, activeOwner),
                 NotificationType.Warning => new WarningNotification(title, message, activeOwner),
-                NotificationType.Info => new InfoNotification(title, message, activeOwner),
-                _ => new InfoNotification(title, message, activeOwner)
+                NotificationType.Information => new InformationNotification(title, message, activeOwner),
+                _ => new InformationNotification(title, message, activeOwner)
             };
 
             _currentNotification = notification;

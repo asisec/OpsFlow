@@ -63,7 +63,7 @@ namespace OpsFlow.UI.Forms
 
                             this.Invoke((MethodInvoker)delegate
                             {
-                                Notifier.Show("Bilgi", "Doğrulama kodu e-posta adresinize gönderildi.", NotificationType.Info);
+                                Notifier.Show("Bilgi", "Doğrulama kodu e-posta adresinize gönderildi.", NotificationType.Information);
 
                                 VerificationForm verificationForm = new VerificationForm(email);
                                 verificationForm.Show();

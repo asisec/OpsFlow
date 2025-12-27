@@ -1,36 +1,61 @@
 <!DOCTYPE html>
-<html lang='tr'>
+<html>
 <head>
-    <meta charset='UTF-8'>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OpsFlow Güvenlik Kodu</title>
     <style>
-        body { margin: 0; padding: 0; background-color: #17181E; font-family: 'Segoe UI', Arial, sans-serif; color: #e4e4e7; }
-        .email-wrapper { width: 100%; background-color: #17181E; padding: 40px 0; }
-        .container { width: 95%; max-width: 480px; margin: 0 auto; background: #17181E; border-radius: 16px; border: 1px solid rgba(255, 255, 255, 0.1); overflow: hidden; }
-        .logo-header { padding: 24px; text-align: center; border-bottom: 1px solid rgba(255, 255, 255, 0.1); background: rgba(0, 0, 0, 0.2); }
-        .logo-image { height: 35px; width: auto; }
-        .content { padding: 40px 30px; text-align: center; }
-        h1 { font-size: 22px; color: #ffffff; margin: 0 0 10px 0; }
-        .code-card { background: #4F30BC; border-radius: 12px; padding: 30px; margin: 20px auto; display: inline-block; }
-        .code-text { font-size: 44px; font-weight: 800; color: #ffffff; letter-spacing: 12px; margin: 0; }
-        .footer { text-align: center; padding: 20px; border-top: 1px solid rgba(255, 255, 255, 0.1); font-size: 11px; color: #555; }
+        body { margin: 0; padding: 0; min-width: 100%; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: 16px; line-height: 1.5; background-color: #121212; color: #e0e0e0; }
+        a { color: #8b5cf6; text-decoration: none; }
+        @media only screen and (max-width: 600px) {
+            .email-container { width: 100% !important; max-width: 100% !important; }
+            .content-padding { padding: 20px !important; }
+        }
     </style>
 </head>
-<body>
-    <div class='email-wrapper'>
-        <div class='container'>
-            <div class='logo-header'>
-                <img src='https://raw.githubusercontent.com/asisec/OpsFlow/refs/heads/master/OpsFlow/Resources/Images/Logo.png' alt='OpsFlow' class='logo-image'>
-            </div>
-            <div class='content'>
-                <h1>Güvenlik Doğrulaması</h1>
-                <p>İşleminizi tamamlamak için kullanacağınız doğrulama kodu:</p>
-                <div class='code-card'>
-                    <p class='code-text'>{{CODE}}</p>
-                </div>
-                <p>Bu kod 3 dakika boyunca geçerlidir.</p>
-            </div>
-            <div class='footer'>© 2025 OpsFlow System</div>
-        </div>
+<body style="background-color: #121212;">
+    <div style="background-color: #121212; padding: 40px 0;">
+        <table role="presentation" class="email-container" width="500" border="0" cellpadding="0" cellspacing="0" align="center" style="margin: 0 auto; background-color: #1e1e1e; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.5); overflow: hidden; border: 1px solid #333333;">
+            <tr>
+                <td align="center" style="padding: 30px 0 20px 0;">
+                    <img src="https://raw.githubusercontent.com/asisec/OpsFlow/refs/heads/master/OpsFlow/Resources/Images/Logo.png" alt="OpsFlow Logo" width="150" style="display: block; font-family: 'Segoe UI', sans-serif; color: #ffffff; font-size: 20px; border: 0;">
+                </td>
+            </tr>
+            <tr>
+                <td class="content-padding" style="padding: 20px 40px 40px 40px;">
+                    <div style="text-align: center;">
+                        <h1 style="margin: 0 0 15px 0; color: #ffffff; font-size: 22px; font-weight: 600;">Güvenlik Doğrulaması</h1>
+                        <p style="margin: 0 0 25px 0; color: #a3a3a3; font-size: 15px;">
+                            Hesabınız için talep edilen doğrulama kodu aşağıdadır.
+                        </p>
+                        <div style="background-color: #2d2d30; border: 1px solid #3f3f46; border-radius: 12px; padding: 24px; margin-bottom: 25px;">
+                            <span style="display: block; font-family: 'Courier New', monospace; font-size: 36px; font-weight: 700; letter-spacing: 8px; color: #8b5cf6;">
+                                {{CODE}}
+                            </span>
+                        </div>
+                        <p style="margin: 0 0 5px 0; color: #737373; font-size: 13px;">
+                            Bu kod <strong>3 dakika</strong> boyunca geçerlidir.
+                        </p>
+                        <p style="margin: 0; color: #737373; font-size: 13px;">
+                            Bu işlemi siz talep etmediyseniz, hesabınız güvendedir; bu e-postayı silebilirsiniz.
+                        </p>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td style="background-color: #18181b; padding: 20px; text-align: center; border-top: 1px solid #333333;">
+                    <p style="margin: 0; color: #52525b; font-size: 12px;">
+                        &copy; 2025 OpsFlow System.<br>
+                        Otomatik bilgilendirme mesajıdır.
+                    </p>
+                </td>
+            </tr>
+        </table>
+        <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%">
+            <tr>
+                <td style="padding: 20px 0;"></td>
+            </tr>
+        </table>
     </div>
 </body>
 </html>
