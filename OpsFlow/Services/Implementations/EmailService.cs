@@ -1,8 +1,10 @@
 ﻿using OpsFlow.Core.Config;
+using OpsFlow.Services.Helpers;
 using OpsFlow.Services.Interfaces;
 using System;
 using System.Net;
 using System.Net.Mail;
+using System.Threading.Tasks;
 
 namespace OpsFlow.Services.Implementations
 {
@@ -17,17 +19,12 @@ namespace OpsFlow.Services.Implementations
             var email = Environment.GetEnvironmentVariable("SMTP_EMAIL");
             var password = Environment.GetEnvironmentVariable("SMTP_PASSWORD");
 
-            if (string.IsNullOrWhiteSpace(host))
-                throw new Exception("SMTP_HOST env değeri eksik.");
+            if (string.IsNullOrEmpty(host) || string.IsNullOrEmpty(email) || string.IsNullOrEmpty(password))
+            {
+                throw new Exception("SMTP configuration is missing in .env file.");
+            }
 
-            if (string.IsNullOrWhiteSpace(email))
-                throw new Exception("SMTP_EMAIL env değeri eksik.");
-
-            if (string.IsNullOrWhiteSpace(password))
-                throw new Exception("SMTP_PASSWORD env değeri eksik.");
-
-            if (!int.TryParse(portValue, out int port))
-                port = 587;
+            if (!int.TryParse(portValue, out int port)) port = 587;
 
             _settings = new SmtpSettings
             {
@@ -38,8 +35,10 @@ namespace OpsFlow.Services.Implementations
             };
         }
 
-        public void SendEmail(string to, string subject, string body)
+        public async Task SendEmailAsync(string to, string subject, string body)
         {
+            if (_settings == null) throw new Exception("Email settings are not initialized.");
+
             using (var client = new SmtpClient(_settings.Host, _settings.Port))
             {
                 client.EnableSsl = true;
@@ -51,13 +50,12 @@ namespace OpsFlow.Services.Implementations
                 {
                     From = new MailAddress(_settings.Email, "OpsFlow Security"),
                     Subject = subject,
-                    Body = body,
-                    IsBodyHtml = false
+                    Body = EmailTemplateHelper.GetVerificationTemplate(body),
+                    IsBodyHtml = true
                 };
 
                 mailMessage.To.Add(to);
-
-                client.Send(mailMessage);
+                await client.SendMailAsync(mailMessage);
             }
         }
     }

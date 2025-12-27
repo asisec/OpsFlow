@@ -1,0 +1,36 @@
+name: OpsFlow Advanced CI
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+    - uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: 8.0.x
+
+    - name: Restore dependencies
+      run: dotnet restore
+
+    - name: Build Project
+      run: dotnet build --no-restore --configuration Release
+
+    - name: Upload Build Output
+      uses: actions/upload-artifact@v4
+      with:
+        name: OpsFlow-Release-Package
+        path: |
+          **/bin/Release/**/OpsFlow.exe
+          **/bin/Release/**/*.dll
+          **/bin/Release/**/*.config

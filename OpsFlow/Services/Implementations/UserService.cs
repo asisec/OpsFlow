@@ -31,14 +31,14 @@ namespace OpsFlow.Services.Implementations
             }
             catch (Exception ex)
             {
-                throw new DatabaseQueryException("Kullanıcı listesi çekilirken sistem hatası oluştu.", ex);
+                throw new DatabaseQueryException("Kullanıcı listesi alınırken bir hata oluştu.", ex);
             }
         }
 
         public User GetUserById(int id)
         {
             if (id <= 0)
-                throw new ValidationException("Geçersiz kullanıcı ID'si.");
+                throw new ValidationException("Geçersiz kullanıcı kimliği.");
 
             try
             {
@@ -58,7 +58,7 @@ namespace OpsFlow.Services.Implementations
             }
             catch (Exception ex)
             {
-                throw new DatabaseQueryException($"ID: {id} kullanıcısı sorgulanırken hata oluştu.", ex);
+                throw new DatabaseQueryException($"{id} numaralı kullanıcı sorgulanırken hata oluştu.", ex);
             }
         }
 
@@ -71,7 +71,7 @@ namespace OpsFlow.Services.Implementations
                 bool emailExists = _context.Users.Any(u => u.Email == user.Email);
                 if (emailExists)
                 {
-                    throw new BusinessException("Bu e-posta adresi zaten kullanımda.");
+                    throw new BusinessException("Bu e-posta adresi sistemde zaten kayıtlı.");
                 }
 
                 user.CreatedAt = DateTime.UtcNow;
@@ -98,7 +98,7 @@ namespace OpsFlow.Services.Implementations
                 var existingUser = _context.Users.Find(user.Id);
                 if (existingUser == null)
                 {
-                    throw new NotFoundException("Güncellenecek kullanıcı bulunamadı.");
+                    throw new NotFoundException("Güncellenmek istenen kullanıcı bulunamadı.");
                 }
 
                 ValidateUser(user);
@@ -130,21 +130,21 @@ namespace OpsFlow.Services.Implementations
             }
             catch (Exception ex)
             {
-                throw new DatabaseQueryException("Güncelleme sırasında hata oluştu.", ex);
+                throw new DatabaseQueryException("Güncelleme işlemi sırasında bir hata oluştu.", ex);
             }
         }
 
         public void DeleteUser(int id)
         {
             if (id <= 0)
-                throw new ValidationException("Silinecek kayıt seçilmedi.");
+                throw new ValidationException("Silinecek kullanıcı seçilmedi.");
 
             try
             {
                 var user = _context.Users.Find(id);
                 if (user == null)
                 {
-                    throw new NotFoundException("Silinecek kullanıcı bulunamadı.");
+                    throw new NotFoundException("Silinmek istenen kullanıcı bulunamadı.");
                 }
 
                 _context.Users.Remove(user);
@@ -156,14 +156,14 @@ namespace OpsFlow.Services.Implementations
             }
             catch (Exception ex)
             {
-                throw new DatabaseQueryException("Silme işleminde hata oluştu.", ex);
+                throw new DatabaseQueryException("Silme işlemi sırasında bir hata oluştu.", ex);
             }
         }
 
         public User Authenticate(string email, string password)
         {
             if (string.IsNullOrEmpty(email) || string.IsNullOrEmpty(password))
-                throw new ValidationException("Lütfen e-posta ve şifrenizi giriniz.");
+                throw new ValidationException("Lütfen e-posta adresinizi ve şifrenizi giriniz.");
 
             try
             {
@@ -176,12 +176,12 @@ namespace OpsFlow.Services.Implementations
                     throw new AuthenticationException("Kullanıcı bulunamadı.");
 
                 if (!user.IsActive)
-                    throw new AuthenticationException("Hesabınız pasif durumda. Yönetici ile görüşün.");
+                    throw new AuthenticationException("Hesabınız şu an pasif durumda. Lütfen yöneticiyle iletişime geçin.");
 
                 bool isPasswordValid = HashingHelper.VerifyPassword(password, user.Password);
 
                 if (!isPasswordValid)
-                    throw new AuthenticationException("E-posta veya şifre hatalı.");
+                    throw new AuthenticationException("E-posta adresi veya şifre hatalı.");
 
                 return user;
             }
@@ -191,26 +191,26 @@ namespace OpsFlow.Services.Implementations
             }
             catch (Exception ex)
             {
-                throw new DatabaseQueryException("Giriş işlemi sırasında hata oluştu.", ex);
+                throw new DatabaseQueryException("Giriş işlemi sırasında teknik bir hata oluştu.", ex);
             }
         }
 
         private void ValidateUser(User user)
         {
             if (string.IsNullOrWhiteSpace(user.Name) || user.Name.Length < 2)
-                throw new ValidationException("İsim en az 2 karakter olmalıdır.");
+                throw new ValidationException("İsim alanı en az 2 karakter olmalıdır.");
 
             if (string.IsNullOrWhiteSpace(user.Surname) || user.Surname.Length < 2)
-                throw new ValidationException("Soyisim en az 2 karakter olmalıdır.");
+                throw new ValidationException("Soyisim alanı en az 2 karakter olmalıdır.");
 
             if (string.IsNullOrWhiteSpace(user.Email) || !user.Email.Contains("@"))
-                throw new ValidationException("Geçerli bir e-posta adresi giriniz.");
+                throw new ValidationException("Lütfen geçerli bir e-posta adresi giriniz.");
 
             if (user.CompanyId <= 0)
-                throw new ValidationException("Şirket seçimi yapılmalıdır.");
+                throw new ValidationException("Lütfen geçerli bir şirket seçiniz.");
 
             if (user.RoleId <= 0)
-                throw new ValidationException("Rol seçimi yapılmalıdır.");
+                throw new ValidationException("Lütfen kullanıcı için bir rol tanımlayınız.");
         }
 
         public bool UserExists(string email)
@@ -221,12 +221,12 @@ namespace OpsFlow.Services.Implementations
         public void ResetPassword(string email, string newPassword)
         {
             if (string.IsNullOrEmpty(newPassword) || newPassword.Length < 6)
-                throw new ValidationException("Şifre en az 6 karakter olmalıdır.");
+                throw new ValidationException("Yeni şifreniz en az 6 karakterden oluşmalıdır.");
 
             var user = _context.Users.FirstOrDefault(u => u.Email == email);
 
             if (user == null)
-                throw new NotFoundException("Kullanıcı bulunamadı.");
+                throw new NotFoundException("Şifresi sıfırlanacak kullanıcı bulunamadı.");
 
             user.Password = HashingHelper.HashPassword(newPassword);
 

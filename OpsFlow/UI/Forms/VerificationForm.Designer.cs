@@ -46,16 +46,14 @@
             txtDigit4 = new Guna.UI2.WinForms.Guna2TextBox();
             txtDigit5 = new Guna.UI2.WinForms.Guna2TextBox();
             txtDigit6 = new Guna.UI2.WinForms.Guna2TextBox();
-            lnkForgotText2 = new LinkLabel();
+            lnkResendCode = new LinkLabel();
             lnkForgotText1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             tmrAutoClose = new System.Windows.Forms.Timer(components);
             btnVerifyCode = new Guna.UI2.WinForms.Guna2Button();
             guna2ControlBox1 = new Guna.UI2.WinForms.Guna2ControlBox();
             ((System.ComponentModel.ISupportInitialize)guna2PictureBox1).BeginInit();
             SuspendLayout();
-            // 
-            // guna2PictureBox1
-            // 
+
             guna2PictureBox1.CustomizableEdges = customizableEdges1;
             guna2PictureBox1.Image = (Image)resources.GetObject("guna2PictureBox1.Image");
             guna2PictureBox1.ImageRotate = 0F;
@@ -65,9 +63,7 @@
             guna2PictureBox1.Size = new Size(238, 75);
             guna2PictureBox1.TabIndex = 3;
             guna2PictureBox1.TabStop = false;
-            // 
-            // label3
-            // 
+
             label3.AutoSize = true;
             label3.Font = new Font("Poppins", 28.2F, FontStyle.Bold, GraphicsUnit.Point, 162);
             label3.ForeColor = Color.White;
@@ -76,9 +72,7 @@
             label3.Size = new Size(461, 82);
             label3.TabIndex = 4;
             label3.Text = "Doğrulama Kodu.";
-            // 
-            // label1
-            // 
+
             label1.AutoSize = true;
             label1.Font = new Font("Poppins", 11F);
             label1.ForeColor = Color.FromArgb(156, 163, 175);
@@ -88,9 +82,7 @@
             label1.TabIndex = 5;
             label1.Text = "E-posta adresine gönderilen 6 haneli\r\ndoğrulama kodunu giriniz.";
             label1.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // txtDigit1
-            // 
+
             txtDigit1.BorderColor = Color.FromArgb(45, 50, 62);
             txtDigit1.BorderThickness = 3;
             txtDigit1.CustomizableEdges = customizableEdges3;
@@ -116,9 +108,7 @@
             txtDigit1.TextChanged += HandleDigitTextChanged;
             txtDigit1.KeyDown += HandleDigitKeyDown;
             txtDigit1.KeyPress += HandleDigitKeyPress;
-            // 
-            // txtDigit2
-            // 
+
             txtDigit2.BorderColor = Color.FromArgb(45, 50, 62);
             txtDigit2.BorderThickness = 3;
             txtDigit2.CustomizableEdges = customizableEdges5;
@@ -144,9 +134,7 @@
             txtDigit2.TextChanged += HandleDigitTextChanged;
             txtDigit2.KeyDown += HandleDigitKeyDown;
             txtDigit2.KeyPress += HandleDigitKeyPress;
-            // 
-            // txtDigit3
-            // 
+
             txtDigit3.BorderColor = Color.FromArgb(45, 50, 62);
             txtDigit3.BorderThickness = 3;
             txtDigit3.CustomizableEdges = customizableEdges7;
@@ -172,9 +160,7 @@
             txtDigit3.TextChanged += HandleDigitTextChanged;
             txtDigit3.KeyDown += HandleDigitKeyDown;
             txtDigit3.KeyPress += HandleDigitKeyPress;
-            // 
-            // txtDigit4
-            // 
+
             txtDigit4.BorderColor = Color.FromArgb(45, 50, 62);
             txtDigit4.BorderThickness = 3;
             txtDigit4.CustomizableEdges = customizableEdges9;
@@ -200,9 +186,7 @@
             txtDigit4.TextChanged += HandleDigitTextChanged;
             txtDigit4.KeyDown += HandleDigitKeyDown;
             txtDigit4.KeyPress += HandleDigitKeyPress;
-            // 
-            // txtDigit5
-            // 
+
             txtDigit5.BorderColor = Color.FromArgb(45, 50, 62);
             txtDigit5.BorderThickness = 3;
             txtDigit5.CustomizableEdges = customizableEdges11;
@@ -228,9 +212,7 @@
             txtDigit5.TextChanged += HandleDigitTextChanged;
             txtDigit5.KeyDown += HandleDigitKeyDown;
             txtDigit5.KeyPress += HandleDigitKeyPress;
-            // 
-            // txtDigit6
-            // 
+
             txtDigit6.BorderColor = Color.FromArgb(45, 50, 62);
             txtDigit6.BorderThickness = 3;
             txtDigit6.CustomizableEdges = customizableEdges13;
@@ -256,23 +238,20 @@
             txtDigit6.TextChanged += HandleDigitTextChanged;
             txtDigit6.KeyDown += HandleDigitKeyDown;
             txtDigit6.KeyPress += HandleDigitKeyPress;
-            // 
-            // lnkForgotText2
-            // 
-            lnkForgotText2.ActiveLinkColor = Color.FromArgb(108, 64, 200);
-            lnkForgotText2.AutoSize = true;
-            lnkForgotText2.Font = new Font("Poppins", 11F);
-            lnkForgotText2.LinkBehavior = LinkBehavior.HoverUnderline;
-            lnkForgotText2.LinkColor = Color.FromArgb(108, 64, 200);
-            lnkForgotText2.Location = new Point(606, 551);
-            lnkForgotText2.Name = "lnkForgotText2";
-            lnkForgotText2.Size = new Size(197, 34);
-            lnkForgotText2.TabIndex = 7;
-            lnkForgotText2.TabStop = true;
-            lnkForgotText2.Text = "kodu tekrar gönder";
-            // 
-            // lnkForgotText1
-            // 
+
+            lnkResendCode.ActiveLinkColor = Color.FromArgb(108, 64, 200);
+            lnkResendCode.AutoSize = true;
+            lnkResendCode.Font = new Font("Poppins", 11F);
+            lnkResendCode.LinkBehavior = LinkBehavior.HoverUnderline;
+            lnkResendCode.LinkColor = Color.FromArgb(108, 64, 200);
+            lnkResendCode.Location = new Point(606, 551);
+            lnkResendCode.Name = "lnkResendCode";
+            lnkResendCode.Size = new Size(197, 34);
+            lnkResendCode.TabIndex = 7;
+            lnkResendCode.TabStop = true;
+            lnkResendCode.Text = "kodu tekrar gönder";
+            lnkResendCode.LinkClicked += lnkResendCode_LinkClicked; // KODA BAĞLANDI
+
             lnkForgotText1.BackColor = Color.Transparent;
             lnkForgotText1.Font = new Font("Poppins", 11F);
             lnkForgotText1.ForeColor = Color.White;
@@ -281,9 +260,7 @@
             lnkForgotText1.Size = new Size(179, 33);
             lnkForgotText1.TabIndex = 8;
             lnkForgotText1.Text = "Kodu alamadın mı?";
-            // 
-            // btnVerifyCode
-            // 
+
             btnVerifyCode.BorderRadius = 13;
             btnVerifyCode.Cursor = Cursors.Hand;
             btnVerifyCode.CustomizableEdges = customizableEdges15;
@@ -302,9 +279,7 @@
             btnVerifyCode.TabIndex = 13;
             btnVerifyCode.Text = "Kodu Doğrula";
             btnVerifyCode.Click += btnVerifyCode_Click;
-            // 
-            // guna2ControlBox1
-            // 
+
             guna2ControlBox1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             guna2ControlBox1.CustomizableEdges = customizableEdges17;
             guna2ControlBox1.FillColor = Color.FromArgb(139, 152, 166);
@@ -314,9 +289,7 @@
             guna2ControlBox1.ShadowDecoration.CustomizableEdges = customizableEdges18;
             guna2ControlBox1.Size = new Size(56, 36);
             guna2ControlBox1.TabIndex = 14;
-            // 
-            // VerificationForm
-            // 
+
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(17, 19, 25);
@@ -324,7 +297,7 @@
             Controls.Add(guna2ControlBox1);
             Controls.Add(btnVerifyCode);
             Controls.Add(lnkForgotText1);
-            Controls.Add(lnkForgotText2);
+            Controls.Add(lnkResendCode);
             Controls.Add(txtDigit6);
             Controls.Add(txtDigit5);
             Controls.Add(txtDigit4);
@@ -355,7 +328,7 @@
         private Guna.UI2.WinForms.Guna2TextBox txtDigit4;
         private Guna.UI2.WinForms.Guna2TextBox txtDigit5;
         private Guna.UI2.WinForms.Guna2TextBox txtDigit6;
-        private LinkLabel lnkForgotText2;
+        private LinkLabel lnkResendCode; // İSİM DÜZELTİLDİ
         private Guna.UI2.WinForms.Guna2HtmlLabel lnkForgotText1;
         private System.Windows.Forms.Timer tmrAutoClose;
         private Guna.UI2.WinForms.Guna2Button btnVerifyCode;

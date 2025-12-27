@@ -3,6 +3,7 @@ using OpsFlow.Core.Exceptions;
 using OpsFlow.Services.Implementations;
 using OpsFlow.UI.Forms.Dialogs;
 using System;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace OpsFlow.UI.Forms
@@ -21,30 +22,40 @@ namespace OpsFlow.UI.Forms
             this.Hide();
         }
 
-        private void btnLogin_Click(object sender, EventArgs e)
+        private async void btnLogin_Click(object sender, EventArgs e)
         {
+            if (btnLogin.Text == "Giriş yapılıyor...")
+                return;
+
+            System.Drawing.Font originalFont = btnLogin.Font;
+            btnLogin.Text = "Giriş yapılıyor...";
+
+            string email = txtEmail.Text.Trim();
+            string password = txtPassword.Text.Trim();
+
             try
             {
-                var connectionService = new DatabaseConnectionService();
-
-                using (var context = connectionService.CreateContext())
+                await Task.Run(() =>
                 {
-                    var userService = new UserService(context);
+                    var connectionService = new DatabaseConnectionService();
+                    using (var context = connectionService.CreateContext())
+                    {
+                        var userService = new UserService(context);
+                        var user = userService.Authenticate(email, password);
+                    }
+                });
 
-                    var user = userService.Authenticate(txtEmail.Text.Trim(), txtPassword.Text.Trim());
+                MainForm mainForm = new MainForm();
+                mainForm.Show();
+                this.Hide();
 
-                    Notifier.Show("Başarılı", "Giriş yapıldı, yönlendiriliyorsunuz...", NotificationType.Success);
+                Notifier.Show("Başarılı", "Giriş başarılı, yönlendiriliyorsunuz...", NotificationType.Success);
 
-                    MainForm mainForm = new MainForm();
-                    mainForm.Show();
-                    this.Hide();
-
-                    mainForm.FormClosed += (s, args) => this.Close();
-                }
+                mainForm.FormClosed += (s, args) => this.Close();
             }
             catch (ValidationException ex)
             {
-                Notifier.Show("Eksik Bilgi", ex.Message, NotificationType.Warning);
+                Notifier.Show("Doğrulama Hatası", ex.Message, NotificationType.Warning);
             }
             catch (AuthenticationException ex)
             {
@@ -54,16 +65,14 @@ namespace OpsFlow.UI.Forms
             {
                 Notifier.Show("Sistem Hatası", $"Beklenmedik bir hata oluştu: {ex.Message}", NotificationType.Error);
             }
-        }
-
-        private void txtEmail_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtPassword_TextChanged(object sender, EventArgs e)
-        {
-
+            finally
+            {
+                if (!this.IsDisposed)
+                {
+                    btnLogin.Text = "Giriş Yap";
+                    btnLogin.Font = originalFont;
+                }
+            }
         }
     }
 }
