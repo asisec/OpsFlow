@@ -37,6 +37,7 @@
             txtPassword = new Guna.UI2.WinForms.Guna2TextBox();
             btnLogin = new Guna.UI2.WinForms.Guna2Button();
             lnkForgotText = new LinkLabel();
+            tmrFadeIn = new System.Windows.Forms.Timer(components);
             ((System.ComponentModel.ISupportInitialize)guna2PictureBox1).BeginInit();
             SuspendLayout();
 
@@ -66,7 +67,7 @@
             label1.AutoSize = true;
             label1.Font = new Font("Microsoft Sans Serif", 28.2F, FontStyle.Bold, GraphicsUnit.Point, 162);
             label1.ForeColor = Color.White;
-            label1.Location = new Point(468, 159);
+            label1.Location = new Point(468, 152);
             label1.Name = "label1";
             label1.Size = new Size(238, 54);
             label1.TabIndex = 2;
@@ -85,7 +86,7 @@
             txtEmail.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             txtEmail.Font = new Font("Microsoft Sans Serif", 13F);
             txtEmail.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtEmail.Location = new Point(395, 273);
+            txtEmail.Location = new Point(395, 266);
             txtEmail.Margin = new Padding(8, 14, 8, 14);
             txtEmail.Name = "txtEmail";
             txtEmail.Padding = new Padding(46, 0, 0, 0);
@@ -109,7 +110,7 @@
             txtPassword.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             txtPassword.Font = new Font("Microsoft Sans Serif", 13.2000008F, FontStyle.Regular, GraphicsUnit.Point, 162);
             txtPassword.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtPassword.Location = new Point(395, 366);
+            txtPassword.Location = new Point(395, 359);
             txtPassword.Margin = new Padding(6, 12, 6, 12);
             txtPassword.Name = "txtPassword";
             txtPassword.PasswordChar = '*';
@@ -131,7 +132,7 @@
             btnLogin.Font = new Font("Microsoft Sans Serif", 15F, FontStyle.Bold);
             btnLogin.ForeColor = Color.White;
             btnLogin.HoverState.FillColor = Color.FromArgb(125, 85, 214);
-            btnLogin.Location = new Point(371, 459);
+            btnLogin.Location = new Point(371, 452);
             btnLogin.Name = "btnLogin";
             btnLogin.ShadowDecoration.CustomizableEdges = customizableEdges2;
             btnLogin.Size = new Size(459, 61);
@@ -144,7 +145,7 @@
             lnkForgotText.Font = new Font("Microsoft Sans Serif", 11F);
             lnkForgotText.LinkBehavior = LinkBehavior.HoverUnderline;
             lnkForgotText.LinkColor = Color.White;
-            lnkForgotText.Location = new Point(511, 552);
+            lnkForgotText.Location = new Point(526, 545);
             lnkForgotText.Name = "lnkForgotText";
             lnkForgotText.Size = new Size(150, 24);
             lnkForgotText.TabIndex = 6;
@@ -166,6 +167,7 @@
             Controls.Add(guna2ControlBox1);
             FormBorderStyle = FormBorderStyle.None;
             Name = "LoginForm";
+            Opacity = 0D;
             StartPosition = FormStartPosition.CenterScreen;
             Text = "LoginForm";
             ((System.ComponentModel.ISupportInitialize)guna2PictureBox1).EndInit();
@@ -183,5 +185,6 @@
         private Guna.UI2.WinForms.Guna2TextBox txtPassword;
         private Guna.UI2.WinForms.Guna2Button btnLogin;
         private LinkLabel lnkForgotText;
+        private System.Windows.Forms.Timer tmrFadeIn;
     }
 }
