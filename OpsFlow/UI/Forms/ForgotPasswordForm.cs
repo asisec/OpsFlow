@@ -59,15 +59,21 @@ namespace OpsFlow.UI.Forms
                         if (userExists)
                         {
                             string code = _securityService.CreateVerificationSession(email);
-                            await _emailService.SendEmailAsync(email, "OpsFlow Doğrulama Kodu", code);
+
+                            string templatePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Resources", "EmailTemplates", "VerificationCode.html");
+                            string emailBody = File.ReadAllText(templatePath).Replace("{{CODE}}", code);
+
+                            await _emailService.SendEmailAsync(email, "OpsFlow Doğrulama Kodu", emailBody);
 
                             this.Invoke((MethodInvoker)delegate
                             {
-                                Notifier.Show("Bilgi", "Doğrulama kodu e-posta adresinize gönderildi.", NotificationType.Information);
-
                                 VerificationForm verificationForm = new VerificationForm(email);
                                 verificationForm.Show();
+
                                 this.Hide();
+
+                                Notifier.Show("Bilgi", "Doğrulama kodu e-posta adresinize gönderildi.", NotificationType.Information);
+
                                 verificationForm.FormClosed += (s, args) => this.Close();
                             });
                         }
