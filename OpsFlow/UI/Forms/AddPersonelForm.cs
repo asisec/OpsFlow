@@ -19,5 +19,18 @@ namespace OpsFlow.UI.Forms
         {
 
         }
+
+        private void picProfilePhoto_Click(object sender, EventArgs e)
+        {
+            using (OpenFileDialog openFileDialog = new OpenFileDialog())
+            {
+                openFileDialog.Filter = "Image Files(*.jpg; *.jpeg; *.png; *.bmp)|*.jpg; *.jpeg; *.png; *.bmp";
+
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    picProfilePhoto.Image = Image.FromFile(openFileDialog.FileName);
+                }
+            }
+        }
     }
 }
