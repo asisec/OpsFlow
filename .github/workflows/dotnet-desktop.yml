@@ -1,36 +1,41 @@
-name: OpsFlow Advanced CI
+name: OpsFlow CI Pipeline
 
 on:
   push:
-    branches: [ "master" ]
+    branches: [ "main" ]
   pull_request:
-    branches: [ "master" ]
+    branches: [ "main" ]
 
 jobs:
   build:
     runs-on: windows-latest
 
     steps:
-    - uses: actions/checkout@v4
-      with:
-        fetch-depth: 0
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
-    - name: Setup .NET
-      uses: actions/setup-dotnet@v4
-      with:
-        dotnet-version: 8.0.x
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 10.0.101
 
-    - name: Restore dependencies
-      run: dotnet restore
+      - uses: actions/cache@v4
+        with:
+          path: |
+            ~/.nuget/packages
+            **/obj/project.assets.json
+          key: ${{ runner.os }}-nuget-${{ hashFiles('**/*.csproj') }}
+          restore-keys: |
+            ${{ runner.os }}-nuget-
 
-    - name: Build Project
-      run: dotnet build --no-restore --configuration Release
+      - run: dotnet restore
 
-    - name: Upload Build Output
-      uses: actions/upload-artifact@v4
-      with:
-        name: OpsFlow-Release-Package
-        path: |
-          **/bin/Release/**/OpsFlow.exe
-          **/bin/Release/**/*.dll
-          **/bin/Release/**/*.config
+      - run: dotnet build --no-restore --configuration Release
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: OpsFlow-Release
+          path: |
+            **/bin/Release/**/OpsFlow.exe
+            **/bin/Release/**/*.dll
+            **/bin/Release/**/*.config
