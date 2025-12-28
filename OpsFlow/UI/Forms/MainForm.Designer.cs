@@ -1,4 +1,5 @@
-﻿namespace OpsFlow.UI.Forms
+﻿
+namespace OpsFlow.UI.Forms
 {
     partial class MainForm
     {
@@ -536,6 +537,11 @@
             guna2Panel2.ResumeLayout(false);
             flowLayoutPanel1.ResumeLayout(false);
             ResumeLayout(false);
+        }
+
+        private void guna2Button7_Click(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
         }
 
         #endregion

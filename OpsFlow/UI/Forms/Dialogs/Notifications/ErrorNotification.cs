@@ -1,12 +1,12 @@
-﻿using System.Drawing;
+﻿using OpsFlow.Core.Enums;
 using System.Windows.Forms;
 
 namespace OpsFlow.UI.Forms.Notifications
 {
     public class ErrorNotification : BaseNotificationForm
     {
-        public ErrorNotification(string title, string message)
-            : base(title, message, Color.FromArgb(231, 76, 60), SystemIcons.Error)
+        public ErrorNotification(string title, string message, Form? owner = null)
+            : base(title, message, NotificationType.Error, owner)
         {
         }
     }

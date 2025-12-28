@@ -3,6 +3,7 @@ using OpsFlow.Services.Implementations;
 using OpsFlow.Services.Interfaces;
 using OpsFlow.UI.Forms.Dialogs;
 using System;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace OpsFlow.UI.Forms
@@ -19,10 +20,7 @@ namespace OpsFlow.UI.Forms
             _securityService = new SecurityService();
         }
 
-        private void ForgotPasswordForm_Load(object sender, EventArgs e)
-        {
-
-        }
+        private void ForgotPasswordForm_Load(object sender, EventArgs e) { }
 
         private void lnkBackToLogin_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
@@ -31,8 +29,11 @@ namespace OpsFlow.UI.Forms
             this.Close();
         }
 
-        private void btnResetPassword_Click(object sender, EventArgs e)
+        private async void btnResetPassword_Click(object sender, EventArgs e)
         {
+            if (btnResetPassword.Text == "İşleniyor...")
+                return;
+
             string email = txtEmail.Text.Trim();
 
             if (string.IsNullOrEmpty(email))
@@ -41,36 +42,65 @@ namespace OpsFlow.UI.Forms
                 return;
             }
 
+            string originalText = btnResetPassword.Text;
+            btnResetPassword.Enabled = false;
+            btnResetPassword.Text = "İşleniyor...";
+
             try
             {
-                var connectionService = new DatabaseConnectionService();
-                using (var context = connectionService.CreateContext())
+                await Task.Run(async () =>
                 {
-                    var userService = new UserService(context);
-                    bool userExists = userService.UserExists(email);
-
-                    if (userExists)
+                    var connectionService = new DatabaseConnectionService();
+                    using (var context = connectionService.CreateContext())
                     {
-                        string code = _securityService.CreateVerificationSession(email);
+                        var userService = new UserService(context);
+                        bool userExists = userService.UserExists(email);
 
-                        _emailService.SendEmail(email, "OpsFlow Doğrulama Kodu", $"Doğrulama kodunuz: {code}");
+                        if (userExists)
+                        {
+                            string code = _securityService.CreateVerificationSession(email);
 
-                        Notifier.Show("Bilgi", "Doğrulama kodu e-posta adresinize gönderildi.", NotificationType.Info);
+                            string templatePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Resources", "EmailTemplates", "VerificationCode.html");
+                            string emailBody = File.ReadAllText(templatePath).Replace("{{CODE}}", code);
 
-                        VerificationForm verificationForm = new VerificationForm(email);
-                        verificationForm.Show();
-                        this.Hide();
-                        verificationForm.FormClosed += (s, args) => this.Close();
+                            await _emailService.SendEmailAsync(email, "OpsFlow Doğrulama Kodu", emailBody);
+
+                            this.Invoke((MethodInvoker)delegate
+                            {
+                                VerificationForm verificationForm = new VerificationForm(email);
+                                verificationForm.Show();
+
+                                this.Hide();
+
+                                Notifier.Show("Bilgi", "Doğrulama kodu e-posta adresinize gönderildi.", NotificationType.Information);
+
+                                verificationForm.FormClosed += (s, args) => this.Close();
+                            });
+                        }
+                        else
+                        {
+                            this.Invoke((MethodInvoker)delegate
+                            {
+                                Notifier.Show("Hata", "Bu e-posta adresine kayıtlı bir kullanıcı bulunamadı.", NotificationType.Error);
+                            });
+                        }
                     }
-                    else
-                    {
-                        Notifier.Show("Hata", "Bu e-posta adresine kayıtlı bir kullanıcı bulunamadı.", NotificationType.Error);
-                    }
-                }
+                });
             }
             catch (Exception ex)
             {
                 Notifier.Show("Sistem Hatası", $"Bir hata oluştu: {ex.Message}", NotificationType.Error);
+            }
+            finally
+            {
+                if (!this.IsDisposed && btnResetPassword.Created)
+                {
+                    this.Invoke((MethodInvoker)delegate
+                    {
+                        btnResetPassword.Enabled = true;
+                        btnResetPassword.Text = originalText;
+                    });
+                }
             }
         }
     }

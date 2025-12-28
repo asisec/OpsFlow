@@ -37,7 +37,6 @@
             txtPassword = new Guna.UI2.WinForms.Guna2TextBox();
             btnLogin = new Guna.UI2.WinForms.Guna2Button();
             lnkForgotText = new LinkLabel();
-            tmrFadeIn = new System.Windows.Forms.Timer(components);
             ((System.ComponentModel.ISupportInitialize)guna2PictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -106,8 +105,6 @@
             txtEmail.Size = new Size(411, 61);
             txtEmail.TabIndex = 3;
             txtEmail.TextOffset = new Point(6, 0);
-            txtEmail.TextChanged += txtEmail_TextChanged;
-            txtEmail.KeyDown += txtEmail_KeyDown;
             // 
             // txtPassword
             // 
@@ -134,8 +131,6 @@
             txtPassword.Size = new Size(411, 61);
             txtPassword.TabIndex = 4;
             txtPassword.TextOffset = new Point(6, 0);
-            txtPassword.TextChanged += txtPassword_TextChanged;
-            txtPassword.KeyDown += txtPassword_KeyDown;
             // 
             // btnLogin
             // 
@@ -173,12 +168,6 @@
             lnkForgotText.Text = "Şifremi unuttum?";
             lnkForgotText.LinkClicked += lnkForgotText_LinkClicked;
             // 
-            // tmrFadeIn
-            // 
-            tmrFadeIn.Enabled = true;
-            tmrFadeIn.Interval = 10;
-            tmrFadeIn.Tick += timerFadeIn_Tick;
-            // 
             // LoginForm
             // 
             AcceptButton = btnLogin;
@@ -195,7 +184,7 @@
             Controls.Add(guna2ControlBox1);
             FormBorderStyle = FormBorderStyle.None;
             Name = "LoginForm";
-            Opacity = 0D;
+            Opacity = 1D;
             StartPosition = FormStartPosition.CenterScreen;
             Text = "LoginForm";
             ((System.ComponentModel.ISupportInitialize)guna2PictureBox1).EndInit();
@@ -213,6 +202,5 @@
         private Guna.UI2.WinForms.Guna2TextBox txtPassword;
         private Guna.UI2.WinForms.Guna2Button btnLogin;
         private LinkLabel lnkForgotText;
-        private System.Windows.Forms.Timer tmrFadeIn;
     }
 }

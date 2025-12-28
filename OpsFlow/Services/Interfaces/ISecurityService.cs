@@ -5,5 +5,6 @@
         string CreateVerificationSession(string email);
         void VerifyCode(string email, string code);
         void ClearSession(string email);
+        string ResendVerificationCode(string email);
     }
 }

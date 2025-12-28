@@ -34,13 +34,13 @@ namespace OpsFlow.UI.Forms
         {
             if (txtPassword.Text != txtConfirmPassword.Text)
             {
-                Notifier.Show("Hata", "Şifreler birbiriyle uyuşmuyor!", NotificationType.Warning);
+                Notifier.Show("Hata", "Girdiğiniz şifreler birbiriyle uyuşmuyor!", NotificationType.Warning);
                 return;
             }
 
             if (string.IsNullOrEmpty(_email))
             {
-                Notifier.Show("Eksik Bilgi", "E-posta adresi alınamadı. Lütfen işlemi baştan başlatın.", NotificationType.Error);
+                Notifier.Show("Eksik Bilgi", "E-posta adresi sistem tarafından alınamadı. Lütfen işlemi baştan başlatın.", NotificationType.Error);
                 return;
             }
 
@@ -53,7 +53,7 @@ namespace OpsFlow.UI.Forms
 
                     _securityService.ClearSession(_email);
 
-                    Notifier.Show("Başarılı", "Şifreniz başarıyla güncellendi. Giriş yapabilirsiniz.", NotificationType.Success);
+                    Notifier.Show("Başarılı", "Şifreniz başarıyla güncellendi. Yeni şifrenizle giriş yapabilirsiniz.", NotificationType.Success);
 
                     LoginForm login = new LoginForm();
                     login.Show();
@@ -66,12 +66,12 @@ namespace OpsFlow.UI.Forms
             }
             catch (Exception ex)
             {
-                string errorMessage = ex.Message;
+                string errorMessage = "Sistem hatası nedeniyle şifre güncellenemedi.";
                 if (ex.InnerException != null)
                 {
                     errorMessage += "\nDetay: " + ex.InnerException.Message;
                 }
-                Notifier.Show("Sistem Hatası", errorMessage, NotificationType.Error);
+                Notifier.Show("Hata", errorMessage, NotificationType.Error);
             }
         }
 

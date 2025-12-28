@@ -21,7 +21,7 @@ namespace OpsFlow.UI.Forms
             Application.Exit();
         }
 
-        private void guna2Button7_Click(object sender, EventArgs e)
+        private void btnLogout_Click(object sender, EventArgs e)
         {
             LoginForm loginForm = new LoginForm();
             loginForm.Show();
