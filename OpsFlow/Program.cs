@@ -30,7 +30,7 @@ namespace OpsFlow
                 }
             });
 
-            Application.Run(new LoginForm());
+            Application.Run(new AddPersonelForm());
         }
     }
 }
