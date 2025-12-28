@@ -5,10 +5,11 @@ using OpsFlow.UI.Forms.Dialogs;
 using System;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using OpsFlow.UI.Forms.Core;
 
 namespace OpsFlow.UI.Forms
 {
-    public partial class ForgotPasswordForm : Form
+    public partial class ForgotPasswordForm : BaseForm
     {
         private readonly IEmailService _emailService;
         private readonly ISecurityService _securityService;

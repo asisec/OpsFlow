@@ -7,10 +7,11 @@ using OpsFlow.UI.Forms.Dialogs;
 using System;
 using System.Drawing;
 using System.Windows.Forms;
+using OpsFlow.UI.Forms.Core;
 
 namespace OpsFlow.UI.Forms
 {
-    public partial class VerificationForm : Form
+    public partial class VerificationForm : BaseForm
     {
         private readonly string _email;
         private readonly ISecurityService _securityService;
