@@ -13,7 +13,7 @@ namespace OpsFlow
 
             ApplicationConfiguration.Initialize();
 
-            Application.Run(new SplashScreenForm() );
+            Application.Run(new SplashScreenForm());
         }
     }
 }
