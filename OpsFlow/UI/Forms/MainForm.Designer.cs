@@ -1,17 +1,9 @@
-﻿
-namespace OpsFlow.UI.Forms
+﻿namespace OpsFlow.UI.Forms
 {
     partial class MainForm
     {
-        /// <summary>
-        /// Required designer variable.
-        /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary>
-        /// Clean up any resources being used.
-        /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -23,10 +15,6 @@ namespace OpsFlow.UI.Forms
 
         #region Windows Form Designer generated code
 
-        /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
-        /// </summary>
         private void InitializeComponent()
         {
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges19 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
@@ -83,9 +71,7 @@ namespace OpsFlow.UI.Forms
             guna2Panel2.SuspendLayout();
             flowLayoutPanel1.SuspendLayout();
             SuspendLayout();
-            // 
-            // sidebarNavList
-            // 
+
             sidebarNavList.Controls.Add(guna2Button8);
             sidebarNavList.Controls.Add(guna2Button7);
             sidebarNavList.Controls.Add(guna2Button6);
@@ -103,10 +89,7 @@ namespace OpsFlow.UI.Forms
             sidebarNavList.ShadowDecoration.CustomizableEdges = customizableEdges20;
             sidebarNavList.Size = new Size(243, 791);
             sidebarNavList.TabIndex = 0;
-            sidebarNavList.Paint += sidebarNavList_Paint;
-            // 
-            // guna2Button8
-            // 
+
             guna2Button8.BackColor = Color.Transparent;
             guna2Button8.BorderColor = Color.FromArgb(48, 48, 61);
             guna2Button8.BorderRadius = 12;
@@ -141,9 +124,7 @@ namespace OpsFlow.UI.Forms
             guna2Button8.Text = "Yardım";
             guna2Button8.TextAlign = HorizontalAlignment.Left;
             guna2Button8.TextOffset = new Point(20, 0);
-            // 
-            // guna2Button7
-            // 
+
             guna2Button7.BackColor = Color.Transparent;
             guna2Button7.BorderColor = Color.FromArgb(48, 48, 61);
             guna2Button7.BorderRadius = 12;
@@ -179,9 +160,7 @@ namespace OpsFlow.UI.Forms
             guna2Button7.TextAlign = HorizontalAlignment.Left;
             guna2Button7.TextOffset = new Point(20, 0);
             guna2Button7.Click += guna2Button7_Click;
-            // 
-            // guna2Button6
-            // 
+
             guna2Button6.BackColor = Color.Transparent;
             guna2Button6.BorderColor = Color.FromArgb(48, 48, 61);
             guna2Button6.BorderRadius = 12;
@@ -216,9 +195,7 @@ namespace OpsFlow.UI.Forms
             guna2Button6.Text = "Bildirimler";
             guna2Button6.TextAlign = HorizontalAlignment.Left;
             guna2Button6.TextOffset = new Point(20, 0);
-            // 
-            // guna2Button5
-            // 
+
             guna2Button5.BackColor = Color.Transparent;
             guna2Button5.BorderColor = Color.FromArgb(48, 48, 61);
             guna2Button5.BorderRadius = 12;
@@ -253,9 +230,7 @@ namespace OpsFlow.UI.Forms
             guna2Button5.Text = "Ayarlar";
             guna2Button5.TextAlign = HorizontalAlignment.Left;
             guna2Button5.TextOffset = new Point(20, 0);
-            // 
-            // guna2Button4
-            // 
+
             guna2Button4.BackColor = Color.Transparent;
             guna2Button4.BorderColor = Color.FromArgb(48, 48, 61);
             guna2Button4.BorderRadius = 12;
@@ -290,9 +265,7 @@ namespace OpsFlow.UI.Forms
             guna2Button4.Text = "Takvim";
             guna2Button4.TextAlign = HorizontalAlignment.Left;
             guna2Button4.TextOffset = new Point(20, 0);
-            // 
-            // guna2Button1
-            // 
+
             guna2Button1.BackColor = Color.Transparent;
             guna2Button1.BorderColor = Color.FromArgb(48, 48, 61);
             guna2Button1.BorderRadius = 12;
@@ -327,9 +300,7 @@ namespace OpsFlow.UI.Forms
             guna2Button1.Text = "Görevler";
             guna2Button1.TextAlign = HorizontalAlignment.Left;
             guna2Button1.TextOffset = new Point(20, 0);
-            // 
-            // guna2Button3
-            // 
+
             guna2Button3.BackColor = Color.Transparent;
             guna2Button3.BorderColor = Color.FromArgb(48, 48, 61);
             guna2Button3.BorderRadius = 12;
@@ -364,9 +335,7 @@ namespace OpsFlow.UI.Forms
             guna2Button3.Text = "Personeller";
             guna2Button3.TextAlign = HorizontalAlignment.Left;
             guna2Button3.TextOffset = new Point(20, 0);
-            // 
-            // guna2Button2
-            // 
+
             guna2Button2.BackColor = Color.Transparent;
             guna2Button2.BorderColor = Color.FromArgb(48, 48, 61);
             guna2Button2.BorderRadius = 12;
@@ -401,9 +370,7 @@ namespace OpsFlow.UI.Forms
             guna2Button2.Text = "Ana Sayfa";
             guna2Button2.TextAlign = HorizontalAlignment.Left;
             guna2Button2.TextOffset = new Point(20, 0);
-            // 
-            // guna2PictureBox1
-            // 
+
             guna2PictureBox1.BackColor = Color.Transparent;
             guna2PictureBox1.CustomizableEdges = customizableEdges17;
             guna2PictureBox1.Dock = DockStyle.Top;
@@ -415,9 +382,7 @@ namespace OpsFlow.UI.Forms
             guna2PictureBox1.Size = new Size(243, 71);
             guna2PictureBox1.TabIndex = 5;
             guna2PictureBox1.TabStop = false;
-            // 
-            // guna2Panel1
-            // 
+
             guna2Panel1.Controls.Add(guna2HtmlLabel1);
             guna2Panel1.Controls.Add(guna2CirclePictureBox1);
             guna2Panel1.Controls.Add(txtSearch);
@@ -429,9 +394,7 @@ namespace OpsFlow.UI.Forms
             guna2Panel1.ShadowDecoration.CustomizableEdges = customizableEdges25;
             guna2Panel1.Size = new Size(1139, 80);
             guna2Panel1.TabIndex = 1;
-            // 
-            // guna2HtmlLabel1
-            // 
+
             guna2HtmlLabel1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             guna2HtmlLabel1.BackColor = Color.Transparent;
             guna2HtmlLabel1.Font = new Font("Poppins", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 162);
@@ -441,9 +404,7 @@ namespace OpsFlow.UI.Forms
             guna2HtmlLabel1.Size = new Size(113, 32);
             guna2HtmlLabel1.TabIndex = 1;
             guna2HtmlLabel1.Text = "Kullanıcı Adı";
-            // 
-            // guna2CirclePictureBox1
-            // 
+
             guna2CirclePictureBox1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             guna2CirclePictureBox1.ImageRotate = 0F;
             guna2CirclePictureBox1.Location = new Point(953, 13);
@@ -453,9 +414,7 @@ namespace OpsFlow.UI.Forms
             guna2CirclePictureBox1.Size = new Size(45, 45);
             guna2CirclePictureBox1.TabIndex = 0;
             guna2CirclePictureBox1.TabStop = false;
-            // 
-            // txtSearch
-            // 
+
             txtSearch.BorderRadius = 22;
             txtSearch.BorderThickness = 0;
             txtSearch.CustomizableEdges = customizableEdges22;
@@ -479,9 +438,7 @@ namespace OpsFlow.UI.Forms
             txtSearch.Size = new Size(350, 45);
             txtSearch.TabIndex = 0;
             txtSearch.TextOffset = new Point(5, 0);
-            // 
-            // guna2Panel2
-            // 
+
             guna2Panel2.Controls.Add(flowLayoutPanel1);
             guna2Panel2.CustomizableEdges = customizableEdges28;
             guna2Panel2.Dock = DockStyle.Fill;
@@ -492,18 +449,14 @@ namespace OpsFlow.UI.Forms
             guna2Panel2.ShadowDecoration.CustomizableEdges = customizableEdges29;
             guna2Panel2.Size = new Size(1139, 711);
             guna2Panel2.TabIndex = 2;
-            // 
-            // flowLayoutPanel1
-            // 
+
             flowLayoutPanel1.Controls.Add(cardTotalPersonnel);
             flowLayoutPanel1.Dock = DockStyle.Top;
             flowLayoutPanel1.Location = new Point(20, 20);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
             flowLayoutPanel1.Size = new Size(1099, 160);
             flowLayoutPanel1.TabIndex = 0;
-            // 
-            // cardTotalPersonnel
-            // 
+
             cardTotalPersonnel.BorderRadius = 12;
             cardTotalPersonnel.CustomizableEdges = customizableEdges26;
             cardTotalPersonnel.FillColor = Color.FromArgb(26, 31, 46);
@@ -513,9 +466,7 @@ namespace OpsFlow.UI.Forms
             cardTotalPersonnel.ShadowDecoration.CustomizableEdges = customizableEdges27;
             cardTotalPersonnel.Size = new Size(250, 157);
             cardTotalPersonnel.TabIndex = 0;
-            // 
-            // MainForm
-            // 
+
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(17, 19, 25);
@@ -527,8 +478,7 @@ namespace OpsFlow.UI.Forms
             Name = "MainForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "MainForm";
-            Load += MainForm_Load;
-            FormClosed += MainForm_FormClosed;
+
             sidebarNavList.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)guna2PictureBox1).EndInit();
             guna2Panel1.ResumeLayout(false);

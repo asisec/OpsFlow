@@ -352,7 +352,6 @@
             Controls.Add(guna2PictureBox1);
             Name = "VerificationForm";
             Text = "VerificationForm";
-            Load += VerificationForm_Load;
             Controls.SetChildIndex(guna2PictureBox1, 0);
             Controls.SetChildIndex(label3, 0);
             Controls.SetChildIndex(label1, 0);

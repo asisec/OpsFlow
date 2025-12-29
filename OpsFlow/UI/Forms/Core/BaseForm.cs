@@ -7,7 +7,6 @@ namespace OpsFlow.UI.Forms.Core
     public class BaseForm : Form
     {
         private IContainer? components;
-
         private Guna2BorderlessForm? borderlessForm;
         private Guna2ShadowForm? shadowForm;
         private Guna2DragControl? dragControl;

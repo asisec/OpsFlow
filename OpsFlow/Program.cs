@@ -1,3 +1,4 @@
+using OpsFlow.Core.Services;
 using OpsFlow.UI.Forms;
 
 namespace OpsFlow
@@ -8,10 +9,8 @@ namespace OpsFlow
         static void Main()
         {
             DotNetEnv.Env.Load();
-
             ApplicationConfiguration.Initialize();
-
-            Application.Run(new SplashScreenForm());
+            WindowManager.Run<SplashScreenForm>();
         }
     }
 }

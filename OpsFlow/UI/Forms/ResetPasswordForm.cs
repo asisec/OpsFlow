@@ -1,5 +1,6 @@
 ﻿using OpsFlow.Core.Enums;
 using OpsFlow.Core.Exceptions;
+using OpsFlow.Core.Services;
 using OpsFlow.Services.Implementations;
 using OpsFlow.Services.Interfaces;
 using OpsFlow.UI.Forms.Core;
@@ -54,9 +55,7 @@ namespace OpsFlow.UI.Forms
 
                     Notifier.Show("Başarılı", "Şifreniz başarıyla güncellendi. Yeni şifrenizle giriş yapabilirsiniz.", NotificationType.Success);
 
-                    LoginForm login = new LoginForm();
-                    login.Show();
-                    this.Close();
+                    WindowManager.Switch<LoginForm>(this);
                 }
             }
             catch (ValidationException ex)
@@ -76,9 +75,7 @@ namespace OpsFlow.UI.Forms
 
         private void lnkBackToLogin_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            LoginForm login = new LoginForm();
-            login.Show();
-            this.Close();
+            WindowManager.Switch<LoginForm>(this);
         }
     }
 }

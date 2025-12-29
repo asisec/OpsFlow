@@ -72,7 +72,6 @@ namespace OpsFlow.UI.Forms
             try
             {
                 string baseDir = AppDomain.CurrentDomain.BaseDirectory;
-
                 string[] possiblePaths = {
                     Path.Combine(baseDir, "Resources", "Images", "Logo.png"),
                     Path.Combine(baseDir, "..", "..", "..", "Resources", "Images", "Logo.png"),
@@ -111,8 +110,7 @@ namespace OpsFlow.UI.Forms
                     }));
                 });
 
-                this.Hide();
-                new LoginForm().Show();
+                WindowManager.Switch<LoginForm>(this);
             }
             catch (Exception ex)
             {
@@ -120,7 +118,7 @@ namespace OpsFlow.UI.Forms
                 _progressBar.ProgressColor = Color.FromArgb(239, 68, 68);
                 _progressBar.ProgressColor2 = Color.FromArgb(239, 68, 68);
                 await Task.Delay(3500);
-                Application.Exit();
+                WindowManager.Exit();
             }
         }
 
