@@ -14,6 +14,8 @@ namespace OpsFlow.UI.Forms
         private readonly string _email;
         private readonly ISecurityService _securityService;
         private readonly IEmailService _emailService;
+        private bool _isResending = false;
+        private bool _isLimitExceeded = false;
 
         public VerificationForm(string email)
         {
@@ -21,6 +23,12 @@ namespace OpsFlow.UI.Forms
             _email = email;
             _securityService = new SecurityService();
             _emailService = new EmailService();
+
+            this.Load += (s, e) =>
+            {
+                Notifier.Show("Bilgi", "Doğrulama kodu e-posta adresinize gönderildi.", NotificationType.Information);
+                txtDigit1.Focus();
+            };
         }
 
         public VerificationForm()
@@ -31,10 +39,7 @@ namespace OpsFlow.UI.Forms
             _emailService = new EmailService();
         }
 
-        private void VerificationForm_Load(object sender, EventArgs e)
-        {
-            txtDigit1.Focus();
-        }
+        private void VerificationForm_Load(object sender, EventArgs e) { }
 
         private void btnVerifyCode_Click(object sender, EventArgs e)
         {
@@ -72,17 +77,20 @@ namespace OpsFlow.UI.Forms
 
         private async void lnkResendCode_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            if (!lnkResendCode.Enabled) return;
+            if (_isResending || _isLimitExceeded) return;
 
             string originalText = "kodu tekrar gönder";
-            lnkResendCode.Enabled = false;
-            lnkResendCode.Text = "Gönderiliyor...";
-            lnkResendCode.LinkColor = Color.Gray;
+            Color originalColor = Color.FromArgb(108, 64, 200);
+
+            _isResending = true;
+            lnkResendCode.Text = "gönderiliyor...";
+            lnkResendCode.LinkColor = Color.DarkGray;
+            lnkResendCode.Cursor = Cursors.WaitCursor;
 
             try
             {
                 string newCode = await Task.Run(() => _securityService.ResendVerificationCode(_email));
-                await _emailService.SendEmailAsync(_email, "OpsFlow Yeni Doğrulama Kodu", $"Yeni doğrulama kodunuz: {newCode}");
+                await _emailService.SendEmailAsync(_email, "OpsFlow Yeni Doğrulama Kodu", newCode);
 
                 if (!this.IsDisposed)
                 {
@@ -96,6 +104,12 @@ namespace OpsFlow.UI.Forms
             {
                 this.Invoke((MethodInvoker)delegate
                 {
+                    _isLimitExceeded = true;
+                    lnkResendCode.Text = "kod alma sınırı aşıldı";
+                    lnkResendCode.LinkColor = Color.FromArgb(150, 150, 150);
+                    lnkResendCode.Cursor = Cursors.No;
+                    lnkResendCode.LinkBehavior = LinkBehavior.NeverUnderline;
+
                     Notifier.Show("Sınır Aşıldı", ex.Message, NotificationType.Warning);
                 });
             }
@@ -108,14 +122,14 @@ namespace OpsFlow.UI.Forms
             }
             finally
             {
-                if (!this.IsDisposed)
+                if (!this.IsDisposed && !_isLimitExceeded)
                 {
                     this.Invoke((MethodInvoker)delegate
                     {
                         lnkResendCode.Text = originalText;
-                        lnkResendCode.Enabled = true;
-                        lnkResendCode.LinkColor = Color.FromArgb(108, 64, 200);
-                        lnkResendCode.LinkVisited = false;
+                        lnkResendCode.LinkColor = originalColor;
+                        lnkResendCode.Cursor = Cursors.Hand;
+                        _isResending = false;
                     });
                 }
             }

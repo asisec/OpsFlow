@@ -11,6 +11,7 @@ namespace OpsFlow.Services.Implementations
 
         public string CreateVerificationSession(string email)
         {
+            CheckRateLimit(email);
             return GenerateAndStoreCode(email);
         }
 
@@ -37,6 +38,9 @@ namespace OpsFlow.Services.Implementations
         {
             if (_sessions.ContainsKey(email))
                 _sessions.Remove(email);
+
+            if (_resendHistory.ContainsKey(email))
+                _resendHistory.Remove(email);
         }
 
         public string ResendVerificationCode(string email)
@@ -51,12 +55,12 @@ namespace OpsFlow.Services.Implementations
                 _resendHistory[email] = new List<DateTime>();
 
             var history = _resendHistory[email];
-            var now = DateTime.Now;
+            var now = DateTime.UtcNow;
 
             history.RemoveAll(t => (now - t).TotalMinutes >= 1);
 
-            if (history.Count >= 3)
-                throw new BusinessException("Dakikada en fazla 3 kod isteyebilirsiniz. Lütfen bekleyip tekrar deneyin.");
+            if (history.Count >= 2)
+                throw new BusinessException("Dakikada en fazla 2 kod isteyebilirsiniz. Lütfen bekleyip tekrar deneyin.");
 
             history.Add(now);
         }
