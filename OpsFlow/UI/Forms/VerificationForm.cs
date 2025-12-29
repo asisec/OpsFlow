@@ -2,6 +2,7 @@
 
 using OpsFlow.Core.Enums;
 using OpsFlow.Core.Exceptions;
+using OpsFlow.Core.Services;
 using OpsFlow.Services.Implementations;
 using OpsFlow.Services.Interfaces;
 using OpsFlow.UI.Forms.Core;
@@ -26,8 +27,8 @@ namespace OpsFlow.UI.Forms
 
             this.Load += (s, e) =>
             {
-                Notifier.Show("Bilgi", "Doğrulama kodu e-posta adresinize gönderildi.", NotificationType.Information);
                 txtDigit1.Focus();
+                _ = SendInitialCodeFlowAsync();
             };
         }
 
@@ -39,7 +40,38 @@ namespace OpsFlow.UI.Forms
             _emailService = new EmailService();
         }
 
-        private void VerificationForm_Load(object sender, EventArgs e) { }
+        private async Task SendInitialCodeFlowAsync()
+        {
+            try
+            {
+                this.Invoke((MethodInvoker)delegate
+                {
+                    Notifier.Show("İşlem Başladı", "Doğrulama kodu oluşturuluyor ve gönderiliyor...", NotificationType.Information);
+                });
+
+                string code = await Task.Run(() => _securityService.CreateVerificationSession(_email));
+                await _emailService.SendEmailAsync(_email, "OpsFlow Doğrulama Kodu", code);
+
+                this.Invoke((MethodInvoker)delegate
+                {
+                    Notifier.Show("Kod Gönderildi", "Doğrulama kodu e-posta adresinize ulaştırıldı.", NotificationType.Success);
+                });
+            }
+            catch (BusinessException ex)
+            {
+                this.Invoke((MethodInvoker)delegate
+                {
+                    Notifier.Show("Sınır Aşıldı", ex.Message, NotificationType.Warning);
+                });
+            }
+            catch (Exception ex)
+            {
+                this.Invoke((MethodInvoker)delegate
+                {
+                    Notifier.Show("Hata", "Kod gönderilemedi: " + ex.Message, NotificationType.Error);
+                });
+            }
+        }
 
         private void btnVerifyCode_Click(object sender, EventArgs e)
         {
@@ -54,14 +86,8 @@ namespace OpsFlow.UI.Forms
             try
             {
                 _securityService.VerifyCode(_email, code);
-
-                ResetPasswordForm resetPasswordForm = new ResetPasswordForm(_email);
-                resetPasswordForm.Show();
-                this.Hide();
-
                 Notifier.Show("Başarılı", "Kod doğrulandı! Yeni şifrenizi giriniz.", NotificationType.Success);
-
-                resetPasswordForm.FormClosed += (s, args) => this.Close();
+                WindowManager.Switch<ResetPasswordForm>(this, [_email]);
             }
             catch (VerificationException ex)
             {
@@ -80,8 +106,6 @@ namespace OpsFlow.UI.Forms
             if (_isResending || _isLimitExceeded) return;
 
             string originalText = "kodu tekrar gönder";
-            Color originalColor = Color.FromArgb(108, 64, 200);
-
             _isResending = true;
             lnkResendCode.Text = "gönderiliyor...";
             lnkResendCode.LinkColor = Color.DarkGray;
@@ -92,13 +116,10 @@ namespace OpsFlow.UI.Forms
                 string newCode = await Task.Run(() => _securityService.ResendVerificationCode(_email));
                 await _emailService.SendEmailAsync(_email, "OpsFlow Yeni Doğrulama Kodu", newCode);
 
-                if (!this.IsDisposed)
+                this.Invoke((MethodInvoker)delegate
                 {
-                    this.Invoke((MethodInvoker)delegate
-                    {
-                        Notifier.Show("Kod Gönderildi", "Yeni doğrulama kodu e-posta adresinize ulaştırıldı.", NotificationType.Information);
-                    });
-                }
+                    Notifier.Show("Kod Gönderildi", "Yeni doğrulama kodu e-posta adresinize ulaştırıldı.", NotificationType.Success);
+                });
             }
             catch (BusinessException ex)
             {
@@ -108,8 +129,6 @@ namespace OpsFlow.UI.Forms
                     lnkResendCode.Text = "kod alma sınırı aşıldı";
                     lnkResendCode.LinkColor = Color.FromArgb(150, 150, 150);
                     lnkResendCode.Cursor = Cursors.No;
-                    lnkResendCode.LinkBehavior = LinkBehavior.NeverUnderline;
-
                     Notifier.Show("Sınır Aşıldı", ex.Message, NotificationType.Warning);
                 });
             }
@@ -127,7 +146,7 @@ namespace OpsFlow.UI.Forms
                     this.Invoke((MethodInvoker)delegate
                     {
                         lnkResendCode.Text = originalText;
-                        lnkResendCode.LinkColor = originalColor;
+                        lnkResendCode.LinkColor = Color.FromArgb(108, 64, 200);
                         lnkResendCode.Cursor = Cursors.Hand;
                         _isResending = false;
                     });
@@ -137,12 +156,8 @@ namespace OpsFlow.UI.Forms
 
         private void ClearAndResetInput()
         {
-            txtDigit1.Clear();
-            txtDigit2.Clear();
-            txtDigit3.Clear();
-            txtDigit4.Clear();
-            txtDigit5.Clear();
-            txtDigit6.Clear();
+            txtDigit1.Clear(); txtDigit2.Clear(); txtDigit3.Clear();
+            txtDigit4.Clear(); txtDigit5.Clear(); txtDigit6.Clear();
             txtDigit1.Focus();
         }
 

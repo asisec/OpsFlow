@@ -1,5 +1,6 @@
 ﻿using OpsFlow.Core.Enums;
 using OpsFlow.Core.Exceptions;
+using OpsFlow.Core.Services;
 using OpsFlow.Services.Implementations;
 using OpsFlow.UI.Forms.Core;
 using OpsFlow.UI.Forms.Dialogs;
@@ -15,9 +16,7 @@ namespace OpsFlow.UI.Forms
 
         private void lnkForgotText_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            ForgotPasswordForm forgotForm = new ForgotPasswordForm();
-            forgotForm.Show();
-            this.Hide();
+            WindowManager.Switch<ForgotPasswordForm>(this);
         }
 
         private async void btnLogin_Click(object sender, EventArgs e)
@@ -25,7 +24,7 @@ namespace OpsFlow.UI.Forms
             if (btnLogin.Text == "Giriş yapılıyor...")
                 return;
 
-            System.Drawing.Font originalFont = btnLogin.Font;
+            Font originalFont = btnLogin.Font;
             btnLogin.Text = "Giriş yapılıyor...";
 
             string email = txtEmail.Text.Trim();
@@ -43,13 +42,8 @@ namespace OpsFlow.UI.Forms
                     }
                 });
 
-                MainForm mainForm = new MainForm();
-                mainForm.Show();
-                this.Hide();
-
                 Notifier.Show("Başarılı", "Giriş başarılı, yönlendiriliyorsunuz...", NotificationType.Success);
-
-                mainForm.FormClosed += (s, args) => this.Close();
+                WindowManager.Switch<MainForm>(this);
             }
             catch (ValidationException ex)
             {

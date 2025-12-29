@@ -174,7 +174,6 @@
             Controls.Add(guna2PictureBox1);
             Name = "ForgotPasswordForm";
             Text = "ForgotPasswordForm";
-            Load += ForgotPasswordForm_Load;
             Controls.SetChildIndex(guna2PictureBox1, 0);
             Controls.SetChildIndex(label1, 0);
             Controls.SetChildIndex(label2, 0);
