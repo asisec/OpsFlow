@@ -141,13 +141,7 @@ namespace OpsFlow.UI.Forms.Core
                 typeof(AddPersonelForm)
             };
 
-            if (this.GetType() == typeof(SplashScreenForm))
-            {
-                if (this.HeaderPanel != null) this.HeaderPanel.Visible = false;
-                this.WindowState = FormWindowState.Normal;
-                this.StartPosition = FormStartPosition.CenterScreen;
-            }
-            else if (excludedTypes.Contains(this.GetType()))
+            if (excludedTypes.Contains(this.GetType()))
             {
                 this.WindowState = FormWindowState.Normal;
                 this.StartPosition = FormStartPosition.CenterScreen;
