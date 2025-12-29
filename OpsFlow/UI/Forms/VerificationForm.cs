@@ -1,4 +1,5 @@
 ﻿using Guna.UI2.WinForms;
+
 using OpsFlow.Core.Enums;
 using OpsFlow.Core.Exceptions;
 using OpsFlow.Services.Implementations;
@@ -71,6 +72,8 @@ namespace OpsFlow.UI.Forms
 
         private async void lnkResendCode_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
+            if (!lnkResendCode.Enabled) return;
+
             string originalText = "kodu tekrar gönder";
             lnkResendCode.Enabled = false;
             lnkResendCode.Text = "Gönderiliyor...";
@@ -78,27 +81,42 @@ namespace OpsFlow.UI.Forms
 
             try
             {
-                string newCode = _securityService.ResendVerificationCode(_email);
+                string newCode = await Task.Run(() => _securityService.ResendVerificationCode(_email));
                 await _emailService.SendEmailAsync(_email, "OpsFlow Yeni Doğrulama Kodu", $"Yeni doğrulama kodunuz: {newCode}");
-                Notifier.Show("Kod Gönderildi", "Yeni doğrulama kodu başarıyla gönderildi.", NotificationType.Information);
+
+                if (!this.IsDisposed)
+                {
+                    this.Invoke((MethodInvoker)delegate
+                    {
+                        Notifier.Show("Kod Gönderildi", "Yeni doğrulama kodu e-posta adresinize ulaştırıldı.", NotificationType.Information);
+                    });
+                }
             }
             catch (BusinessException ex)
             {
-                Notifier.Show("Sınır Aşıldı", ex.Message, NotificationType.Warning);
+                this.Invoke((MethodInvoker)delegate
+                {
+                    Notifier.Show("Sınır Aşıldı", ex.Message, NotificationType.Warning);
+                });
             }
             catch (Exception ex)
             {
-                Notifier.Show("Hata", "Kod gönderilemedi: " + ex.Message, NotificationType.Error);
+                this.Invoke((MethodInvoker)delegate
+                {
+                    Notifier.Show("Hata", "Kod gönderilirken bir sorun oluştu: " + ex.Message, NotificationType.Error);
+                });
             }
             finally
             {
                 if (!this.IsDisposed)
                 {
-                    lnkResendCode.Text = originalText;
-                    lnkResendCode.Enabled = true;
-                    lnkResendCode.LinkColor = Color.FromArgb(108, 64, 200);
-                    lnkResendCode.LinkVisited = false;
-                    label1.Focus();
+                    this.Invoke((MethodInvoker)delegate
+                    {
+                        lnkResendCode.Text = originalText;
+                        lnkResendCode.Enabled = true;
+                        lnkResendCode.LinkColor = Color.FromArgb(108, 64, 200);
+                        lnkResendCode.LinkVisited = false;
+                    });
                 }
             }
         }
@@ -135,7 +153,10 @@ namespace OpsFlow.UI.Forms
                 e.SuppressKeyPress = true;
                 bool focusChanged = this.SelectNextControl(currentBox, false, true, true, true);
                 if (focusChanged && this.ActiveControl is Guna2TextBox previousBox)
+                {
                     previousBox.Clear();
+                    previousBox.Focus();
+                }
             }
         }
     }
