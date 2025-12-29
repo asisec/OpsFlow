@@ -30,7 +30,7 @@ namespace OpsFlow.UI.Forms
             _email = string.Empty;
         }
 
-        private void btnSavePassword_Click(object sender, EventArgs e)
+        private async void btnSavePassword_Click(object sender, EventArgs e)
         {
             if (txtPassword.Text != txtConfirmPassword.Text)
             {
@@ -49,12 +49,11 @@ namespace OpsFlow.UI.Forms
                 using (var context = _dbService.CreateContext())
                 {
                     var userService = new UserService(context);
-                    userService.ResetPassword(_email, txtPassword.Text);
 
-                    _securityService.ClearSession(_email);
+                    await Task.Run(() => userService.ResetPassword(_email, txtPassword.Text));
+                    await Task.Run(() => _securityService.ClearSession(_email));
 
                     Notifier.Show("Başarılı", "Şifreniz başarıyla güncellendi. Yeni şifrenizle giriş yapabilirsiniz.", NotificationType.Success);
-
                     WindowManager.Switch<LoginForm>(this);
                 }
             }

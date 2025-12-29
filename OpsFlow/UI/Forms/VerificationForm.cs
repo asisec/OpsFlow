@@ -44,36 +44,24 @@ namespace OpsFlow.UI.Forms
         {
             try
             {
-                this.Invoke((MethodInvoker)delegate
-                {
-                    Notifier.Show("İşlem Başladı", "Doğrulama kodu oluşturuluyor ve gönderiliyor...", NotificationType.Information);
-                });
+                Notifier.Show("İşlem Başladı", "Doğrulama kodu oluşturuluyor ve gönderiliyor...", NotificationType.Information);
 
                 string code = await Task.Run(() => _securityService.CreateVerificationSession(_email));
                 await _emailService.SendEmailAsync(_email, "OpsFlow Doğrulama Kodu", code);
 
-                this.Invoke((MethodInvoker)delegate
-                {
-                    Notifier.Show("Kod Gönderildi", "Doğrulama kodu e-posta adresinize ulaştırıldı.", NotificationType.Success);
-                });
+                Notifier.Show("Kod Gönderildi", "Doğrulama kodu e-posta adresinize ulaştırıldı.", NotificationType.Success);
             }
             catch (BusinessException ex)
             {
-                this.Invoke((MethodInvoker)delegate
-                {
-                    Notifier.Show("Sınır Aşıldı", ex.Message, NotificationType.Warning);
-                });
+                Notifier.Show("Sınır Aşıldı", ex.Message, NotificationType.Warning);
             }
             catch (Exception ex)
             {
-                this.Invoke((MethodInvoker)delegate
-                {
-                    Notifier.Show("Hata", "Kod gönderilemedi: " + ex.Message, NotificationType.Error);
-                });
+                Notifier.Show("Hata", "Kod gönderilemedi: " + ex.Message, NotificationType.Error);
             }
         }
 
-        private void btnVerifyCode_Click(object sender, EventArgs e)
+        private async void btnVerifyCode_Click(object sender, EventArgs e)
         {
             string code = $"{txtDigit1.Text}{txtDigit2.Text}{txtDigit3.Text}{txtDigit4.Text}{txtDigit5.Text}{txtDigit6.Text}";
 
@@ -85,13 +73,17 @@ namespace OpsFlow.UI.Forms
 
             try
             {
-                _securityService.VerifyCode(_email, code);
+                await Task.Run(() => _securityService.VerifyCode(_email, code));
+
                 Notifier.Show("Başarılı", "Kod doğrulandı! Yeni şifrenizi giriniz.", NotificationType.Success);
+
+                await Task.Delay(800);
                 WindowManager.Switch<ResetPasswordForm>(this, [_email]);
             }
             catch (VerificationException ex)
             {
                 Notifier.Show("Doğrulama Hatası", ex.Message, NotificationType.Error);
+                await Task.Delay(1400);
                 ClearAndResetInput();
             }
             catch (Exception ex)
@@ -116,40 +108,28 @@ namespace OpsFlow.UI.Forms
                 string newCode = await Task.Run(() => _securityService.ResendVerificationCode(_email));
                 await _emailService.SendEmailAsync(_email, "OpsFlow Yeni Doğrulama Kodu", newCode);
 
-                this.Invoke((MethodInvoker)delegate
-                {
-                    Notifier.Show("Kod Gönderildi", "Yeni doğrulama kodu e-posta adresinize ulaştırıldı.", NotificationType.Success);
-                });
+                Notifier.Show("Kod Gönderildi", "Yeni doğrulama kodu e-posta adresinize ulaştırıldı.", NotificationType.Success);
             }
             catch (BusinessException ex)
             {
-                this.Invoke((MethodInvoker)delegate
-                {
-                    _isLimitExceeded = true;
-                    lnkResendCode.Text = "kod alma sınırı aşıldı";
-                    lnkResendCode.LinkColor = Color.FromArgb(150, 150, 150);
-                    lnkResendCode.Cursor = Cursors.No;
-                    Notifier.Show("Sınır Aşıldı", ex.Message, NotificationType.Warning);
-                });
+                _isLimitExceeded = true;
+                lnkResendCode.Text = "kod alma sınırı aşıldı";
+                lnkResendCode.LinkColor = Color.FromArgb(150, 150, 150);
+                lnkResendCode.Cursor = Cursors.No;
+                Notifier.Show("Sınır Aşıldı", ex.Message, NotificationType.Warning);
             }
             catch (Exception ex)
             {
-                this.Invoke((MethodInvoker)delegate
-                {
-                    Notifier.Show("Hata", "Kod gönderilirken bir sorun oluştu: " + ex.Message, NotificationType.Error);
-                });
+                Notifier.Show("Hata", "Kod gönderilirken bir sorun oluştu: " + ex.Message, NotificationType.Error);
             }
             finally
             {
                 if (!this.IsDisposed && !_isLimitExceeded)
                 {
-                    this.Invoke((MethodInvoker)delegate
-                    {
-                        lnkResendCode.Text = originalText;
-                        lnkResendCode.LinkColor = Color.FromArgb(108, 64, 200);
-                        lnkResendCode.Cursor = Cursors.Hand;
-                        _isResending = false;
-                    });
+                    lnkResendCode.Text = originalText;
+                    lnkResendCode.LinkColor = Color.FromArgb(108, 64, 200);
+                    lnkResendCode.Cursor = Cursors.Hand;
+                    _isResending = false;
                 }
             }
         }

@@ -24,7 +24,6 @@ namespace OpsFlow.UI.Forms
             if (btnLogin.Text == "Giriş yapılıyor...")
                 return;
 
-            Font originalFont = btnLogin.Font;
             btnLogin.Text = "Giriş yapılıyor...";
 
             string email = txtEmail.Text.Trim();
@@ -62,7 +61,6 @@ namespace OpsFlow.UI.Forms
                 if (!this.IsDisposed)
                 {
                     btnLogin.Text = "Giriş Yap";
-                    btnLogin.Font = originalFont;
                 }
             }
         }
