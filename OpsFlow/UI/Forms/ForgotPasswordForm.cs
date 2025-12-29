@@ -1,4 +1,5 @@
 ﻿using OpsFlow.Core.Enums;
+using OpsFlow.Core.Exceptions;
 using OpsFlow.Services.Implementations;
 using OpsFlow.Services.Interfaces;
 using OpsFlow.UI.Forms.Core;
@@ -54,40 +55,42 @@ namespace OpsFlow.UI.Forms
                         var userService = new UserService(context);
                         bool userExists = userService.UserExists(email);
 
-                        if (userExists)
-                        {
-                            string code = _securityService.CreateVerificationSession(email);
-
-                            string templatePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Resources", "EmailTemplates", "VerificationCode.html");
-                            string emailBody = File.ReadAllText(templatePath).Replace("{{CODE}}", code);
-
-                            await _emailService.SendEmailAsync(email, "OpsFlow Doğrulama Kodu", emailBody);
-
-                            this.Invoke((MethodInvoker)delegate
-                            {
-                                VerificationForm verificationForm = new VerificationForm(email);
-                                verificationForm.Show();
-
-                                this.Hide();
-
-                                Notifier.Show("Bilgi", "Doğrulama kodu e-posta adresinize gönderildi.", NotificationType.Information);
-
-                                verificationForm.FormClosed += (s, args) => this.Close();
-                            });
-                        }
-                        else
+                        if (!userExists)
                         {
                             this.Invoke((MethodInvoker)delegate
                             {
                                 Notifier.Show("Hata", "Bu e-posta adresine kayıtlı bir kullanıcı bulunamadı.", NotificationType.Error);
                             });
+                            return;
                         }
+
+                        string code = _securityService.CreateVerificationSession(email);
+
+                        await _emailService.SendEmailAsync(email, "OpsFlow Doğrulama Kodu", code);
+
+                        this.Invoke((MethodInvoker)delegate
+                        {
+                            VerificationForm verificationForm = new VerificationForm(email);
+                            verificationForm.FormClosed += (s, args) => this.Close();
+                            verificationForm.Show();
+                            this.Hide();
+                        });
                     }
+                });
+            }
+            catch (BusinessException ex)
+            {
+                this.Invoke((MethodInvoker)delegate
+                {
+                    Notifier.Show("Sınır Aşıldı", ex.Message, NotificationType.Warning);
                 });
             }
             catch (Exception ex)
             {
-                Notifier.Show("Sistem Hatası", $"Bir hata oluştu: {ex.Message}", NotificationType.Error);
+                this.Invoke((MethodInvoker)delegate
+                {
+                    Notifier.Show("Sistem Hatası", $"Bir hata oluştu: {ex.Message}", NotificationType.Error);
+                });
             }
             finally
             {
