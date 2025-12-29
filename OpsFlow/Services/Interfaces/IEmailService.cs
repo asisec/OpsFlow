@@ -1,6 +1,4 @@
-﻿using System.Threading.Tasks;
-
-namespace OpsFlow.Services.Interfaces
+﻿namespace OpsFlow.Services.Interfaces
 {
     public interface IEmailService
     {

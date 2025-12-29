@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace OpsFlow.Core.Models
+﻿namespace OpsFlow.Core.Models
 {
     public class VerificationSession
     {

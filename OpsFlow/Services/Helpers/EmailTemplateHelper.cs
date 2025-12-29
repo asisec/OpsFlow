@@ -1,7 +1,4 @@
-﻿using System;
-using System.IO;
-
-namespace OpsFlow.Services.Helpers
+﻿namespace OpsFlow.Services.Helpers
 {
     public static class EmailTemplateHelper
     {

@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace OpsFlow.Core.Exceptions
+﻿namespace OpsFlow.Core.Exceptions
 {
     public sealed class NotFoundException : Exception
     {
@@ -12,7 +8,7 @@ namespace OpsFlow.Core.Exceptions
 
         }
 
-        public NotFoundException(string message, Exception inner) 
+        public NotFoundException(string message, Exception inner)
             : base(message, inner)
         {
 
