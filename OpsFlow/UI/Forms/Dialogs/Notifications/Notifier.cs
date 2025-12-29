@@ -16,7 +16,10 @@ namespace OpsFlow.UI.Forms.Dialogs
             }
 
             Form? activeOwner = Application.OpenForms.Cast<Form>()
-                .LastOrDefault(f => f.Visible && f.WindowState != FormWindowState.Minimized);
+                .Where(f => f.Visible && f.WindowState != FormWindowState.Minimized)
+                .OrderByDescending(f => f.TopMost)
+                .ThenBy(f => f.TabIndex)
+                .LastOrDefault();
 
             BaseNotificationForm notification = type switch
             {
@@ -32,6 +35,7 @@ namespace OpsFlow.UI.Forms.Dialogs
             if (activeOwner != null && !activeOwner.IsDisposed)
             {
                 notification.Show(activeOwner);
+                notification.BringToFront();
             }
             else
             {
