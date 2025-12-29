@@ -1,10 +1,8 @@
-﻿using Guna.UI2.WinForms;
+﻿using System.Drawing.Drawing2D;
+
+using Guna.UI2.WinForms;
+
 using OpsFlow.Core.Enums;
-using System;
-using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.IO;
-using System.Windows.Forms;
 
 namespace OpsFlow.UI.Forms.Notifications
 {

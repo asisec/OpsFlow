@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace OpsFlow.Core.Exceptions
+﻿namespace OpsFlow.Core.Exceptions
 {
     public sealed class AuthenticationException : Exception
     {

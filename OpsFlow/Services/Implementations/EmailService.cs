@@ -1,10 +1,8 @@
-﻿using OpsFlow.Core.Config;
+﻿using System.Net;
+using System.Net.Mail;
+using OpsFlow.Core.Config;
 using OpsFlow.Services.Helpers;
 using OpsFlow.Services.Interfaces;
-using System;
-using System.Net;
-using System.Net.Mail;
-using System.Threading.Tasks;
 
 namespace OpsFlow.Services.Implementations
 {

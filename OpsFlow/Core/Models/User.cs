@@ -1,5 +1,4 @@
-﻿using OpsFlow.Core.Models;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace OpsFlow.Core.Models;

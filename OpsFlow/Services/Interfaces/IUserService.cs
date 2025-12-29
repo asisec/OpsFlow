@@ -1,5 +1,4 @@
 ﻿using OpsFlow.Core.Models;
-using System.Collections.Generic;
 
 namespace OpsFlow.Services.Interfaces
 {

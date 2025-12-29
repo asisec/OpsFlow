@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace OpsFlow.Core.Exceptions
+﻿namespace OpsFlow.Core.Exceptions
 {
     public class VerificationException : Exception
     {
