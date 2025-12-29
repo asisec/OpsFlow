@@ -11,6 +11,11 @@ namespace OpsFlow.UI.Forms
         public MainForm()
         {
             InitializeComponent();
+
+            if (this.HeaderPanel != null)
+            {
+                this.HeaderPanel.SendToBack();
+            }
         }
 
         private void MainForm_Load(object sender, EventArgs e)
