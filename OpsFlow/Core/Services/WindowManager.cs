@@ -13,8 +13,16 @@ namespace OpsFlow.Core.Services
             Application.Run(_context);
         }
 
-        public static void Switch<T>(Form currentForm, params object[]? args) where T : BaseForm
+        public static async void Switch<T>(Form currentForm, params object[]? args) where T : BaseForm
         {
+            bool hasNotification = Application.OpenForms.Cast<Form>()
+                .Any(f => f.GetType().BaseType?.Name == "BaseNotificationForm");
+
+            if (hasNotification)
+            {
+                await Task.Delay(1200);
+            }
+
             T nextForm;
 
             if (args != null && args.Length > 0)

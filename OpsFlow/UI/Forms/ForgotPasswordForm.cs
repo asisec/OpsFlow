@@ -1,6 +1,8 @@
-﻿using OpsFlow.Core.Services;
+﻿using OpsFlow.Core.Enums;
+using OpsFlow.Core.Services;
 using OpsFlow.Services.Implementations;
 using OpsFlow.UI.Forms.Core;
+using OpsFlow.UI.Forms.Dialogs;
 
 namespace OpsFlow.UI.Forms
 {
@@ -25,7 +27,7 @@ namespace OpsFlow.UI.Forms
 
             if (string.IsNullOrEmpty(email))
             {
-                MessageBox.Show("Lütfen geçerli bir e-posta adresi giriniz.", "Eksik Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                Notifier.Show("Eksik Bilgi", "Lütfen geçerli bir e-posta adresi giriniz.", NotificationType.Warning);
                 return;
             }
 
@@ -46,7 +48,7 @@ namespace OpsFlow.UI.Forms
 
                 if (!userExists)
                 {
-                    MessageBox.Show("Bu e-posta adresine kayıtlı bir kullanıcı bulunamadı.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    Notifier.Show("Hata", "Bu e-posta adresine kayıtlı bir kullanıcı bulunamadı.", NotificationType.Error);
                     btnResetPassword.Enabled = true;
                     btnResetPassword.Text = "Şifremi Sıfırla";
                     return;
@@ -56,7 +58,7 @@ namespace OpsFlow.UI.Forms
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Bir hata oluştu: {ex.Message}", "Sistem Hatası", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Notifier.Show("Sistem Hatası", $"Bir hata oluştu: {ex.Message}", NotificationType.Error);
                 btnResetPassword.Enabled = true;
                 btnResetPassword.Text = "Şifremi Sıfırla";
             }

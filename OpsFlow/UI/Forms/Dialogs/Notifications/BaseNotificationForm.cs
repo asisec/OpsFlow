@@ -25,7 +25,6 @@ namespace OpsFlow.UI.Forms.Notifications
 
         protected BaseNotificationForm(string title, string message, NotificationType type, Form? owner)
         {
-            // Logic Centralization: Determine Theme based on Type
             var theme = GetThemeByType(type);
 
             InitializeUI(theme.Color);
@@ -33,14 +32,18 @@ namespace OpsFlow.UI.Forms.Notifications
             TitleLabel.Text = title;
             MessageLabel.Text = message;
 
-            // Dynamic Icon Loading based on Enum Name (e.g., "Success" -> "Success.png")
             string iconName = $"{type}.png";
             IconPictureBox.Image = LoadNotificationImage(iconName);
 
             AdjustHeight();
             SetOwner(owner);
 
-            this.Load += (s, e) => SetPosition(owner);
+            this.Load += (s, e) =>
+            {
+                SetPosition(owner);
+                this.BringToFront();
+            };
+
             BindClickEvent(this);
 
             _animationTimer = new System.Windows.Forms.Timer { Interval = 10 };
@@ -112,7 +115,7 @@ namespace OpsFlow.UI.Forms.Notifications
             this.FormBorderStyle = FormBorderStyle.None;
             this.Size = new Size(450, 85);
             this.ShowInTaskbar = false;
-            this.TopMost = false;
+            this.TopMost = true;
             this.BackColor = _darkBackgroundColor;
             this.StartPosition = FormStartPosition.Manual;
             this.Opacity = 0;
@@ -199,7 +202,12 @@ namespace OpsFlow.UI.Forms.Notifications
             MainPanel.Controls.Add(CloseButton);
 
             var autoCloseTimer = new System.Windows.Forms.Timer { Interval = 4000 };
-            autoCloseTimer.Tick += (s, e) => { autoCloseTimer.Stop(); InitiateClose(); };
+            autoCloseTimer.Tick += (s, e) =>
+            {
+                autoCloseTimer.Stop();
+                autoCloseTimer.Dispose();
+                InitiateClose();
+            };
             autoCloseTimer.Start();
         }
 
@@ -222,17 +230,25 @@ namespace OpsFlow.UI.Forms.Notifications
 
         private void InitiateClose()
         {
-            if (_isClosing) return;
+            if (_isClosing || this.IsDisposed) return;
             _isClosing = true;
             _animationTimer.Start();
         }
 
         private void HandleAnimationTick(object? sender, EventArgs e)
         {
+            if (this.IsDisposed || !this.IsHandleCreated)
+            {
+                _animationTimer.Stop();
+                return;
+            }
+
             if (_isClosing)
             {
                 if (this.Opacity > 0)
+                {
                     this.Opacity -= 0.15;
+                }
                 else
                 {
                     _animationTimer.Stop();
@@ -242,17 +258,31 @@ namespace OpsFlow.UI.Forms.Notifications
             else
             {
                 if (this.Opacity < 1)
+                {
                     this.Opacity += 0.15;
+                }
                 else
+                {
                     _animationTimer.Stop();
+                }
             }
         }
 
         protected override void Dispose(bool disposing)
         {
-            if (disposing && (components != null))
+            if (disposing)
             {
-                components.Dispose();
+                if (_animationTimer != null)
+                {
+                    _animationTimer.Stop();
+                    _animationTimer.Tick -= HandleAnimationTick;
+                    _animationTimer.Dispose();
+                }
+
+                if (components != null)
+                {
+                    components.Dispose();
+                }
             }
             base.Dispose(disposing);
         }

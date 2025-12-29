@@ -9,10 +9,23 @@ namespace OpsFlow.UI.Forms.Dialogs
 
         public static void Show(string title, string message, NotificationType type)
         {
-            if (_currentNotification != null && !_currentNotification.IsDisposed)
+            if (_currentNotification != null)
             {
-                _currentNotification.Close();
-                _currentNotification.Dispose();
+                try
+                {
+                    if (!_currentNotification.IsDisposed)
+                    {
+                        _currentNotification.Close();
+                        _currentNotification.Dispose();
+                    }
+                }
+                catch
+                {
+                }
+                finally
+                {
+                    _currentNotification = null;
+                }
             }
 
             Form? activeOwner = Application.OpenForms.Cast<Form>()
@@ -32,7 +45,7 @@ namespace OpsFlow.UI.Forms.Dialogs
 
             _currentNotification = notification;
 
-            if (activeOwner != null && !activeOwner.IsDisposed)
+            if (activeOwner != null && !activeOwner.IsDisposed && activeOwner.IsHandleCreated)
             {
                 notification.Show(activeOwner);
                 notification.BringToFront();

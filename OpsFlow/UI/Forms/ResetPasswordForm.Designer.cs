@@ -68,7 +68,7 @@
             label2.Name = "label2";
             label2.Size = new Size(359, 24);
             label2.TabIndex = 6;
-            label2.Text = "Yeni girilen şifre en az 8 karakter olmalıdır.";
+            label2.Text = "Yeni girilen şifre en az 6 karakter olmalıdır.";
             // 
             // txtPassword
             // 
