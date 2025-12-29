@@ -5,10 +5,11 @@ using OpsFlow.Services.Interfaces;
 using OpsFlow.UI.Forms.Dialogs;
 using System;
 using System.Windows.Forms;
+using OpsFlow.UI.Forms.Core;
 
 namespace OpsFlow.UI.Forms
 {
-    public partial class ResetPasswordForm : Form
+    public partial class ResetPasswordForm : BaseForm
     {
         private readonly string _email;
         private readonly IDatabaseConnectionService _dbService;

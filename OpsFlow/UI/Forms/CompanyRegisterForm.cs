@@ -5,10 +5,11 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using OpsFlow.UI.Forms.Core;
 
 namespace OpsFlow.UI.Forms
 {
-    public partial class CompanyRegisterForm : Form
+    public partial class CompanyRegisterForm : BaseForm
     {
         public CompanyRegisterForm()
         {

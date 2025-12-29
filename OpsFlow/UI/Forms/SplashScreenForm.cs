@@ -7,10 +7,11 @@ using Guna.UI2.WinForms;
 using OpsFlow.Services.Interfaces;
 using OpsFlow.Services.Implementations;
 using OpsFlow.Core.Services;
+using OpsFlow.UI.Forms.Core;
 
 namespace OpsFlow.UI.Forms
 {
-    public partial class SplashScreenForm : Form
+    public partial class SplashScreenForm : BaseForm
     {
         private Guna2ProgressBar _progressBar = null!;
         private Guna2HtmlLabel _lblStatus = null!;

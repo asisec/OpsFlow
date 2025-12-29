@@ -5,14 +5,16 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using OpsFlow.UI.Forms.Core;
 
 namespace OpsFlow.UI.Forms
 {
-    public partial class AddPersonelForm : Form
+    public partial class AddPersonelForm : BaseForm
     {
         public AddPersonelForm()
         {
             InitializeComponent();
+            if (this.HeaderPanel != null) this.HeaderPanel.SendToBack();
         }
 
         private void cmbTitle_SelectedIndexChanged(object sender, EventArgs e)

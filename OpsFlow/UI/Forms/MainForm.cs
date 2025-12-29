@@ -2,14 +2,20 @@
 using OpsFlow.UI.Forms.Dialogs;
 using System;
 using System.Windows.Forms;
+using OpsFlow.UI.Forms.Core;
 
 namespace OpsFlow.UI.Forms
 {
-    public partial class MainForm : Form
+    public partial class MainForm : BaseForm
     {
         public MainForm()
         {
             InitializeComponent();
+
+            if (this.HeaderPanel != null)
+            {
+                this.HeaderPanel.SendToBack();
+            }
         }
 
         private void MainForm_Load(object sender, EventArgs e)
