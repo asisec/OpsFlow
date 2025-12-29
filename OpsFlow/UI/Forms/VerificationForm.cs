@@ -76,14 +76,11 @@ namespace OpsFlow.UI.Forms
                 await Task.Run(() => _securityService.VerifyCode(_email, code));
 
                 Notifier.Show("Başarılı", "Kod doğrulandı! Yeni şifrenizi giriniz.", NotificationType.Success);
-
-                await Task.Delay(800);
                 WindowManager.Switch<ResetPasswordForm>(this, [_email]);
             }
             catch (VerificationException ex)
             {
                 Notifier.Show("Doğrulama Hatası", ex.Message, NotificationType.Error);
-                await Task.Delay(1400);
                 ClearAndResetInput();
             }
             catch (Exception ex)
