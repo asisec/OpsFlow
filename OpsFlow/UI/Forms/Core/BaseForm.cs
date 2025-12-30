@@ -1,180 +1,161 @@
 ﻿using System.ComponentModel;
+
 using Guna.UI2.WinForms;
-using OpsFlow.UI.Forms.Auth;
-using OpsFlow.UI.Forms.Management;
-using OpsFlow.UI.Forms.Onboarding;
 
-namespace OpsFlow.UI.Forms.Core
+namespace OpsFlow.UI.Forms.Core;
+
+public class BaseForm : Form
 {
-    public class BaseForm : Form
+    private IContainer? components;
+    private Guna2BorderlessForm? borderlessForm;
+    private Guna2ShadowForm? shadowForm;
+    private Guna2DragControl? dragControl;
+
+    public Guna2Panel? HeaderPanel;
+    protected Guna2ControlBox? CloseButton;
+    protected Guna2ControlBox? MaximizeButton;
+    protected Guna2ControlBox? MinimizeButton;
+
+    public BaseForm()
     {
-        private IContainer? components;
-        private Guna2BorderlessForm? borderlessForm;
-        private Guna2ShadowForm? shadowForm;
-        private Guna2DragControl? dragControl;
-
-        protected Guna2Panel? HeaderPanel;
-        protected Guna2ControlBox? CloseButton;
-        protected Guna2ControlBox? MaximizeButton;
-        protected Guna2ControlBox? MinimizeButton;
-
-        public BaseForm()
+        if (LicenseManager.UsageMode == LicenseUsageMode.Designtime)
         {
-            if (LicenseManager.UsageMode == LicenseUsageMode.Designtime)
-            {
-                InitializeComponentDummy();
-                return;
-            }
-
-            this.components = new Container();
-            this.FormBorderStyle = FormBorderStyle.None;
-            this.StartPosition = FormStartPosition.CenterScreen;
-
-            InitializeBaseUI();
-            InitializeGunaComponents();
+            InitializeDesigntime();
+            return;
         }
 
-        private void InitializeComponentDummy()
+        InitializeComponent();
+        InitializeBaseUI();
+        InitializeGunaComponents();
+    }
+
+    private void InitializeDesigntime()
+    {
+        components = new Container();
+        AutoScaleMode = AutoScaleMode.Font;
+        FormBorderStyle = FormBorderStyle.Sizable;
+    }
+
+    private void InitializeComponent()
+    {
+        components = new Container();
+        FormBorderStyle = FormBorderStyle.None;
+        StartPosition = FormStartPosition.CenterScreen;
+        BackColor = Color.FromArgb(245, 247, 251);
+        DoubleBuffered = true;
+    }
+
+    private void InitializeBaseUI()
+    {
+        HeaderPanel = new Guna2Panel
         {
-            this.components = new Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.FormBorderStyle = FormBorderStyle.Sizable;
+            Dock = DockStyle.Top,
+            Height = 40,
+            FillColor = Color.Transparent,
+            Padding = new Padding(0)
+        };
+
+        InitializeControlBox(ref MinimizeButton, Guna.UI2.WinForms.Enums.ControlBoxType.MinimizeBox);
+        InitializeControlBox(ref MaximizeButton, Guna.UI2.WinForms.Enums.ControlBoxType.MaximizeBox);
+        InitializeControlBox(ref CloseButton, Guna.UI2.WinForms.Enums.ControlBoxType.CloseBox);
+
+        if (CloseButton != null)
+        {
+            CloseButton.HoverState.FillColor = Color.FromArgb(232, 17, 35);
+            CloseButton.HoverState.IconColor = Color.White;
         }
 
-        private void InitializeBaseUI()
+        Controls.Add(HeaderPanel);
+    }
+
+    private void InitializeControlBox(ref Guna2ControlBox? btn, Guna.UI2.WinForms.Enums.ControlBoxType type)
+    {
+        btn = new Guna2ControlBox
         {
-            this.HeaderPanel = new Guna2Panel
-            {
-                Dock = DockStyle.Top,
-                Height = 35,
-                FillColor = Color.Transparent,
-                Padding = new Padding(0)
-            };
-            this.Controls.Add(this.HeaderPanel);
+            Dock = DockStyle.Right,
+            Width = 50,
+            FillColor = Color.Transparent,
+            IconColor = Color.FromArgb(160, 160, 160),
+            ControlBoxType = type,
+            Cursor = Cursors.Hand,
+            TabStop = false,
+            Animated = true
+        };
 
-            this.MinimizeButton = new Guna2ControlBox
-            {
-                Dock = DockStyle.Right,
-                Width = 45,
-                FillColor = Color.Transparent,
-                IconColor = Color.FromArgb(160, 160, 160),
-                ControlBoxType = Guna.UI2.WinForms.Enums.ControlBoxType.MinimizeBox,
-                Cursor = Cursors.Hand,
-                TabStop = false
-            };
-            this.MinimizeButton.HoverState.FillColor = Color.FromArgb(40, 40, 40);
-            this.MinimizeButton.HoverState.IconColor = Color.White;
-            this.HeaderPanel.Controls.Add(this.MinimizeButton);
+        btn.HoverState.FillColor = Color.FromArgb(40, 44, 55);
+        btn.HoverState.IconColor = Color.White;
 
-            this.MaximizeButton = new Guna2ControlBox
-            {
-                Dock = DockStyle.Right,
-                Width = 45,
-                FillColor = Color.Transparent,
-                IconColor = Color.FromArgb(160, 160, 160),
-                ControlBoxType = Guna.UI2.WinForms.Enums.ControlBoxType.MaximizeBox,
-                Cursor = Cursors.Hand,
-                TabStop = false
-            };
-            this.MaximizeButton.HoverState.FillColor = Color.FromArgb(40, 40, 40);
-            this.MaximizeButton.HoverState.IconColor = Color.White;
-            this.HeaderPanel.Controls.Add(this.MaximizeButton);
+        HeaderPanel?.Controls.Add(btn);
+    }
 
-            this.CloseButton = new Guna2ControlBox
-            {
-                Dock = DockStyle.Right,
-                Width = 45,
-                FillColor = Color.Transparent,
-                IconColor = Color.FromArgb(160, 160, 160),
-                ControlBoxType = Guna.UI2.WinForms.Enums.ControlBoxType.CloseBox,
-                Cursor = Cursors.Hand,
-                TabStop = false
-            };
-            this.CloseButton.HoverState.FillColor = Color.FromArgb(232, 17, 35);
-            this.CloseButton.HoverState.IconColor = Color.White;
-            this.HeaderPanel.Controls.Add(this.CloseButton);
-        }
+    private void InitializeGunaComponents()
+    {
+        if (components == null) return;
 
-        private void InitializeGunaComponents()
+        borderlessForm = new Guna2BorderlessForm(components)
         {
-            if (this.components == null) return;
+            ContainerControl = this,
+            DockIndicatorTransparencyValue = 0.6,
+            TransparentWhileDrag = true,
+            BorderRadius = 0,
+            HasFormShadow = false
+        };
 
-            this.borderlessForm = new Guna2BorderlessForm(this.components);
-            this.borderlessForm.ContainerControl = this;
-            this.borderlessForm.DockIndicatorTransparencyValue = 0.6;
-            this.borderlessForm.TransparentWhileDrag = true;
-            this.borderlessForm.BorderRadius = 0;
-            this.borderlessForm.ShadowColor = Color.DimGray;
-            this.borderlessForm.HasFormShadow = false;
-
-            this.shadowForm = new Guna2ShadowForm(this.components);
-            this.shadowForm.TargetForm = this;
-
-            this.dragControl = new Guna2DragControl(this.components);
-            this.dragControl.TargetControl = this.HeaderPanel;
-        }
-
-        protected override void OnLoad(EventArgs e)
+        shadowForm = new Guna2ShadowForm(components)
         {
-            if (LicenseManager.UsageMode == LicenseUsageMode.Designtime)
-            {
-                base.OnLoad(e);
-                return;
-            }
+            TargetForm = this
+        };
 
-            base.OnLoad(e);
-            ApplyWindowStateLogic();
-        }
-
-        private void ApplyWindowStateLogic()
+        dragControl = new Guna2DragControl(components)
         {
-            var excludedTypes = new List<Type>
-            {
-                typeof(LoginForm),
-                typeof(VerificationForm),
-                typeof(ResetPasswordForm),
-                typeof(ForgotPasswordForm),
-                typeof(SplashScreenForm),
-                typeof(CompanyRegisterForm),
-                typeof(AddPersonelForm)
-            };
+            TargetControl = HeaderPanel
+        };
+    }
 
-            if (excludedTypes.Contains(this.GetType()))
-            {
-                this.WindowState = FormWindowState.Normal;
-                this.StartPosition = FormStartPosition.CenterScreen;
+    protected override void OnLoad(EventArgs e)
+    {
+        base.OnLoad(e);
 
-                if (this.MaximizeButton != null)
-                {
-                    this.MaximizeButton.Enabled = false;
-                    this.MaximizeButton.IconColor = Color.FromArgb(35, 35, 35);
-                }
-            }
-            else
-            {
-                this.MaximizedBounds = Screen.GetWorkingArea(this);
-                this.WindowState = FormWindowState.Maximized;
+        if (LicenseManager.UsageMode == LicenseUsageMode.Designtime) return;
 
-                if (this.borderlessForm != null)
-                {
-                    this.borderlessForm.BorderRadius = 0;
-                }
+        ApplyWindowStateLogic();
 
-                if (this.MaximizeButton != null)
-                {
-                    this.MaximizeButton.Enabled = true;
-                    this.MaximizeButton.IconColor = Color.FromArgb(160, 160, 160);
-                }
-            }
-        }
+        HeaderPanel?.BringToFront();
+    }
 
-        protected override void Dispose(bool disposing)
+    private void ApplyWindowStateLogic()
+    {
+        var currentFormName = this.GetType().Name;
+
+        var excludedTypes = new List<string>
         {
-            if (disposing && (components != null))
-            {
-                components.Dispose();
-            }
-            base.Dispose(disposing);
+            "LoginForm",
+            "VerificationForm",
+            "ResetPasswordForm",
+            "ForgotPasswordForm",
+            "SplashScreenForm",
+            "CompanyRegisterForm",
+            "AddPersonelForm"
+        };
+
+        if (excludedTypes.Contains(currentFormName))
+        {
+            WindowState = FormWindowState.Normal;
+            StartPosition = FormStartPosition.CenterScreen;
+            if (MaximizeButton != null) MaximizeButton.Enabled = false;
         }
+        else
+        {
+            MaximizedBounds = Screen.GetWorkingArea(this);
+        }
+    }
+
+    protected override void Dispose(bool disposing)
+    {
+        if (disposing && (components != null))
+        {
+            components.Dispose();
+        }
+        base.Dispose(disposing);
     }
 }
