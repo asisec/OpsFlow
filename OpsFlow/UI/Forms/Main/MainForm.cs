@@ -20,6 +20,8 @@ public partial class MainForm : BaseForm
     {
         Text = "OpsFlow Dashboard";
 
+        BackColor = Color.FromArgb(26, 31, 46);
+
         _navbar = new NavbarControl
         {
             Dock = DockStyle.Left
@@ -28,7 +30,8 @@ public partial class MainForm : BaseForm
         _contentPanel = new Guna2Panel
         {
             Dock = DockStyle.Fill,
-            BackColor = Color.FromArgb(245, 247, 251)
+            FillColor = Color.FromArgb(26, 31, 46),
+            BackColor = Color.FromArgb(26, 31, 46)
         };
 
         Controls.Add(_contentPanel);
