@@ -1,4 +1,4 @@
-﻿namespace OpsFlow.UI.Forms
+﻿namespace OpsFlow.UI.Forms.Auth
 {
     partial class ResetPasswordForm
     {

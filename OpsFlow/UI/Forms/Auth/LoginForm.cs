@@ -3,9 +3,10 @@ using OpsFlow.Core.Exceptions;
 using OpsFlow.Core.Services;
 using OpsFlow.Services.Implementations;
 using OpsFlow.UI.Forms.Core;
-using OpsFlow.UI.Forms.Dialogs;
+using OpsFlow.UI.Forms.Main;
+using OpsFlow.UI.Forms.Dialogs.Notifications;
 
-namespace OpsFlow.UI.Forms
+namespace OpsFlow.UI.Forms.Auth
 {
     public partial class LoginForm : BaseForm
     {

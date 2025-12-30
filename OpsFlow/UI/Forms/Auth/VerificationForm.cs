@@ -6,9 +6,9 @@ using OpsFlow.Core.Services;
 using OpsFlow.Services.Implementations;
 using OpsFlow.Services.Interfaces;
 using OpsFlow.UI.Forms.Core;
-using OpsFlow.UI.Forms.Dialogs;
+using OpsFlow.UI.Forms.Dialogs.Notifications;
 
-namespace OpsFlow.UI.Forms
+namespace OpsFlow.UI.Forms.Auth
 {
     public partial class VerificationForm : BaseForm
     {

@@ -1,7 +1,8 @@
 ﻿using OpsFlow.Core.Services;
 using OpsFlow.UI.Forms.Core;
+using OpsFlow.UI.Forms.Auth;
 
-namespace OpsFlow.UI.Forms
+namespace OpsFlow.UI.Forms.Main
 {
     public partial class MainForm : BaseForm
     {
