@@ -1,87 +1,95 @@
 ﻿using OpsFlow.Core.Enums;
 using OpsFlow.Core.Exceptions;
 using OpsFlow.Core.Services;
+using OpsFlow.Core.Models;
 using OpsFlow.Services.Implementations;
 using OpsFlow.UI.Forms.Core;
 using OpsFlow.UI.Forms.Main;
 using OpsFlow.UI.Forms.Dialogs.Notifications;
 
-namespace OpsFlow.UI.Forms.Auth
+namespace OpsFlow.UI.Forms.Auth;
+
+public partial class LoginForm : BaseForm
 {
-    public partial class LoginForm : BaseForm
+    public LoginForm()
     {
-        public LoginForm()
+        InitializeComponent();
+    }
+
+    private void lnkForgotText_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+    {
+        WindowManager.Switch<ForgotPasswordForm>(this);
+    }
+
+    private async void btnLogin_Click(object sender, EventArgs e)
+    {
+        if (btnLogin.Text == "Giriş yapılıyor...")
+            return;
+
+        string email = txtEmail.Text.Trim();
+        string password = txtPassword.Text.Trim();
+
+        if (string.IsNullOrEmpty(email) || string.IsNullOrEmpty(password))
         {
-            InitializeComponent();
+            Notifier.Show("Eksik Bilgi", "Lütfen e-posta ve şifre alanlarını doldurunuz.", NotificationType.Warning);
+            return;
         }
 
-        private void lnkForgotText_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        btnLogin.Text = "Giriş yapılıyor...";
+        btnLogin.Enabled = false;
+
+        try
         {
-            WindowManager.Switch<ForgotPasswordForm>(this);
+            await Task.Run(() =>
+            {
+                var connectionService = new DatabaseConnectionService();
+                using var context = connectionService.CreateContext();
+                var userService = new UserService(context);
+
+                var user = userService.Authenticate(email, password);
+                UserSession.StartSession(user);
+            });
+
+            Notifier.Show("Giriş Başarılı", "Hoş geldiniz, yönlendiriliyorsunuz...", NotificationType.Success);
+            WindowManager.Switch<MainForm>(this);
         }
-
-        private async void btnLogin_Click(object sender, EventArgs e)
+        catch (ValidationException ex)
         {
-            if (btnLogin.Text == "Giriş yapılıyor...")
-                return;
-
-            btnLogin.Text = "Giriş yapılıyor...";
-
-            string email = txtEmail.Text.Trim();
-            string password = txtPassword.Text.Trim();
-
-            try
+            Notifier.Show("Doğrulama Hatası", ex.Message, NotificationType.Warning);
+        }
+        catch (AuthenticationException ex)
+        {
+            Notifier.Show("Giriş Başarısız", ex.Message, NotificationType.Error);
+        }
+        catch (Exception ex)
+        {
+            Notifier.Show("Sistem Hatası", $"Beklenmedik bir hata oluştu: {ex.Message}", NotificationType.Error);
+        }
+        finally
+        {
+            if (!IsDisposed)
             {
-                await Task.Run(() =>
-                {
-                    var connectionService = new DatabaseConnectionService();
-                    using (var context = connectionService.CreateContext())
-                    {
-                        var userService = new UserService(context);
-                        var user = userService.Authenticate(email, password);
-                    }
-                });
-
-                Notifier.Show("Başarılı", "Giriş başarılı, yönlendiriliyorsunuz...", NotificationType.Success);
-                WindowManager.Switch<MainForm>(this);
-            }
-            catch (ValidationException ex)
-            {
-                Notifier.Show("Doğrulama Hatası", ex.Message, NotificationType.Warning);
-            }
-            catch (AuthenticationException ex)
-            {
-                Notifier.Show("Giriş Başarısız", ex.Message, NotificationType.Error);
-            }
-            catch (Exception ex)
-            {
-                Notifier.Show("Sistem Hatası", $"Beklenmedik bir hata oluştu: {ex.Message}", NotificationType.Error);
-            }
-            finally
-            {
-                if (!this.IsDisposed)
-                {
-                    btnLogin.Text = "Giriş Yap";
-                }
+                btnLogin.Text = "Giriş Yap";
+                btnLogin.Enabled = true;
             }
         }
+    }
 
-        private void txtEmail_KeyDown(object sender, KeyEventArgs e)
+    private void txtEmail_KeyDown(object sender, KeyEventArgs e)
+    {
+        if (e.KeyCode == Keys.Enter)
         {
-            if (e.KeyCode == Keys.Enter)
-            {
-                e.SuppressKeyPress = true;
-                txtPassword.Focus();
-            }
+            e.SuppressKeyPress = true;
+            txtPassword.Focus();
         }
+    }
 
-        private void txtPassword_KeyDown(object sender, KeyEventArgs e)
+    private void txtPassword_KeyDown(object sender, KeyEventArgs e)
+    {
+        if (e.KeyCode == Keys.Enter)
         {
-            if (e.KeyCode == Keys.Enter)
-            {
-                e.SuppressKeyPress = true;
-                btnLogin.PerformClick();
-            }
+            e.SuppressKeyPress = true;
+            btnLogin.PerformClick();
         }
     }
 }
