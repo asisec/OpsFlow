@@ -1,30 +1,58 @@
-﻿using OpsFlow.Core.Services;
+﻿using Guna.UI2.WinForms;
+
+using OpsFlow.UI.Controls;
 using OpsFlow.UI.Forms.Core;
-using OpsFlow.UI.Forms.Auth;
 
-namespace OpsFlow.UI.Forms.Main
+namespace OpsFlow.UI.Forms.Main;
+
+public partial class MainForm : BaseForm
 {
-    public partial class MainForm : BaseForm
+    private NavbarControl? _navbar;
+    private Guna2Panel? _contentPanel;
+
+    public MainForm()
     {
-        public MainForm()
-        {
-            InitializeComponent();
+        InitializeComponent();
+        InitializeLayout();
+    }
 
-            if (this.HeaderPanel != null)
-            {
-                this.HeaderPanel.SendToBack();
-            }
-        }
+    private void InitializeLayout()
+    {
+        Text = "OpsFlow Dashboard";
 
-        private void btnLogout_Click(object sender, EventArgs e)
+        _navbar = new NavbarControl
         {
-            WindowManager.Switch<LoginForm>(this);
-        }
+            Dock = DockStyle.Left
+        };
 
-        protected override void OnFormClosed(FormClosedEventArgs e)
+        _contentPanel = new Guna2Panel
         {
-            base.OnFormClosed(e);
-            WindowManager.Exit();
+            Dock = DockStyle.Fill,
+            BackColor = Color.FromArgb(245, 247, 251)
+        };
+
+        Controls.Add(_contentPanel);
+        Controls.Add(_navbar);
+
+        _navbar.DashboardClicked += (s, e) => LoadContent("Dashboard");
+        _navbar.StaffClicked += (s, e) => LoadContent("Staff");
+        _navbar.TasksClicked += (s, e) => LoadContent("Tasks");
+        _navbar.SettingsClicked += (s, e) => LoadContent("Settings");
+
+        if (HeaderPanel != null)
+        {
+            HeaderPanel.BringToFront();
         }
+    }
+
+    private void LoadContent(string viewName)
+    {
+
+    }
+
+    protected override void OnFormClosed(FormClosedEventArgs e)
+    {
+        base.OnFormClosed(e);
+        Application.Exit();
     }
 }
