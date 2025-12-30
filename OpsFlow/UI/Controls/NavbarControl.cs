@@ -1,32 +1,30 @@
 ﻿using Guna.UI2.WinForms;
 
-using OpsFlow.Core.Services;
-using OpsFlow.Core.Session;
-using OpsFlow.UI.Forms.Auth;
-using OpsFlow.UI.Forms.Core;
+using System.ComponentModel;
+using System.Security.Cryptography;
+using System.Text;
 
 namespace OpsFlow.UI.Controls;
 
 public class NavbarControl : UserControl
 {
     private Guna2Panel _logoPanel;
-    private Guna2PictureBox _pbLogo;
-    private Guna2HtmlLabel _lblLogoText;
+    private Guna2PictureBox _logoPictureBox;
+    // _appLabel kaldırıldı.
 
     private Guna2Panel _menuPanel;
     private Guna2Button _btnDashboard;
     private Guna2Button _btnStaff;
     private Guna2Button _btnTasks;
 
-    private Guna2Panel _bottomPanel;
-    private Guna2Separator _separator;
+    private Guna2Panel _userPanel;
+    private Guna2CirclePictureBox _userAvatar;
+    private Label _userNameLabel;
+    private Label _userRoleLabel;
     private Guna2Button _btnSettings;
     private Guna2Button _btnLogout;
 
-    private Guna2Panel _profilePanel;
-    private Guna2CirclePictureBox _pbProfile;
-    private Guna2HtmlLabel _lblUserName;
-    private Guna2Button _btnProfileExpand;
+    private readonly string _cacheDirectory;
 
     public event EventHandler? DashboardClicked;
     public event EventHandler? StaffClicked;
@@ -35,214 +33,255 @@ public class NavbarControl : UserControl
 
     public NavbarControl()
     {
+        _cacheDirectory = Path.Combine(Application.StartupPath, "Cache", "Avatars");
         InitializeComponent();
-        LoadUserData();
+        EnsureCacheDirectoryExists();
+    }
+
+    private void EnsureCacheDirectoryExists()
+    {
+        if (!Directory.Exists(_cacheDirectory))
+        {
+            Directory.CreateDirectory(_cacheDirectory);
+        }
     }
 
     private void InitializeComponent()
     {
-        SuspendLayout();
+        Dock = DockStyle.Left;
+        Width = 260;
+        BackColor = Color.FromArgb(20, 24, 36);
 
-        BackColor = Color.FromArgb(20, 22, 31);
-        Name = "NavbarControl";
-        Size = new Size(260, 463);
-
-        InitializeLogoSection();
-        InitializeMenuSection();
-        InitializeBottomSection();
-
-        ResumeLayout(false);
+        InitializeLogoPanel();
+        InitializeUserPanel();
+        InitializeMenuPanel();
     }
 
-    private void InitializeLogoSection()
+    private void InitializeLogoPanel()
     {
         _logoPanel = new Guna2Panel
         {
             Dock = DockStyle.Top,
-            Height = 80,
+            Height = 100,
             BackColor = Color.Transparent
         };
 
-        _pbLogo = new Guna2PictureBox
+        // Logo ayarları: Yazıyı sildik, logoyu büyüttük ve ortaladık.
+        _logoPictureBox = new Guna2PictureBox
         {
-            Size = new Size(40, 40),
-            Location = new Point(20, 20),
-            SizeMode = PictureBoxSizeMode.Zoom
-        };
-        LoadAppLogo();
-
-        _lblLogoText = new Guna2HtmlLabel
-        {
-            Text = "<span style='font-family: Poppins; font-weight: bold; font-size: 16pt; color: #3b82f6;'>Ops</span><span style='font-family: Poppins; font-weight: bold; font-size: 16pt; color: #a855f7;'>Flow</span>",
-            Location = new Point(70, 22),
-            BackColor = Color.Transparent
+            Size = new Size(200, 70), // Genişlik ve yükseklik artırıldı
+            Location = new Point(30, 15), // Ortalanmış konum (Panel 260px, Logo 200px -> (260-200)/2 = 30)
+            SizeMode = PictureBoxSizeMode.Zoom, // Resmi bozmadan sığdırır
+            BackColor = Color.Transparent,
+            UseTransparentBackground = true
         };
 
-        _logoPanel.Controls.Add(_pbLogo);
-        _logoPanel.Controls.Add(_lblLogoText);
+        string logoPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Resources", "Images", "Logo.png");
+
+        if (File.Exists(logoPath))
+        {
+            _logoPictureBox.Image = Image.FromFile(logoPath);
+        }
+        else
+        {
+            // Geliştirme ortamında (debug) geriye gidip dosyayı bulma yedeği
+            string projectPath = Directory.GetParent(AppDomain.CurrentDomain.BaseDirectory)?.Parent?.Parent?.Parent?.FullName ?? "";
+            string devPath = Path.Combine(projectPath, "Resources", "Images", "Logo.png");
+
+            if (File.Exists(devPath))
+            {
+                _logoPictureBox.Image = Image.FromFile(devPath);
+            }
+        }
+
+        _logoPanel.Controls.Add(_logoPictureBox);
+        // _appLabel eklentisi kaldırıldı.
         Controls.Add(_logoPanel);
     }
 
-    private void InitializeMenuSection()
+    private void InitializeMenuPanel()
     {
         _menuPanel = new Guna2Panel
         {
             Dock = DockStyle.Fill,
-            Padding = new Padding(10, 20, 10, 0)
+            Padding = new Padding(10, 20, 10, 0),
+            BackColor = Color.Transparent
         };
 
-        _btnDashboard = CreateMenuButton("Ana Sayfa");
+        CreateMenuButton(ref _btnDashboard, "Ana Sayfa", 0);
+        CreateMenuButton(ref _btnStaff, "Personeller", 50);
+        CreateMenuButton(ref _btnTasks, "Görevler", 100);
+
         _btnDashboard.Click += (s, e) => DashboardClicked?.Invoke(this, EventArgs.Empty);
-
-        _btnStaff = CreateMenuButton("Personeller");
         _btnStaff.Click += (s, e) => StaffClicked?.Invoke(this, EventArgs.Empty);
-
-        _btnTasks = CreateMenuButton("Görevler");
         _btnTasks.Click += (s, e) => TasksClicked?.Invoke(this, EventArgs.Empty);
 
-        _menuPanel.Controls.Add(_btnTasks);
-        _menuPanel.Controls.Add(_btnStaff);
         _menuPanel.Controls.Add(_btnDashboard);
+        _menuPanel.Controls.Add(_btnStaff);
+        _menuPanel.Controls.Add(_btnTasks);
 
         Controls.Add(_menuPanel);
         _menuPanel.BringToFront();
     }
 
-    private void InitializeBottomSection()
+    private void InitializeUserPanel()
     {
-        _bottomPanel = new Guna2Panel
+        _userPanel = new Guna2Panel
         {
             Dock = DockStyle.Bottom,
-            Height = 180,
-            Padding = new Padding(10, 0, 10, 10)
+            Height = 160,
+            BackColor = Color.FromArgb(26, 31, 46)
         };
 
-        _separator = new Guna2Separator
+        _btnSettings = new Guna2Button
         {
-            Dock = DockStyle.Top,
-            FillColor = Color.FromArgb(40, 44, 55),
-            Height = 1
+            Text = "Ayarlar",
+            FillColor = Color.Transparent,
+            ForeColor = Color.Gray,
+            HoverState = { FillColor = Color.Transparent, ForeColor = Color.White },
+            TextAlign = HorizontalAlignment.Left,
+            Height = 35,
+            Width = 240,
+            Location = new Point(10, 10),
+            Cursor = Cursors.Hand
         };
-
-        _btnSettings = CreateMenuButton("Ayarlar");
-        _btnSettings.Dock = DockStyle.Top;
         _btnSettings.Click += (s, e) => SettingsClicked?.Invoke(this, EventArgs.Empty);
 
-        _btnLogout = CreateMenuButton("Çıkış Yap");
-        _btnLogout.Dock = DockStyle.Top;
-        _btnLogout.Click += BtnLogout_Click;
-
-        InitializeProfileSection();
-
-        _bottomPanel.Controls.Add(_profilePanel);
-        _bottomPanel.Controls.Add(_btnLogout);
-        _bottomPanel.Controls.Add(_btnSettings);
-        _bottomPanel.Controls.Add(_separator);
-
-        Controls.Add(_bottomPanel);
-    }
-
-    private void InitializeProfileSection()
-    {
-        _profilePanel = new Guna2Panel
+        _btnLogout = new Guna2Button
         {
-            Dock = DockStyle.Bottom,
-            Height = 60,
-            FillColor = Color.FromArgb(30, 34, 45),
-            BorderRadius = 10,
-            Margin = new Padding(0, 10, 0, 0)
+            Text = "Çıkış Yap",
+            FillColor = Color.Transparent,
+            ForeColor = Color.FromArgb(232, 17, 35),
+            HoverState = { FillColor = Color.Transparent, ForeColor = Color.Red },
+            TextAlign = HorizontalAlignment.Left,
+            Height = 35,
+            Width = 240,
+            Location = new Point(10, 45),
+            Cursor = Cursors.Hand
+        };
+        _btnLogout.Click += (s, e) => Application.Restart();
+
+        var separator = new Guna2Separator
+        {
+            Location = new Point(15, 85),
+            Width = 230,
+            FillColor = Color.FromArgb(40, 44, 55)
         };
 
-        _pbProfile = new Guna2CirclePictureBox
+        _userAvatar = new Guna2CirclePictureBox
         {
             Size = new Size(40, 40),
-            Location = new Point(10, 10),
+            Location = new Point(15, 100),
             SizeMode = PictureBoxSizeMode.StretchImage,
-            FillColor = Color.Gray
-        };
-
-        _lblUserName = new Guna2HtmlLabel
-        {
-            Text = "<span style='font-family: Poppins; font-size: 9pt; font-weight: 600; color: #ffffff;'>Kullanıcı</span>",
-            Location = new Point(60, 20),
-            AutoSize = false,
-            Width = 130,
-            Height = 20,
-            TextAlignment = ContentAlignment.MiddleLeft
-        };
-
-        _btnProfileExpand = new Guna2Button
-        {
-            Size = new Size(20, 20),
-            Location = new Point(200, 20),
-            FillColor = Color.Transparent,
-            Text = "^",
-            ForeColor = Color.LightGray,
-            Font = new Font("Consolas", 10),
+            FillColor = Color.FromArgb(40, 44, 55),
+            BackColor = Color.Transparent,
             UseTransparentBackground = true
         };
 
-        _profilePanel.Controls.Add(_pbProfile);
-        _profilePanel.Controls.Add(_lblUserName);
-        _profilePanel.Controls.Add(_btnProfileExpand);
+        _userNameLabel = new Label
+        {
+            Text = "...",
+            ForeColor = Color.White,
+            Font = new Font("Segoe UI", 9, FontStyle.Bold),
+            Location = new Point(65, 102),
+            AutoSize = true
+        };
+
+        _userRoleLabel = new Label
+        {
+            Text = "...",
+            ForeColor = Color.Gray,
+            Font = new Font("Segoe UI", 8, FontStyle.Regular),
+            Location = new Point(65, 122),
+            AutoSize = true
+        };
+
+        _userPanel.Controls.Add(_btnSettings);
+        _userPanel.Controls.Add(_btnLogout);
+        _userPanel.Controls.Add(separator);
+        _userPanel.Controls.Add(_userAvatar);
+        _userPanel.Controls.Add(_userNameLabel);
+        _userPanel.Controls.Add(_userRoleLabel);
+
+        Controls.Add(_userPanel);
     }
 
-    private Guna2Button CreateMenuButton(string text)
+    private void CreateMenuButton(ref Guna2Button btn, string text, int top)
     {
-        var btn = new Guna2Button
+        btn = new Guna2Button
         {
             Text = text,
-            Dock = DockStyle.Top,
+            Top = top,
             Height = 45,
+            Width = 240,
             FillColor = Color.Transparent,
-            ForeColor = Color.FromArgb(200, 200, 200),
-            Font = new Font("Poppins", 10F, FontStyle.Regular),
+            ForeColor = Color.FromArgb(160, 160, 160),
             TextAlign = HorizontalAlignment.Left,
-            ImageOffset = new Point(5, 0),
-            TextOffset = new Point(15, 0),
+            TextOffset = new Point(10, 0),
             BorderRadius = 8,
             Cursor = Cursors.Hand,
             Animated = true
         };
 
-        btn.HoverState.FillColor = Color.FromArgb(40, 44, 60);
+        btn.HoverState.FillColor = Color.FromArgb(40, 44, 55);
         btn.HoverState.ForeColor = Color.White;
-
-        return btn;
     }
 
-    private void LoadUserData()
+    public void SetUserInfo(string name, string surname, string role, string? avatarUrl)
     {
-        var user = UserSession.CurrentUser;
-        if (user != null)
-        {
-            _lblUserName.Text = $"<span style='font-family: Poppins; font-size: 9pt; font-weight: 600; color: #ffffff;'>{user.Name} {user.Surname}</span>";
+        _userNameLabel.Text = $"{name} {surname}";
+        _userRoleLabel.Text = role;
 
-            if (!string.IsNullOrEmpty(user.AvatarUrl) && File.Exists(user.AvatarUrl))
-            {
-                _pbProfile.Image = Image.FromFile(user.AvatarUrl);
-            }
-        }
+        _userAvatar.Image = null;
+
+        if (string.IsNullOrEmpty(avatarUrl)) return;
+
+        LoadAvatarAsync(avatarUrl);
     }
 
-    private void LoadAppLogo()
+    private async void LoadAvatarAsync(string url)
     {
         try
         {
-            string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Resources", "Images", "Logo.png");
-            if (File.Exists(path))
-                _pbLogo.Image = Image.FromFile(path);
+            if (File.Exists(url))
+            {
+                _userAvatar.Image = Image.FromFile(url);
+                return;
+            }
+
+            string fileName = GetHashString(url) + ".png";
+            string localPath = Path.Combine(_cacheDirectory, fileName);
+
+            if (File.Exists(localPath))
+            {
+                using var stream = new FileStream(localPath, FileMode.Open, FileAccess.Read);
+                _userAvatar.Image = Image.FromStream(stream);
+                return;
+            }
+
+            if (url.StartsWith("http", StringComparison.OrdinalIgnoreCase))
+            {
+                using var client = new HttpClient();
+                client.DefaultRequestHeaders.Add("User-Agent", "OpsFlow-Client/1.0");
+
+                var imageBytes = await client.GetByteArrayAsync(url);
+
+                await File.WriteAllBytesAsync(localPath, imageBytes);
+
+                using var ms = new MemoryStream(imageBytes);
+                _userAvatar.Image = new Bitmap(ms);
+            }
         }
-        catch { }
+        catch
+        {
+            _userAvatar.Image = null;
+        }
     }
 
-    private void BtnLogout_Click(object? sender, EventArgs e)
+    private string GetHashString(string input)
     {
-        UserSession.ClearSession();
-        var parentForm = this.FindForm();
-        if (parentForm != null)
-        {
-            WindowManager.Switch<LoginForm>(parentForm);
-        }
+        using var md5 = MD5.Create();
+        var hash = md5.ComputeHash(Encoding.UTF8.GetBytes(input));
+        return Convert.ToHexString(hash);
     }
 }

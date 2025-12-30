@@ -1,6 +1,6 @@
 ﻿using OpsFlow.Core.Models;
 
-namespace OpsFlow.Core.Session;
+namespace OpsFlow.Core.Models;
 
 public static class UserSession
 {

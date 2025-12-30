@@ -60,7 +60,7 @@
 
   <ItemGroup>
     <Resource Include="Resources\Images\Logo.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
   </ItemGroup>
 </Project>

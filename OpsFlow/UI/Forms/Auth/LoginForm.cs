@@ -1,7 +1,7 @@
 ﻿using OpsFlow.Core.Enums;
 using OpsFlow.Core.Exceptions;
 using OpsFlow.Core.Services;
-using OpsFlow.Core.Session;
+using OpsFlow.Core.Models;
 using OpsFlow.Services.Implementations;
 using OpsFlow.UI.Forms.Core;
 using OpsFlow.UI.Forms.Main;
