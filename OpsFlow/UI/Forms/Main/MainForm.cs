@@ -30,14 +30,7 @@ namespace OpsFlow.UI.Forms.Main
 
         private void btnPersonel_Click(object sender, EventArgs e)
         {
-            AddPersonelForm frm = new AddPersonelForm();
-            frm.TopLevel = false;
-            frm.FormBorderStyle = FormBorderStyle.None;
-            frm.Dock = DockStyle.Fill;
-            this.guna2Panel1.Controls.Clear();
-            this.guna2Panel1.Controls.Add(frm);
-            frm.BringToFront();
-            frm.Show();
+
         }
     }
 }
