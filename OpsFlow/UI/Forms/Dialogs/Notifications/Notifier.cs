@@ -1,7 +1,6 @@
 ﻿using OpsFlow.Core.Enums;
-using OpsFlow.UI.Forms.Notifications;
 
-namespace OpsFlow.UI.Forms.Dialogs
+namespace OpsFlow.UI.Forms.Dialogs.Notifications
 {
     public static class Notifier
     {

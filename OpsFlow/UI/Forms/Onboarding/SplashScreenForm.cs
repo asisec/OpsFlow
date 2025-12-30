@@ -1,11 +1,11 @@
 ﻿using Guna.UI2.WinForms;
-
 using OpsFlow.Core.Services;
 using OpsFlow.Services.Implementations;
 using OpsFlow.Services.Interfaces;
 using OpsFlow.UI.Forms.Core;
+using OpsFlow.UI.Forms.Auth;
 
-namespace OpsFlow.UI.Forms
+namespace OpsFlow.UI.Forms.Onboarding
 {
     public partial class SplashScreenForm : BaseForm
     {

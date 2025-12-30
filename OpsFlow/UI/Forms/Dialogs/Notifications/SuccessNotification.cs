@@ -1,6 +1,6 @@
 ﻿using OpsFlow.Core.Enums;
 
-namespace OpsFlow.UI.Forms.Notifications
+namespace OpsFlow.UI.Forms.Dialogs.Notifications
 {
     public class SuccessNotification : BaseNotificationForm
     {

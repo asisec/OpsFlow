@@ -4,7 +4,7 @@ using Guna.UI2.WinForms;
 
 using OpsFlow.Core.Enums;
 
-namespace OpsFlow.UI.Forms.Notifications
+namespace OpsFlow.UI.Forms.Dialogs.Notifications
 {
     public abstract class BaseNotificationForm : Form
     {

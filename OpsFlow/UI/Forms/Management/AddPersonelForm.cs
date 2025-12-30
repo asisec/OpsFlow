@@ -1,6 +1,6 @@
 ﻿using OpsFlow.UI.Forms.Core;
 
-namespace OpsFlow.UI.Forms
+namespace OpsFlow.UI.Forms.Management
 {
     public partial class AddPersonelForm : BaseForm
     {
