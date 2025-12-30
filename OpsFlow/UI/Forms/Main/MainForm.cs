@@ -42,10 +42,7 @@ public partial class MainForm : BaseForm
         _navbar.TasksClicked += (s, e) => LoadContent("Tasks");
         _navbar.SettingsClicked += (s, e) => LoadContent("Settings");
 
-        if (HeaderPanel != null)
-        {
-            HeaderPanel.BringToFront();
-        }
+        HeaderPanel?.BringToFront();
     }
 
     private void LoadUserData()
@@ -54,7 +51,7 @@ public partial class MainForm : BaseForm
 
         if (currentUser != null)
         {
-            string roleName = currentUser.Role != null ? currentUser.Role.RoleName : "Personel";
+            string roleName = currentUser.Role?.RoleName ?? "Personel";
 
             _navbar.SetUserInfo(
                 currentUser.Name,
@@ -67,6 +64,21 @@ public partial class MainForm : BaseForm
 
     private void LoadContent(string viewName)
     {
+        _contentPanel.Controls.Clear();
+
+        switch (viewName)
+        {
+            case "Dashboard":
+                break;
+            case "Staff":
+                break;
+            case "Tasks":
+                break;
+            case "Settings":
+                break;
+            default:
+                break;
+        }
     }
 
     protected override void OnFormClosed(FormClosedEventArgs e)
