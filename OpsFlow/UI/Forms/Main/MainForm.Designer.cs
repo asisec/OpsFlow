@@ -2,8 +2,15 @@
 {
     partial class MainForm
     {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
         private System.ComponentModel.IContainer components = null;
 
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -15,41 +22,62 @@
 
         #region Windows Form Designer generated code
 
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
         private void InitializeComponent()
         {
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            HeaderPanel.SuspendLayout();
-            SuspendLayout();
 
-            HeaderPanel.ShadowDecoration.CustomizableEdges = customizableEdges1;
-            HeaderPanel.Size = new Size(1382, 40);
+            // HeaderPanel BaseForm'dan geliyor
+            this.HeaderPanel.SuspendLayout();
+            this.SuspendLayout();
 
-            CloseButton.HoverState.FillColor = Color.FromArgb(232, 17, 35);
-            CloseButton.HoverState.IconColor = Color.White;
-            CloseButton.Location = new Point(1332, 0);
-            CloseButton.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            // 
+            // HeaderPanel
+            // 
+            this.HeaderPanel.ShadowDecoration.CustomizableEdges = customizableEdges1;
+            this.HeaderPanel.Size = new System.Drawing.Size(1382, 40);
 
-            MaximizeButton.HoverState.FillColor = Color.FromArgb(40, 44, 55);
-            MaximizeButton.HoverState.IconColor = Color.White;
-            MaximizeButton.Location = new Point(1282, 0);
-            MaximizeButton.ShadowDecoration.CustomizableEdges = customizableEdges3;
+            // 
+            // CloseButton
+            // 
+            this.CloseButton.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(17)))), ((int)(((byte)(35)))));
+            this.CloseButton.HoverState.IconColor = System.Drawing.Color.White;
+            this.CloseButton.Location = new System.Drawing.Point(1332, 0);
+            this.CloseButton.ShadowDecoration.CustomizableEdges = customizableEdges2;
 
-            MinimizeButton.HoverState.FillColor = Color.FromArgb(40, 44, 55);
-            MinimizeButton.HoverState.IconColor = Color.White;
-            MinimizeButton.Location = new Point(1232, 0);
-            MinimizeButton.ShadowDecoration.CustomizableEdges = customizableEdges4;
+            // 
+            // MaximizeButton
+            // 
+            this.MaximizeButton.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(44)))), ((int)(((byte)(55)))));
+            this.MaximizeButton.HoverState.IconColor = System.Drawing.Color.White;
+            this.MaximizeButton.Location = new System.Drawing.Point(1282, 0);
+            this.MaximizeButton.ShadowDecoration.CustomizableEdges = customizableEdges3;
 
-            AutoScaleDimensions = new SizeF(8F, 20F);
-            AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.FromArgb(26, 31, 46);
-            ClientSize = new Size(1382, 791);
-            Name = "MainForm";
-            Text = "OpsFlow Dashboard";
-            HeaderPanel.ResumeLayout(false);
-            ResumeLayout(false);
+            // 
+            // MinimizeButton
+            // 
+            this.MinimizeButton.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(44)))), ((int)(((byte)(55)))));
+            this.MinimizeButton.HoverState.IconColor = System.Drawing.Color.White;
+            this.MinimizeButton.Location = new System.Drawing.Point(1232, 0);
+            this.MinimizeButton.ShadowDecoration.CustomizableEdges = customizableEdges4;
+
+            // 
+            // MainForm
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(31)))), ((int)(((byte)(46)))));
+            this.ClientSize = new System.Drawing.Size(1382, 791);
+            this.Name = "MainForm";
+            this.Text = "OpsFlow Dashboard";
+            this.HeaderPanel.ResumeLayout(false);
+            this.ResumeLayout(false);
         }
 
         #endregion

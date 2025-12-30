@@ -7,8 +7,8 @@ namespace OpsFlow.UI.Forms.Main;
 
 public partial class MainForm : BaseForm
 {
-    private NavbarControl? _navbar;
-    private Guna2Panel? _contentPanel;
+    private NavbarControl _navbar = null!;
+    private Guna2Panel _contentPanel = null!;
 
     public MainForm()
     {
@@ -52,7 +52,7 @@ public partial class MainForm : BaseForm
     {
         var currentUser = UserSession.CurrentUser;
 
-        if (currentUser != null && _navbar != null)
+        if (currentUser != null)
         {
             string roleName = currentUser.Role != null ? currentUser.Role.RoleName : "Personel";
 
@@ -67,7 +67,6 @@ public partial class MainForm : BaseForm
 
     private void LoadContent(string viewName)
     {
-
     }
 
     protected override void OnFormClosed(FormClosedEventArgs e)

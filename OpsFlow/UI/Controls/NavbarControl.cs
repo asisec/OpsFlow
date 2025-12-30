@@ -1,6 +1,4 @@
 ﻿using Guna.UI2.WinForms;
-
-using System.ComponentModel;
 using System.Security.Cryptography;
 using System.Text;
 
@@ -8,21 +6,21 @@ namespace OpsFlow.UI.Controls;
 
 public class NavbarControl : UserControl
 {
-    private Guna2Panel _logoPanel;
-    private Guna2PictureBox _logoPictureBox;
-    // _appLabel kaldırıldı.
+    // CS8618 Uyarılarını gidermek için "= null!;" ekledik.
+    private Guna2Panel _logoPanel = null!;
+    private Guna2PictureBox _logoPictureBox = null!;
 
-    private Guna2Panel _menuPanel;
-    private Guna2Button _btnDashboard;
-    private Guna2Button _btnStaff;
-    private Guna2Button _btnTasks;
+    private Guna2Panel _menuPanel = null!;
+    private Guna2Button _btnDashboard = null!;
+    private Guna2Button _btnStaff = null!;
+    private Guna2Button _btnTasks = null!;
 
-    private Guna2Panel _userPanel;
-    private Guna2CirclePictureBox _userAvatar;
-    private Label _userNameLabel;
-    private Label _userRoleLabel;
-    private Guna2Button _btnSettings;
-    private Guna2Button _btnLogout;
+    private Guna2Panel _userPanel = null!;
+    private Guna2CirclePictureBox _userAvatar = null!;
+    private Label _userNameLabel = null!;
+    private Label _userRoleLabel = null!;
+    private Guna2Button _btnSettings = null!;
+    private Guna2Button _btnLogout = null!;
 
     private readonly string _cacheDirectory;
 
@@ -66,12 +64,11 @@ public class NavbarControl : UserControl
             BackColor = Color.Transparent
         };
 
-        // Logo ayarları: Yazıyı sildik, logoyu büyüttük ve ortaladık.
         _logoPictureBox = new Guna2PictureBox
         {
-            Size = new Size(200, 70), // Genişlik ve yükseklik artırıldı
-            Location = new Point(30, 15), // Ortalanmış konum (Panel 260px, Logo 200px -> (260-200)/2 = 30)
-            SizeMode = PictureBoxSizeMode.Zoom, // Resmi bozmadan sığdırır
+            Size = new Size(200, 70),
+            Location = new Point(30, 15),
+            SizeMode = PictureBoxSizeMode.Zoom,
             BackColor = Color.Transparent,
             UseTransparentBackground = true
         };
@@ -84,7 +81,6 @@ public class NavbarControl : UserControl
         }
         else
         {
-            // Geliştirme ortamında (debug) geriye gidip dosyayı bulma yedeği
             string projectPath = Directory.GetParent(AppDomain.CurrentDomain.BaseDirectory)?.Parent?.Parent?.Parent?.FullName ?? "";
             string devPath = Path.Combine(projectPath, "Resources", "Images", "Logo.png");
 
@@ -95,7 +91,6 @@ public class NavbarControl : UserControl
         }
 
         _logoPanel.Controls.Add(_logoPictureBox);
-        // _appLabel eklentisi kaldırıldı.
         Controls.Add(_logoPanel);
     }
 
