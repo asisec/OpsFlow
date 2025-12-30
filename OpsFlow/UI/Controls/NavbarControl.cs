@@ -6,7 +6,6 @@ namespace OpsFlow.UI.Controls;
 
 public class NavbarControl : UserControl
 {
-    // CS8618 Uyarılarını gidermek için "= null!;" ekledik.
     private Guna2Panel _logoPanel = null!;
     private Guna2PictureBox _logoPictureBox = null!;
 
@@ -201,7 +200,7 @@ public class NavbarControl : UserControl
         Controls.Add(_userPanel);
     }
 
-    private void CreateMenuButton(ref Guna2Button btn, string text, int top)
+    private static void CreateMenuButton(ref Guna2Button btn, string text, int top)
     {
         btn = new Guna2Button
         {
@@ -273,10 +272,10 @@ public class NavbarControl : UserControl
         }
     }
 
-    private string GetHashString(string input)
+    private static string GetHashString(string input)
     {
-        using var md5 = MD5.Create();
-        var hash = md5.ComputeHash(Encoding.UTF8.GetBytes(input));
-        return Convert.ToHexString(hash);
+        var inputBytes = Encoding.UTF8.GetBytes(input);
+        var hashBytes = MD5.HashData(inputBytes);
+        return Convert.ToHexString(hashBytes);
     }
 }
