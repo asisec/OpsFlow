@@ -15,7 +15,7 @@ namespace OpsFlow.UI.Forms.Management
 
         }
 
-        private void picProfilePhoto_Click(object sender, EventArgs e)
+        private void picProfilePhoto_Click_1(object sender, EventArgs e)
         {
             using (OpenFileDialog openFileDialog = new OpenFileDialog())
             {
@@ -28,17 +28,7 @@ namespace OpsFlow.UI.Forms.Management
             }
         }
 
-        private void picProfilePhoto_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
         private void guna2HtmlLabel1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnBack_Click(object sender, EventArgs e)
         {
 
         }
@@ -49,6 +39,40 @@ namespace OpsFlow.UI.Forms.Management
         }
 
         private void guna2Button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pnlContainer_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void btnCustomerType_Click(object sender, EventArgs e)
+        {
+            Form dimmer = new Form();
+            dimmer.FormBorderStyle = FormBorderStyle.None;
+            dimmer.BackColor = Color.Black;
+            dimmer.Opacity = 0.60d;
+            dimmer.ShowInTaskbar = false;
+            dimmer.StartPosition = FormStartPosition.Manual;
+            dimmer.Location = this.Location;
+            dimmer.Size = this.Size;
+            using (CompanyRegisterForm popup = new CompanyRegisterForm())
+            {
+                popup.StartPosition = FormStartPosition.CenterParent;
+                dimmer.Show(this);
+                popup.ShowDialog(dimmer);
+                dimmer.Close();
+            }
+        }
+
+        private void AddPersonelForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtSurname_TextChanged(object sender, EventArgs e)
         {
 
         }

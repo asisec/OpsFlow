@@ -54,7 +54,7 @@
             guna2Button5 = new Guna.UI2.WinForms.Guna2Button();
             guna2Button4 = new Guna.UI2.WinForms.Guna2Button();
             guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
-            guna2Button3 = new Guna.UI2.WinForms.Guna2Button();
+            btnPersonel = new Guna.UI2.WinForms.Guna2Button();
             guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
             guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
@@ -106,7 +106,7 @@
             sidebarNavList.Controls.Add(guna2Button5);
             sidebarNavList.Controls.Add(guna2Button4);
             sidebarNavList.Controls.Add(guna2Button1);
-            sidebarNavList.Controls.Add(guna2Button3);
+            sidebarNavList.Controls.Add(btnPersonel);
             sidebarNavList.Controls.Add(guna2Button2);
             sidebarNavList.Controls.Add(guna2PictureBox1);
             sidebarNavList.CustomizableEdges = customizableEdges23;
@@ -341,42 +341,43 @@
             guna2Button1.TextAlign = HorizontalAlignment.Left;
             guna2Button1.TextOffset = new Point(20, 0);
             // 
-            // guna2Button3
+            // btnPersonel
             // 
-            guna2Button3.BackColor = Color.Transparent;
-            guna2Button3.BorderColor = Color.FromArgb(48, 48, 61);
-            guna2Button3.BorderRadius = 12;
-            guna2Button3.BorderThickness = 2;
-            guna2Button3.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
-            guna2Button3.CheckedState.BorderColor = Color.FromArgb(53, 58, 80);
-            guna2Button3.CheckedState.FillColor = Color.FromArgb(53, 58, 80);
-            guna2Button3.CheckedState.ForeColor = Color.FromArgb(34, 211, 238);
-            guna2Button3.CustomizableEdges = customizableEdges17;
-            guna2Button3.DisabledState.BorderColor = Color.DarkGray;
-            guna2Button3.DisabledState.CustomBorderColor = Color.DarkGray;
-            guna2Button3.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
-            guna2Button3.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            guna2Button3.FillColor = Color.Transparent;
-            guna2Button3.Font = new Font("Poppins", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 162);
-            guna2Button3.ForeColor = Color.FromArgb(107, 91, 182);
-            guna2Button3.HoverState.FillColor = Color.FromArgb(45, 50, 62);
-            guna2Button3.HoverState.ForeColor = Color.White;
-            guna2Button3.ImageAlign = HorizontalAlignment.Left;
-            guna2Button3.ImageOffset = new Point(10, 0);
-            guna2Button3.ImageSize = new Size(24, 24);
-            guna2Button3.Location = new Point(0, 139);
-            guna2Button3.Margin = new Padding(0, 0, 0, 50);
-            guna2Button3.Name = "guna2Button3";
-            guna2Button3.ShadowDecoration.BorderRadius = 12;
-            guna2Button3.ShadowDecoration.CustomizableEdges = customizableEdges18;
-            guna2Button3.ShadowDecoration.Depth = 50;
-            guna2Button3.ShadowDecoration.Enabled = true;
-            guna2Button3.ShadowDecoration.Shadow = new Padding(0, 0, 0, 5);
-            guna2Button3.Size = new Size(243, 50);
-            guna2Button3.TabIndex = 8;
-            guna2Button3.Text = "Personeller";
-            guna2Button3.TextAlign = HorizontalAlignment.Left;
-            guna2Button3.TextOffset = new Point(20, 0);
+            btnPersonel.BackColor = Color.Transparent;
+            btnPersonel.BorderColor = Color.FromArgb(48, 48, 61);
+            btnPersonel.BorderRadius = 12;
+            btnPersonel.BorderThickness = 2;
+            btnPersonel.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
+            btnPersonel.CheckedState.BorderColor = Color.FromArgb(53, 58, 80);
+            btnPersonel.CheckedState.FillColor = Color.FromArgb(53, 58, 80);
+            btnPersonel.CheckedState.ForeColor = Color.FromArgb(34, 211, 238);
+            btnPersonel.CustomizableEdges = customizableEdges17;
+            btnPersonel.DisabledState.BorderColor = Color.DarkGray;
+            btnPersonel.DisabledState.CustomBorderColor = Color.DarkGray;
+            btnPersonel.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            btnPersonel.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            btnPersonel.FillColor = Color.Transparent;
+            btnPersonel.Font = new Font("Poppins", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 162);
+            btnPersonel.ForeColor = Color.FromArgb(107, 91, 182);
+            btnPersonel.HoverState.FillColor = Color.FromArgb(45, 50, 62);
+            btnPersonel.HoverState.ForeColor = Color.White;
+            btnPersonel.ImageAlign = HorizontalAlignment.Left;
+            btnPersonel.ImageOffset = new Point(10, 0);
+            btnPersonel.ImageSize = new Size(24, 24);
+            btnPersonel.Location = new Point(0, 139);
+            btnPersonel.Margin = new Padding(0, 0, 0, 50);
+            btnPersonel.Name = "btnPersonel";
+            btnPersonel.ShadowDecoration.BorderRadius = 12;
+            btnPersonel.ShadowDecoration.CustomizableEdges = customizableEdges18;
+            btnPersonel.ShadowDecoration.Depth = 50;
+            btnPersonel.ShadowDecoration.Enabled = true;
+            btnPersonel.ShadowDecoration.Shadow = new Padding(0, 0, 0, 5);
+            btnPersonel.Size = new Size(243, 50);
+            btnPersonel.TabIndex = 8;
+            btnPersonel.Text = "Personeller";
+            btnPersonel.TextAlign = HorizontalAlignment.Left;
+            btnPersonel.TextOffset = new Point(20, 0);
+            btnPersonel.Click += btnPersonel_Click;
             // 
             // guna2Button2
             // 
@@ -530,7 +531,7 @@
         private Guna.UI2.WinForms.Guna2Button guna2Button5;
         private Guna.UI2.WinForms.Guna2Button guna2Button4;
         private Guna.UI2.WinForms.Guna2Button guna2Button1;
-        private Guna.UI2.WinForms.Guna2Button guna2Button3;
+        private Guna.UI2.WinForms.Guna2Button btnPersonel;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
         private Guna.UI2.WinForms.Guna2CirclePictureBox guna2CirclePictureBox1;
         private Guna.UI2.WinForms.Guna2TextBox txtSearch;
