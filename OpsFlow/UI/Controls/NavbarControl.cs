@@ -1,4 +1,6 @@
 ﻿using Guna.UI2.WinForms;
+
+using System.ComponentModel;
 using System.Security.Cryptography;
 using System.Text;
 
@@ -30,13 +32,22 @@ public class NavbarControl : UserControl
 
     public NavbarControl()
     {
-        _cacheDirectory = Path.Combine(Application.StartupPath, "Cache", "Avatars");
         InitializeComponent();
+
+        InitializeLogoPanel();
+        InitializeUserPanel();
+        InitializeMenuPanel();
+
+        if (LicenseManager.UsageMode == LicenseUsageMode.Designtime) return;
+
+        _cacheDirectory = Path.Combine(Application.StartupPath, "Cache", "Avatars");
         EnsureCacheDirectoryExists();
     }
 
     private void EnsureCacheDirectoryExists()
     {
+        if (string.IsNullOrEmpty(_cacheDirectory)) return;
+
         if (!Directory.Exists(_cacheDirectory))
         {
             Directory.CreateDirectory(_cacheDirectory);
@@ -45,13 +56,13 @@ public class NavbarControl : UserControl
 
     private void InitializeComponent()
     {
-        Dock = DockStyle.Left;
-        Width = 260;
-        BackColor = Color.FromArgb(20, 24, 36);
+        SuspendLayout();
 
-        InitializeLogoPanel();
-        InitializeUserPanel();
-        InitializeMenuPanel();
+        BackColor = Color.FromArgb(20, 24, 36);
+        Name = "NavbarControl";
+        Size = new Size(260, 600);
+
+        ResumeLayout(false);
     }
 
     private void InitializeLogoPanel()
@@ -72,20 +83,33 @@ public class NavbarControl : UserControl
             UseTransparentBackground = true
         };
 
-        string logoPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Resources", "Images", "Logo.png");
-
-        if (File.Exists(logoPath))
+        if (LicenseManager.UsageMode != LicenseUsageMode.Designtime)
         {
-            _logoPictureBox.Image = Image.FromFile(logoPath);
-        }
-        else
-        {
-            string projectPath = Directory.GetParent(AppDomain.CurrentDomain.BaseDirectory)?.Parent?.Parent?.Parent?.FullName ?? "";
-            string devPath = Path.Combine(projectPath, "Resources", "Images", "Logo.png");
-
-            if (File.Exists(devPath))
+            try
             {
-                _logoPictureBox.Image = Image.FromFile(devPath);
+                string logoPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Resources", "Images", "Logo.png");
+
+                if (File.Exists(logoPath))
+                {
+                    _logoPictureBox.Image = Image.FromFile(logoPath);
+                }
+                else
+                {
+                    string? baseDir = AppDomain.CurrentDomain.BaseDirectory;
+                    string? projectPath = Directory.GetParent(baseDir)?.Parent?.Parent?.Parent?.FullName;
+
+                    if (!string.IsNullOrEmpty(projectPath))
+                    {
+                        string devPath = Path.Combine(projectPath, "Resources", "Images", "Logo.png");
+                        if (File.Exists(devPath))
+                        {
+                            _logoPictureBox.Image = Image.FromFile(devPath);
+                        }
+                    }
+                }
+            }
+            catch
+            {
             }
         }
 
@@ -235,6 +259,8 @@ public class NavbarControl : UserControl
 
     private async void LoadAvatarAsync(string url)
     {
+        if (LicenseManager.UsageMode == LicenseUsageMode.Designtime) return;
+
         try
         {
             if (File.Exists(url))
@@ -242,6 +268,8 @@ public class NavbarControl : UserControl
                 _userAvatar.Image = Image.FromFile(url);
                 return;
             }
+
+            if (string.IsNullOrEmpty(_cacheDirectory)) return;
 
             string fileName = GetHashString(url) + ".png";
             string localPath = Path.Combine(_cacheDirectory, fileName);
