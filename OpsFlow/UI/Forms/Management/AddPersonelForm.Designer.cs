@@ -122,7 +122,7 @@
             guna2HtmlLabel1.BackColor = Color.Transparent;
             guna2HtmlLabel1.Font = new Font("Microsoft Sans Serif", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 162);
             guna2HtmlLabel1.ForeColor = Color.White;
-            guna2HtmlLabel1.Location = new Point(212, 100);
+            guna2HtmlLabel1.Location = new Point(225, 80);
             guna2HtmlLabel1.Name = "guna2HtmlLabel1";
             guna2HtmlLabel1.Size = new Size(186, 33);
             guna2HtmlLabel1.TabIndex = 1;
@@ -160,7 +160,7 @@
             pnlContainer.Controls.Add(txtName);
             pnlContainer.Controls.Add(picProfilePhoto);
             pnlContainer.CustomizableEdges = customizableEdges27;
-            pnlContainer.Location = new Point(266, 185);
+            pnlContainer.Location = new Point(225, 159);
             pnlContainer.Name = "pnlContainer";
             pnlContainer.ShadowDecoration.CustomizableEdges = customizableEdges28;
             pnlContainer.Size = new Size(1092, 583);
