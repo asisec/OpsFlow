@@ -24,4 +24,19 @@ public partial class PersonelListForm : Form
     {
 
     }
+
+    private void btnAddNewMember_Click(object sender, EventArgs e)
+    {
+        AddPersonelForm frm = new AddPersonelForm();
+        frm.TopLevel = false;
+        frm.FormBorderStyle = FormBorderStyle.None;
+        frm.Dock = DockStyle.Fill;
+        Panel anaPanel = this.Parent as Panel;
+        if (anaPanel != null)
+        {
+            anaPanel.Controls.Clear();
+            anaPanel.Controls.Add(frm);
+            frm.Show();
+        }
+    }
 }
