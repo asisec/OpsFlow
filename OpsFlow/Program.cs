@@ -1,6 +1,5 @@
 using OpsFlow.Core.Services;
 using OpsFlow.UI.Forms.Onboarding;
-using OpsFlow.UI.Forms.Management;
 
 namespace OpsFlow
 {
@@ -11,7 +10,7 @@ namespace OpsFlow
         {
             DotNetEnv.Env.Load();
             ApplicationConfiguration.Initialize();
-            WindowManager.Run<AddPersonelForm>();
+            WindowManager.Run<SplashScreenForm>();
         }
     }
 }
