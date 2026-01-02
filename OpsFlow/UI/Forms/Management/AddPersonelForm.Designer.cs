@@ -97,29 +97,32 @@
             // 
             CloseButton.HoverState.FillColor = Color.FromArgb(232, 17, 35);
             CloseButton.HoverState.IconColor = Color.White;
-            CloseButton.Location = new Point(1337, 0);
+            CloseButton.Location = new Point(1332, 0);
             CloseButton.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            CloseButton.Size = new Size(50, 35);
             // 
             // MaximizeButton
             // 
             MaximizeButton.HoverState.FillColor = Color.FromArgb(40, 40, 40);
             MaximizeButton.HoverState.IconColor = Color.White;
-            MaximizeButton.Location = new Point(1292, 0);
+            MaximizeButton.Location = new Point(1282, 0);
             MaximizeButton.ShadowDecoration.CustomizableEdges = customizableEdges3;
+            MaximizeButton.Size = new Size(50, 35);
             // 
             // MinimizeButton
             // 
             MinimizeButton.HoverState.FillColor = Color.FromArgb(40, 40, 40);
             MinimizeButton.HoverState.IconColor = Color.White;
-            MinimizeButton.Location = new Point(1247, 0);
+            MinimizeButton.Location = new Point(1232, 0);
             MinimizeButton.ShadowDecoration.CustomizableEdges = customizableEdges4;
+            MinimizeButton.Size = new Size(50, 35);
             // 
             // guna2HtmlLabel1
             // 
             guna2HtmlLabel1.BackColor = Color.Transparent;
             guna2HtmlLabel1.Font = new Font("Microsoft Sans Serif", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 162);
             guna2HtmlLabel1.ForeColor = Color.White;
-            guna2HtmlLabel1.Location = new Point(212, 100);
+            guna2HtmlLabel1.Location = new Point(225, 80);
             guna2HtmlLabel1.Name = "guna2HtmlLabel1";
             guna2HtmlLabel1.Size = new Size(186, 33);
             guna2HtmlLabel1.TabIndex = 1;
@@ -157,7 +160,7 @@
             pnlContainer.Controls.Add(txtName);
             pnlContainer.Controls.Add(picProfilePhoto);
             pnlContainer.CustomizableEdges = customizableEdges27;
-            pnlContainer.Location = new Point(266, 185);
+            pnlContainer.Location = new Point(225, 159);
             pnlContainer.Name = "pnlContainer";
             pnlContainer.ShadowDecoration.CustomizableEdges = customizableEdges28;
             pnlContainer.Size = new Size(1092, 583);
