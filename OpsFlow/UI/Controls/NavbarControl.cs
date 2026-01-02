@@ -4,6 +4,8 @@ using System.ComponentModel;
 using System.Security.Cryptography;
 using System.Text;
 
+using Timer = System.Windows.Forms.Timer;
+
 namespace OpsFlow.UI.Controls;
 
 public class NavbarControl : UserControl
@@ -20,10 +22,20 @@ public class NavbarControl : UserControl
     private Guna2CirclePictureBox _userAvatar = null!;
     private Label _userNameLabel = null!;
     private Label _userRoleLabel = null!;
+    private Label _arrowLabel = null!;
+
+    private Guna2Panel _dropdownPanel = null!;
     private Guna2Button _btnSettings = null!;
     private Guna2Button _btnLogout = null!;
 
-    private readonly string _cacheDirectory;
+    // CS8618 Düzeltmesi: Başlangıç değeri atandı.
+    private readonly string _cacheDirectory = Path.Combine(Application.StartupPath, "Cache", "Avatars");
+
+    private Timer _animationTimer = null!;
+    private bool _isDropdownOpen = false;
+
+    // IDE0044 Düzeltmesi: Salt okunur yapıldı.
+    private readonly int _targetHeight = 110;
 
     public event EventHandler? DashboardClicked;
     public event EventHandler? StaffClicked;
@@ -37,10 +49,17 @@ public class NavbarControl : UserControl
         InitializeLogoPanel();
         InitializeUserPanel();
         InitializeMenuPanel();
+        InitializeDropdownMenu();
+        InitializeAnimation();
+
+        _logoPanel.SendToBack();
+        _userPanel.SendToBack();
+        _menuPanel.BringToFront();
+
+        _dropdownPanel.BringToFront();
 
         if (LicenseManager.UsageMode == LicenseUsageMode.Designtime) return;
 
-        _cacheDirectory = Path.Combine(Application.StartupPath, "Cache", "Avatars");
         EnsureCacheDirectoryExists();
     }
 
@@ -63,6 +82,63 @@ public class NavbarControl : UserControl
         Size = new Size(260, 600);
 
         ResumeLayout(false);
+    }
+
+    private void InitializeAnimation()
+    {
+        _animationTimer = new Timer
+        {
+            Interval = 10
+        };
+        _animationTimer.Tick += AnimationTimer_Tick;
+    }
+
+    private void AnimationTimer_Tick(object? sender, EventArgs e)
+    {
+        if (_isDropdownOpen)
+        {
+            if (!_dropdownPanel.Visible)
+            {
+                _dropdownPanel.Visible = true;
+                _dropdownPanel.Height = 0;
+                _dropdownPanel.BringToFront();
+            }
+
+            if (_dropdownPanel.Height < _targetHeight)
+            {
+                _dropdownPanel.Height += 10;
+
+                int newTop = _userPanel.Location.Y - _dropdownPanel.Height - 5;
+                _dropdownPanel.Location = new Point(10, newTop);
+
+                if (_dropdownPanel.Height > _targetHeight)
+                    _dropdownPanel.Height = _targetHeight;
+            }
+            else
+            {
+                _animationTimer.Stop();
+            }
+
+            _arrowLabel.Text = "▲";
+        }
+        else
+        {
+            if (_dropdownPanel.Height > 0)
+            {
+                _dropdownPanel.Height -= 10;
+
+                int newTop = _userPanel.Location.Y - _dropdownPanel.Height - 5;
+                _dropdownPanel.Location = new Point(10, newTop);
+
+                if (_dropdownPanel.Height <= 0)
+                {
+                    _dropdownPanel.Height = 0;
+                    _dropdownPanel.Visible = false;
+                    _animationTimer.Stop();
+                }
+            }
+            _arrowLabel.Text = "▼";
+        }
     }
 
     private void InitializeLogoPanel()
@@ -108,9 +184,7 @@ public class NavbarControl : UserControl
                     }
                 }
             }
-            catch
-            {
-            }
+            catch { }
         }
 
         _logoPanel.Controls.Add(_logoPictureBox);
@@ -126,9 +200,17 @@ public class NavbarControl : UserControl
             BackColor = Color.Transparent
         };
 
-        CreateMenuButton(ref _btnDashboard, "Ana Sayfa", 0);
-        CreateMenuButton(ref _btnStaff, "Personeller", 50);
-        CreateMenuButton(ref _btnTasks, "Görevler", 100);
+        CreateMenuButton(ref _btnDashboard, "Ana Sayfa", 10);
+
+        var separator1 = CreateSeparator(70);
+        _menuPanel.Controls.Add(separator1);
+
+        CreateMenuButton(ref _btnStaff, "Personeller", 80);
+
+        var separator2 = CreateSeparator(140);
+        _menuPanel.Controls.Add(separator2);
+
+        CreateMenuButton(ref _btnTasks, "Görevler", 150);
 
         _btnDashboard.Click += (s, e) => DashboardClicked?.Invoke(this, EventArgs.Empty);
         _btnStaff.Click += (s, e) => StaffClicked?.Invoke(this, EventArgs.Empty);
@@ -139,16 +221,19 @@ public class NavbarControl : UserControl
         _menuPanel.Controls.Add(_btnTasks);
 
         Controls.Add(_menuPanel);
-        _menuPanel.BringToFront();
     }
 
-    private void InitializeUserPanel()
+    private void InitializeDropdownMenu()
     {
-        _userPanel = new Guna2Panel
+        _dropdownPanel = new Guna2Panel
         {
-            Dock = DockStyle.Bottom,
-            Height = 160,
-            BackColor = Color.FromArgb(26, 31, 46)
+            Width = 240,
+            Height = 0,
+            BackColor = Color.FromArgb(26, 31, 46),
+            Visible = false,
+            BorderRadius = 12,
+            BorderColor = Color.FromArgb(40, 44, 55),
+            BorderThickness = 1
         };
 
         _btnSettings = new Guna2Button
@@ -156,93 +241,167 @@ public class NavbarControl : UserControl
             Text = "Ayarlar",
             FillColor = Color.Transparent,
             ForeColor = Color.Gray,
-            HoverState = { FillColor = Color.Transparent, ForeColor = Color.White },
+            HoverState = { FillColor = Color.FromArgb(40, 44, 55), ForeColor = Color.White },
             TextAlign = HorizontalAlignment.Left,
-            Height = 35,
-            Width = 240,
-            Location = new Point(10, 10),
-            Cursor = Cursors.Hand
+            Height = 40,
+            Width = 220,
+            Location = new Point(10, 5),
+            BorderRadius = 10,
+            Cursor = Cursors.Hand,
+            Font = new Font("Segoe UI Semibold", 10F),
+            Image = GetIcon("settings"),
+            ImageOffset = new Point(5, 0),
+            TextOffset = new Point(10, 0)
         };
-        _btnSettings.Click += (s, e) => SettingsClicked?.Invoke(this, EventArgs.Empty);
+        _btnSettings.Click += (s, e) =>
+        {
+            SettingsClicked?.Invoke(this, EventArgs.Empty);
+            ToggleUserMenu();
+        };
+
+        var separator = new Guna2Separator
+        {
+            Width = 200,
+            Height = 1,
+            Location = new Point(20, 50),
+            FillColor = Color.FromArgb(40, 44, 55),
+            FillThickness = 1
+        };
 
         _btnLogout = new Guna2Button
         {
             Text = "Çıkış Yap",
             FillColor = Color.Transparent,
             ForeColor = Color.FromArgb(232, 17, 35),
-            HoverState = { FillColor = Color.Transparent, ForeColor = Color.Red },
+            HoverState = { FillColor = Color.FromArgb(40, 44, 55), ForeColor = Color.Red },
             TextAlign = HorizontalAlignment.Left,
-            Height = 35,
-            Width = 240,
-            Location = new Point(10, 45),
-            Cursor = Cursors.Hand
+            Height = 40,
+            Width = 220,
+            Location = new Point(10, 55),
+            BorderRadius = 10,
+            Cursor = Cursors.Hand,
+            Font = new Font("Segoe UI Semibold", 10F),
+            Image = GetIcon("logout"),
+            ImageOffset = new Point(5, 0),
+            TextOffset = new Point(10, 0)
         };
         _btnLogout.Click += (s, e) => Application.Restart();
 
-        var separator = new Guna2Separator
+        _dropdownPanel.Controls.Add(_btnSettings);
+        _dropdownPanel.Controls.Add(separator);
+        _dropdownPanel.Controls.Add(_btnLogout);
+
+        Controls.Add(_dropdownPanel);
+    }
+
+    private void InitializeUserPanel()
+    {
+        _userPanel = new Guna2Panel
         {
-            Location = new Point(15, 85),
-            Width = 230,
-            FillColor = Color.FromArgb(40, 44, 55)
+            Dock = DockStyle.Bottom,
+            Height = 90,
+            BackColor = Color.FromArgb(26, 31, 46),
+            Cursor = Cursors.Hand,
+            Padding = new Padding(10)
         };
+
+        _userPanel.Click += (s, e) => ToggleUserMenu();
 
         _userAvatar = new Guna2CirclePictureBox
         {
-            Size = new Size(40, 40),
-            Location = new Point(15, 100),
+            Size = new Size(50, 50),
+            Location = new Point(15, 20),
             SizeMode = PictureBoxSizeMode.StretchImage,
             FillColor = Color.FromArgb(40, 44, 55),
             BackColor = Color.Transparent,
             UseTransparentBackground = true
         };
+        _userAvatar.Click += (s, e) => ToggleUserMenu();
 
         _userNameLabel = new Label
         {
             Text = "...",
             ForeColor = Color.White,
-            Font = new Font("Segoe UI", 9, FontStyle.Bold),
-            Location = new Point(65, 102),
-            AutoSize = true
+            Font = new Font("Segoe UI", 11, FontStyle.Bold),
+            Location = new Point(75, 25),
+            AutoSize = true,
+            Cursor = Cursors.Hand
         };
+        _userNameLabel.Click += (s, e) => ToggleUserMenu();
 
         _userRoleLabel = new Label
         {
             Text = "...",
             ForeColor = Color.Gray,
-            Font = new Font("Segoe UI", 8, FontStyle.Regular),
-            Location = new Point(65, 122),
-            AutoSize = true
+            Font = new Font("Segoe UI Semibold", 9),
+            Location = new Point(75, 48),
+            AutoSize = true,
+            Cursor = Cursors.Hand
         };
+        _userRoleLabel.Click += (s, e) => ToggleUserMenu();
 
-        _userPanel.Controls.Add(_btnSettings);
-        _userPanel.Controls.Add(_btnLogout);
-        _userPanel.Controls.Add(separator);
+        _arrowLabel = new Label
+        {
+            Text = "▼",
+            ForeColor = Color.Gray,
+            Font = new Font("Segoe UI", 10, FontStyle.Bold),
+            Location = new Point(220, 35),
+            AutoSize = true,
+            Cursor = Cursors.Hand
+        };
+        _arrowLabel.Click += (s, e) => ToggleUserMenu();
+
         _userPanel.Controls.Add(_userAvatar);
         _userPanel.Controls.Add(_userNameLabel);
         _userPanel.Controls.Add(_userRoleLabel);
+        _userPanel.Controls.Add(_arrowLabel);
 
         Controls.Add(_userPanel);
     }
 
+    private void ToggleUserMenu()
+    {
+        if (_animationTimer.Enabled) return;
+
+        _isDropdownOpen = !_isDropdownOpen;
+        _dropdownPanel.BringToFront();
+        _animationTimer.Start();
+    }
+
+    // CA1822 Düzeltmesi: Static yapıldı (Zaten statikti, korundu).
     private static void CreateMenuButton(ref Guna2Button btn, string text, int top)
     {
         btn = new Guna2Button
         {
             Text = text,
             Top = top,
-            Height = 45,
+            Height = 50,
             Width = 240,
             FillColor = Color.Transparent,
             ForeColor = Color.FromArgb(160, 160, 160),
             TextAlign = HorizontalAlignment.Left,
-            TextOffset = new Point(10, 0),
-            BorderRadius = 8,
+            TextOffset = new Point(15, 0),
+            BorderRadius = 12,
             Cursor = Cursors.Hand,
-            Animated = true
+            Animated = true,
+            Font = new Font("Segoe UI Semibold", 11F)
         };
 
         btn.HoverState.FillColor = Color.FromArgb(40, 44, 55);
         btn.HoverState.ForeColor = Color.White;
+    }
+
+    // CA1822 Düzeltmesi: Static yapıldı.
+    private static Guna2Separator CreateSeparator(int top)
+    {
+        return new Guna2Separator
+        {
+            Width = 200,
+            Height = 1,
+            Location = new Point(30, top),
+            FillColor = Color.FromArgb(40, 44, 55),
+            FillThickness = 1
+        };
     }
 
     public void SetUserInfo(string name, string surname, string role, string? avatarUrl)
@@ -300,10 +459,44 @@ public class NavbarControl : UserControl
         }
     }
 
+    // CA1822 Düzeltmesi: Static yapıldı.
     private static string GetHashString(string input)
     {
         var inputBytes = Encoding.UTF8.GetBytes(input);
         var hashBytes = MD5.HashData(inputBytes);
         return Convert.ToHexString(hashBytes);
+    }
+
+    // CA1822 Düzeltmesi: Static yapıldı.
+    private static Image? GetIcon(string iconName)
+    {
+        if (LicenseManager.UsageMode == LicenseUsageMode.Designtime) return null;
+
+        try
+        {
+            string iconPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Resources", "Icons", $"{iconName}.png");
+
+            if (File.Exists(iconPath))
+            {
+                return Image.FromFile(iconPath);
+            }
+            else
+            {
+                string? baseDir = AppDomain.CurrentDomain.BaseDirectory;
+                string? projectPath = Directory.GetParent(baseDir)?.Parent?.Parent?.Parent?.FullName;
+
+                if (!string.IsNullOrEmpty(projectPath))
+                {
+                    string devPath = Path.Combine(projectPath, "Resources", "Icons", $"{iconName}.png");
+                    if (File.Exists(devPath))
+                    {
+                        return Image.FromFile(devPath);
+                    }
+                }
+            }
+        }
+        catch { }
+
+        return null;
     }
 }
