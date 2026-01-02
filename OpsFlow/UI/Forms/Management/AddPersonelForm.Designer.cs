@@ -407,7 +407,6 @@
             btnSave.Size = new Size(213, 42);
             btnSave.TabIndex = 15;
             btnSave.Text = "Kaydet";
-            btnSave.Click += guna2Button1_Click;
             // 
             // btnCompanyRegister
             // 
