@@ -12,6 +12,7 @@ public class BaseForm : Form
     private Guna2DragControl? dragControl;
 
     public Guna2Panel? HeaderPanel;
+
     protected Guna2ControlBox? CloseButton;
     protected Guna2ControlBox? MaximizeButton;
     protected Guna2ControlBox? MinimizeButton;
@@ -119,13 +120,11 @@ public class BaseForm : Form
         if (LicenseManager.UsageMode == LicenseUsageMode.Designtime) return;
 
         ApplyWindowStateLogic();
-
-        HeaderPanel?.BringToFront();
     }
 
     private void ApplyWindowStateLogic()
     {
-        var currentFormName = this.GetType().Name;
+        var currentFormName = GetType().Name;
 
         var excludedTypes = new List<string>
         {
@@ -133,9 +132,7 @@ public class BaseForm : Form
             "VerificationForm",
             "ResetPasswordForm",
             "ForgotPasswordForm",
-            "SplashScreenForm",
-            "CompanyRegisterForm",
-            "AddPersonelForm"
+            "SplashScreenForm"
         };
 
         if (excludedTypes.Contains(currentFormName))
