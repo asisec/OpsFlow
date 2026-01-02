@@ -52,5 +52,29 @@ namespace OpsFlow.UI.Forms.Management
         {
 
         }
+
+        private void guna2ComboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnCompanyRegister_Click(object sender, EventArgs e)
+        {
+            Form dimmer = new Form();
+            dimmer.FormBorderStyle = FormBorderStyle.None;
+            dimmer.BackColor = Color.Black;
+            dimmer.Opacity = 0.60d;
+            dimmer.ShowInTaskbar = false;
+            dimmer.StartPosition = FormStartPosition.Manual;
+            dimmer.Location = this.Location;
+            dimmer.Size = this.Size;
+            using (CompanyRegisterForm popup = new CompanyRegisterForm())
+            {
+                popup.StartPosition = FormStartPosition.CenterParent;
+                dimmer.Show(this);
+                popup.ShowDialog(dimmer);
+                dimmer.Close();
+            }
+        }
     }
 }
