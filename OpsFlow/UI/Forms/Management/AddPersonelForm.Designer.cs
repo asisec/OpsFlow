@@ -28,35 +28,35 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges29 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges30 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges31 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges32 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges55 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges56 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges33 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges34 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges35 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges36 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges37 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges38 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges39 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges40 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges41 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges42 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges43 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges44 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges45 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges46 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges47 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges48 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges49 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges50 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges51 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges52 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges53 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges27 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges28 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges9 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges10 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges11 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges12 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges13 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges14 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges15 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges16 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges17 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges18 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges19 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges20 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges21 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges22 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges23 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges24 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges25 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddPersonelForm));
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges54 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges26 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             pnlContainer = new Guna.UI2.WinForms.Guna2Panel();
             guna2HtmlLabel6 = new Guna.UI2.WinForms.Guna2HtmlLabel();
@@ -86,7 +86,7 @@
             // 
             // HeaderPanel
             // 
-            HeaderPanel.ShadowDecoration.CustomizableEdges = customizableEdges29;
+            HeaderPanel.ShadowDecoration.CustomizableEdges = customizableEdges1;
             HeaderPanel.Size = new Size(1382, 35);
             // 
             // CloseButton
@@ -94,7 +94,7 @@
             CloseButton.HoverState.FillColor = Color.FromArgb(232, 17, 35);
             CloseButton.HoverState.IconColor = Color.White;
             CloseButton.Location = new Point(1332, 0);
-            CloseButton.ShadowDecoration.CustomizableEdges = customizableEdges30;
+            CloseButton.ShadowDecoration.CustomizableEdges = customizableEdges2;
             CloseButton.Size = new Size(50, 35);
             // 
             // MaximizeButton
@@ -102,7 +102,7 @@
             MaximizeButton.HoverState.FillColor = Color.FromArgb(40, 40, 40);
             MaximizeButton.HoverState.IconColor = Color.White;
             MaximizeButton.Location = new Point(1282, 0);
-            MaximizeButton.ShadowDecoration.CustomizableEdges = customizableEdges31;
+            MaximizeButton.ShadowDecoration.CustomizableEdges = customizableEdges3;
             MaximizeButton.Size = new Size(50, 35);
             // 
             // MinimizeButton
@@ -110,7 +110,7 @@
             MinimizeButton.HoverState.FillColor = Color.FromArgb(40, 40, 40);
             MinimizeButton.HoverState.IconColor = Color.White;
             MinimizeButton.Location = new Point(1232, 0);
-            MinimizeButton.ShadowDecoration.CustomizableEdges = customizableEdges32;
+            MinimizeButton.ShadowDecoration.CustomizableEdges = customizableEdges4;
             MinimizeButton.Size = new Size(50, 35);
             // 
             // guna2HtmlLabel1
@@ -118,7 +118,7 @@
             guna2HtmlLabel1.BackColor = Color.Transparent;
             guna2HtmlLabel1.Font = new Font("Microsoft Sans Serif", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 162);
             guna2HtmlLabel1.ForeColor = Color.White;
-            guna2HtmlLabel1.Location = new Point(225, 80);
+            guna2HtmlLabel1.Location = new Point(12, 53);
             guna2HtmlLabel1.Name = "guna2HtmlLabel1";
             guna2HtmlLabel1.Size = new Size(186, 33);
             guna2HtmlLabel1.TabIndex = 1;
@@ -150,11 +150,11 @@
             pnlContainer.Controls.Add(guna2HtmlLabel2);
             pnlContainer.Controls.Add(txtEmail);
             pnlContainer.Controls.Add(picProfilePhoto);
-            pnlContainer.CustomizableEdges = customizableEdges55;
-            pnlContainer.Location = new Point(225, 159);
+            pnlContainer.CustomizableEdges = customizableEdges27;
+            pnlContainer.Location = new Point(12, 132);
             pnlContainer.Name = "pnlContainer";
-            pnlContainer.ShadowDecoration.CustomizableEdges = customizableEdges56;
-            pnlContainer.Size = new Size(1092, 583);
+            pnlContainer.ShadowDecoration.CustomizableEdges = customizableEdges28;
+            pnlContainer.Size = new Size(1017, 576);
             pnlContainer.TabIndex = 2;
             // 
             // guna2HtmlLabel6
@@ -207,18 +207,18 @@
             cmbDepartment.BorderColor = Color.FromArgb(45, 55, 72);
             cmbDepartment.BorderRadius = 10;
             cmbDepartment.BorderThickness = 2;
-            cmbDepartment.CustomizableEdges = customizableEdges33;
+            cmbDepartment.CustomizableEdges = customizableEdges5;
             cmbDepartment.DrawMode = DrawMode.OwnerDrawFixed;
             cmbDepartment.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbDepartment.FillColor = Color.FromArgb(26, 31, 46);
             cmbDepartment.FocusedColor = Color.FromArgb(94, 148, 255);
             cmbDepartment.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-            cmbDepartment.Font = new Font("Poppins", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            cmbDepartment.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 162);
             cmbDepartment.ForeColor = Color.White;
             cmbDepartment.ItemHeight = 30;
             cmbDepartment.Location = new Point(730, 316);
             cmbDepartment.Name = "cmbDepartment";
-            cmbDepartment.ShadowDecoration.CustomizableEdges = customizableEdges34;
+            cmbDepartment.ShadowDecoration.CustomizableEdges = customizableEdges6;
             cmbDepartment.Size = new Size(235, 36);
             cmbDepartment.TabIndex = 36;
             cmbDepartment.SelectedIndexChanged += guna2ComboBox2_SelectedIndexChanged;
@@ -229,27 +229,27 @@
             cmbRole.BorderColor = Color.FromArgb(45, 55, 72);
             cmbRole.BorderRadius = 10;
             cmbRole.BorderThickness = 2;
-            cmbRole.CustomizableEdges = customizableEdges35;
+            cmbRole.CustomizableEdges = customizableEdges7;
             cmbRole.DrawMode = DrawMode.OwnerDrawFixed;
             cmbRole.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbRole.FillColor = Color.FromArgb(26, 31, 46);
             cmbRole.FocusedColor = Color.FromArgb(94, 148, 255);
             cmbRole.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-            cmbRole.Font = new Font("Poppins", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            cmbRole.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 162);
             cmbRole.ForeColor = Color.White;
             cmbRole.ItemHeight = 30;
             cmbRole.Location = new Point(730, 234);
             cmbRole.Name = "cmbRole";
-            cmbRole.ShadowDecoration.CustomizableEdges = customizableEdges36;
+            cmbRole.ShadowDecoration.CustomizableEdges = customizableEdges8;
             cmbRole.Size = new Size(235, 36);
             cmbRole.TabIndex = 35;
             // 
-            // guna2TextBox3
+            // txtTelephone
             // 
             txtTelephone.BorderColor = Color.FromArgb(45, 55, 72);
             txtTelephone.BorderRadius = 10;
             txtTelephone.BorderThickness = 2;
-            txtTelephone.CustomizableEdges = customizableEdges37;
+            txtTelephone.CustomizableEdges = customizableEdges9;
             txtTelephone.DefaultText = "";
             txtTelephone.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             txtTelephone.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -257,7 +257,7 @@
             txtTelephone.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
             txtTelephone.FillColor = Color.FromArgb(26, 31, 46);
             txtTelephone.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtTelephone.Font = new Font("Poppins", 9F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            txtTelephone.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 162);
             txtTelephone.ForeColor = Color.White;
             txtTelephone.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
             txtTelephone.Location = new Point(98, 398);
@@ -266,7 +266,7 @@
             txtTelephone.PasswordChar = '●';
             txtTelephone.PlaceholderText = "Telefon No";
             txtTelephone.SelectedText = "";
-            txtTelephone.ShadowDecoration.CustomizableEdges = customizableEdges38;
+            txtTelephone.ShadowDecoration.CustomizableEdges = customizableEdges10;
             txtTelephone.Size = new Size(300, 42);
             txtTelephone.TabIndex = 34;
             // 
@@ -292,12 +292,12 @@
             guna2HtmlLabel10.TabIndex = 32;
             guna2HtmlLabel10.Text = "Ad";
             // 
-            // guna2TextBox2
+            // txtSurname
             // 
             txtSurname.BorderColor = Color.FromArgb(45, 55, 72);
             txtSurname.BorderRadius = 10;
             txtSurname.BorderThickness = 2;
-            txtSurname.CustomizableEdges = customizableEdges39;
+            txtSurname.CustomizableEdges = customizableEdges11;
             txtSurname.DefaultText = "";
             txtSurname.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             txtSurname.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -305,7 +305,7 @@
             txtSurname.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
             txtSurname.FillColor = Color.FromArgb(26, 31, 46);
             txtSurname.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtSurname.Font = new Font("Poppins", 9F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            txtSurname.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 162);
             txtSurname.ForeColor = Color.White;
             txtSurname.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
             txtSurname.Location = new Point(257, 234);
@@ -313,16 +313,16 @@
             txtSurname.Name = "txtSurname";
             txtSurname.PlaceholderText = "Soyad";
             txtSurname.SelectedText = "";
-            txtSurname.ShadowDecoration.CustomizableEdges = customizableEdges40;
+            txtSurname.ShadowDecoration.CustomizableEdges = customizableEdges12;
             txtSurname.Size = new Size(140, 42);
             txtSurname.TabIndex = 31;
             // 
-            // guna2TextBox1
+            // txtName
             // 
             txtName.BorderColor = Color.FromArgb(45, 55, 72);
             txtName.BorderRadius = 10;
             txtName.BorderThickness = 2;
-            txtName.CustomizableEdges = customizableEdges41;
+            txtName.CustomizableEdges = customizableEdges13;
             txtName.DefaultText = "";
             txtName.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             txtName.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -330,7 +330,7 @@
             txtName.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
             txtName.FillColor = Color.FromArgb(26, 31, 46);
             txtName.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtName.Font = new Font("Poppins", 9F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            txtName.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 162);
             txtName.ForeColor = Color.White;
             txtName.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
             txtName.Location = new Point(98, 234);
@@ -338,7 +338,7 @@
             txtName.Name = "txtName";
             txtName.PlaceholderText = "Ad";
             txtName.SelectedText = "";
-            txtName.ShadowDecoration.CustomizableEdges = customizableEdges42;
+            txtName.ShadowDecoration.CustomizableEdges = customizableEdges14;
             txtName.Size = new Size(140, 42);
             txtName.TabIndex = 30;
             // 
@@ -347,7 +347,7 @@
             txtPassword.BorderColor = Color.FromArgb(45, 55, 72);
             txtPassword.BorderRadius = 10;
             txtPassword.BorderThickness = 2;
-            txtPassword.CustomizableEdges = customizableEdges43;
+            txtPassword.CustomizableEdges = customizableEdges15;
             txtPassword.DefaultText = "";
             txtPassword.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             txtPassword.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -364,7 +364,7 @@
             txtPassword.PasswordChar = '●';
             txtPassword.PlaceholderText = "Şifre";
             txtPassword.SelectedText = "";
-            txtPassword.ShadowDecoration.CustomizableEdges = customizableEdges44;
+            txtPassword.ShadowDecoration.CustomizableEdges = customizableEdges16;
             txtPassword.Size = new Size(300, 42);
             txtPassword.TabIndex = 6;
             // 
@@ -393,36 +393,36 @@
             // btnSave
             // 
             btnSave.BorderRadius = 10;
-            btnSave.CustomizableEdges = customizableEdges45;
+            btnSave.CustomizableEdges = customizableEdges17;
             btnSave.DisabledState.BorderColor = Color.DarkGray;
             btnSave.DisabledState.CustomBorderColor = Color.DarkGray;
             btnSave.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
             btnSave.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
             btnSave.FillColor = Color.FromArgb(0, 104, 139);
-            btnSave.Font = new Font("Poppins Medium", 9F, FontStyle.Bold, GraphicsUnit.Point, 162);
+            btnSave.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold, GraphicsUnit.Point, 162);
             btnSave.ForeColor = Color.White;
             btnSave.Location = new Point(742, 468);
             btnSave.Name = "btnSave";
-            btnSave.ShadowDecoration.CustomizableEdges = customizableEdges46;
+            btnSave.ShadowDecoration.CustomizableEdges = customizableEdges18;
             btnSave.Size = new Size(213, 42);
             btnSave.TabIndex = 15;
             btnSave.Text = "Kaydet";
             btnSave.Click += guna2Button1_Click;
             // 
-            // btnCustomerType
+            // btnCompanyRegister
             // 
             btnCompanyRegister.BorderRadius = 12;
-            btnCompanyRegister.CustomizableEdges = customizableEdges47;
+            btnCompanyRegister.CustomizableEdges = customizableEdges19;
             btnCompanyRegister.DisabledState.BorderColor = Color.DarkGray;
             btnCompanyRegister.DisabledState.CustomBorderColor = Color.DarkGray;
             btnCompanyRegister.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
             btnCompanyRegister.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
             btnCompanyRegister.FillColor = Color.FromArgb(46, 74, 98);
-            btnCompanyRegister.Font = new Font("Poppins Medium", 9F, FontStyle.Bold, GraphicsUnit.Point, 162);
+            btnCompanyRegister.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold, GraphicsUnit.Point, 162);
             btnCompanyRegister.ForeColor = Color.White;
             btnCompanyRegister.Location = new Point(787, 64);
             btnCompanyRegister.Name = "btnCompanyRegister";
-            btnCompanyRegister.ShadowDecoration.CustomizableEdges = customizableEdges48;
+            btnCompanyRegister.ShadowDecoration.CustomizableEdges = customizableEdges20;
             btnCompanyRegister.Size = new Size(178, 56);
             btnCompanyRegister.TabIndex = 14;
             btnCompanyRegister.Text = "Şirket kaydı";
@@ -434,7 +434,7 @@
             cmbTitle.BorderColor = Color.FromArgb(45, 55, 72);
             cmbTitle.BorderRadius = 10;
             cmbTitle.BorderThickness = 2;
-            cmbTitle.CustomizableEdges = customizableEdges49;
+            cmbTitle.CustomizableEdges = customizableEdges21;
             cmbTitle.DrawMode = DrawMode.OwnerDrawFixed;
             cmbTitle.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbTitle.FillColor = Color.FromArgb(26, 31, 46);
@@ -445,7 +445,7 @@
             cmbTitle.ItemHeight = 30;
             cmbTitle.Location = new Point(730, 398);
             cmbTitle.Name = "cmbTitle";
-            cmbTitle.ShadowDecoration.CustomizableEdges = customizableEdges50;
+            cmbTitle.ShadowDecoration.CustomizableEdges = customizableEdges22;
             cmbTitle.Size = new Size(235, 36);
             cmbTitle.TabIndex = 13;
             cmbTitle.SelectedIndexChanged += cmbTitle_SelectedIndexChanged;
@@ -466,7 +466,7 @@
             txtEmail.BorderColor = Color.FromArgb(45, 55, 72);
             txtEmail.BorderRadius = 10;
             txtEmail.BorderThickness = 2;
-            txtEmail.CustomizableEdges = customizableEdges51;
+            txtEmail.CustomizableEdges = customizableEdges23;
             txtEmail.DefaultText = "";
             txtEmail.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             txtEmail.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -482,7 +482,7 @@
             txtEmail.Name = "txtEmail";
             txtEmail.PlaceholderText = "E-posta";
             txtEmail.SelectedText = "";
-            txtEmail.ShadowDecoration.CustomizableEdges = customizableEdges52;
+            txtEmail.ShadowDecoration.CustomizableEdges = customizableEdges24;
             txtEmail.Size = new Size(300, 42);
             txtEmail.TabIndex = 4;
             // 
@@ -492,13 +492,13 @@
             picProfilePhoto.BorderRadius = 10;
             picProfilePhoto.BorderStyle = BorderStyle.FixedSingle;
             picProfilePhoto.Cursor = Cursors.Hand;
-            picProfilePhoto.CustomizableEdges = customizableEdges53;
+            picProfilePhoto.CustomizableEdges = customizableEdges25;
             picProfilePhoto.FillColor = Color.FromArgb(26, 31, 46);
             picProfilePhoto.Image = (Image)resources.GetObject("picProfilePhoto.Image");
             picProfilePhoto.ImageRotate = 0F;
             picProfilePhoto.Location = new Point(98, 50);
             picProfilePhoto.Name = "picProfilePhoto";
-            picProfilePhoto.ShadowDecoration.CustomizableEdges = customizableEdges54;
+            picProfilePhoto.ShadowDecoration.CustomizableEdges = customizableEdges26;
             picProfilePhoto.Size = new Size(150, 150);
             picProfilePhoto.SizeMode = PictureBoxSizeMode.CenterImage;
             picProfilePhoto.TabIndex = 28;

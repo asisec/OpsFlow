@@ -2,18 +2,21 @@
 using OpsFlow.UI.Controls;
 using OpsFlow.UI.Forms.Core;
 using OpsFlow.Core.Models;
+using OpsFlow.UI.Forms.Management;
 
 namespace OpsFlow.UI.Forms.Main;
 
 public partial class MainForm : BaseForm
 {
-    private NavbarControl _navbar = null!;
     private Guna2Panel _contentPanel = null!;
+    private NavbarControl _navbar = null!;
+    private Form? _activeForm = null;
 
     public MainForm()
     {
         InitializeComponent();
         InitializeLayout();
+        BindNavbarEvents();
         LoadUserData();
     }
 
@@ -37,12 +40,18 @@ public partial class MainForm : BaseForm
         Controls.Add(_contentPanel);
         Controls.Add(_navbar);
 
+        if (HeaderPanel != null)
+        {
+            HeaderPanel.BringToFront();
+        }
+    }
+
+    private void BindNavbarEvents()
+    {
         _navbar.DashboardClicked += (s, e) => LoadContent("Dashboard");
         _navbar.StaffClicked += (s, e) => LoadContent("Staff");
         _navbar.TasksClicked += (s, e) => LoadContent("Tasks");
         _navbar.SettingsClicked += (s, e) => LoadContent("Settings");
-
-        HeaderPanel?.BringToFront();
     }
 
     private void LoadUserData()
@@ -64,13 +73,12 @@ public partial class MainForm : BaseForm
 
     private void LoadContent(string viewName)
     {
-        _contentPanel.Controls.Clear();
-
         switch (viewName)
         {
             case "Dashboard":
                 break;
             case "Staff":
+                LoadForm(new AddPersonelForm());
                 break;
             case "Tasks":
                 break;
@@ -79,6 +87,26 @@ public partial class MainForm : BaseForm
             default:
                 break;
         }
+    }
+
+    private void LoadForm(Form childForm)
+    {
+        if (_activeForm != null)
+        {
+            _activeForm.Close();
+            _activeForm.Dispose();
+        }
+
+        _activeForm = childForm;
+        childForm.TopLevel = false;
+        childForm.FormBorderStyle = FormBorderStyle.None;
+        childForm.Dock = DockStyle.Fill;
+        
+        _contentPanel.Controls.Add(childForm);
+        _contentPanel.Tag = childForm;
+        
+        childForm.BringToFront();
+        childForm.Show();
     }
 
     protected override void OnFormClosed(FormClosedEventArgs e)
