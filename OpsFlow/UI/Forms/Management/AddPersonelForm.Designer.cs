@@ -160,44 +160,44 @@
             // guna2HtmlLabel6
             // 
             guna2HtmlLabel6.BackColor = Color.Transparent;
-            guna2HtmlLabel6.Font = new Font("Poppins Medium", 9F, FontStyle.Bold, GraphicsUnit.Point, 162);
+            guna2HtmlLabel6.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold, GraphicsUnit.Point, 162);
             guna2HtmlLabel6.ForeColor = Color.White;
             guna2HtmlLabel6.Location = new Point(740, 289);
             guna2HtmlLabel6.Name = "guna2HtmlLabel6";
-            guna2HtmlLabel6.Size = new Size(51, 28);
+            guna2HtmlLabel6.Size = new Size(47, 20);
             guna2HtmlLabel6.TabIndex = 40;
             guna2HtmlLabel6.Text = "Şirket";
             // 
             // guna2HtmlLabel14
             // 
             guna2HtmlLabel14.BackColor = Color.Transparent;
-            guna2HtmlLabel14.Font = new Font("Poppins Medium", 9F, FontStyle.Bold, GraphicsUnit.Point, 162);
+            guna2HtmlLabel14.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold, GraphicsUnit.Point, 162);
             guna2HtmlLabel14.ForeColor = Color.White;
             guna2HtmlLabel14.Location = new Point(740, 207);
             guna2HtmlLabel14.Name = "guna2HtmlLabel14";
-            guna2HtmlLabel14.Size = new Size(29, 28);
+            guna2HtmlLabel14.Size = new Size(29, 20);
             guna2HtmlLabel14.TabIndex = 39;
             guna2HtmlLabel14.Text = "Rol";
             // 
             // guna2HtmlLabel13
             // 
             guna2HtmlLabel13.BackColor = Color.Transparent;
-            guna2HtmlLabel13.Font = new Font("Poppins Medium", 9F, FontStyle.Bold, GraphicsUnit.Point, 162);
+            guna2HtmlLabel13.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold, GraphicsUnit.Point, 162);
             guna2HtmlLabel13.ForeColor = Color.White;
             guna2HtmlLabel13.Location = new Point(107, 453);
             guna2HtmlLabel13.Name = "guna2HtmlLabel13";
-            guna2HtmlLabel13.Size = new Size(41, 28);
+            guna2HtmlLabel13.Size = new Size(38, 20);
             guna2HtmlLabel13.TabIndex = 38;
             guna2HtmlLabel13.Text = "Şifre";
             // 
             // guna2HtmlLabel12
             // 
             guna2HtmlLabel12.BackColor = Color.Transparent;
-            guna2HtmlLabel12.Font = new Font("Poppins Medium", 9F, FontStyle.Bold, GraphicsUnit.Point, 162);
+            guna2HtmlLabel12.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold, GraphicsUnit.Point, 162);
             guna2HtmlLabel12.ForeColor = Color.White;
             guna2HtmlLabel12.Location = new Point(107, 371);
             guna2HtmlLabel12.Name = "guna2HtmlLabel12";
-            guna2HtmlLabel12.Size = new Size(93, 28);
+            guna2HtmlLabel12.Size = new Size(86, 20);
             guna2HtmlLabel12.TabIndex = 37;
             guna2HtmlLabel12.Text = "Telefon No";
             // 
@@ -244,7 +244,7 @@
             cmbRole.Size = new Size(235, 36);
             cmbRole.TabIndex = 35;
             // 
-            // txtTelephone
+            // guna2TextBox3
             // 
             txtTelephone.BorderColor = Color.FromArgb(45, 55, 72);
             txtTelephone.BorderRadius = 10;
@@ -273,26 +273,26 @@
             // guna2HtmlLabel11
             // 
             guna2HtmlLabel11.BackColor = Color.Transparent;
-            guna2HtmlLabel11.Font = new Font("Poppins Medium", 9F, FontStyle.Bold, GraphicsUnit.Point, 162);
+            guna2HtmlLabel11.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold, GraphicsUnit.Point, 162);
             guna2HtmlLabel11.ForeColor = Color.White;
             guna2HtmlLabel11.Location = new Point(268, 207);
             guna2HtmlLabel11.Name = "guna2HtmlLabel11";
-            guna2HtmlLabel11.Size = new Size(56, 28);
+            guna2HtmlLabel11.Size = new Size(50, 20);
             guna2HtmlLabel11.TabIndex = 33;
             guna2HtmlLabel11.Text = "Soyad";
             // 
             // guna2HtmlLabel10
             // 
             guna2HtmlLabel10.BackColor = Color.Transparent;
-            guna2HtmlLabel10.Font = new Font("Poppins Medium", 9F, FontStyle.Bold, GraphicsUnit.Point, 162);
+            guna2HtmlLabel10.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold, GraphicsUnit.Point, 162);
             guna2HtmlLabel10.ForeColor = Color.White;
             guna2HtmlLabel10.Location = new Point(107, 207);
             guna2HtmlLabel10.Name = "guna2HtmlLabel10";
-            guna2HtmlLabel10.Size = new Size(25, 28);
+            guna2HtmlLabel10.Size = new Size(22, 20);
             guna2HtmlLabel10.TabIndex = 32;
             guna2HtmlLabel10.Text = "Ad";
             // 
-            // txtSurname
+            // guna2TextBox2
             // 
             txtSurname.BorderColor = Color.FromArgb(45, 55, 72);
             txtSurname.BorderRadius = 10;
@@ -317,7 +317,7 @@
             txtSurname.Size = new Size(140, 42);
             txtSurname.TabIndex = 31;
             // 
-            // txtName
+            // guna2TextBox1
             // 
             txtName.BorderColor = Color.FromArgb(45, 55, 72);
             txtName.BorderRadius = 10;
@@ -355,7 +355,7 @@
             txtPassword.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
             txtPassword.FillColor = Color.FromArgb(26, 31, 46);
             txtPassword.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtPassword.Font = new Font("Poppins", 9F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            txtPassword.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 162);
             txtPassword.ForeColor = Color.White;
             txtPassword.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
             txtPassword.Location = new Point(98, 480);
@@ -371,22 +371,22 @@
             // guna2HtmlLabel9
             // 
             guna2HtmlLabel9.BackColor = Color.Transparent;
-            guna2HtmlLabel9.Font = new Font("Poppins Medium", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 162);
+            guna2HtmlLabel9.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 162);
             guna2HtmlLabel9.ForeColor = Color.White;
             guna2HtmlLabel9.Location = new Point(98, 12);
             guna2HtmlLabel9.Name = "guna2HtmlLabel9";
-            guna2HtmlLabel9.Size = new Size(139, 32);
+            guna2HtmlLabel9.Size = new Size(122, 22);
             guna2HtmlLabel9.TabIndex = 29;
             guna2HtmlLabel9.Text = "Fotoğraf yükle";
             // 
             // guna2HtmlLabel8
             // 
             guna2HtmlLabel8.BackColor = Color.Transparent;
-            guna2HtmlLabel8.Font = new Font("Poppins Medium", 9F, FontStyle.Bold, GraphicsUnit.Point, 162);
+            guna2HtmlLabel8.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold, GraphicsUnit.Point, 162);
             guna2HtmlLabel8.ForeColor = Color.White;
             guna2HtmlLabel8.Location = new Point(740, 371);
             guna2HtmlLabel8.Name = "guna2HtmlLabel8";
-            guna2HtmlLabel8.Size = new Size(99, 28);
+            guna2HtmlLabel8.Size = new Size(85, 20);
             guna2HtmlLabel8.TabIndex = 18;
             guna2HtmlLabel8.Text = "Depertman";
             // 
@@ -409,7 +409,7 @@
             btnSave.Text = "Kaydet";
             btnSave.Click += guna2Button1_Click;
             // 
-            // btnCompanyRegister
+            // btnCustomerType
             // 
             btnCompanyRegister.BorderRadius = 12;
             btnCompanyRegister.CustomizableEdges = customizableEdges47;
@@ -440,7 +440,7 @@
             cmbTitle.FillColor = Color.FromArgb(26, 31, 46);
             cmbTitle.FocusedColor = Color.FromArgb(94, 148, 255);
             cmbTitle.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-            cmbTitle.Font = new Font("Poppins Medium", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 162);
+            cmbTitle.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 162);
             cmbTitle.ForeColor = Color.White;
             cmbTitle.ItemHeight = 30;
             cmbTitle.Location = new Point(730, 398);
@@ -453,11 +453,11 @@
             // guna2HtmlLabel2
             // 
             guna2HtmlLabel2.BackColor = Color.Transparent;
-            guna2HtmlLabel2.Font = new Font("Poppins Medium", 9F, FontStyle.Bold, GraphicsUnit.Point, 162);
+            guna2HtmlLabel2.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold, GraphicsUnit.Point, 162);
             guna2HtmlLabel2.ForeColor = Color.White;
             guna2HtmlLabel2.Location = new Point(107, 289);
             guna2HtmlLabel2.Name = "guna2HtmlLabel2";
-            guna2HtmlLabel2.Size = new Size(71, 28);
+            guna2HtmlLabel2.Size = new Size(62, 20);
             guna2HtmlLabel2.TabIndex = 7;
             guna2HtmlLabel2.Text = "E-posta";
             // 
@@ -474,7 +474,7 @@
             txtEmail.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
             txtEmail.FillColor = Color.FromArgb(26, 31, 46);
             txtEmail.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtEmail.Font = new Font("Poppins", 9F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            txtEmail.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 162);
             txtEmail.ForeColor = Color.White;
             txtEmail.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
             txtEmail.Location = new Point(98, 316);
