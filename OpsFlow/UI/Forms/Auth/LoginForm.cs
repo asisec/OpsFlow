@@ -1,7 +1,7 @@
 ﻿using OpsFlow.Core.Enums;
 using OpsFlow.Core.Exceptions;
-using OpsFlow.Core.Services;
 using OpsFlow.Core.Models;
+using OpsFlow.Core.Services;
 using OpsFlow.Services.Implementations;
 using OpsFlow.UI.Forms.Core;
 using OpsFlow.UI.Forms.Main;
@@ -40,15 +40,11 @@ public partial class LoginForm : BaseForm
 
         try
         {
-            await Task.Run(() =>
-            {
-                var connectionService = new DatabaseConnectionService();
-                using var context = connectionService.CreateContext();
-                var userService = new UserService(context);
+            using var context = DatabaseManager.CreateContext();
+            var userService = new UserService(context);
 
-                var user = userService.Authenticate(email, password);
-                UserSession.StartSession(user);
-            });
+            var user = await Task.Run(() => userService.Authenticate(email, password));
+            UserSession.StartSession(user);
 
             Notifier.Show("Giriş Başarılı", "Hoş geldiniz, yönlendiriliyorsunuz...", NotificationType.Success);
             WindowManager.Switch<MainForm>(this);
@@ -63,7 +59,7 @@ public partial class LoginForm : BaseForm
         }
         catch (Exception ex)
         {
-            Notifier.Show("Sistem Hatası", $"Beklenmedik bir hata oluştu: {ex.Message}", NotificationType.Error);
+            Notifier.Show("Sistem Hatası", "Beklenmedik bir hata oluştu.", NotificationType.Error);
         }
         finally
         {

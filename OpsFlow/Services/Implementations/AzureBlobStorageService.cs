@@ -15,12 +15,33 @@ namespace OpsFlow.Services.Implementations
 
         public AzureBlobStorageService()
         {
-            var connectionString = Environment.GetEnvironmentVariable("AZURE_STORAGE_CONNECTION_STRING");
+            string envPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, ".env");
+            var connectionString = ReadConnectionStringFromEnvFile(envPath) ?? Environment.GetEnvironmentVariable("AZURE_STORAGE_CONNECTION_STRING");
             var containerName = Environment.GetEnvironmentVariable("AZURE_STORAGE_CONTAINER_NAME") ?? "avatars";
             var baseUrl = Environment.GetEnvironmentVariable("AZURE_STORAGE_BASE_URL");
 
             if (string.IsNullOrWhiteSpace(connectionString))
-                throw new Exception("AZURE_STORAGE_CONNECTION_STRING env değeri boş veya tanımsız.");
+                throw new ConfigurationException("AZURE_STORAGE_CONNECTION_STRING env değeri boş veya tanımsız.");
+
+            connectionString = connectionString.Trim();
+            
+            if (connectionString.StartsWith("\"") && connectionString.EndsWith("\""))
+            {
+                connectionString = connectionString.Substring(1, connectionString.Length - 2).Trim();
+            }
+            if (connectionString.StartsWith("'") && connectionString.EndsWith("'"))
+            {
+                connectionString = connectionString.Substring(1, connectionString.Length - 2).Trim();
+            }
+
+            if (connectionString.Contains("AccountName-") || connectionString.Contains("AccountKey-"))
+            {
+                connectionString = connectionString.Replace("DefaultEndpointsProtocol-DefaultEndpointsProtocol-", "DefaultEndpointsProtocol=")
+                                                  .Replace("AccountName-", "AccountName=")
+                                                  .Replace("AccountKey-", "AccountKey=")
+                                                  .Replace("EndpointSuffix-", "EndpointSuffix=")
+                                                  .Replace("--", "==");
+            }
 
             _settings = new AzureBlobStorageSettings
             {
@@ -32,7 +53,14 @@ namespace OpsFlow.Services.Implementations
             _blobServiceClient = new BlobServiceClient(_settings.ConnectionString);
             _containerClient = _blobServiceClient.GetBlobContainerClient(_settings.ContainerName);
             
-            _containerClient.CreateIfNotExists(PublicAccessType.Blob);
+            try
+            {
+                _containerClient.CreateIfNotExists(PublicAccessType.Blob);
+            }
+            catch (Azure.RequestFailedException ex) when (ex.ErrorCode == "PublicAccessNotPermitted")
+            {
+                _containerClient.CreateIfNotExists(PublicAccessType.None);
+            }
         }
 
         public async Task<string> UploadProfilePhotoAsync(string filePath, int? userId = null)
@@ -155,6 +183,47 @@ namespace OpsFlow.Services.Implementations
             string prefix = userId.HasValue ? $"user_{userId}_" : "avatar_";
 
             return $"{prefix}{timestamp}_{guid}{extension}";
+        }
+
+        private string? ReadConnectionStringFromEnvFile(string envPath)
+        {
+            try
+            {
+                if (!File.Exists(envPath))
+                    return null;
+
+                var lines = File.ReadAllLines(envPath);
+                foreach (var line in lines)
+                {
+                    if (string.IsNullOrWhiteSpace(line) || line.TrimStart().StartsWith("#"))
+                        continue;
+
+                    if (line.StartsWith("AZURE_STORAGE_CONNECTION_STRING=", StringComparison.OrdinalIgnoreCase))
+                    {
+                        int equalsIndex = line.IndexOf('=');
+                        if (equalsIndex >= 0 && equalsIndex < line.Length - 1)
+                        {
+                            string value = line.Substring(equalsIndex + 1).Trim();
+                            
+                            if (value.StartsWith("\"") && value.EndsWith("\""))
+                            {
+                                value = value.Substring(1, value.Length - 2);
+                            }
+                            else if (value.StartsWith("'") && value.EndsWith("'"))
+                            {
+                                value = value.Substring(1, value.Length - 2);
+                            }
+                            
+                            return value;
+                        }
+                    }
+                }
+            }
+            catch
+            {
+            }
+            
+            return null;
         }
     }
 }

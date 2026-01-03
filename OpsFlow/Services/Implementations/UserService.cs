@@ -72,8 +72,14 @@ namespace OpsFlow.Services.Implementations
                     throw new BusinessException("Bu e-posta adresi sistemde zaten kayıtlı.");
                 }
 
-                user.CreatedAt = DateTime.UtcNow;
-                user.IsActive = true;
+                if (user.CreatedAt == default)
+                {
+                    user.CreatedAt = DateTime.UtcNow;
+                }
+                if (!user.IsActive)
+                {
+                    user.IsActive = true;
+                }
                 user.Password = HashingHelper.HashPassword(user.Password);
 
                 _context.Users.Add(user);
@@ -82,6 +88,26 @@ namespace OpsFlow.Services.Implementations
             catch (BusinessException)
             {
                 throw;
+            }
+            catch (Microsoft.EntityFrameworkCore.DbUpdateException dbEx)
+            {
+                string errorDetail = "Veritabanı güncelleme hatası oluştu.";
+                if (dbEx.InnerException != null)
+                {
+                    if (dbEx.InnerException is Npgsql.PostgresException pgEx)
+                    {
+                        errorDetail = $"Veritabanı hatası: {pgEx.MessageText}";
+                        if (!string.IsNullOrEmpty(pgEx.Detail))
+                        {
+                            errorDetail += $"\nDetay: {pgEx.Detail}";
+                        }
+                    }
+                    else
+                    {
+                        errorDetail = $"Veritabanı hatası: {dbEx.InnerException.Message}";
+                    }
+                }
+                throw new DatabaseQueryException(errorDetail, dbEx);
             }
             catch (Exception ex)
             {

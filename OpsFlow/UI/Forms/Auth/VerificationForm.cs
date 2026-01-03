@@ -46,7 +46,7 @@ namespace OpsFlow.UI.Forms.Auth
             {
                 Notifier.Show("İşlem Başladı", "Doğrulama kodu oluşturuluyor ve gönderiliyor...", NotificationType.Information);
 
-                string code = await Task.Run(() => _securityService.CreateVerificationSession(_email));
+                string code = _securityService.CreateVerificationSession(_email);
                 await _emailService.SendEmailAsync(_email, "OpsFlow Doğrulama Kodu", code);
 
                 Notifier.Show("Kod Gönderildi", "Doğrulama kodu e-posta adresinize ulaştırıldı.", NotificationType.Success);
@@ -57,7 +57,7 @@ namespace OpsFlow.UI.Forms.Auth
             }
             catch (Exception ex)
             {
-                Notifier.Show("Hata", "Kod gönderilemedi: " + ex.Message, NotificationType.Error);
+                Notifier.Show("Hata", "Kod gönderilemedi.", NotificationType.Error);
             }
         }
 
@@ -73,7 +73,7 @@ namespace OpsFlow.UI.Forms.Auth
 
             try
             {
-                await Task.Run(() => _securityService.VerifyCode(_email, code));
+                _securityService.VerifyCode(_email, code);
 
                 Notifier.Show("Başarılı", "Kod doğrulandı! Yeni şifrenizi giriniz.", NotificationType.Success);
                 WindowManager.Switch<ResetPasswordForm>(this, [_email]);
@@ -85,7 +85,7 @@ namespace OpsFlow.UI.Forms.Auth
             }
             catch (Exception ex)
             {
-                Notifier.Show("Hata", "Sistem hatası: " + ex.Message, NotificationType.Error);
+                Notifier.Show("Hata", "Sistem hatası oluştu.", NotificationType.Error);
                 ClearAndResetInput();
             }
         }
@@ -102,7 +102,7 @@ namespace OpsFlow.UI.Forms.Auth
 
             try
             {
-                string newCode = await Task.Run(() => _securityService.ResendVerificationCode(_email));
+                string newCode = _securityService.ResendVerificationCode(_email);
                 await _emailService.SendEmailAsync(_email, "OpsFlow Yeni Doğrulama Kodu", newCode);
 
                 Notifier.Show("Kod Gönderildi", "Yeni doğrulama kodu e-posta adresinize ulaştırıldı.", NotificationType.Success);
@@ -117,7 +117,7 @@ namespace OpsFlow.UI.Forms.Auth
             }
             catch (Exception ex)
             {
-                Notifier.Show("Hata", "Kod gönderilirken bir sorun oluştu: " + ex.Message, NotificationType.Error);
+                Notifier.Show("Hata", "Kod gönderilirken bir sorun oluştu.", NotificationType.Error);
             }
             finally
             {

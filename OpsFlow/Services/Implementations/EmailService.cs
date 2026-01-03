@@ -1,7 +1,7 @@
 ﻿using System.Net;
 using System.Net.Mail;
-
 using OpsFlow.Core.Config;
+using OpsFlow.Core.Exceptions;
 using OpsFlow.Services.Helpers;
 using OpsFlow.Services.Interfaces;
 
@@ -20,7 +20,7 @@ namespace OpsFlow.Services.Implementations
 
             if (string.IsNullOrEmpty(host) || string.IsNullOrEmpty(email) || string.IsNullOrEmpty(password))
             {
-                throw new Exception("SMTP configuration is missing in .env file.");
+                throw new ConfigurationException("SMTP configuration is missing in .env file.");
             }
 
             if (!int.TryParse(portValue, out int port)) port = 587;
@@ -36,7 +36,7 @@ namespace OpsFlow.Services.Implementations
 
         public async Task SendEmailAsync(string to, string subject, string body)
         {
-            if (_settings == null) throw new Exception("Email settings are not initialized.");
+            if (_settings == null) throw new ConfigurationException("Email settings are not initialized.");
 
             using (var client = new SmtpClient(_settings.Host, _settings.Port))
             {

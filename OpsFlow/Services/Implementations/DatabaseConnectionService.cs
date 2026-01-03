@@ -19,22 +19,22 @@ namespace OpsFlow.Services.Implementations
             var password = Environment.GetEnvironmentVariable("DB_PASSWORD");
 
             if (string.IsNullOrWhiteSpace(host))
-                throw new Exception("DB_HOST env değeri boş veya tanımsız.");
+                throw new ConfigurationException("DB_HOST env değeri boş veya tanımsız.");
 
             if (string.IsNullOrWhiteSpace(portValue))
-                throw new Exception("DB_PORT env değeri boş veya tanımsız.");
+                throw new ConfigurationException("DB_PORT env değeri boş veya tanımsız.");
 
             if (!int.TryParse(portValue, out int port))
-                throw new Exception($"DB_PORT sayısal değil: {portValue}");
+                throw new ValidationException($"DB_PORT sayısal değil: {portValue}");
 
             if (string.IsNullOrWhiteSpace(database))
-                throw new Exception("DB_DATABASE env değeri boş veya tanımsız.");
+                throw new ConfigurationException("DB_DATABASE env değeri boş veya tanımsız.");
 
             if (string.IsNullOrWhiteSpace(username))
-                throw new Exception("DB_USERNAME env değeri boş veya tanımsız.");
+                throw new ConfigurationException("DB_USERNAME env değeri boş veya tanımsız.");
 
             if (string.IsNullOrWhiteSpace(password))
-                throw new Exception("DB_PASSWORD env değeri boş veya tanımsız.");
+                throw new ConfigurationException("DB_PASSWORD env değeri boş veya tanımsız.");
 
             _settings = new DatabaseSettings
             {

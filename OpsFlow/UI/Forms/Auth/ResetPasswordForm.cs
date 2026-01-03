@@ -11,21 +11,18 @@ namespace OpsFlow.UI.Forms.Auth
     public partial class ResetPasswordForm : BaseForm
     {
         private readonly string _email;
-        private readonly IDatabaseConnectionService _dbService;
         private readonly ISecurityService _securityService;
 
         public ResetPasswordForm(string email)
         {
             InitializeComponent();
             _email = email;
-            _dbService = new DatabaseConnectionService();
             _securityService = new SecurityService();
         }
 
         public ResetPasswordForm()
         {
             InitializeComponent();
-            _dbService = new DatabaseConnectionService();
             _securityService = new SecurityService();
             _email = string.Empty;
         }
@@ -46,12 +43,12 @@ namespace OpsFlow.UI.Forms.Auth
 
             try
             {
-                using (var context = _dbService.CreateContext())
+                using (var context = DatabaseManager.CreateContext())
                 {
                     var userService = new UserService(context);
 
                     await Task.Run(() => userService.ResetPassword(_email, txtPassword.Text));
-                    await Task.Run(() => _securityService.ClearSession(_email));
+                    _securityService.ClearSession(_email);
 
                     Notifier.Show("Başarılı", "Şifreniz başarıyla güncellendi. Yeni şifrenizle giriş yapabilirsiniz.", NotificationType.Success);
                     WindowManager.Switch<LoginForm>(this);
@@ -63,12 +60,7 @@ namespace OpsFlow.UI.Forms.Auth
             }
             catch (Exception ex)
             {
-                string errorMessage = "Sistem hatası nedeniyle şifre güncellenemedi.";
-                if (ex.InnerException != null)
-                {
-                    errorMessage += "\nDetay: " + ex.InnerException.Message;
-                }
-                Notifier.Show("Hata", errorMessage, NotificationType.Error);
+                Notifier.Show("Hata", "Sistem hatası nedeniyle şifre güncellenemedi.", NotificationType.Error);
             }
         }
 

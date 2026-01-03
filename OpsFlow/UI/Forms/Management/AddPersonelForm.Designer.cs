@@ -221,7 +221,6 @@
             cmbDepartment.ShadowDecoration.CustomizableEdges = customizableEdges6;
             cmbDepartment.Size = new Size(235, 36);
             cmbDepartment.TabIndex = 36;
-            cmbDepartment.SelectedIndexChanged += guna2ComboBox2_SelectedIndexChanged;
             // 
             // cmbRole
             // 
@@ -446,7 +445,6 @@
             cmbTitle.ShadowDecoration.CustomizableEdges = customizableEdges22;
             cmbTitle.Size = new Size(235, 36);
             cmbTitle.TabIndex = 13;
-            cmbTitle.SelectedIndexChanged += cmbTitle_SelectedIndexChanged;
             // 
             // guna2HtmlLabel2
             // 
