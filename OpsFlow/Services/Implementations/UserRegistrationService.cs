@@ -15,7 +15,7 @@ namespace OpsFlow.Services.Implementations
             _userService = userService;
         }
 
-        public Task RegisterPersonelAsync(User user, int roleId, int? companyId, int? departmentId = null)
+        public async Task RegisterPersonelAsync(User user, int roleId, int? companyId, int? departmentId = null)
         {
             user.RoleId = roleId;
             user.CompanyId = companyId;
@@ -23,7 +23,7 @@ namespace OpsFlow.Services.Implementations
             user.IsActive = true;
             user.CreatedAt = DateTime.UtcNow;
 
-            return Task.Run(() => _userService.RegisterUser(user));
+            await Task.Run(() => _userService.RegisterUser(user));
         }
     }
 }
