@@ -36,17 +36,17 @@ partial class TaskListForm
         Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
         Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges17 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
         Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges18 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-        Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges15 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-        Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges16 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-        Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges13 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-        Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges14 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-        Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges11 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-        Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges12 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-        Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges9 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-        Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges10 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
         Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
         System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TaskListForm));
         Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+        Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges9 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+        Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges10 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+        Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges11 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+        Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges12 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+        Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges13 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+        Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges14 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+        Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges15 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+        Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges16 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
         Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges19 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
         Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges20 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
         guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
@@ -59,17 +59,17 @@ partial class TaskListForm
         lblDelayedTaskCount = new Guna.UI2.WinForms.Guna2HtmlLabel();
         guna2HtmlLabel6 = new Guna.UI2.WinForms.Guna2HtmlLabel();
         pnlStats = new Guna.UI2.WinForms.Guna2Panel();
-        btnNewTask = new Guna.UI2.WinForms.Guna2Button();
-        cmbDept = new Guna.UI2.WinForms.Guna2ComboBox();
-        cmbStatus = new Guna.UI2.WinForms.Guna2ComboBox();
-        cmbPriority = new Guna.UI2.WinForms.Guna2ComboBox();
         txtTaskSearch = new Guna.UI2.WinForms.Guna2TextBox();
+        cmbPriority = new Guna.UI2.WinForms.Guna2ComboBox();
+        cmbStatus = new Guna.UI2.WinForms.Guna2ComboBox();
+        cmbDept = new Guna.UI2.WinForms.Guna2ComboBox();
+        btnNewTask = new Guna.UI2.WinForms.Guna2Button();
         pnlGridHeader = new Guna.UI2.WinForms.Guna2Panel();
-        guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-        guna2HtmlLabel4 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-        guna2HtmlLabel5 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-        guna2HtmlLabel7 = new Guna.UI2.WinForms.Guna2HtmlLabel();
         guna2HtmlLabel8 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+        guna2HtmlLabel7 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+        guna2HtmlLabel5 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+        guna2HtmlLabel4 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+        guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
         guna2Separator1 = new Guna.UI2.WinForms.Guna2Separator();
         flowLayoutPanel1 = new FlowLayoutPanel();
         guna2Panel1.SuspendLayout();
@@ -200,87 +200,6 @@ partial class TaskListForm
         pnlStats.Size = new Size(1382, 314);
         pnlStats.TabIndex = 4;
         // 
-        // btnNewTask
-        // 
-        btnNewTask.BorderRadius = 12;
-        btnNewTask.CustomizableEdges = customizableEdges15;
-        btnNewTask.DisabledState.BorderColor = Color.DarkGray;
-        btnNewTask.DisabledState.CustomBorderColor = Color.DarkGray;
-        btnNewTask.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
-        btnNewTask.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-        btnNewTask.FillColor = Color.FromArgb(70, 50, 150);
-        btnNewTask.Font = new Font("Poppins Medium", 9F, FontStyle.Bold, GraphicsUnit.Point, 162);
-        btnNewTask.ForeColor = Color.White;
-        btnNewTask.Location = new Point(1083, 63);
-        btnNewTask.Name = "btnNewTask";
-        btnNewTask.ShadowDecoration.CustomizableEdges = customizableEdges16;
-        btnNewTask.Size = new Size(221, 64);
-        btnNewTask.TabIndex = 16;
-        btnNewTask.Text = "+  Yeni Görev Oluştur";
-        // 
-        // cmbDept
-        // 
-        cmbDept.BackColor = Color.Transparent;
-        cmbDept.BorderColor = Color.FromArgb(45, 55, 72);
-        cmbDept.BorderRadius = 10;
-        cmbDept.BorderThickness = 2;
-        cmbDept.CustomizableEdges = customizableEdges13;
-        cmbDept.DrawMode = DrawMode.OwnerDrawFixed;
-        cmbDept.DropDownStyle = ComboBoxStyle.DropDownList;
-        cmbDept.FillColor = Color.FromArgb(26, 31, 46);
-        cmbDept.FocusedColor = Color.FromArgb(94, 148, 255);
-        cmbDept.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-        cmbDept.Font = new Font("Poppins", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 162);
-        cmbDept.ForeColor = Color.White;
-        cmbDept.ItemHeight = 30;
-        cmbDept.Location = new Point(50, 255);
-        cmbDept.Name = "cmbDept";
-        cmbDept.ShadowDecoration.CustomizableEdges = customizableEdges14;
-        cmbDept.Size = new Size(230, 36);
-        cmbDept.TabIndex = 37;
-        // 
-        // cmbStatus
-        // 
-        cmbStatus.BackColor = Color.Transparent;
-        cmbStatus.BorderColor = Color.FromArgb(45, 55, 72);
-        cmbStatus.BorderRadius = 10;
-        cmbStatus.BorderThickness = 2;
-        cmbStatus.CustomizableEdges = customizableEdges11;
-        cmbStatus.DrawMode = DrawMode.OwnerDrawFixed;
-        cmbStatus.DropDownStyle = ComboBoxStyle.DropDownList;
-        cmbStatus.FillColor = Color.FromArgb(26, 31, 46);
-        cmbStatus.FocusedColor = Color.FromArgb(94, 148, 255);
-        cmbStatus.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-        cmbStatus.Font = new Font("Poppins", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 162);
-        cmbStatus.ForeColor = Color.White;
-        cmbStatus.ItemHeight = 30;
-        cmbStatus.Location = new Point(345, 255);
-        cmbStatus.Name = "cmbStatus";
-        cmbStatus.ShadowDecoration.CustomizableEdges = customizableEdges12;
-        cmbStatus.Size = new Size(230, 36);
-        cmbStatus.TabIndex = 37;
-        // 
-        // cmbPriority
-        // 
-        cmbPriority.BackColor = Color.Transparent;
-        cmbPriority.BorderColor = Color.FromArgb(45, 55, 72);
-        cmbPriority.BorderRadius = 10;
-        cmbPriority.BorderThickness = 2;
-        cmbPriority.CustomizableEdges = customizableEdges9;
-        cmbPriority.DrawMode = DrawMode.OwnerDrawFixed;
-        cmbPriority.DropDownStyle = ComboBoxStyle.DropDownList;
-        cmbPriority.FillColor = Color.FromArgb(26, 31, 46);
-        cmbPriority.FocusedColor = Color.FromArgb(94, 148, 255);
-        cmbPriority.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-        cmbPriority.Font = new Font("Poppins", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 162);
-        cmbPriority.ForeColor = Color.White;
-        cmbPriority.ItemHeight = 30;
-        cmbPriority.Location = new Point(640, 255);
-        cmbPriority.Name = "cmbPriority";
-        cmbPriority.ShadowDecoration.CustomizableEdges = customizableEdges10;
-        cmbPriority.Size = new Size(230, 36);
-        cmbPriority.TabIndex = 37;
-        // 
         // txtTaskSearch
         // 
         txtTaskSearch.BorderColor = Color.DarkGray;
@@ -306,6 +225,88 @@ partial class TaskListForm
         txtTaskSearch.Size = new Size(227, 52);
         txtTaskSearch.TabIndex = 40;
         // 
+        // cmbPriority
+        // 
+        cmbPriority.BackColor = Color.Transparent;
+        cmbPriority.BorderColor = Color.FromArgb(45, 55, 72);
+        cmbPriority.BorderRadius = 10;
+        cmbPriority.BorderThickness = 2;
+        cmbPriority.CustomizableEdges = customizableEdges9;
+        cmbPriority.DrawMode = DrawMode.OwnerDrawFixed;
+        cmbPriority.DropDownStyle = ComboBoxStyle.DropDownList;
+        cmbPriority.FillColor = Color.FromArgb(26, 31, 46);
+        cmbPriority.FocusedColor = Color.FromArgb(94, 148, 255);
+        cmbPriority.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
+        cmbPriority.Font = new Font("Poppins", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 162);
+        cmbPriority.ForeColor = Color.White;
+        cmbPriority.ItemHeight = 30;
+        cmbPriority.Location = new Point(640, 255);
+        cmbPriority.Name = "cmbPriority";
+        cmbPriority.ShadowDecoration.CustomizableEdges = customizableEdges10;
+        cmbPriority.Size = new Size(230, 36);
+        cmbPriority.TabIndex = 37;
+        // 
+        // cmbStatus
+        // 
+        cmbStatus.BackColor = Color.Transparent;
+        cmbStatus.BorderColor = Color.FromArgb(45, 55, 72);
+        cmbStatus.BorderRadius = 10;
+        cmbStatus.BorderThickness = 2;
+        cmbStatus.CustomizableEdges = customizableEdges11;
+        cmbStatus.DrawMode = DrawMode.OwnerDrawFixed;
+        cmbStatus.DropDownStyle = ComboBoxStyle.DropDownList;
+        cmbStatus.FillColor = Color.FromArgb(26, 31, 46);
+        cmbStatus.FocusedColor = Color.FromArgb(94, 148, 255);
+        cmbStatus.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
+        cmbStatus.Font = new Font("Poppins", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 162);
+        cmbStatus.ForeColor = Color.White;
+        cmbStatus.ItemHeight = 30;
+        cmbStatus.Location = new Point(345, 255);
+        cmbStatus.Name = "cmbStatus";
+        cmbStatus.ShadowDecoration.CustomizableEdges = customizableEdges12;
+        cmbStatus.Size = new Size(230, 36);
+        cmbStatus.TabIndex = 37;
+        // 
+        // cmbDept
+        // 
+        cmbDept.BackColor = Color.Transparent;
+        cmbDept.BorderColor = Color.FromArgb(45, 55, 72);
+        cmbDept.BorderRadius = 10;
+        cmbDept.BorderThickness = 2;
+        cmbDept.CustomizableEdges = customizableEdges13;
+        cmbDept.DrawMode = DrawMode.OwnerDrawFixed;
+        cmbDept.DropDownStyle = ComboBoxStyle.DropDownList;
+        cmbDept.FillColor = Color.FromArgb(26, 31, 46);
+        cmbDept.FocusedColor = Color.FromArgb(94, 148, 255);
+        cmbDept.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
+        cmbDept.Font = new Font("Poppins", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 162);
+        cmbDept.ForeColor = Color.White;
+        cmbDept.ItemHeight = 30;
+        cmbDept.Location = new Point(50, 255);
+        cmbDept.Name = "cmbDept";
+        cmbDept.ShadowDecoration.CustomizableEdges = customizableEdges14;
+        cmbDept.Size = new Size(230, 36);
+        cmbDept.TabIndex = 37;
+        // 
+        // btnNewTask
+        // 
+        btnNewTask.BorderRadius = 12;
+        btnNewTask.CustomizableEdges = customizableEdges15;
+        btnNewTask.DisabledState.BorderColor = Color.DarkGray;
+        btnNewTask.DisabledState.CustomBorderColor = Color.DarkGray;
+        btnNewTask.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+        btnNewTask.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+        btnNewTask.FillColor = Color.FromArgb(70, 50, 150);
+        btnNewTask.Font = new Font("Poppins Medium", 9F, FontStyle.Bold, GraphicsUnit.Point, 162);
+        btnNewTask.ForeColor = Color.White;
+        btnNewTask.Location = new Point(1083, 63);
+        btnNewTask.Name = "btnNewTask";
+        btnNewTask.ShadowDecoration.CustomizableEdges = customizableEdges16;
+        btnNewTask.Size = new Size(221, 64);
+        btnNewTask.TabIndex = 16;
+        btnNewTask.Text = "+  Yeni Görev Oluştur";
+        btnNewTask.Click += btnNewTask_Click;
+        // 
         // pnlGridHeader
         // 
         pnlGridHeader.Controls.Add(guna2HtmlLabel8);
@@ -322,38 +323,16 @@ partial class TaskListForm
         pnlGridHeader.Size = new Size(1382, 53);
         pnlGridHeader.TabIndex = 5;
         // 
-        // guna2HtmlLabel1
+        // guna2HtmlLabel8
         // 
-        guna2HtmlLabel1.BackColor = Color.Transparent;
-        guna2HtmlLabel1.Font = new Font("Poppins", 12F, FontStyle.Bold, GraphicsUnit.Point, 162);
-        guna2HtmlLabel1.ForeColor = Color.White;
-        guna2HtmlLabel1.Location = new Point(80, 3);
-        guna2HtmlLabel1.Name = "guna2HtmlLabel1";
-        guna2HtmlLabel1.Size = new Size(104, 38);
-        guna2HtmlLabel1.TabIndex = 1;
-        guna2HtmlLabel1.Text = "Görev Adı";
-        // 
-        // guna2HtmlLabel4
-        // 
-        guna2HtmlLabel4.BackColor = Color.Transparent;
-        guna2HtmlLabel4.Font = new Font("Poppins", 12F, FontStyle.Bold, GraphicsUnit.Point, 162);
-        guna2HtmlLabel4.ForeColor = Color.White;
-        guna2HtmlLabel4.Location = new Point(318, 3);
-        guna2HtmlLabel4.Name = "guna2HtmlLabel4";
-        guna2HtmlLabel4.Size = new Size(172, 38);
-        guna2HtmlLabel4.TabIndex = 2;
-        guna2HtmlLabel4.Text = "Atanan Personel";
-        // 
-        // guna2HtmlLabel5
-        // 
-        guna2HtmlLabel5.BackColor = Color.Transparent;
-        guna2HtmlLabel5.Font = new Font("Poppins", 12F, FontStyle.Bold, GraphicsUnit.Point, 162);
-        guna2HtmlLabel5.ForeColor = Color.White;
-        guna2HtmlLabel5.Location = new Point(624, 3);
-        guna2HtmlLabel5.Name = "guna2HtmlLabel5";
-        guna2HtmlLabel5.Size = new Size(99, 38);
-        guna2HtmlLabel5.TabIndex = 3;
-        guna2HtmlLabel5.Text = "Son Tarih";
+        guna2HtmlLabel8.BackColor = Color.Transparent;
+        guna2HtmlLabel8.Font = new Font("Poppins", 12F, FontStyle.Bold, GraphicsUnit.Point, 162);
+        guna2HtmlLabel8.ForeColor = Color.White;
+        guna2HtmlLabel8.Location = new Point(1083, 3);
+        guna2HtmlLabel8.Name = "guna2HtmlLabel8";
+        guna2HtmlLabel8.Size = new Size(74, 38);
+        guna2HtmlLabel8.TabIndex = 6;
+        guna2HtmlLabel8.Text = "Durum";
         // 
         // guna2HtmlLabel7
         // 
@@ -366,16 +345,38 @@ partial class TaskListForm
         guna2HtmlLabel7.TabIndex = 6;
         guna2HtmlLabel7.Text = "Önecelik";
         // 
-        // guna2HtmlLabel8
+        // guna2HtmlLabel5
         // 
-        guna2HtmlLabel8.BackColor = Color.Transparent;
-        guna2HtmlLabel8.Font = new Font("Poppins", 12F, FontStyle.Bold, GraphicsUnit.Point, 162);
-        guna2HtmlLabel8.ForeColor = Color.White;
-        guna2HtmlLabel8.Location = new Point(1083, 3);
-        guna2HtmlLabel8.Name = "guna2HtmlLabel8";
-        guna2HtmlLabel8.Size = new Size(74, 38);
-        guna2HtmlLabel8.TabIndex = 6;
-        guna2HtmlLabel8.Text = "Durum";
+        guna2HtmlLabel5.BackColor = Color.Transparent;
+        guna2HtmlLabel5.Font = new Font("Poppins", 12F, FontStyle.Bold, GraphicsUnit.Point, 162);
+        guna2HtmlLabel5.ForeColor = Color.White;
+        guna2HtmlLabel5.Location = new Point(624, 3);
+        guna2HtmlLabel5.Name = "guna2HtmlLabel5";
+        guna2HtmlLabel5.Size = new Size(99, 38);
+        guna2HtmlLabel5.TabIndex = 3;
+        guna2HtmlLabel5.Text = "Son Tarih";
+        // 
+        // guna2HtmlLabel4
+        // 
+        guna2HtmlLabel4.BackColor = Color.Transparent;
+        guna2HtmlLabel4.Font = new Font("Poppins", 12F, FontStyle.Bold, GraphicsUnit.Point, 162);
+        guna2HtmlLabel4.ForeColor = Color.White;
+        guna2HtmlLabel4.Location = new Point(318, 3);
+        guna2HtmlLabel4.Name = "guna2HtmlLabel4";
+        guna2HtmlLabel4.Size = new Size(172, 38);
+        guna2HtmlLabel4.TabIndex = 2;
+        guna2HtmlLabel4.Text = "Atanan Personel";
+        // 
+        // guna2HtmlLabel1
+        // 
+        guna2HtmlLabel1.BackColor = Color.Transparent;
+        guna2HtmlLabel1.Font = new Font("Poppins", 12F, FontStyle.Bold, GraphicsUnit.Point, 162);
+        guna2HtmlLabel1.ForeColor = Color.White;
+        guna2HtmlLabel1.Location = new Point(80, 3);
+        guna2HtmlLabel1.Name = "guna2HtmlLabel1";
+        guna2HtmlLabel1.Size = new Size(104, 38);
+        guna2HtmlLabel1.TabIndex = 1;
+        guna2HtmlLabel1.Text = "Görev Adı";
         // 
         // guna2Separator1
         // 
