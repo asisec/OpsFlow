@@ -374,20 +374,24 @@ namespace OpsFlow.UI.Forms.Management
 
         private void btnCompanyRegister_Click(object sender, EventArgs e)
         {
-            Form dimmer = new Form();
-            dimmer.FormBorderStyle = FormBorderStyle.None;
-            dimmer.BackColor = Color.Black;
-            dimmer.Opacity = 0.60d;
-            dimmer.ShowInTaskbar = false;
-            dimmer.StartPosition = FormStartPosition.Manual;
-            dimmer.Location = this.Location;
-            dimmer.Size = this.Size;
-            using (CompanyRegisterForm popup = new CompanyRegisterForm())
+            if (this.FindForm() is Form anaForm)
             {
-                popup.StartPosition = FormStartPosition.CenterParent;
-                dimmer.Show(this);
-                popup.ShowDialog(dimmer);
-                dimmer.Close();
+                Form dimmer = new Form();
+                dimmer.FormBorderStyle = FormBorderStyle.None;
+                dimmer.BackColor = Color.Black;
+                dimmer.Opacity = 0.60d;
+                dimmer.ShowInTaskbar = false;
+                dimmer.StartPosition = FormStartPosition.Manual;
+                dimmer.Location = anaForm.PointToScreen(Point.Empty);
+                dimmer.Size = anaForm.Size;
+
+                using (CompanyRegisterForm popup = new CompanyRegisterForm())
+                {
+                    popup.StartPosition = FormStartPosition.CenterScreen;
+                    dimmer.Show(anaForm);
+                    popup.ShowDialog(dimmer);
+                    dimmer.Close();
+                }
             }
         }
     }
