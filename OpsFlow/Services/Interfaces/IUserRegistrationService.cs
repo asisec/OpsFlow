@@ -7,4 +7,3 @@ namespace OpsFlow.Services.Interfaces
         Task RegisterPersonelAsync(User user, int roleId, int? companyId, int? departmentId = null);
     }
 }
-
