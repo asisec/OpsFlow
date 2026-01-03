@@ -1,4 +1,4 @@
-﻿using OpsFlow.Core.Enums;
+using OpsFlow.Core.Enums;
 using OpsFlow.Core.Exceptions;
 using OpsFlow.Core.Models;
 using OpsFlow.Core.Services;
@@ -17,7 +17,7 @@ namespace OpsFlow.UI.Forms.Management
         private List<Role> _roles = new List<Role>();
         private List<Company> _companies = new List<Company>();
         private List<Department> _departments = new List<Department>();
- 
+
         public string? UploadedAvatarPath => _uploadedFilePath;
 
         public AddPersonelForm()
@@ -28,6 +28,7 @@ namespace OpsFlow.UI.Forms.Management
             
             this.Load += AddPersonelForm_Load;
             btnSave.Click += BtnSave_Click;
+            cmbRole.SelectedIndexChanged += CmbRole_SelectedIndexChanged;
         }
 
         private async void AddPersonelForm_Load(object? sender, EventArgs e)
@@ -147,6 +148,8 @@ namespace OpsFlow.UI.Forms.Management
                 cmbTitle.Items.Add(department.DepartmentName);
             cmbTitle.SelectedIndex = 0;
             cmbTitle.EndUpdate();
+
+            UpdateFieldStates(null);
         }
 
         private async void picProfilePhoto_Click_1(object sender, EventArgs e)
@@ -217,9 +220,17 @@ namespace OpsFlow.UI.Forms.Management
                 string password = txtPassword.Text;
                 string selectedRoleName = cmbRole.SelectedItem?.ToString() ?? string.Empty;
                 string selectedCompanyName = cmbDepartment.SelectedItem?.ToString() ?? string.Empty;
+                string selectedDepartmentName = cmbTitle.SelectedItem?.ToString() ?? string.Empty;
+
+                var selectedRole = ComboBoxHelper.FindRoleByName(_roles, selectedRoleName);
+                if (selectedRole == null)
+                {
+                    Notifier.Show("Hata", "Seçilen rol bulunamadı.", NotificationType.Error);
+                    return;
+                }
 
                 var validationResult = FormValidationHelper.ValidatePersonelForm(
-                    name, surname, email, password, selectedRoleName, selectedCompanyName);
+                    name, surname, email, password, selectedRoleName, selectedCompanyName, selectedRole.Id, selectedDepartmentName);
 
                 if (!validationResult.IsValid)
                 {
@@ -227,21 +238,26 @@ namespace OpsFlow.UI.Forms.Management
                     return;
                 }
 
-                var selectedRole = ComboBoxHelper.FindRoleByName(_roles, selectedRoleName);
                 var selectedCompany = ComboBoxHelper.FindCompanyByName(_companies, selectedCompanyName);
-                string selectedDepartmentName = cmbTitle.SelectedItem?.ToString() ?? string.Empty;
-                var selectedDepartment = ComboBoxHelper.FindDepartmentByName(_departments, selectedDepartmentName);
 
-                if (selectedRole == null)
+                if (selectedRole.Id == 1 || selectedRole.Id == 2)
                 {
-                    Notifier.Show("Hata", "Seçilen rol bulunamadı.", NotificationType.Error);
-                    return;
                 }
-
-                if (selectedCompany == null)
+                else if (selectedRole.Id == 3)
                 {
-                    Notifier.Show("Hata", "Seçilen şirket bulunamadı.", NotificationType.Error);
-                    return;
+                    if (selectedCompany == null && !string.IsNullOrWhiteSpace(selectedCompanyName) && selectedCompanyName != "Şirket seçiniz")
+                    {
+                        Notifier.Show("Hata", "Seçilen şirket bulunamadı.", NotificationType.Error);
+                        return;
+                    }
+                }
+                else
+                {
+                    if (selectedCompany == null)
+                    {
+                        Notifier.Show("Hata", "Seçilen şirket bulunamadı.", NotificationType.Error);
+                        return;
+                    }
                 }
 
                 this.Invoke(new Action(() =>
@@ -259,10 +275,39 @@ namespace OpsFlow.UI.Forms.Management
                     AvatarUrl = _uploadedFilePath
                 };
 
-                using var context = DatabaseManager.CreateContext();
-                var userService = new UserService(context);
-                var registrationService = new UserRegistrationService(context, userService);
-                await registrationService.RegisterPersonelAsync(newUser, selectedRole.Id, selectedCompany.Id, selectedDepartment?.Id);
+                int? companyIdForRegistration = null;
+                int? departmentIdForRegistration = null;
+
+                if (selectedRole.Id == 1 || selectedRole.Id == 2)
+                {
+                    companyIdForRegistration = null;
+                    var selectedDepartment = ComboBoxHelper.FindDepartmentByName(_departments, selectedDepartmentName);
+                    departmentIdForRegistration = selectedDepartment?.Id;
+                }
+                else if (selectedRole.Id == 3)
+                {
+                    companyIdForRegistration = selectedCompany?.Id;
+                    departmentIdForRegistration = null;
+                }
+                else
+                {
+                    if (selectedCompany == null)
+                    {
+                        Notifier.Show("Hata", "Şirket seçimi gereklidir.", NotificationType.Error);
+                        return;
+                    }
+                    companyIdForRegistration = selectedCompany.Id;
+                    var selectedDepartment = ComboBoxHelper.FindDepartmentByName(_departments, selectedDepartmentName);
+                    departmentIdForRegistration = selectedDepartment?.Id;
+                }
+
+                await Task.Run(async () =>
+                {
+                    using var context = DatabaseManager.CreateContext();
+                    var userService = new UserService(context);
+                    var registrationService = new UserRegistrationService(context, userService);
+                    await registrationService.RegisterPersonelAsync(newUser, selectedRole.Id, companyIdForRegistration, departmentIdForRegistration);
+                });
 
                 this.Invoke(new Action(() =>
                 {
@@ -328,9 +373,39 @@ namespace OpsFlow.UI.Forms.Management
                 cmbTitle.SelectedIndex = 0;
         }
 
-        private void guna2ComboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        private void CmbRole_SelectedIndexChanged(object? sender, EventArgs e)
         {
+            string selectedRoleName = cmbRole.SelectedItem?.ToString() ?? string.Empty;
+            var selectedRole = ComboBoxHelper.FindRoleByName(_roles, selectedRoleName);
+            UpdateFieldStates(selectedRole);
+        }
 
+        private void UpdateFieldStates(Role? selectedRole)
+        {
+            if (selectedRole == null)
+            {
+                cmbDepartment.Enabled = true;
+                cmbTitle.Enabled = true;
+                return;
+            }
+
+            if (selectedRole.Id == 1 || selectedRole.Id == 2)
+            {
+                cmbDepartment.Enabled = false;
+                cmbDepartment.SelectedIndex = 0;
+                cmbTitle.Enabled = true;
+            }
+            else if (selectedRole.Id == 3)
+            {
+                cmbDepartment.Enabled = true;
+                cmbTitle.Enabled = false;
+                cmbTitle.SelectedIndex = 0;
+            }
+            else
+            {
+                cmbDepartment.Enabled = true;
+                cmbTitle.Enabled = true;
+            }
         }
 
         private void btnCompanyRegister_Click(object sender, EventArgs e)

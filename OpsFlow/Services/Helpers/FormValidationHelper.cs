@@ -8,7 +8,9 @@ namespace OpsFlow.Services.Helpers
             string email,
             string password,
             string? roleName,
-            string? companyName)
+            string? companyName,
+            int roleId,
+            string? departmentName)
         {
             if (string.IsNullOrWhiteSpace(name))
             {
@@ -35,9 +37,34 @@ namespace OpsFlow.Services.Helpers
                 return (false, "Lütfen bir rol seçiniz.");
             }
 
-            if (string.IsNullOrWhiteSpace(companyName) || companyName == "Şirket seçiniz")
+            if (roleId == 1 || roleId == 2)
             {
-                return (false, "Lütfen bir şirket seçiniz.");
+                if (!string.IsNullOrWhiteSpace(companyName) && companyName != "Şirket seçiniz")
+                {
+                    return (false, "Bu rol için şirket seçimi yapılamaz.");
+                }
+            }
+            else if (roleId == 3)
+            {
+                if (!string.IsNullOrWhiteSpace(departmentName) && departmentName != "Departman seçiniz")
+                {
+                    return (false, "Bu rol için departman seçimi yapılamaz.");
+                }
+            }
+            else
+            {
+                if (string.IsNullOrWhiteSpace(companyName) || companyName == "Şirket seçiniz")
+                {
+                    return (false, "Lütfen bir şirket seçiniz.");
+                }
+            }
+
+            if (roleId != 3)
+            {
+                if (string.IsNullOrWhiteSpace(departmentName) || departmentName == "Departman seçiniz")
+                {
+                    return (false, "Lütfen bir departman seçiniz.");
+                }
             }
 
             return (true, null);

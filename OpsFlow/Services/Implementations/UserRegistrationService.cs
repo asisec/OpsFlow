@@ -15,7 +15,7 @@ namespace OpsFlow.Services.Implementations
             _userService = userService;
         }
 
-        public async Task RegisterPersonelAsync(User user, int roleId, int companyId, int? departmentId = null)
+        public async Task RegisterPersonelAsync(User user, int roleId, int? companyId, int? departmentId = null)
         {
             user.RoleId = roleId;
             user.CompanyId = companyId;
@@ -27,4 +27,3 @@ namespace OpsFlow.Services.Implementations
         }
     }
 }
-
