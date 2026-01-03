@@ -59,7 +59,12 @@ public partial class LoginForm : BaseForm
         }
         catch (Exception ex)
         {
-            Notifier.Show("Sistem Hatası", "Beklenmedik bir hata oluştu.", NotificationType.Error);
+            var msg = "Beklenmedik bir hata oluştu.";
+            if (ex is OpsFlow.Core.Exceptions.DatabaseQueryException && ex.InnerException != null)
+                msg += $"\nDB Hatası: {ex.InnerException.Message}";
+            else
+                msg += $"\n{ex.Message}";
+            Notifier.Show("Sistem Hatası", msg, NotificationType.Error);
         }
         finally
         {

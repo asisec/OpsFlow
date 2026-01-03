@@ -8,6 +8,7 @@ public class Company
 {
     [Key]
     [Column("id")]
+    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     public int Id { get; set; }
 
     [Column("company_name")]
@@ -20,6 +21,10 @@ public class Company
 
     [Column("address")]
     public string? Address { get; set; }
+
+    [Column("phone")]
+    [MaxLength(20)]
+    public string? Phone { get; set; }
 
     [Column("created_at")]
     public DateTime CreatedAt { get; set; }
