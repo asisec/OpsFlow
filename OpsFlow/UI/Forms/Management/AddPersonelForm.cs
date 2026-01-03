@@ -16,7 +16,8 @@ namespace OpsFlow.UI.Forms.Management
         private string? _uploadedFilePath;
         private List<Role> _roles = new List<Role>();
         private List<Company> _companies = new List<Company>();
-
+        private List<Department> _departments = new List<Department>();
+ 
         public string? UploadedAvatarPath => _uploadedFilePath;
 
         public AddPersonelForm()
@@ -50,35 +51,33 @@ namespace OpsFlow.UI.Forms.Management
 
             cmbTitle.BeginUpdate();
             cmbTitle.Items.Clear();
-            cmbTitle.Items.Add("Departman seçiniz");
-            cmbTitle.Items.Add("İnsan Kaynakları");
-            cmbTitle.Items.Add("Bilgi İşlem");
-            cmbTitle.Items.Add("Muhasebe");
-            cmbTitle.Items.Add("Satış");
-            cmbTitle.Items.Add("Pazarlama");
-            cmbTitle.Items.Add("Üretim");
-            cmbTitle.Items.Add("Yönetim");
+            cmbTitle.Items.Add("Yükleniyor...");
             cmbTitle.SelectedIndex = 0;
             cmbTitle.EndUpdate();
 
             List<Role>? roles = null;
             List<Company>? companies = null;
+            List<Department>? departments = null;
 
             try
             {
                 using var roleContext = DatabaseManager.CreateContext();
                 using var companyContext = DatabaseManager.CreateContext();
+                using var departmentContext = DatabaseManager.CreateContext();
                 
                 var roleService = new RoleService(roleContext);
                 var companyService = new CompanyService(companyContext);
+                var departmentService = new DepartmentService(departmentContext);
 
                 var rolesTask = roleService.GetAllRolesAsync();
                 var companiesTask = companyService.GetAllCompaniesAsync();
+                var departmentsTask = departmentService.GetAllDepartmentsAsync();
 
-                await Task.WhenAll(rolesTask, companiesTask);
+                await Task.WhenAll(rolesTask, companiesTask, departmentsTask);
 
                 roles = await rolesTask;
                 companies = await companiesTask;
+                departments = await departmentsTask;
             }
             catch (DatabaseQueryException dbEx)
             {
@@ -103,26 +102,27 @@ namespace OpsFlow.UI.Forms.Management
                 return;
             }
 
-            if (roles != null && companies != null)
+            if (roles != null && companies != null && departments != null)
             {
                 if (this.InvokeRequired)
                 {
                     this.Invoke(new Action(() =>
                     {
-                        LoadComboBoxes(roles, companies);
+                        LoadComboBoxes(roles, companies, departments);
                     }));
                 }
                 else
                 {
-                    LoadComboBoxes(roles, companies);
+                    LoadComboBoxes(roles, companies, departments);
                 }
             }
         }
 
-        private void LoadComboBoxes(List<Role> roles, List<Company> companies)
+        private void LoadComboBoxes(List<Role> roles, List<Company> companies, List<Department> departments)
         {
             _roles = roles;
             _companies = companies;
+            _departments = departments;
 
             cmbRole.BeginUpdate();
             cmbRole.Items.Clear();
@@ -143,13 +143,8 @@ namespace OpsFlow.UI.Forms.Management
             cmbTitle.BeginUpdate();
             cmbTitle.Items.Clear();
             cmbTitle.Items.Add("Departman seçiniz");
-            cmbTitle.Items.Add("İnsan Kaynakları");
-            cmbTitle.Items.Add("Bilgi İşlem");
-            cmbTitle.Items.Add("Muhasebe");
-            cmbTitle.Items.Add("Satış");
-            cmbTitle.Items.Add("Pazarlama");
-            cmbTitle.Items.Add("Üretim");
-            cmbTitle.Items.Add("Yönetim");
+            foreach (var department in departments)
+                cmbTitle.Items.Add(department.DepartmentName);
             cmbTitle.SelectedIndex = 0;
             cmbTitle.EndUpdate();
         }
@@ -234,6 +229,8 @@ namespace OpsFlow.UI.Forms.Management
 
                 var selectedRole = ComboBoxHelper.FindRoleByName(_roles, selectedRoleName);
                 var selectedCompany = ComboBoxHelper.FindCompanyByName(_companies, selectedCompanyName);
+                string selectedDepartmentName = cmbTitle.SelectedItem?.ToString() ?? string.Empty;
+                var selectedDepartment = ComboBoxHelper.FindDepartmentByName(_departments, selectedDepartmentName);
 
                 if (selectedRole == null)
                 {
@@ -262,13 +259,10 @@ namespace OpsFlow.UI.Forms.Management
                     AvatarUrl = _uploadedFilePath
                 };
 
-                await Task.Run(async () =>
-                {
-                    using var context = DatabaseManager.CreateContext();
-                    var userService = new UserService(context);
-                    var registrationService = new UserRegistrationService(context, userService);
-                    await registrationService.RegisterPersonelAsync(newUser, selectedRole.Id, selectedCompany.Id);
-                });
+                using var context = DatabaseManager.CreateContext();
+                var userService = new UserService(context);
+                var registrationService = new UserRegistrationService(context, userService);
+                await registrationService.RegisterPersonelAsync(newUser, selectedRole.Id, selectedCompany.Id, selectedDepartment?.Id);
 
                 this.Invoke(new Action(() =>
                 {

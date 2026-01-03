@@ -58,7 +58,7 @@ namespace OpsFlow.UI.Forms.Auth
             {
                 Notifier.Show("Uyarı", ex.Message, NotificationType.Warning);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 Notifier.Show("Hata", "Sistem hatası nedeniyle şifre güncellenemedi.", NotificationType.Error);
             }
