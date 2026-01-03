@@ -12,10 +12,13 @@ public class User
     public int Id { get; set; }
 
     [Column("company_id")]
-    public int CompanyId { get; set; }
+    public int? CompanyId { get; set; }
 
     [Column("role_id")]
     public int RoleId { get; set; }
+
+    [Column("department_id")]
+    public int? DepartmentId { get; set; }
 
     [Column("name")]
     [MaxLength(100)]
@@ -47,10 +50,13 @@ public class User
     public string? AvatarUrl { get; set; }
 
     [ForeignKey(nameof(CompanyId))]
-    public virtual Company Company { get; set; } = null!;
+    public virtual Company? Company { get; set; }
 
     [ForeignKey(nameof(RoleId))]
     public virtual Role Role { get; set; } = null!;
+
+    [ForeignKey(nameof(DepartmentId))]
+    public virtual Department? Department { get; set; }
 
     public virtual IndividualCustomer? IndividualCustomer { get; set; }
 }

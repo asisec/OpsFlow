@@ -16,6 +16,7 @@ namespace OpsFlow.UI.Forms.Management
         private string? _uploadedFilePath;
         private List<Role> _roles = new List<Role>();
         private List<Company> _companies = new List<Company>();
+        private List<Department> _departments = new List<Department>();
 
         public string? UploadedAvatarPath => _uploadedFilePath;
 
@@ -27,6 +28,7 @@ namespace OpsFlow.UI.Forms.Management
             
             this.Load += AddPersonelForm_Load;
             btnSave.Click += BtnSave_Click;
+            cmbRole.SelectedIndexChanged += CmbRole_SelectedIndexChanged;
         }
 
         private async void AddPersonelForm_Load(object? sender, EventArgs e)
@@ -50,35 +52,33 @@ namespace OpsFlow.UI.Forms.Management
 
             cmbTitle.BeginUpdate();
             cmbTitle.Items.Clear();
-            cmbTitle.Items.Add("Departman seçiniz");
-            cmbTitle.Items.Add("İnsan Kaynakları");
-            cmbTitle.Items.Add("Bilgi İşlem");
-            cmbTitle.Items.Add("Muhasebe");
-            cmbTitle.Items.Add("Satış");
-            cmbTitle.Items.Add("Pazarlama");
-            cmbTitle.Items.Add("Üretim");
-            cmbTitle.Items.Add("Yönetim");
+            cmbTitle.Items.Add("Yükleniyor...");
             cmbTitle.SelectedIndex = 0;
             cmbTitle.EndUpdate();
 
             List<Role>? roles = null;
             List<Company>? companies = null;
+            List<Department>? departments = null;
 
             try
             {
                 using var roleContext = DatabaseManager.CreateContext();
                 using var companyContext = DatabaseManager.CreateContext();
+                using var departmentContext = DatabaseManager.CreateContext();
                 
                 var roleService = new RoleService(roleContext);
                 var companyService = new CompanyService(companyContext);
+                var departmentService = new DepartmentService(departmentContext);
 
                 var rolesTask = roleService.GetAllRolesAsync();
                 var companiesTask = companyService.GetAllCompaniesAsync();
+                var departmentsTask = departmentService.GetAllDepartmentsAsync();
 
-                await Task.WhenAll(rolesTask, companiesTask);
+                await Task.WhenAll(rolesTask, companiesTask, departmentsTask);
 
                 roles = await rolesTask;
                 companies = await companiesTask;
+                departments = await departmentsTask;
             }
             catch (DatabaseQueryException dbEx)
             {
@@ -103,26 +103,27 @@ namespace OpsFlow.UI.Forms.Management
                 return;
             }
 
-            if (roles != null && companies != null)
+            if (roles != null && companies != null && departments != null)
             {
                 if (this.InvokeRequired)
                 {
                     this.Invoke(new Action(() =>
                     {
-                        LoadComboBoxes(roles, companies);
+                        LoadComboBoxes(roles, companies, departments);
                     }));
                 }
                 else
                 {
-                    LoadComboBoxes(roles, companies);
+                    LoadComboBoxes(roles, companies, departments);
                 }
             }
         }
 
-        private void LoadComboBoxes(List<Role> roles, List<Company> companies)
+        private void LoadComboBoxes(List<Role> roles, List<Company> companies, List<Department> departments)
         {
             _roles = roles;
             _companies = companies;
+            _departments = departments;
 
             cmbRole.BeginUpdate();
             cmbRole.Items.Clear();
@@ -143,15 +144,12 @@ namespace OpsFlow.UI.Forms.Management
             cmbTitle.BeginUpdate();
             cmbTitle.Items.Clear();
             cmbTitle.Items.Add("Departman seçiniz");
-            cmbTitle.Items.Add("İnsan Kaynakları");
-            cmbTitle.Items.Add("Bilgi İşlem");
-            cmbTitle.Items.Add("Muhasebe");
-            cmbTitle.Items.Add("Satış");
-            cmbTitle.Items.Add("Pazarlama");
-            cmbTitle.Items.Add("Üretim");
-            cmbTitle.Items.Add("Yönetim");
+            foreach (var department in departments)
+                cmbTitle.Items.Add(department.DepartmentName);
             cmbTitle.SelectedIndex = 0;
             cmbTitle.EndUpdate();
+
+            UpdateFieldStates(null);
         }
 
         private async void picProfilePhoto_Click_1(object sender, EventArgs e)
@@ -222,9 +220,17 @@ namespace OpsFlow.UI.Forms.Management
                 string password = txtPassword.Text;
                 string selectedRoleName = cmbRole.SelectedItem?.ToString() ?? string.Empty;
                 string selectedCompanyName = cmbDepartment.SelectedItem?.ToString() ?? string.Empty;
+                string selectedDepartmentName = cmbTitle.SelectedItem?.ToString() ?? string.Empty;
+
+                var selectedRole = ComboBoxHelper.FindRoleByName(_roles, selectedRoleName);
+                if (selectedRole == null)
+                {
+                    Notifier.Show("Hata", "Seçilen rol bulunamadı.", NotificationType.Error);
+                    return;
+                }
 
                 var validationResult = FormValidationHelper.ValidatePersonelForm(
-                    name, surname, email, password, selectedRoleName, selectedCompanyName);
+                    name, surname, email, password, selectedRoleName, selectedCompanyName, selectedRole.Id, selectedDepartmentName);
 
                 if (!validationResult.IsValid)
                 {
@@ -232,19 +238,26 @@ namespace OpsFlow.UI.Forms.Management
                     return;
                 }
 
-                var selectedRole = ComboBoxHelper.FindRoleByName(_roles, selectedRoleName);
                 var selectedCompany = ComboBoxHelper.FindCompanyByName(_companies, selectedCompanyName);
 
-                if (selectedRole == null)
+                if (selectedRole.Id == 1 || selectedRole.Id == 2)
                 {
-                    Notifier.Show("Hata", "Seçilen rol bulunamadı.", NotificationType.Error);
-                    return;
                 }
-
-                if (selectedCompany == null)
+                else if (selectedRole.Id == 3)
                 {
-                    Notifier.Show("Hata", "Seçilen şirket bulunamadı.", NotificationType.Error);
-                    return;
+                    if (selectedCompany == null && !string.IsNullOrWhiteSpace(selectedCompanyName) && selectedCompanyName != "Şirket seçiniz")
+                    {
+                        Notifier.Show("Hata", "Seçilen şirket bulunamadı.", NotificationType.Error);
+                        return;
+                    }
+                }
+                else
+                {
+                    if (selectedCompany == null)
+                    {
+                        Notifier.Show("Hata", "Seçilen şirket bulunamadı.", NotificationType.Error);
+                        return;
+                    }
                 }
 
                 this.Invoke(new Action(() =>
@@ -262,12 +275,38 @@ namespace OpsFlow.UI.Forms.Management
                     AvatarUrl = _uploadedFilePath
                 };
 
+                int? companyIdForRegistration = null;
+                int? departmentIdForRegistration = null;
+
+                if (selectedRole.Id == 1 || selectedRole.Id == 2)
+                {
+                    companyIdForRegistration = null;
+                    var selectedDepartment = ComboBoxHelper.FindDepartmentByName(_departments, selectedDepartmentName);
+                    departmentIdForRegistration = selectedDepartment?.Id;
+                }
+                else if (selectedRole.Id == 3)
+                {
+                    companyIdForRegistration = selectedCompany?.Id;
+                    departmentIdForRegistration = null;
+                }
+                else
+                {
+                    if (selectedCompany == null)
+                    {
+                        Notifier.Show("Hata", "Şirket seçimi gereklidir.", NotificationType.Error);
+                        return;
+                    }
+                    companyIdForRegistration = selectedCompany.Id;
+                    var selectedDepartment = ComboBoxHelper.FindDepartmentByName(_departments, selectedDepartmentName);
+                    departmentIdForRegistration = selectedDepartment?.Id;
+                }
+
                 await Task.Run(async () =>
                 {
                     using var context = DatabaseManager.CreateContext();
                     var userService = new UserService(context);
                     var registrationService = new UserRegistrationService(context, userService);
-                    await registrationService.RegisterPersonelAsync(newUser, selectedRole.Id, selectedCompany.Id);
+                    await registrationService.RegisterPersonelAsync(newUser, selectedRole.Id, companyIdForRegistration, departmentIdForRegistration);
                 });
 
                 this.Invoke(new Action(() =>
@@ -334,9 +373,39 @@ namespace OpsFlow.UI.Forms.Management
                 cmbTitle.SelectedIndex = 0;
         }
 
-        private void guna2ComboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        private void CmbRole_SelectedIndexChanged(object? sender, EventArgs e)
         {
+            string selectedRoleName = cmbRole.SelectedItem?.ToString() ?? string.Empty;
+            var selectedRole = ComboBoxHelper.FindRoleByName(_roles, selectedRoleName);
+            UpdateFieldStates(selectedRole);
+        }
 
+        private void UpdateFieldStates(Role? selectedRole)
+        {
+            if (selectedRole == null)
+            {
+                cmbDepartment.Enabled = true;
+                cmbTitle.Enabled = true;
+                return;
+            }
+
+            if (selectedRole.Id == 1 || selectedRole.Id == 2)
+            {
+                cmbDepartment.Enabled = false;
+                cmbDepartment.SelectedIndex = 0;
+                cmbTitle.Enabled = true;
+            }
+            else if (selectedRole.Id == 3)
+            {
+                cmbDepartment.Enabled = true;
+                cmbTitle.Enabled = false;
+                cmbTitle.SelectedIndex = 0;
+            }
+            else
+            {
+                cmbDepartment.Enabled = true;
+                cmbTitle.Enabled = true;
+            }
         }
 
         private void btnCompanyRegister_Click(object sender, EventArgs e)
