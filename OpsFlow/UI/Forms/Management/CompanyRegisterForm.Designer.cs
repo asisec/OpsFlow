@@ -207,7 +207,7 @@
             btnSaveCompany.Size = new Size(190, 43);
             btnSaveCompany.TabIndex = 16;
             btnSaveCompany.Text = "Kaydet";
-            btnSaveCompany.Click += btnSaveCompany_Click;
+            btnSaveCompany.Click += BtnSaveCompany_Click;
             // 
             // label2
             // 
