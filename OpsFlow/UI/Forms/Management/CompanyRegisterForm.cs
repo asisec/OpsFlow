@@ -1,4 +1,6 @@
-﻿using OpsFlow.UI.Forms.Core;
+﻿using OpsFlow.Core.Enums;
+using OpsFlow.UI.Forms.Core;
+using OpsFlow.UI.Forms.Dialogs.Notifications;
 
 namespace OpsFlow.UI.Forms.Management
 {
@@ -24,11 +26,11 @@ namespace OpsFlow.UI.Forms.Management
         {
             if (string.IsNullOrWhiteSpace(txtName.Text) || string.IsNullOrWhiteSpace(txtTaxNumber.Text))
             {
-                MessageBox.Show("Lütfen şirket adı ve vergi numarasını giriniz.");
+                Notifier.Show("Hata", "Lütfen şirket adı ve vergi numarasını giriniz.", NotificationType.Error);
                 return;
             }
 
-            MessageBox.Show("Şirket kaydı başarıyla alındı!");
+            Notifier.Show("Başarılı", "Şirket kaydı başarıyla alındı!", NotificationType.Success);
 
             this.Close();
         }

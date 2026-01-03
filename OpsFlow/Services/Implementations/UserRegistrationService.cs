@@ -22,10 +22,7 @@ namespace OpsFlow.Services.Implementations
             user.IsActive = true;
             user.CreatedAt = DateTime.UtcNow;
 
-            return Task.Run(() =>
-            {
-                _userService.RegisterUser(user);
-            });
+            return Task.Run(() => _userService.RegisterUser(user));
         }
     }
 }

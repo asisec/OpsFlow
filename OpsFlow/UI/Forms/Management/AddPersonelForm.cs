@@ -1,6 +1,7 @@
 ﻿using OpsFlow.Core.Enums;
 using OpsFlow.Core.Exceptions;
 using OpsFlow.Core.Models;
+using OpsFlow.Core.Services;
 using OpsFlow.Services.Helpers;
 using OpsFlow.Services.Implementations;
 using OpsFlow.Services.Interfaces;
@@ -12,7 +13,6 @@ namespace OpsFlow.UI.Forms.Management
     public partial class AddPersonelForm : BaseForm
     {
         private readonly IFileUploadService _fileUploadService;
-        private readonly IDatabaseConnectionService _dbService;
         private string? _uploadedFilePath;
         private List<Role> _roles = new List<Role>();
         private List<Company> _companies = new List<Company>();
@@ -24,7 +24,6 @@ namespace OpsFlow.UI.Forms.Management
             InitializeComponent();
             if (this.HeaderPanel != null) this.HeaderPanel.SendToBack();
             _fileUploadService = FileUploadServiceFactory.Create();
-            _dbService = new DatabaseConnectionService();
             
             this.Load += AddPersonelForm_Load;
             btnSave.Click += BtnSave_Click;
@@ -67,19 +66,14 @@ namespace OpsFlow.UI.Forms.Management
 
             try
             {
-                var rolesTask = Task.Run(async () =>
-                {
-                    using var roleContext = _dbService.CreateContext();
-                    var roleService = new RoleService(roleContext);
-                    return await roleService.GetAllRolesAsync();
-                });
+                using var roleContext = DatabaseManager.CreateContext();
+                using var companyContext = DatabaseManager.CreateContext();
+                
+                var roleService = new RoleService(roleContext);
+                var companyService = new CompanyService(companyContext);
 
-                var companiesTask = Task.Run(async () =>
-                {
-                    using var companyContext = _dbService.CreateContext();
-                    var companyService = new CompanyService(companyContext);
-                    return await companyService.GetAllCompaniesAsync();
-                });
+                var rolesTask = roleService.GetAllRolesAsync();
+                var companiesTask = companyService.GetAllCompaniesAsync();
 
                 await Task.WhenAll(rolesTask, companiesTask);
 
@@ -94,23 +88,7 @@ namespace OpsFlow.UI.Forms.Management
                     errorMessage += $"\n\nDetay: {dbEx.InnerException.Message}";
                 }
 
-                if (this.InvokeRequired)
-                {
-                    this.BeginInvoke(new Action(() =>
-                    {
-                        if (this.IsHandleCreated && !this.IsDisposed)
-                        {
-                            MessageBox.Show(errorMessage, "Veritabanı Hatası", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
-                    }));
-                }
-                else
-                {
-                    if (this.IsHandleCreated && !this.IsDisposed)
-                    {
-                        MessageBox.Show(errorMessage, "Veritabanı Hatası", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                }
+                Notifier.Show("Veritabanı Hatası", errorMessage, NotificationType.Error);
                 return;
             }
             catch (Exception ex)
@@ -121,23 +99,7 @@ namespace OpsFlow.UI.Forms.Management
                     errorMessage += $"\n\nDetay: {ex.InnerException.Message}";
                 }
 
-                if (this.InvokeRequired)
-                {
-                    this.BeginInvoke(new Action(() =>
-                    {
-                        if (this.IsHandleCreated && !this.IsDisposed)
-                        {
-                            MessageBox.Show(errorMessage, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
-                    }));
-                }
-                else
-                {
-                    if (this.IsHandleCreated && !this.IsDisposed)
-                    {
-                        MessageBox.Show(errorMessage, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                }
+                Notifier.Show("Hata", errorMessage, NotificationType.Error);
                 return;
             }
 
@@ -190,11 +152,6 @@ namespace OpsFlow.UI.Forms.Management
             cmbTitle.Items.Add("Yönetim");
             cmbTitle.SelectedIndex = 0;
             cmbTitle.EndUpdate();
-        }
-
-        private void cmbTitle_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
         }
 
         private async void picProfilePhoto_Click_1(object sender, EventArgs e)
@@ -307,7 +264,7 @@ namespace OpsFlow.UI.Forms.Management
 
                 await Task.Run(async () =>
                 {
-                    using var context = _dbService.CreateContext();
+                    using var context = DatabaseManager.CreateContext();
                     var userService = new UserService(context);
                     var registrationService = new UserRegistrationService(context, userService);
                     await registrationService.RegisterPersonelAsync(newUser, selectedRole.Id, selectedCompany.Id);
@@ -337,14 +294,24 @@ namespace OpsFlow.UI.Forms.Management
             {
                 this.Invoke(new Action(() =>
                 {
-                    Notifier.Show("Veritabanı Hatası", ex.Message, NotificationType.Error);
+                    string errorMessage = ex.Message;
+                    if (ex.InnerException != null && !ex.Message.Contains(ex.InnerException.Message))
+                    {
+                        errorMessage += $"\n\nDetay: {ex.InnerException.Message}";
+                    }
+                    Notifier.Show("Veritabanı Hatası", errorMessage, NotificationType.Error);
                 }));
             }
             catch (Exception ex)
             {
                 this.Invoke(new Action(() =>
                 {
-                    Notifier.Show("Hata", $"Beklenmeyen bir hata oluştu: {ex.Message}", NotificationType.Error);
+                    string errorMessage = $"Beklenmeyen bir hata oluştu: {ex.Message}";
+                    if (ex.InnerException != null)
+                    {
+                        errorMessage += $"\n\nDetay: {ex.InnerException.Message}";
+                    }
+                    Notifier.Show("Hata", errorMessage, NotificationType.Error);
                 }));
             }
         }

@@ -1,7 +1,5 @@
 ﻿using Guna.UI2.WinForms;
 using OpsFlow.Core.Services;
-using OpsFlow.Services.Implementations;
-using OpsFlow.Services.Interfaces;
 using OpsFlow.UI.Forms.Core;
 using OpsFlow.UI.Forms.Auth;
 
@@ -14,12 +12,10 @@ namespace OpsFlow.UI.Forms.Onboarding
         private Guna2PictureBox _pbLogo = null!;
         private Guna2ShadowForm _shadowForm = null!;
         private Guna2Elipse _elipse = null!;
-        private readonly IDatabaseConnectionService _databaseService;
 
         public SplashScreenForm()
         {
             InitializeComponent();
-            _databaseService = new DatabaseConnectionService();
             SetupLayout();
         }
 
@@ -101,23 +97,36 @@ namespace OpsFlow.UI.Forms.Onboarding
         {
             try
             {
-                var bootstrapper = new AppBootstrapper(_databaseService);
+                var bootstrapper = new AppBootstrapper(DatabaseManager.Instance);
                 await bootstrapper.InitializeAsync((message, progress) =>
                 {
-                    this.Invoke(new Action(async () =>
+                    if (this.InvokeRequired)
                     {
-                        await UpdateStatus(message, progress);
-                    }));
+                        this.BeginInvoke(new Action(() =>
+                        {
+                            _ = UpdateStatus(message, progress);
+                        }));
+                    }
+                    else
+                    {
+                        _ = UpdateStatus(message, progress);
+                    }
                 });
 
                 WindowManager.Switch<LoginForm>(this);
             }
             catch (Exception ex)
             {
-                _lblStatus.Text = $"<div style='text-align:center; width:100%;'><span style='color: #ef4444;'>{ex.Message}</span></div>";
+                string errorMessage = ex.Message;
+                if (ex.InnerException != null && !ex.Message.Contains(ex.InnerException.Message))
+                {
+                    errorMessage += $"\n{ex.InnerException.Message}";
+                }
+                
+                _lblStatus.Text = $"<div style='text-align:center; width:100%; padding: 0 20px;'><span style='color: #ef4444; font-size: 9pt; line-height: 1.4;'>{errorMessage}</span></div>";
                 _progressBar.ProgressColor = Color.FromArgb(239, 68, 68);
                 _progressBar.ProgressColor2 = Color.FromArgb(239, 68, 68);
-                await Task.Delay(3500);
+                await Task.Delay(5000);
                 WindowManager.Exit();
             }
         }
@@ -134,5 +143,6 @@ namespace OpsFlow.UI.Forms.Onboarding
                 await Task.Delay(10);
             }
         }
+
     }
 }

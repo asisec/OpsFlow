@@ -8,6 +8,24 @@ namespace OpsFlow.UI.Forms.Dialogs.Notifications
 
         public static void Show(string title, string message, NotificationType type)
         {
+            if (Application.OpenForms.Count == 0)
+                return;
+
+            Form? mainForm = Application.OpenForms.Cast<Form>().FirstOrDefault();
+            if (mainForm == null)
+                return;
+
+            if (mainForm.InvokeRequired)
+            {
+                mainForm.BeginInvoke(new Action(() => ShowInternal(title, message, type)));
+                return;
+            }
+
+            ShowInternal(title, message, type);
+        }
+
+        private static void ShowInternal(string title, string message, NotificationType type)
+        {
             if (_currentNotification != null)
             {
                 try

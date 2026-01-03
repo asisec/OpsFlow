@@ -36,15 +36,12 @@ namespace OpsFlow.UI.Forms.Auth
 
             try
             {
-                bool userExists = await Task.Run(() =>
+                bool userExists;
+                using (var context = DatabaseManager.CreateContext())
                 {
-                    var connectionService = new DatabaseConnectionService();
-                    using (var context = connectionService.CreateContext())
-                    {
-                        var userService = new UserService(context);
-                        return userService.UserExists(email);
-                    }
-                });
+                    var userService = new UserService(context);
+                    userExists = await Task.Run(() => userService.UserExists(email));
+                }
 
                 if (!userExists)
                 {
