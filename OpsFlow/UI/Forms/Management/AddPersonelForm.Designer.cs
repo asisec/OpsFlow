@@ -266,7 +266,8 @@
             txtTelephone.SelectedText = "";
             txtTelephone.ShadowDecoration.CustomizableEdges = customizableEdges10;
             txtTelephone.Size = new Size(300, 42);
-            txtTelephone.TabIndex = 34;
+            txtTelephone.TabIndex = 14;
+            txtTelephone.TextChanged += txtTelephone_TextChanged;
             // 
             // guna2HtmlLabel11
             // 
@@ -313,7 +314,7 @@
             txtSurname.SelectedText = "";
             txtSurname.ShadowDecoration.CustomizableEdges = customizableEdges12;
             txtSurname.Size = new Size(140, 42);
-            txtSurname.TabIndex = 31;
+            txtSurname.TabIndex = 12;
             // 
             // txtName
             // 
@@ -338,7 +339,7 @@
             txtName.SelectedText = "";
             txtName.ShadowDecoration.CustomizableEdges = customizableEdges14;
             txtName.Size = new Size(140, 42);
-            txtName.TabIndex = 30;
+            txtName.TabIndex = 11;
             // 
             // txtPassword
             // 
@@ -364,7 +365,7 @@
             txtPassword.SelectedText = "";
             txtPassword.ShadowDecoration.CustomizableEdges = customizableEdges16;
             txtPassword.Size = new Size(300, 42);
-            txtPassword.TabIndex = 6;
+            txtPassword.TabIndex = 15;
             // 
             // guna2HtmlLabel9
             // 
@@ -480,7 +481,7 @@
             txtEmail.SelectedText = "";
             txtEmail.ShadowDecoration.CustomizableEdges = customizableEdges24;
             txtEmail.Size = new Size(300, 42);
-            txtEmail.TabIndex = 4;
+            txtEmail.TabIndex = 13;
             // 
             // picProfilePhoto
             // 
