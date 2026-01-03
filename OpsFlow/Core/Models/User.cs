@@ -17,6 +17,9 @@ public class User
     [Column("role_id")]
     public int RoleId { get; set; }
 
+    [Column("department_id")]
+    public int? DepartmentId { get; set; }
+
     [Column("name")]
     [MaxLength(100)]
     public string Name { get; set; } = string.Empty;
@@ -51,6 +54,9 @@ public class User
 
     [ForeignKey(nameof(RoleId))]
     public virtual Role Role { get; set; } = null!;
+
+    [ForeignKey(nameof(DepartmentId))]
+    public virtual Department? Department { get; set; }
 
     public virtual IndividualCustomer? IndividualCustomer { get; set; }
 }

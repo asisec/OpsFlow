@@ -19,6 +19,14 @@ namespace OpsFlow.Services.Helpers
 
             return companies.FirstOrDefault(c => c.CompanyName == companyName);
         }
+
+        public static Department? FindDepartmentByName(List<Department> departments, string departmentName)
+        {
+            if (string.IsNullOrWhiteSpace(departmentName) || departmentName == "Departman seçiniz")
+                return null;
+
+            return departments.FirstOrDefault(d => d.DepartmentName == departmentName);
+        }
     }
 }
 

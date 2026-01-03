@@ -55,7 +55,7 @@ namespace OpsFlow.UI.Forms.Auth
             {
                 Notifier.Show("Sınır Aşıldı", ex.Message, NotificationType.Warning);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 Notifier.Show("Hata", "Kod gönderilemedi.", NotificationType.Error);
             }
@@ -83,7 +83,7 @@ namespace OpsFlow.UI.Forms.Auth
                 Notifier.Show("Doğrulama Hatası", ex.Message, NotificationType.Error);
                 ClearAndResetInput();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 Notifier.Show("Hata", "Sistem hatası oluştu.", NotificationType.Error);
                 ClearAndResetInput();
@@ -115,7 +115,7 @@ namespace OpsFlow.UI.Forms.Auth
                 lnkResendCode.Cursor = Cursors.No;
                 Notifier.Show("Sınır Aşıldı", ex.Message, NotificationType.Warning);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 Notifier.Show("Hata", "Kod gönderilirken bir sorun oluştu.", NotificationType.Error);
             }
