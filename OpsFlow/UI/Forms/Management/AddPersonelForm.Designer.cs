@@ -263,7 +263,6 @@
             txtTelephone.Location = new Point(98, 398);
             txtTelephone.Margin = new Padding(3, 6, 3, 6);
             txtTelephone.Name = "txtTelephone";
-            txtTelephone.PasswordChar = '●';
             txtTelephone.PlaceholderText = "Telefon No";
             txtTelephone.SelectedText = "";
             txtTelephone.ShadowDecoration.CustomizableEdges = customizableEdges10;
