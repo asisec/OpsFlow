@@ -100,14 +100,14 @@ partial class PersonelListForm
         txtSearch.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
         txtSearch.FillColor = Color.FromArgb(42, 45, 62);
         txtSearch.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-        txtSearch.Font = new Font("Poppins", 9F, FontStyle.Regular, GraphicsUnit.Point, 162);
+        txtSearch.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 162);
         txtSearch.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
         txtSearch.IconLeft = (Image)resources.GetObject("txtSearch.IconLeft");
         txtSearch.IconLeftOffset = new Point(10, 0);
-        txtSearch.Location = new Point(1049, 220);
+        txtSearch.Location = new Point(1250, 237);
         txtSearch.Margin = new Padding(3, 5, 3, 5);
         txtSearch.Name = "txtSearch";
-        txtSearch.PlaceholderText = "";
+        txtSearch.PlaceholderText = "Personel ara...";
         txtSearch.SelectedText = "";
         txtSearch.ShadowDecoration.CustomizableEdges = customizableEdges2;
         txtSearch.Size = new Size(227, 52);
@@ -122,9 +122,9 @@ partial class PersonelListForm
         btnAddNewMember.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
         btnAddNewMember.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
         btnAddNewMember.FillColor = Color.FromArgb(46, 74, 98);
-        btnAddNewMember.Font = new Font("Poppins Medium", 9F, FontStyle.Bold, GraphicsUnit.Point, 162);
+        btnAddNewMember.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold, GraphicsUnit.Point, 162);
         btnAddNewMember.ForeColor = Color.White;
-        btnAddNewMember.Location = new Point(1049, 69);
+        btnAddNewMember.Location = new Point(1250, 68);
         btnAddNewMember.Name = "btnAddNewMember";
         btnAddNewMember.ShadowDecoration.CustomizableEdges = customizableEdges4;
         btnAddNewMember.Size = new Size(193, 64);
@@ -144,10 +144,10 @@ partial class PersonelListForm
         cmbFilterStatus.FillColor = Color.FromArgb(26, 31, 46);
         cmbFilterStatus.FocusedColor = Color.FromArgb(94, 148, 255);
         cmbFilterStatus.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-        cmbFilterStatus.Font = new Font("Poppins", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 162);
+        cmbFilterStatus.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 162);
         cmbFilterStatus.ForeColor = Color.White;
         cmbFilterStatus.ItemHeight = 30;
-        cmbFilterStatus.Location = new Point(640, 255);
+        cmbFilterStatus.Location = new Point(842, 255);
         cmbFilterStatus.Name = "cmbFilterStatus";
         cmbFilterStatus.ShadowDecoration.CustomizableEdges = customizableEdges6;
         cmbFilterStatus.Size = new Size(230, 36);
@@ -160,7 +160,7 @@ partial class PersonelListForm
         guna2Panel3.Controls.Add(guna2HtmlLabel4);
         guna2Panel3.CustomizableEdges = customizableEdges7;
         guna2Panel3.FillColor = Color.FromArgb(26, 31, 46);
-        guna2Panel3.Location = new Point(721, 37);
+        guna2Panel3.Location = new Point(842, 37);
         guna2Panel3.Name = "guna2Panel3";
         guna2Panel3.ShadowDecoration.CustomizableEdges = customizableEdges8;
         guna2Panel3.Size = new Size(260, 194);
@@ -169,22 +169,22 @@ partial class PersonelListForm
         // txtDep
         // 
         txtDep.BackColor = Color.Transparent;
-        txtDep.Font = new Font("Poppins", 28.2F, FontStyle.Bold);
+        txtDep.Font = new Font("Microsoft Sans Serif", 28.2F, FontStyle.Bold);
         txtDep.ForeColor = Color.White;
         txtDep.Location = new Point(8, 12);
         txtDep.Name = "txtDep";
-        txtDep.Size = new Size(34, 84);
+        txtDep.Size = new Size(30, 56);
         txtDep.TabIndex = 2;
         txtDep.Text = "0";
         // 
         // guna2HtmlLabel4
         // 
         guna2HtmlLabel4.BackColor = Color.Transparent;
-        guna2HtmlLabel4.Font = new Font("Poppins", 12F, FontStyle.Bold, GraphicsUnit.Point, 162);
+        guna2HtmlLabel4.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 162);
         guna2HtmlLabel4.ForeColor = Color.White;
         guna2HtmlLabel4.Location = new Point(3, 153);
         guna2HtmlLabel4.Name = "guna2HtmlLabel4";
-        guna2HtmlLabel4.Size = new Size(121, 38);
+        guna2HtmlLabel4.Size = new Size(108, 27);
         guna2HtmlLabel4.TabIndex = 0;
         guna2HtmlLabel4.Text = "Depertman";
         // 
@@ -200,10 +200,10 @@ partial class PersonelListForm
         cmbFilterRole.FillColor = Color.FromArgb(26, 31, 46);
         cmbFilterRole.FocusedColor = Color.FromArgb(94, 148, 255);
         cmbFilterRole.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-        cmbFilterRole.Font = new Font("Poppins", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 162);
+        cmbFilterRole.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 162);
         cmbFilterRole.ForeColor = Color.White;
         cmbFilterRole.ItemHeight = 30;
-        cmbFilterRole.Location = new Point(345, 255);
+        cmbFilterRole.Location = new Point(448, 258);
         cmbFilterRole.Name = "cmbFilterRole";
         cmbFilterRole.ShadowDecoration.CustomizableEdges = customizableEdges10;
         cmbFilterRole.Size = new Size(230, 36);
@@ -216,7 +216,7 @@ partial class PersonelListForm
         guna2Panel2.Controls.Add(guna2HtmlLabel3);
         guna2Panel2.CustomizableEdges = customizableEdges11;
         guna2Panel2.FillColor = Color.FromArgb(26, 31, 46);
-        guna2Panel2.Location = new Point(387, 37);
+        guna2Panel2.Location = new Point(448, 37);
         guna2Panel2.Name = "guna2Panel2";
         guna2Panel2.ShadowDecoration.CustomizableEdges = customizableEdges12;
         guna2Panel2.Size = new Size(275, 194);
@@ -225,22 +225,22 @@ partial class PersonelListForm
         // txtActivePersonel
         // 
         txtActivePersonel.BackColor = Color.Transparent;
-        txtActivePersonel.Font = new Font("Poppins", 28.2F, FontStyle.Bold);
+        txtActivePersonel.Font = new Font("Microsoft Sans Serif", 28.2F, FontStyle.Bold);
         txtActivePersonel.ForeColor = Color.White;
         txtActivePersonel.Location = new Point(8, 12);
         txtActivePersonel.Name = "txtActivePersonel";
-        txtActivePersonel.Size = new Size(34, 84);
+        txtActivePersonel.Size = new Size(30, 56);
         txtActivePersonel.TabIndex = 2;
         txtActivePersonel.Text = "0";
         // 
         // guna2HtmlLabel3
         // 
         guna2HtmlLabel3.BackColor = Color.Transparent;
-        guna2HtmlLabel3.Font = new Font("Poppins", 12F, FontStyle.Bold, GraphicsUnit.Point, 162);
+        guna2HtmlLabel3.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 162);
         guna2HtmlLabel3.ForeColor = Color.White;
         guna2HtmlLabel3.Location = new Point(3, 153);
         guna2HtmlLabel3.Name = "guna2HtmlLabel3";
-        guna2HtmlLabel3.Size = new Size(143, 38);
+        guna2HtmlLabel3.Size = new Size(137, 27);
         guna2HtmlLabel3.TabIndex = 0;
         guna2HtmlLabel3.Text = "Aktif Personel";
         guna2HtmlLabel3.Click += guna2HtmlLabel3_Click;
@@ -257,7 +257,7 @@ partial class PersonelListForm
         cmbFilterDept.FillColor = Color.FromArgb(26, 31, 46);
         cmbFilterDept.FocusedColor = Color.FromArgb(94, 148, 255);
         cmbFilterDept.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-        cmbFilterDept.Font = new Font("Poppins", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 162);
+        cmbFilterDept.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 162);
         cmbFilterDept.ForeColor = Color.White;
         cmbFilterDept.ItemHeight = 30;
         cmbFilterDept.Location = new Point(50, 255);
@@ -282,22 +282,22 @@ partial class PersonelListForm
         // txtPersonel
         // 
         txtPersonel.BackColor = Color.Transparent;
-        txtPersonel.Font = new Font("Poppins", 28.2F, FontStyle.Bold);
+        txtPersonel.Font = new Font("Microsoft Sans Serif", 28.2F, FontStyle.Bold);
         txtPersonel.ForeColor = Color.White;
         txtPersonel.Location = new Point(8, 12);
         txtPersonel.Name = "txtPersonel";
-        txtPersonel.Size = new Size(34, 84);
+        txtPersonel.Size = new Size(30, 56);
         txtPersonel.TabIndex = 1;
         txtPersonel.Text = "0";
         // 
         // guna2HtmlLabel2
         // 
         guna2HtmlLabel2.BackColor = Color.Transparent;
-        guna2HtmlLabel2.Font = new Font("Poppins", 12F, FontStyle.Bold, GraphicsUnit.Point, 162);
+        guna2HtmlLabel2.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 162);
         guna2HtmlLabel2.ForeColor = Color.White;
         guna2HtmlLabel2.Location = new Point(3, 153);
         guna2HtmlLabel2.Name = "guna2HtmlLabel2";
-        guna2HtmlLabel2.Size = new Size(175, 38);
+        guna2HtmlLabel2.Size = new Size(166, 27);
         guna2HtmlLabel2.TabIndex = 0;
         guna2HtmlLabel2.Text = "Toplam Personel";
         // 
@@ -308,7 +308,7 @@ partial class PersonelListForm
         flpPersonelContainer.Location = new Point(0, 297);
         flpPersonelContainer.Name = "flpPersonelContainer";
         flpPersonelContainer.Padding = new Padding(20, 10, 0, 0);
-        flpPersonelContainer.Size = new Size(1382, 494);
+        flpPersonelContainer.Size = new Size(1606, 494);
         flpPersonelContainer.TabIndex = 1;
         // 
         // PersonelListForm
@@ -316,7 +316,7 @@ partial class PersonelListForm
         AutoScaleDimensions = new SizeF(8F, 20F);
         AutoScaleMode = AutoScaleMode.Font;
         BackColor = Color.FromArgb(17, 19, 25);
-        ClientSize = new Size(1382, 791);
+        ClientSize = new Size(1606, 791);
         Controls.Add(flpPersonelContainer);
         Controls.Add(pnlHeader);
         FormBorderStyle = FormBorderStyle.None;

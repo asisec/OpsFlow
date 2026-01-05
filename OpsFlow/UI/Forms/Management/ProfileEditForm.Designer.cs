@@ -58,10 +58,10 @@ partial class ProfileEditForm
         btnCancel = new Guna.UI2.WinForms.Guna2Button();
         txtName = new Guna.UI2.WinForms.Guna2TextBox();
         txtSurname = new Guna.UI2.WinForms.Guna2TextBox();
-        txtTitle = new Guna.UI2.WinForms.Guna2TextBox();
+        txtTitle = new Guna.UI2.WinForms.Guna2ComboBox();
         txtPhone = new Guna.UI2.WinForms.Guna2TextBox();
         txtEmail = new Guna.UI2.WinForms.Guna2TextBox();
-        txtDepartmant = new Guna.UI2.WinForms.Guna2TextBox();
+        txtDepartmant = new Guna.UI2.WinForms.Guna2ComboBox();
         label6 = new Label();
         ((System.ComponentModel.ISupportInitialize)PictureBox).BeginInit();
         SuspendLayout();
@@ -69,33 +69,33 @@ partial class ProfileEditForm
         // label3
         // 
         label3.AutoSize = true;
-        label3.Font = new Font("Poppins Medium", 9F, FontStyle.Bold, GraphicsUnit.Point, 162);
+        label3.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold, GraphicsUnit.Point, 162);
         label3.ForeColor = Color.White;
         label3.Location = new Point(95, 49);
         label3.Name = "label3";
-        label3.Size = new Size(34, 26);
+        label3.Size = new Size(27, 18);
         label3.TabIndex = 19;
         label3.Text = "Ad";
         // 
         // label1
         // 
         label1.AutoSize = true;
-        label1.Font = new Font("Poppins Medium", 9F, FontStyle.Bold, GraphicsUnit.Point, 162);
+        label1.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold, GraphicsUnit.Point, 162);
         label1.ForeColor = Color.White;
         label1.Location = new Point(279, 49);
         label1.Name = "label1";
-        label1.Size = new Size(65, 26);
+        label1.Size = new Size(55, 18);
         label1.TabIndex = 20;
         label1.Text = "Soyad";
         // 
         // label2
         // 
         label2.AutoSize = true;
-        label2.Font = new Font("Poppins Medium", 9F, FontStyle.Bold, GraphicsUnit.Point, 162);
+        label2.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold, GraphicsUnit.Point, 162);
         label2.ForeColor = Color.White;
         label2.Location = new Point(95, 357);
         label2.Name = "label2";
-        label2.Size = new Size(109, 26);
+        label2.Size = new Size(90, 18);
         label2.TabIndex = 21;
         label2.Text = "Departman";
         label2.Click += label2_Click;
@@ -103,22 +103,22 @@ partial class ProfileEditForm
         // label4
         // 
         label4.AutoSize = true;
-        label4.Font = new Font("Poppins Medium", 9F, FontStyle.Bold, GraphicsUnit.Point, 162);
+        label4.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold, GraphicsUnit.Point, 162);
         label4.ForeColor = Color.White;
         label4.Location = new Point(95, 126);
         label4.Name = "label4";
-        label4.Size = new Size(80, 26);
+        label4.Size = new Size(67, 18);
         label4.TabIndex = 22;
         label4.Text = "E-posta";
         // 
         // label5
         // 
         label5.AutoSize = true;
-        label5.Font = new Font("Poppins Medium", 9F, FontStyle.Bold, GraphicsUnit.Point, 162);
+        label5.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold, GraphicsUnit.Point, 162);
         label5.ForeColor = Color.White;
         label5.Location = new Point(95, 203);
         label5.Name = "label5";
-        label5.Size = new Size(162, 26);
+        label5.Size = new Size(141, 18);
         label5.TabIndex = 23;
         label5.Text = "Telefon Numarası";
         // 
@@ -143,7 +143,7 @@ partial class ProfileEditForm
         btnSave.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
         btnSave.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
         btnSave.FillColor = Color.FromArgb(46, 74, 98);
-        btnSave.Font = new Font("Poppins Medium", 9F, FontStyle.Bold, GraphicsUnit.Point, 162);
+        btnSave.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold, GraphicsUnit.Point, 162);
         btnSave.ForeColor = Color.White;
         btnSave.Location = new Point(95, 435);
         btnSave.Name = "btnSave";
@@ -163,7 +163,7 @@ partial class ProfileEditForm
         btnAddPhoto.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
         btnAddPhoto.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
         btnAddPhoto.FillColor = Color.FromArgb(0, 104, 139);
-        btnAddPhoto.Font = new Font("Poppins", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 162);
+        btnAddPhoto.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 162);
         btnAddPhoto.ForeColor = Color.White;
         btnAddPhoto.Location = new Point(488, 91);
         btnAddPhoto.Name = "btnAddPhoto";
@@ -184,7 +184,7 @@ partial class ProfileEditForm
         btnCancel.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
         btnCancel.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
         btnCancel.FillColor = Color.Transparent;
-        btnCancel.Font = new Font("Poppins", 9F, FontStyle.Regular, GraphicsUnit.Point, 162);
+        btnCancel.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 162);
         btnCancel.ForeColor = Color.White;
         btnCancel.Location = new Point(518, 435);
         btnCancel.Name = "btnCancel";
@@ -206,7 +206,7 @@ partial class ProfileEditForm
         txtName.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
         txtName.FillColor = Color.FromArgb(26, 31, 46);
         txtName.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-        txtName.Font = new Font("Poppins", 9F, FontStyle.Regular, GraphicsUnit.Point, 162);
+        txtName.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 162);
         txtName.ForeColor = Color.White;
         txtName.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
         txtName.Location = new Point(95, 80);
@@ -231,7 +231,7 @@ partial class ProfileEditForm
         txtSurname.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
         txtSurname.FillColor = Color.FromArgb(26, 31, 46);
         txtSurname.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-        txtSurname.Font = new Font("Poppins", 9F, FontStyle.Regular, GraphicsUnit.Point, 162);
+        txtSurname.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 162);
         txtSurname.ForeColor = Color.White;
         txtSurname.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
         txtSurname.Location = new Point(279, 80);
@@ -245,27 +245,22 @@ partial class ProfileEditForm
         // 
         // txtTitle
         // 
+        txtTitle.BackColor = Color.Transparent;
         txtTitle.BorderColor = Color.FromArgb(45, 55, 72);
         txtTitle.BorderRadius = 10;
         txtTitle.BorderThickness = 2;
         txtTitle.CustomizableEdges = customizableEdges12;
-        txtTitle.DefaultText = "";
-        txtTitle.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
-        txtTitle.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
-        txtTitle.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
-        txtTitle.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
+        txtTitle.DrawMode = DrawMode.OwnerDrawFixed;
+        txtTitle.DropDownStyle = ComboBoxStyle.DropDown;
         txtTitle.FillColor = Color.FromArgb(26, 31, 46);
-        txtTitle.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-        txtTitle.Font = new Font("Poppins", 9F, FontStyle.Regular, GraphicsUnit.Point, 162);
+        txtTitle.FocusedColor = Color.FromArgb(94, 148, 255);
+        txtTitle.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 162);
         txtTitle.ForeColor = Color.White;
-        txtTitle.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
+        txtTitle.ItemHeight = 30;
         txtTitle.Location = new Point(95, 311);
-        txtTitle.Margin = new Padding(3, 5, 3, 5);
         txtTitle.Name = "txtTitle";
-        txtTitle.PlaceholderText = "";
-        txtTitle.SelectedText = "";
         txtTitle.ShadowDecoration.CustomizableEdges = customizableEdges13;
-        txtTitle.Size = new Size(310, 37);
+        txtTitle.Size = new Size(310, 36);
         txtTitle.TabIndex = 30;
         // 
         // txtPhone
@@ -281,7 +276,7 @@ partial class ProfileEditForm
         txtPhone.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
         txtPhone.FillColor = Color.FromArgb(26, 31, 46);
         txtPhone.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-        txtPhone.Font = new Font("Poppins", 9F, FontStyle.Regular, GraphicsUnit.Point, 162);
+        txtPhone.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 162);
         txtPhone.ForeColor = Color.White;
         txtPhone.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
         txtPhone.Location = new Point(95, 234);
@@ -306,7 +301,7 @@ partial class ProfileEditForm
         txtEmail.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
         txtEmail.FillColor = Color.FromArgb(26, 31, 46);
         txtEmail.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-        txtEmail.Font = new Font("Poppins", 9F, FontStyle.Regular, GraphicsUnit.Point, 162);
+        txtEmail.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 162);
         txtEmail.ForeColor = Color.White;
         txtEmail.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
         txtEmail.Location = new Point(95, 157);
@@ -320,37 +315,32 @@ partial class ProfileEditForm
         // 
         // txtDepartmant
         // 
+        txtDepartmant.BackColor = Color.Transparent;
         txtDepartmant.BorderColor = Color.FromArgb(45, 55, 72);
         txtDepartmant.BorderRadius = 10;
         txtDepartmant.BorderThickness = 2;
         txtDepartmant.CustomizableEdges = customizableEdges18;
-        txtDepartmant.DefaultText = "";
-        txtDepartmant.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
-        txtDepartmant.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
-        txtDepartmant.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
-        txtDepartmant.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
+        txtDepartmant.DrawMode = DrawMode.OwnerDrawFixed;
+        txtDepartmant.DropDownStyle = ComboBoxStyle.DropDown;
         txtDepartmant.FillColor = Color.FromArgb(26, 31, 46);
-        txtDepartmant.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-        txtDepartmant.Font = new Font("Poppins", 9F, FontStyle.Regular, GraphicsUnit.Point, 162);
+        txtDepartmant.FocusedColor = Color.FromArgb(94, 148, 255);
+        txtDepartmant.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 162);
         txtDepartmant.ForeColor = Color.White;
-        txtDepartmant.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
+        txtDepartmant.ItemHeight = 30;
         txtDepartmant.Location = new Point(95, 388);
-        txtDepartmant.Margin = new Padding(3, 5, 3, 5);
         txtDepartmant.Name = "txtDepartmant";
-        txtDepartmant.PlaceholderText = "";
-        txtDepartmant.SelectedText = "";
         txtDepartmant.ShadowDecoration.CustomizableEdges = customizableEdges19;
-        txtDepartmant.Size = new Size(310, 37);
+        txtDepartmant.Size = new Size(310, 36);
         txtDepartmant.TabIndex = 33;
         // 
         // label6
         // 
         label6.AutoSize = true;
-        label6.Font = new Font("Poppins Medium", 9F, FontStyle.Bold, GraphicsUnit.Point, 162);
+        label6.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold, GraphicsUnit.Point, 162);
         label6.ForeColor = Color.White;
         label6.Location = new Point(95, 280);
         label6.Name = "label6";
-        label6.Size = new Size(38, 26);
+        label6.Size = new Size(34, 18);
         label6.TabIndex = 34;
         label6.Text = "Rol";
         // 
@@ -398,9 +388,9 @@ partial class ProfileEditForm
     private Guna.UI2.WinForms.Guna2Button btnCancel;
     private Guna.UI2.WinForms.Guna2TextBox txtName;
     private Guna.UI2.WinForms.Guna2TextBox txtSurname;
-    private Guna.UI2.WinForms.Guna2TextBox txtTitle;
+    private Guna.UI2.WinForms.Guna2ComboBox txtTitle;
     private Guna.UI2.WinForms.Guna2TextBox txtPhone;
     private Guna.UI2.WinForms.Guna2TextBox txtEmail;
-    private Guna.UI2.WinForms.Guna2TextBox txtDepartmant;
+    private Guna.UI2.WinForms.Guna2ComboBox txtDepartmant;
     private Label label6;
 }

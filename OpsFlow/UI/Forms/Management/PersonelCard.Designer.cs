@@ -58,7 +58,6 @@ partial class PersonelCard
         guna2Panel1.Controls.Add(pictureBox1);
         guna2Panel1.Controls.Add(lblTask);
         guna2Panel1.Controls.Add(btnViewProfile);
-        guna2Panel1.Controls.Add(lblRole);
         guna2Panel1.Controls.Add(btnRoleBadge);
         guna2Panel1.Controls.Add(lblName);
         guna2Panel1.Controls.Add(PictureBox);
@@ -67,7 +66,7 @@ partial class PersonelCard
         guna2Panel1.Location = new Point(0, 0);
         guna2Panel1.Name = "guna2Panel1";
         guna2Panel1.ShadowDecoration.CustomizableEdges = customizableEdges7;
-        guna2Panel1.Size = new Size(321, 184);
+        guna2Panel1.Size = new Size(450, 225);
         guna2Panel1.TabIndex = 0;
         // 
         // pictureBox2
@@ -94,7 +93,7 @@ partial class PersonelCard
         // 
         lblTask.BackColor = Color.Transparent;
         lblTask.ForeColor = Color.White;
-        lblTask.Location = new Point(246, 112);
+        lblTask.Location = new Point(365, 133);
         lblTask.Name = "lblTask";
         lblTask.Size = new Size(32, 22);
         lblTask.TabIndex = 5;
@@ -112,14 +111,14 @@ partial class PersonelCard
         btnViewProfile.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
         btnViewProfile.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
         btnViewProfile.FillColor = Color.FromArgb(48, 48, 61);
-        btnViewProfile.Font = new Font("Poppins", 6F, FontStyle.Regular, GraphicsUnit.Point, 162);
+        btnViewProfile.Font = new Font("Microsoft Sans Serif", 6F, FontStyle.Regular, GraphicsUnit.Point, 162);
         btnViewProfile.ForeColor = Color.White;
-        btnViewProfile.Location = new Point(201, 140);
+        btnViewProfile.Location = new Point(317, 161);
         btnViewProfile.Name = "btnViewProfile";
         btnViewProfile.ShadowDecoration.CustomizableEdges = customizableEdges2;
-        btnViewProfile.Size = new Size(117, 41);
+        btnViewProfile.Size = new Size(130, 61);
         btnViewProfile.TabIndex = 4;
-        btnViewProfile.Text = "Profili Görüntüle";
+        btnViewProfile.Text = "Profili Düzenle";
         btnViewProfile.Click += btnViewProfile_Click;
         // 
         // btnRoleBadge
@@ -131,23 +130,23 @@ partial class PersonelCard
         btnRoleBadge.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
         btnRoleBadge.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
         btnRoleBadge.FillColor = Color.FromArgb(108, 92, 231);
-        btnRoleBadge.Font = new Font("Poppins", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 162);
+        btnRoleBadge.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 162);
         btnRoleBadge.ForeColor = Color.White;
-        btnRoleBadge.Location = new Point(102, 62);
+        btnRoleBadge.Location = new Point(140, 66);
         btnRoleBadge.Name = "btnRoleBadge";
         btnRoleBadge.ShadowDecoration.CustomizableEdges = customizableEdges4;
-        btnRoleBadge.Size = new Size(109, 30);
+        btnRoleBadge.Size = new Size(123, 40);
         btnRoleBadge.TabIndex = 2;
         btnRoleBadge.Text = "Role";
         // 
         // lblName
         // 
         lblName.BackColor = Color.Transparent;
-        lblName.Font = new Font("Poppins", 12F, FontStyle.Bold, GraphicsUnit.Point, 162);
+        lblName.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 162);
         lblName.ForeColor = Color.White;
-        lblName.Location = new Point(102, 18);
+        lblName.Location = new Point(140, 20);
         lblName.Name = "lblName";
-        lblName.Size = new Size(65, 38);
+        lblName.Size = new Size(59, 27);
         lblName.TabIndex = 1;
         lblName.Text = "Name";
         // 
@@ -155,11 +154,11 @@ partial class PersonelCard
         // 
         PictureBox.FillColor = Color.Black;
         PictureBox.ImageRotate = 0F;
-        PictureBox.Location = new Point(3, 3);
+        PictureBox.Location = new Point(15, 0);
         PictureBox.Name = "PictureBox";
         PictureBox.ShadowDecoration.CustomizableEdges = customizableEdges5;
         PictureBox.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-        PictureBox.Size = new Size(93, 93);
+        PictureBox.Size = new Size(106, 103);
         PictureBox.TabIndex = 0;
         PictureBox.TabStop = false;
         // 
@@ -181,7 +180,7 @@ partial class PersonelCard
         BackColor = Color.Transparent;
         Controls.Add(guna2Panel1);
         Name = "PersonelCard";
-        Size = new Size(323, 185);
+        Size = new Size(450, 225);
         guna2Panel1.ResumeLayout(false);
         guna2Panel1.PerformLayout();
         ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();

@@ -78,7 +78,7 @@ public partial class MainForm : BaseForm
             case "Dashboard":
                 break;
             case "Staff":
-                LoadForm(new AddPersonelForm());
+                LoadForm(new PersonelListForm());
                 break;
             case "Tasks":
                 break;

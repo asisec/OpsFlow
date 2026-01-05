@@ -24,6 +24,7 @@ namespace OpsFlow.Services.Implementations
                 return _context.Users
                     .Include(u => u.Company)
                     .Include(u => u.Role)
+                    .Include(u => u.Department)
                     .AsNoTracking()
                     .ToList();
             }
@@ -43,6 +44,7 @@ namespace OpsFlow.Services.Implementations
                 var user = _context.Users
                     .Include(u => u.Company)
                     .Include(u => u.Role)
+                    .Include(u => u.Department)
                     .FirstOrDefault(u => u.Id == id);
 
                 if (user == null)
@@ -133,6 +135,7 @@ namespace OpsFlow.Services.Implementations
                 existingUser.Phone = user.Phone;
                 existingUser.CompanyId = user.CompanyId;
                 existingUser.RoleId = user.RoleId;
+                existingUser.DepartmentId = user.DepartmentId;
                 existingUser.IsActive = user.IsActive;
                 existingUser.AvatarUrl = user.AvatarUrl;
 
@@ -141,7 +144,6 @@ namespace OpsFlow.Services.Implementations
                     existingUser.Password = HashingHelper.HashPassword(user.Password);
                 }
 
-                _context.Users.Update(existingUser);
                 _context.SaveChanges();
             }
             catch (NotFoundException)
@@ -229,9 +231,6 @@ namespace OpsFlow.Services.Implementations
 
             if (string.IsNullOrWhiteSpace(user.Email) || !user.Email.Contains("@"))
                 throw new ValidationException("Lütfen geçerli bir e-posta adresi giriniz.");
-
-            if (user.CompanyId <= 0)
-                throw new ValidationException("Lütfen geçerli bir şirket seçiniz.");
 
             if (user.RoleId <= 0)
                 throw new ValidationException("Lütfen kullanıcı için bir rol tanımlayınız.");
