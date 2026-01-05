@@ -44,6 +44,7 @@ partial class PersonelCard
         btnRoleBadge = new Guna.UI2.WinForms.Guna2Button();
         lblName = new Guna.UI2.WinForms.Guna2HtmlLabel();
         PictureBox = new Guna.UI2.WinForms.Guna2CirclePictureBox();
+        lblRole = new Guna.UI2.WinForms.Guna2HtmlLabel();
         guna2Panel1.SuspendLayout();
         ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
         ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -71,9 +72,9 @@ partial class PersonelCard
         // pictureBox2
         // 
         pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
-        pictureBox2.Location = new Point(15, 179);
+        pictureBox2.Location = new Point(19, 148);
         pictureBox2.Name = "pictureBox2";
-        pictureBox2.Size = new Size(52, 43);
+        pictureBox2.Size = new Size(30, 33);
         pictureBox2.SizeMode = PictureBoxSizeMode.CenterImage;
         pictureBox2.TabIndex = 6;
         pictureBox2.TabStop = false;
@@ -81,9 +82,9 @@ partial class PersonelCard
         // pictureBox1
         // 
         pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-        pictureBox1.Location = new Point(73, 179);
+        pictureBox1.Location = new Point(55, 148);
         pictureBox1.Name = "pictureBox1";
-        pictureBox1.Size = new Size(53, 43);
+        pictureBox1.Size = new Size(31, 33);
         pictureBox1.SizeMode = PictureBoxSizeMode.CenterImage;
         pictureBox1.TabIndex = 1;
         pictureBox1.TabStop = false;
@@ -161,6 +162,17 @@ partial class PersonelCard
         PictureBox.TabIndex = 0;
         PictureBox.TabStop = false;
         // 
+        // lblRole
+        // 
+        lblRole.BackColor = Color.Transparent;
+        lblRole.Font = new Font("Poppins", 7.8F, FontStyle.Regular, GraphicsUnit.Point, 162);
+        lblRole.ForeColor = Color.White;
+        lblRole.Location = new Point(102, 98);
+        lblRole.Name = "lblRole";
+        lblRole.Size = new Size(30, 25);
+        lblRole.TabIndex = 3;
+        lblRole.Text = "Role";
+        // 
         // PersonelCard
         // 
         AutoScaleDimensions = new SizeF(8F, 20F);
@@ -187,4 +199,5 @@ partial class PersonelCard
     private Guna.UI2.WinForms.Guna2HtmlLabel lblTask;
     private PictureBox pictureBox2;
     private PictureBox pictureBox1;
+    private Guna.UI2.WinForms.Guna2HtmlLabel lblRole;
 }

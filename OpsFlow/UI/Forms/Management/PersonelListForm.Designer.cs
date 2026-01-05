@@ -84,7 +84,7 @@ partial class PersonelListForm
         pnlHeader.Location = new Point(0, 0);
         pnlHeader.Name = "pnlHeader";
         pnlHeader.ShadowDecoration.CustomizableEdges = customizableEdges18;
-        pnlHeader.Size = new Size(1606, 297);
+        pnlHeader.Size = new Size(1382, 297);
         pnlHeader.TabIndex = 0;
         pnlHeader.Paint += pnlHeader_Paint;
         // 
@@ -93,7 +93,7 @@ partial class PersonelListForm
         txtSearch.BorderColor = Color.DarkGray;
         txtSearch.BorderRadius = 10;
         txtSearch.CustomizableEdges = customizableEdges1;
-        txtSearch.DefaultText = "";
+        txtSearch.DefaultText = "Personel ara...";
         txtSearch.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
         txtSearch.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
         txtSearch.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
@@ -110,7 +110,7 @@ partial class PersonelListForm
         txtSearch.PlaceholderText = "Personel ara...";
         txtSearch.SelectedText = "";
         txtSearch.ShadowDecoration.CustomizableEdges = customizableEdges2;
-        txtSearch.Size = new Size(282, 52);
+        txtSearch.Size = new Size(227, 52);
         txtSearch.TabIndex = 39;
         // 
         // btnAddNewMember
@@ -127,7 +127,7 @@ partial class PersonelListForm
         btnAddNewMember.Location = new Point(1250, 68);
         btnAddNewMember.Name = "btnAddNewMember";
         btnAddNewMember.ShadowDecoration.CustomizableEdges = customizableEdges4;
-        btnAddNewMember.Size = new Size(282, 64);
+        btnAddNewMember.Size = new Size(193, 64);
         btnAddNewMember.TabIndex = 15;
         btnAddNewMember.Text = "+  Yeni Üye Ekle";
         btnAddNewMember.Click += btnAddNewMember_Click;
@@ -150,7 +150,7 @@ partial class PersonelListForm
         cmbFilterStatus.Location = new Point(842, 255);
         cmbFilterStatus.Name = "cmbFilterStatus";
         cmbFilterStatus.ShadowDecoration.CustomizableEdges = customizableEdges6;
-        cmbFilterStatus.Size = new Size(319, 36);
+        cmbFilterStatus.Size = new Size(230, 36);
         cmbFilterStatus.TabIndex = 38;
         // 
         // guna2Panel3
@@ -163,7 +163,7 @@ partial class PersonelListForm
         guna2Panel3.Location = new Point(842, 37);
         guna2Panel3.Name = "guna2Panel3";
         guna2Panel3.ShadowDecoration.CustomizableEdges = customizableEdges8;
-        guna2Panel3.Size = new Size(356, 194);
+        guna2Panel3.Size = new Size(260, 194);
         guna2Panel3.TabIndex = 2;
         // 
         // txtDep
@@ -206,7 +206,7 @@ partial class PersonelListForm
         cmbFilterRole.Location = new Point(448, 258);
         cmbFilterRole.Name = "cmbFilterRole";
         cmbFilterRole.ShadowDecoration.CustomizableEdges = customizableEdges10;
-        cmbFilterRole.Size = new Size(319, 36);
+        cmbFilterRole.Size = new Size(230, 36);
         cmbFilterRole.TabIndex = 37;
         // 
         // guna2Panel2
@@ -219,7 +219,7 @@ partial class PersonelListForm
         guna2Panel2.Location = new Point(448, 37);
         guna2Panel2.Name = "guna2Panel2";
         guna2Panel2.ShadowDecoration.CustomizableEdges = customizableEdges12;
-        guna2Panel2.Size = new Size(364, 194);
+        guna2Panel2.Size = new Size(275, 194);
         guna2Panel2.TabIndex = 1;
         // 
         // txtActivePersonel
@@ -263,7 +263,7 @@ partial class PersonelListForm
         cmbFilterDept.Location = new Point(50, 255);
         cmbFilterDept.Name = "cmbFilterDept";
         cmbFilterDept.ShadowDecoration.CustomizableEdges = customizableEdges14;
-        cmbFilterDept.Size = new Size(319, 36);
+        cmbFilterDept.Size = new Size(230, 36);
         cmbFilterDept.TabIndex = 36;
         // 
         // guna2Panel1
@@ -276,7 +276,7 @@ partial class PersonelListForm
         guna2Panel1.Location = new Point(53, 37);
         guna2Panel1.Name = "guna2Panel1";
         guna2Panel1.ShadowDecoration.CustomizableEdges = customizableEdges16;
-        guna2Panel1.Size = new Size(364, 194);
+        guna2Panel1.Size = new Size(275, 194);
         guna2Panel1.TabIndex = 0;
         // 
         // txtPersonel

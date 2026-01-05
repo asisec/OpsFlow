@@ -23,9 +23,10 @@ namespace OpsFlow.UI.Forms.Management
         public AddPersonelForm()
         {
             InitializeComponent();
+            txtTelephone.MaxLength = 17;
             if (this.HeaderPanel != null) this.HeaderPanel.SendToBack();
             _fileUploadService = FileUploadServiceFactory.Create();
-            
+
             this.Load += AddPersonelForm_Load;
             btnSave.Click += BtnSave_Click;
             cmbRole.SelectedIndexChanged += CmbRole_SelectedIndexChanged;
@@ -65,7 +66,7 @@ namespace OpsFlow.UI.Forms.Management
                 using var roleContext = DatabaseManager.CreateContext();
                 using var companyContext = DatabaseManager.CreateContext();
                 using var departmentContext = DatabaseManager.CreateContext();
-                
+
                 var roleService = new RoleService(roleContext);
                 var companyService = new CompanyService(companyContext);
                 var departmentService = new DepartmentService(departmentContext);
@@ -170,7 +171,7 @@ namespace OpsFlow.UI.Forms.Management
                         string uploadedPath = await _fileUploadService.UploadProfilePhotoAsync(selectedFilePath);
                         _uploadedFilePath = uploadedPath;
 
-                        if (Uri.TryCreate(uploadedPath, UriKind.Absolute, out Uri? uri) && 
+                        if (Uri.TryCreate(uploadedPath, UriKind.Absolute, out Uri? uri) &&
                             (uri.Scheme == Uri.UriSchemeHttp || uri.Scheme == Uri.UriSchemeHttps))
                         {
                             using (HttpClient client = new HttpClient())
@@ -429,6 +430,11 @@ namespace OpsFlow.UI.Forms.Management
                     dimmer.Close();
                 }
             }
+        }
+
+        private void txtTelephone_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

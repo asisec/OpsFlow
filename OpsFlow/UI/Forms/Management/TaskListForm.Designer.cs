@@ -287,6 +287,7 @@ partial class TaskListForm
         cmbDept.ShadowDecoration.CustomizableEdges = customizableEdges14;
         cmbDept.Size = new Size(230, 36);
         cmbDept.TabIndex = 37;
+        cmbDept.SelectedIndexChanged += cmbDept_SelectedIndexChanged;
         // 
         // btnNewTask
         // 
@@ -388,9 +389,8 @@ partial class TaskListForm
         // flowLayoutPanel1
         // 
         flowLayoutPanel1.AutoScroll = true;
-        flowLayoutPanel1.Dock = DockStyle.Fill;
         flowLayoutPanel1.FlowDirection = FlowDirection.TopDown;
-        flowLayoutPanel1.Location = new Point(0, 367);
+        flowLayoutPanel1.Location = new Point(0, 404);
         flowLayoutPanel1.Name = "flowLayoutPanel1";
         flowLayoutPanel1.Size = new Size(1382, 424);
         flowLayoutPanel1.TabIndex = 7;
@@ -411,6 +411,7 @@ partial class TaskListForm
         FormBorderStyle = FormBorderStyle.None;
         Name = "TaskListForm";
         Text = "TaskListForm";
+        Load += TaskListForm_Load;
         guna2Panel1.ResumeLayout(false);
         guna2Panel1.PerformLayout();
         guna2Panel2.ResumeLayout(false);

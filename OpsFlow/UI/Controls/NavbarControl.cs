@@ -1,8 +1,10 @@
-﻿using Guna.UI2.WinForms;
-
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using System.Security.Cryptography;
 using System.Text;
+
+using Guna.UI2.WinForms;
+
+using OpsFlow.UI.Forms.Management;
 
 using Timer = System.Windows.Forms.Timer;
 
@@ -285,7 +287,42 @@ public class NavbarControl : UserControl
             ImageOffset = new Point(5, 0),
             TextOffset = new Point(10, 0)
         };
-        _btnLogout.Click += (s, e) => Application.Restart();
+
+        _btnLogout.Click += (s, e) =>
+        {
+            if (this.ParentForm is Form anaForm)
+            {
+                Form dimmer = new Form();
+                dimmer.FormBorderStyle = FormBorderStyle.None;
+                dimmer.BackColor = Color.Black;
+                dimmer.Opacity = 0.60d;
+                dimmer.ShowInTaskbar = false;
+                dimmer.StartPosition = FormStartPosition.Manual;
+
+                dimmer.Location = anaForm.PointToScreen(Point.Empty);
+                dimmer.Size = anaForm.Size;
+
+                using (LogoutForm confirmation = new LogoutForm())
+                {
+                    confirmation.StartPosition = FormStartPosition.CenterScreen;
+
+                    dimmer.Show(anaForm);
+
+                    DialogResult result = confirmation.ShowDialog(dimmer);
+
+                    dimmer.Close();
+
+                    if (result == DialogResult.Yes)
+                    {
+                        Application.Exit();
+                    }
+                }
+            }
+            else
+            {
+                Application.Exit();
+            }
+        };
 
         _dropdownPanel.Controls.Add(_btnSettings);
         _dropdownPanel.Controls.Add(separator);
