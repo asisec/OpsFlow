@@ -37,4 +37,19 @@ public partial class TaskListForm : Form
             }
         }
     }
+
+    private void cmbDept_SelectedIndexChanged(object sender, EventArgs e)
+    {
+
+    }
+
+    private void TaskListForm_Load(object sender, EventArgs e)
+    {
+        cmbDept.Text = "Departman";
+        cmbDept.StartIndex = -1;
+        cmbStatus.Text = "Aktif, beklemede ve geciken";
+        cmbStatus.StartIndex = -1;
+        cmbPriority.Text = "Yüksek, orta ve düşük";
+        cmbPriority.StartIndex = -1;
+    }
 }
