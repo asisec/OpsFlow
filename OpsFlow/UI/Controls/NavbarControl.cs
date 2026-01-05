@@ -30,13 +30,11 @@ public class NavbarControl : UserControl
     private Guna2Button _btnSettings = null!;
     private Guna2Button _btnLogout = null!;
 
-    // CS8618 Düzeltmesi: Başlangıç değeri atandı.
     private readonly string _cacheDirectory = Path.Combine(Application.StartupPath, "Cache", "Avatars");
 
     private Timer _animationTimer = null!;
     private bool _isDropdownOpen = false;
 
-    // IDE0044 Düzeltmesi: Salt okunur yapıldı.
     private readonly int _targetHeight = 110;
 
     public event EventHandler? DashboardClicked;
@@ -405,7 +403,6 @@ public class NavbarControl : UserControl
         _animationTimer.Start();
     }
 
-    // CA1822 Düzeltmesi: Static yapıldı (Zaten statikti, korundu).
     private static void CreateMenuButton(ref Guna2Button btn, string text, int top)
     {
         btn = new Guna2Button
@@ -428,7 +425,6 @@ public class NavbarControl : UserControl
         btn.HoverState.ForeColor = Color.White;
     }
 
-    // CA1822 Düzeltmesi: Static yapıldı.
     private static Guna2Separator CreateSeparator(int top)
     {
         return new Guna2Separator
@@ -496,7 +492,6 @@ public class NavbarControl : UserControl
         }
     }
 
-    // CA1822 Düzeltmesi: Static yapıldı.
     private static string GetHashString(string input)
     {
         var inputBytes = Encoding.UTF8.GetBytes(input);
@@ -504,7 +499,6 @@ public class NavbarControl : UserControl
         return Convert.ToHexString(hashBytes);
     }
 
-    // CA1822 Düzeltmesi: Static yapıldı.
     private static Image? GetIcon(string iconName)
     {
         if (LicenseManager.UsageMode == LicenseUsageMode.Designtime) return null;
