@@ -30,25 +30,25 @@ partial class PersonelCard
     {
         Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
         Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+        System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PersonelCard));
         Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
         Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
         Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
         Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
         Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-        System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PersonelCard));
         guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+        pictureBox2 = new PictureBox();
+        pictureBox1 = new PictureBox();
         lblTask = new Guna.UI2.WinForms.Guna2HtmlLabel();
         btnViewProfile = new Guna.UI2.WinForms.Guna2Button();
-        lblRole = new Guna.UI2.WinForms.Guna2HtmlLabel();
         btnRoleBadge = new Guna.UI2.WinForms.Guna2Button();
         lblName = new Guna.UI2.WinForms.Guna2HtmlLabel();
         PictureBox = new Guna.UI2.WinForms.Guna2CirclePictureBox();
-        pictureBox1 = new PictureBox();
-        pictureBox2 = new PictureBox();
+        lblRole = new Guna.UI2.WinForms.Guna2HtmlLabel();
         guna2Panel1.SuspendLayout();
-        ((System.ComponentModel.ISupportInitialize)PictureBox).BeginInit();
-        ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
         ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+        ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+        ((System.ComponentModel.ISupportInitialize)PictureBox).BeginInit();
         SuspendLayout();
         // 
         // guna2Panel1
@@ -69,6 +69,26 @@ partial class PersonelCard
         guna2Panel1.ShadowDecoration.CustomizableEdges = customizableEdges7;
         guna2Panel1.Size = new Size(321, 184);
         guna2Panel1.TabIndex = 0;
+        // 
+        // pictureBox2
+        // 
+        pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
+        pictureBox2.Location = new Point(19, 148);
+        pictureBox2.Name = "pictureBox2";
+        pictureBox2.Size = new Size(30, 33);
+        pictureBox2.SizeMode = PictureBoxSizeMode.CenterImage;
+        pictureBox2.TabIndex = 6;
+        pictureBox2.TabStop = false;
+        // 
+        // pictureBox1
+        // 
+        pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+        pictureBox1.Location = new Point(55, 148);
+        pictureBox1.Name = "pictureBox1";
+        pictureBox1.Size = new Size(31, 33);
+        pictureBox1.SizeMode = PictureBoxSizeMode.CenterImage;
+        pictureBox1.TabIndex = 1;
+        pictureBox1.TabStop = false;
         // 
         // lblTask
         // 
@@ -101,17 +121,6 @@ partial class PersonelCard
         btnViewProfile.TabIndex = 4;
         btnViewProfile.Text = "Profili Görüntüle";
         btnViewProfile.Click += btnViewProfile_Click;
-        // 
-        // lblRole
-        // 
-        lblRole.BackColor = Color.Transparent;
-        lblRole.Font = new Font("Poppins", 7.8F, FontStyle.Regular, GraphicsUnit.Point, 162);
-        lblRole.ForeColor = Color.White;
-        lblRole.Location = new Point(102, 98);
-        lblRole.Name = "lblRole";
-        lblRole.Size = new Size(30, 25);
-        lblRole.TabIndex = 3;
-        lblRole.Text = "Role";
         // 
         // btnRoleBadge
         // 
@@ -154,25 +163,16 @@ partial class PersonelCard
         PictureBox.TabIndex = 0;
         PictureBox.TabStop = false;
         // 
-        // pictureBox1
+        // lblRole
         // 
-        pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-        pictureBox1.Location = new Point(55, 148);
-        pictureBox1.Name = "pictureBox1";
-        pictureBox1.Size = new Size(31, 33);
-        pictureBox1.SizeMode = PictureBoxSizeMode.CenterImage;
-        pictureBox1.TabIndex = 1;
-        pictureBox1.TabStop = false;
-        // 
-        // pictureBox2
-        // 
-        pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
-        pictureBox2.Location = new Point(19, 148);
-        pictureBox2.Name = "pictureBox2";
-        pictureBox2.Size = new Size(30, 33);
-        pictureBox2.SizeMode = PictureBoxSizeMode.CenterImage;
-        pictureBox2.TabIndex = 6;
-        pictureBox2.TabStop = false;
+        lblRole.BackColor = Color.Transparent;
+        lblRole.Font = new Font("Poppins", 7.8F, FontStyle.Regular, GraphicsUnit.Point, 162);
+        lblRole.ForeColor = Color.White;
+        lblRole.Location = new Point(102, 98);
+        lblRole.Name = "lblRole";
+        lblRole.Size = new Size(30, 25);
+        lblRole.TabIndex = 3;
+        lblRole.Text = "Role";
         // 
         // PersonelCard
         // 
@@ -184,9 +184,9 @@ partial class PersonelCard
         Size = new Size(323, 185);
         guna2Panel1.ResumeLayout(false);
         guna2Panel1.PerformLayout();
-        ((System.ComponentModel.ISupportInitialize)PictureBox).EndInit();
-        ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
         ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+        ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+        ((System.ComponentModel.ISupportInitialize)PictureBox).EndInit();
         ResumeLayout(false);
     }
 
@@ -196,9 +196,9 @@ partial class PersonelCard
     private Guna.UI2.WinForms.Guna2CirclePictureBox PictureBox;
     private Guna.UI2.WinForms.Guna2Button btnRoleBadge;
     private Guna.UI2.WinForms.Guna2HtmlLabel lblName;
-    private Guna.UI2.WinForms.Guna2HtmlLabel lblRole;
     private Guna.UI2.WinForms.Guna2Button btnViewProfile;
     private Guna.UI2.WinForms.Guna2HtmlLabel lblTask;
     private PictureBox pictureBox2;
     private PictureBox pictureBox1;
+    private Guna.UI2.WinForms.Guna2HtmlLabel lblRole;
 }
