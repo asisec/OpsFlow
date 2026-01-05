@@ -10,7 +10,7 @@ namespace OpsFlow
         {
             DotNetEnv.Env.Load();
             ApplicationConfiguration.Initialize();
-            WindowManager.Run<PersonelListForm>();
+            WindowManager.Run<SplashScreenForm>();
         }
     }
 }
