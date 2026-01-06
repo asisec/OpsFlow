@@ -1,7 +1,8 @@
 ﻿using Guna.UI2.WinForms;
+
+using OpsFlow.Core.Models;
 using OpsFlow.UI.Controls;
 using OpsFlow.UI.Forms.Core;
-using OpsFlow.Core.Models;
 using OpsFlow.UI.Forms.Management;
 
 namespace OpsFlow.UI.Forms.Main;
@@ -101,10 +102,10 @@ public partial class MainForm : BaseForm
         childForm.TopLevel = false;
         childForm.FormBorderStyle = FormBorderStyle.None;
         childForm.Dock = DockStyle.Fill;
-        
+
         _contentPanel.Controls.Add(childForm);
         _contentPanel.Tag = childForm;
-        
+
         childForm.BringToFront();
         childForm.Show();
     }

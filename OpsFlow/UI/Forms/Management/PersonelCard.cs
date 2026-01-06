@@ -1,6 +1,4 @@
 ﻿using OpsFlow.Core.Models;
-using OpsFlow.Core.Services;
-using OpsFlow.Services.Implementations;
 
 namespace OpsFlow.UI.Forms.Management;
 
@@ -19,7 +17,7 @@ public partial class PersonelCard : UserControl
         _user = user;
 
         lblName.Text = $"{user.Name} {user.Surname}";
-        
+
         string departmentName = user.Department?.DepartmentName ?? "Departman Yok";
         btnRoleBadge.Text = departmentName;
 
@@ -41,7 +39,7 @@ public partial class PersonelCard : UserControl
 
         try
         {
-            if (Uri.TryCreate(avatarUrl, UriKind.Absolute, out Uri? uri) && 
+            if (Uri.TryCreate(avatarUrl, UriKind.Absolute, out Uri? uri) &&
                 (uri.Scheme == Uri.UriSchemeHttp || uri.Scheme == Uri.UriSchemeHttps))
             {
                 using (HttpClient client = new HttpClient())
@@ -101,7 +99,7 @@ public partial class PersonelCard : UserControl
                 dimmer.Show(anaForm);
                 DialogResult result = popup.ShowDialog(dimmer);
                 dimmer.Close();
-                
+
                 // Eğer kullanıcı bilgileri güncellendiyse, kartı yeniden yükle
                 if (result == DialogResult.OK)
                 {
@@ -119,7 +117,7 @@ public partial class PersonelCard : UserControl
         {
             using var context = OpsFlow.Core.Services.DatabaseManager.CreateContext();
             var userService = new OpsFlow.Services.Implementations.UserService(context);
-            
+
             // Güncel kullanıcı bilgilerini veritabanından çek
             var updatedUser = userService.GetUserById(_user.Id);
             if (updatedUser != null)

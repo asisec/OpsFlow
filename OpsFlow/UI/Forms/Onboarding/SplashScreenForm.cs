@@ -1,7 +1,8 @@
 ﻿using Guna.UI2.WinForms;
+
 using OpsFlow.Core.Services;
-using OpsFlow.UI.Forms.Core;
 using OpsFlow.UI.Forms.Auth;
+using OpsFlow.UI.Forms.Core;
 
 namespace OpsFlow.UI.Forms.Onboarding
 {
@@ -122,7 +123,7 @@ namespace OpsFlow.UI.Forms.Onboarding
                 {
                     errorMessage += $"\n{ex.InnerException.Message}";
                 }
-                
+
                 _lblStatus.Text = $"<div style='text-align:center; width:100%; padding: 0 20px;'><span style='color: #ef4444; font-size: 9pt; line-height: 1.4;'>{errorMessage}</span></div>";
                 _progressBar.ProgressColor = Color.FromArgb(239, 68, 68);
                 _progressBar.ProgressColor2 = Color.FromArgb(239, 68, 68);

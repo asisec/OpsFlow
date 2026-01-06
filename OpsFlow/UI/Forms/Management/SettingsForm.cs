@@ -1,12 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
-using System.Windows.Forms;
-
-using Guna.UI2.WinForms;
+﻿using Guna.UI2.WinForms;
 
 namespace OpsFlow.UI.Forms.Management;
 

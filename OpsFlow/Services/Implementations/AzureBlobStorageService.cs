@@ -1,5 +1,6 @@
 using Azure.Storage.Blobs;
 using Azure.Storage.Blobs.Models;
+
 using OpsFlow.Core.Config;
 using OpsFlow.Core.Exceptions;
 using OpsFlow.Services.Helpers;
@@ -24,7 +25,7 @@ namespace OpsFlow.Services.Implementations
                 throw new ConfigurationException("AZURE_STORAGE_CONNECTION_STRING env değeri boş veya tanımsız.");
 
             connectionString = connectionString.Trim();
-            
+
             if (connectionString.StartsWith("\"") && connectionString.EndsWith("\""))
             {
                 connectionString = connectionString.Substring(1, connectionString.Length - 2).Trim();
@@ -52,7 +53,7 @@ namespace OpsFlow.Services.Implementations
 
             _blobServiceClient = new BlobServiceClient(_settings.ConnectionString);
             _containerClient = _blobServiceClient.GetBlobContainerClient(_settings.ContainerName);
-            
+
             try
             {
                 _containerClient.CreateIfNotExists(PublicAccessType.Blob);
@@ -204,7 +205,7 @@ namespace OpsFlow.Services.Implementations
                         if (equalsIndex >= 0 && equalsIndex < line.Length - 1)
                         {
                             string value = line.Substring(equalsIndex + 1).Trim();
-                            
+
                             if (value.StartsWith("\"") && value.EndsWith("\""))
                             {
                                 value = value.Substring(1, value.Length - 2);
@@ -213,7 +214,7 @@ namespace OpsFlow.Services.Implementations
                             {
                                 value = value.Substring(1, value.Length - 2);
                             }
-                            
+
                             return value;
                         }
                     }
@@ -222,9 +223,8 @@ namespace OpsFlow.Services.Implementations
             catch
             {
             }
-            
+
             return null;
         }
     }
 }
-

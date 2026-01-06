@@ -6,14 +6,13 @@ using OpsFlow.Services.Helpers;
 using OpsFlow.Services.Implementations;
 using OpsFlow.Services.Interfaces;
 using OpsFlow.UI.Forms.Dialogs.Notifications;
-using OpsFlow.UI.Forms.Core;
 
 namespace OpsFlow.UI.Forms.Management;
 
 public partial class ProfileEditForm : Form
 {
-    private User? _user;
-    private User? _originalUser;
+    private readonly User? _user;
+    private readonly User? _originalUser;
     private string? _uploadedFilePath;
     private readonly IFileUploadService _fileUploadService;
     private List<Role> _roles = new List<Role>();
@@ -121,12 +120,12 @@ public partial class ProfileEditForm : Form
         txtSurname.Text = _user.Surname;
         txtEmail.Text = _user.Email;
         txtPhone.Text = _user.Phone ?? string.Empty;
-        
+
         if (_user.Role != null)
         {
             txtTitle.Text = _user.Role.RoleName;
         }
-        
+
         if (_user.Department != null)
         {
             txtDepartmant.Text = _user.Department.DepartmentName;
@@ -145,7 +144,7 @@ public partial class ProfileEditForm : Form
 
         try
         {
-            if (Uri.TryCreate(avatarUrl, UriKind.Absolute, out Uri? uri) && 
+            if (Uri.TryCreate(avatarUrl, UriKind.Absolute, out Uri? uri) &&
                 (uri.Scheme == Uri.UriSchemeHttp || uri.Scheme == Uri.UriSchemeHttps))
             {
                 using (HttpClient client = new HttpClient())
@@ -307,7 +306,7 @@ public partial class ProfileEditForm : Form
                 {
                     Notifier.Show("Başarılı", "Kullanıcı bilgileri başarıyla güncellendi.", NotificationType.Success);
                     this.DialogResult = DialogResult.OK;
-                    
+
                     // Mesajın görünmesi için kısa bir gecikme sonrası formu kapat
                     var timer = new System.Windows.Forms.Timer();
                     timer.Interval = 1500;
@@ -324,7 +323,7 @@ public partial class ProfileEditForm : Form
             {
                 Notifier.Show("Başarılı", "Kullanıcı bilgileri başarıyla güncellendi.", NotificationType.Success);
                 this.DialogResult = DialogResult.OK;
-                
+
                 // Mesajın görünmesi için kısa bir gecikme sonrası formu kapat
                 var timer = new System.Windows.Forms.Timer();
                 timer.Interval = 1500;
@@ -377,7 +376,7 @@ public partial class ProfileEditForm : Form
         bool emailChanged = txtEmail.Text.Trim() != _originalUser.Email;
         bool phoneChanged = (txtPhone.Text.Trim() ?? string.Empty) != (_originalUser.Phone ?? string.Empty);
         bool avatarChanged = !string.IsNullOrWhiteSpace(_uploadedFilePath);
-        
+
         bool roleChanged = txtTitle.Text.Trim() != (_user.Role?.RoleName ?? string.Empty);
         bool departmentChanged = txtDepartmant.Text.Trim() != (_user.Department?.DepartmentName ?? string.Empty);
 

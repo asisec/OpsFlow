@@ -9,5 +9,3 @@ namespace OpsFlow.Services.Interfaces
         Role? GetRoleById(int id);
     }
 }
-
-

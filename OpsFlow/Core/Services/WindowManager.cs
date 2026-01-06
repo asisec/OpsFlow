@@ -4,7 +4,7 @@ namespace OpsFlow.Core.Services
 {
     public static class WindowManager
     {
-        private static ApplicationContext _context = new ApplicationContext();
+        private static readonly ApplicationContext _context = new ApplicationContext();
 
         public static void Run<T>() where T : Form, new()
         {
