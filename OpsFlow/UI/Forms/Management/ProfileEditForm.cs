@@ -15,8 +15,8 @@ public partial class ProfileEditForm : Form
     private readonly User? _originalUser;
     private string? _uploadedFilePath;
     private readonly IFileUploadService _fileUploadService;
-    private List<Role> _roles = new List<Role>();
-    private List<Department> _departments = new List<Department>();
+    private List<Role> _roles = [];
+    private List<Department> _departments = [];
 
     public ProfileEditForm(User user)
     {
