@@ -10,8 +10,8 @@ namespace OpsFlow.UI.Forms.Management;
 
 public partial class PersonelListForm : BaseForm
 {
-    private List<User> _allUsers = new List<User>();
-    private List<User> _filteredUsers = new List<User>();
+    private List<User> _allUsers = [];
+    private List<User> _filteredUsers = [];
     private int _currentPage = 0;
     private const int PageSize = 6;
     private bool _isLoading = false;
@@ -558,15 +558,11 @@ public partial class PersonelListForm : BaseForm
         int containerHeight = flpPersonelContainer.ClientSize.Height;
         bool contentExceedsContainer = contentHeight > containerHeight;
 
-        // Eğer içerik varsa ve (container'dan büyükse veya daha fazla sayfa varsa) scrollbar'ı görünür yap
         if (flpPersonelContainer.Controls.Count > 0 && (contentExceedsContainer || hasMoreContent))
         {
-            // Scrollbar'ın görünür olması için AutoScrollMinSize ayarla
             int requiredHeight = contentHeight;
             if (hasMoreContent)
             {
-                // Daha fazla içerik varsa, scrollbar'ın görünür olması için minimum boyutu container'dan büyük yap
-                // Tahmini toplam yüksekliği hesapla (mevcut sayfa sayısına göre)
                 int estimatedTotalItems = _filteredUsers.Count;
                 int itemsPerRow = Math.Max(1, flpPersonelContainer.ClientSize.Width / (flpPersonelContainer.Controls.Count > 0 ?
                     (flpPersonelContainer.Controls[0].Width + flpPersonelContainer.Controls[0].Margin.Left + flpPersonelContainer.Controls[0].Margin.Right) : 1));
@@ -579,7 +575,6 @@ public partial class PersonelListForm : BaseForm
             }
             else
             {
-                // Sadece mevcut içerik varsa, container'dan biraz büyük yap
                 requiredHeight = Math.Max(requiredHeight, containerHeight + 1);
             }
 
@@ -587,7 +582,6 @@ public partial class PersonelListForm : BaseForm
         }
         else if (flpPersonelContainer.Controls.Count == 0)
         {
-            // İçerik yoksa, minimum boyutu sıfırla
             flpPersonelContainer.AutoScrollMinSize = new Size(0, 0);
         }
 

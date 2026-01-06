@@ -15,8 +15,8 @@ public partial class ProfileEditForm : Form
     private readonly User? _originalUser;
     private string? _uploadedFilePath;
     private readonly IFileUploadService _fileUploadService;
-    private List<Role> _roles = new List<Role>();
-    private List<Department> _departments = new List<Department>();
+    private List<Role> _roles = [];
+    private List<Department> _departments = [];
 
     public ProfileEditForm(User user)
     {
@@ -237,13 +237,11 @@ public partial class ProfileEditForm : Form
                     throw new NotFoundException("Güncellenmek istenen kullanıcı bulunamadı.");
                 }
 
-                // Değişiklikleri uygula
                 existingUser.Name = txtName.Text.Trim();
                 existingUser.Surname = txtSurname.Text.Trim();
                 existingUser.Email = txtEmail.Text.Trim();
                 existingUser.Phone = string.IsNullOrWhiteSpace(txtPhone.Text) ? null : txtPhone.Text.Trim();
 
-                // Rol güncelleme
                 if (!string.IsNullOrWhiteSpace(txtTitle.Text))
                 {
                     var selectedRole = ComboBoxHelper.FindRoleByName(_roles, txtTitle.Text);
@@ -253,7 +251,6 @@ public partial class ProfileEditForm : Form
                     }
                 }
 
-                // Departman güncelleme
                 if (!string.IsNullOrWhiteSpace(txtDepartmant.Text))
                 {
                     var selectedDepartment = ComboBoxHelper.FindDepartmentByName(_departments, txtDepartmant.Text);
@@ -271,7 +268,6 @@ public partial class ProfileEditForm : Form
                     existingUser.DepartmentId = null;
                 }
 
-                // Yeni resim yüklendiyse
                 if (!string.IsNullOrWhiteSpace(_uploadedFilePath))
                 {
                     var fileUploadService = FileUploadServiceFactory.Create();
@@ -279,10 +275,8 @@ public partial class ProfileEditForm : Form
                     existingUser.AvatarUrl = relativePath;
                 }
 
-                // CompanyId'yi koru (değiştirilmemeli)
                 existingUser.CompanyId = _user.CompanyId;
 
-                // Validasyon
                 if (string.IsNullOrWhiteSpace(existingUser.Name) || existingUser.Name.Length < 2)
                     throw new ValidationException("İsim alanı en az 2 karakter olmalıdır.");
 
@@ -295,7 +289,6 @@ public partial class ProfileEditForm : Form
                 if (existingUser.RoleId <= 0)
                     throw new ValidationException("Lütfen kullanıcı için bir rol tanımlayınız.");
 
-                // Kullanıcıyı güncelle - tracked entity olduğu için direkt SaveChanges yeterli
                 context.SaveChanges();
             });
 
