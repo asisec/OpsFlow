@@ -230,7 +230,6 @@ public partial class ProfileEditForm : Form
                 using var context = DatabaseManager.CreateContext();
                 var userService = new UserService(context);
 
-                // Kullanıcıyı Find ile çek (tracked entity)
                 var existingUser = context.Users.Find(_user.Id);
                 if (existingUser == null)
                 {
@@ -292,15 +291,13 @@ public partial class ProfileEditForm : Form
                 context.SaveChanges();
             });
 
-            // UI thread'de mesajı göster ve formu kapat
             if (this.InvokeRequired)
             {
                 this.Invoke(new Action(() =>
                 {
                     Notifier.Show("Başarılı", "Kullanıcı bilgileri başarıyla güncellendi.", NotificationType.Success);
                     this.DialogResult = DialogResult.OK;
-
-                    // Mesajın görünmesi için kısa bir gecikme sonrası formu kapat
+                    
                     var timer = new System.Windows.Forms.Timer();
                     timer.Interval = 1500;
                     timer.Tick += (s, args) =>
@@ -316,8 +313,7 @@ public partial class ProfileEditForm : Form
             {
                 Notifier.Show("Başarılı", "Kullanıcı bilgileri başarıyla güncellendi.", NotificationType.Success);
                 this.DialogResult = DialogResult.OK;
-
-                // Mesajın görünmesi için kısa bir gecikme sonrası formu kapat
+                
                 var timer = new System.Windows.Forms.Timer();
                 timer.Interval = 1500;
                 timer.Tick += (s, args) =>

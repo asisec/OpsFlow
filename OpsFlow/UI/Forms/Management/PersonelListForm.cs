@@ -502,8 +502,7 @@ public partial class PersonelListForm : BaseForm
             }
         }
         await LoadNextPage();
-
-        // Scrollbar'ın görünür olmasını sağlamak için içeriğin yüksekliğini kontrol et
+        
         if (flpPersonelContainer != null)
         {
             if (this.InvokeRequired)
@@ -536,15 +535,12 @@ public partial class PersonelListForm : BaseForm
         flpPersonelContainer.AutoScroll = true;
         flpPersonelContainer.HorizontalScroll.Enabled = false;
         flpPersonelContainer.HorizontalScroll.Visible = false;
-
-        // Daha fazla içerik olup olmadığını kontrol et
+        
         bool hasMoreContent = _currentPage * PageSize < _filteredUsers.Count;
-
-        // FlowLayoutPanel'in gerçek içerik yüksekliğini al
+        
         int contentHeight = 0;
         if (flpPersonelContainer.Controls.Count > 0)
         {
-            // En alttaki kontrolün alt pozisyonunu bul
             int maxBottom = 0;
             foreach (Control control in flpPersonelContainer.Controls)
             {
@@ -557,7 +553,7 @@ public partial class PersonelListForm : BaseForm
 
         int containerHeight = flpPersonelContainer.ClientSize.Height;
         bool contentExceedsContainer = contentHeight > containerHeight;
-
+        
         if (flpPersonelContainer.Controls.Count > 0 && (contentExceedsContainer || hasMoreContent))
         {
             int requiredHeight = contentHeight;

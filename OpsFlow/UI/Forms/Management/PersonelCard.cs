@@ -99,7 +99,7 @@ public partial class PersonelCard : UserControl
                 dimmer.Show(anaForm);
                 DialogResult result = popup.ShowDialog(dimmer);
                 dimmer.Close();
-
+                
                 if (result == DialogResult.OK)
                 {
                     await RefreshUserDataAsync();
@@ -116,7 +116,7 @@ public partial class PersonelCard : UserControl
         {
             using var context = OpsFlow.Core.Services.DatabaseManager.CreateContext();
             var userService = new OpsFlow.Services.Implementations.UserService(context);
-
+            
             var updatedUser = userService.GetUserById(_user.Id);
             if (updatedUser != null)
             {
