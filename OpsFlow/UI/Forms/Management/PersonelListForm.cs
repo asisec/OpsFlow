@@ -501,8 +501,7 @@ public partial class PersonelListForm : BaseForm
             }
         }
         await LoadNextPage();
-
-        // Scrollbar'ın görünür olmasını sağlamak için içeriğin yüksekliğini kontrol et
+        
         if (flpPersonelContainer != null)
         {
             if (this.InvokeRequired)
@@ -535,15 +534,12 @@ public partial class PersonelListForm : BaseForm
         flpPersonelContainer.AutoScroll = true;
         flpPersonelContainer.HorizontalScroll.Enabled = false;
         flpPersonelContainer.HorizontalScroll.Visible = false;
-
-        // Daha fazla içerik olup olmadığını kontrol et
+        
         bool hasMoreContent = _currentPage * PageSize < _filteredUsers.Count;
-
-        // FlowLayoutPanel'in gerçek içerik yüksekliğini al
+        
         int contentHeight = 0;
         if (flpPersonelContainer.Controls.Count > 0)
         {
-            // En alttaki kontrolün alt pozisyonunu bul
             int maxBottom = 0;
             foreach (Control control in flpPersonelContainer.Controls)
             {
@@ -556,16 +552,12 @@ public partial class PersonelListForm : BaseForm
 
         int containerHeight = flpPersonelContainer.ClientSize.Height;
         bool contentExceedsContainer = contentHeight > containerHeight;
-
-        // Eğer içerik varsa ve (container'dan büyükse veya daha fazla sayfa varsa) scrollbar'ı görünür yap
+        
         if (flpPersonelContainer.Controls.Count > 0 && (contentExceedsContainer || hasMoreContent))
         {
-            // Scrollbar'ın görünür olması için AutoScrollMinSize ayarla
             int requiredHeight = contentHeight;
             if (hasMoreContent)
             {
-                // Daha fazla içerik varsa, scrollbar'ın görünür olması için minimum boyutu container'dan büyük yap
-                // Tahmini toplam yüksekliği hesapla (mevcut sayfa sayısına göre)
                 int estimatedTotalItems = _filteredUsers.Count;
                 int itemsPerRow = Math.Max(1, flpPersonelContainer.ClientSize.Width / (flpPersonelContainer.Controls.Count > 0 ?
                     (flpPersonelContainer.Controls[0].Width + flpPersonelContainer.Controls[0].Margin.Left + flpPersonelContainer.Controls[0].Margin.Right) : 1));
@@ -578,7 +570,6 @@ public partial class PersonelListForm : BaseForm
             }
             else
             {
-                // Sadece mevcut içerik varsa, container'dan biraz büyük yap
                 requiredHeight = Math.Max(requiredHeight, containerHeight + 1);
             }
 
@@ -586,7 +577,6 @@ public partial class PersonelListForm : BaseForm
         }
         else if (flpPersonelContainer.Controls.Count == 0)
         {
-            // İçerik yoksa, minimum boyutu sıfırla
             flpPersonelContainer.AutoScrollMinSize = new Size(0, 0);
         }
 

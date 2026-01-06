@@ -99,8 +99,7 @@ public partial class PersonelCard : UserControl
                 dimmer.Show(anaForm);
                 DialogResult result = popup.ShowDialog(dimmer);
                 dimmer.Close();
-
-                // Eğer kullanıcı bilgileri güncellendiyse, kartı yeniden yükle
+                
                 if (result == DialogResult.OK)
                 {
                     await RefreshUserDataAsync();
@@ -117,18 +116,15 @@ public partial class PersonelCard : UserControl
         {
             using var context = OpsFlow.Core.Services.DatabaseManager.CreateContext();
             var userService = new OpsFlow.Services.Implementations.UserService(context);
-
-            // Güncel kullanıcı bilgilerini veritabanından çek
+            
             var updatedUser = userService.GetUserById(_user.Id);
             if (updatedUser != null)
             {
-                // Kartı güncel verilerle yeniden yükle
                 SetUserData(updatedUser);
             }
         }
         catch
         {
-            // Hata durumunda sessizce devam et
         }
     }
 }
