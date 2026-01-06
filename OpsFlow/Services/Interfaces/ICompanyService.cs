@@ -11,5 +11,3 @@ namespace OpsFlow.Services.Interfaces
         Task RegisterCompanyAsync(Company company);
     }
 }
-
-

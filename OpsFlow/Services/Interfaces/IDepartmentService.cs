@@ -9,4 +9,3 @@ namespace OpsFlow.Services.Interfaces
         Department? GetDepartmentById(int id);
     }
 }
-

@@ -7,4 +7,3 @@ namespace OpsFlow.Core.Config
         public string? BaseUrl { get; set; }
     }
 }
-

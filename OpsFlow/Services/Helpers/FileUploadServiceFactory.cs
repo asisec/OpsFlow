@@ -8,9 +8,9 @@ namespace OpsFlow.Services.Helpers
         public static IFileUploadService Create()
         {
             var useAzure = Environment.GetEnvironmentVariable("USE_AZURE_STORAGE");
-            
-            if (!string.IsNullOrWhiteSpace(useAzure) && 
-                bool.TryParse(useAzure, out bool useAzureStorage) && 
+
+            if (!string.IsNullOrWhiteSpace(useAzure) &&
+                bool.TryParse(useAzure, out bool useAzureStorage) &&
                 useAzureStorage)
             {
                 return new AzureBlobStorageService();
@@ -20,4 +20,3 @@ namespace OpsFlow.Services.Helpers
         }
     }
 }
-

@@ -1,6 +1,4 @@
 ﻿using OpsFlow.Core.Models;
-using OpsFlow.Core.Services;
-using OpsFlow.Services.Implementations;
 
 namespace OpsFlow.UI.Forms.Management;
 
@@ -19,7 +17,7 @@ public partial class PersonelCard : UserControl
         _user = user;
 
         lblName.Text = $"{user.Name} {user.Surname}";
-        
+
         string departmentName = user.Department?.DepartmentName ?? "Departman Yok";
         btnRoleBadge.Text = departmentName;
 
@@ -41,7 +39,7 @@ public partial class PersonelCard : UserControl
 
         try
         {
-            if (Uri.TryCreate(avatarUrl, UriKind.Absolute, out Uri? uri) && 
+            if (Uri.TryCreate(avatarUrl, UriKind.Absolute, out Uri? uri) &&
                 (uri.Scheme == Uri.UriSchemeHttp || uri.Scheme == Uri.UriSchemeHttps))
             {
                 using (HttpClient client = new HttpClient())

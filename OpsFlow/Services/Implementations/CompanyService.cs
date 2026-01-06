@@ -1,5 +1,5 @@
 using Microsoft.EntityFrameworkCore;
-using Npgsql;
+
 using OpsFlow.Core.Exceptions;
 using OpsFlow.Core.Models;
 using OpsFlow.Data.Context;
@@ -129,5 +129,3 @@ namespace OpsFlow.Services.Implementations
         }
     }
 }
-
-

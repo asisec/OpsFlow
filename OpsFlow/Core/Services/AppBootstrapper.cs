@@ -1,4 +1,5 @@
 ﻿using Azure.Storage.Blobs;
+
 using OpsFlow.Core.Exceptions;
 using OpsFlow.Services.Interfaces;
 
@@ -104,14 +105,14 @@ namespace OpsFlow.Core.Services
                 {
                     string envPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, ".env");
                     var connectionString = ReadConnectionStringFromEnvFile(envPath);
-                    
+
                     if (string.IsNullOrWhiteSpace(connectionString))
                     {
                         throw new ConfigurationException("USE_AZURE_STORAGE=true olarak ayarlandı ancak AZURE_STORAGE_CONNECTION_STRING tanımlı değil.");
                     }
 
                     connectionString = connectionString.Trim();
-                    
+
                     if (connectionString.StartsWith("\"") && connectionString.EndsWith("\""))
                     {
                         connectionString = connectionString.Substring(1, connectionString.Length - 2).Trim();
@@ -147,10 +148,10 @@ namespace OpsFlow.Core.Services
                         {
                             var blobServiceClient = new BlobServiceClient(connectionString);
                             var properties = await blobServiceClient.GetPropertiesAsync();
-                            
+
                             var containerName = Environment.GetEnvironmentVariable("AZURE_STORAGE_CONTAINER_NAME") ?? "avatars";
                             var containerClient = blobServiceClient.GetBlobContainerClient(containerName);
-                            
+
                             try
                             {
                                 await containerClient.CreateIfNotExistsAsync(Azure.Storage.Blobs.Models.PublicAccessType.Blob);
@@ -277,7 +278,7 @@ namespace OpsFlow.Core.Services
                         if (equalsIndex >= 0 && equalsIndex < line.Length - 1)
                         {
                             string value = line.Substring(equalsIndex + 1).Trim();
-                            
+
                             if (value.StartsWith("\"") && value.EndsWith("\""))
                             {
                                 value = value.Substring(1, value.Length - 2);
@@ -286,7 +287,7 @@ namespace OpsFlow.Core.Services
                             {
                                 value = value.Substring(1, value.Length - 2);
                             }
-                            
+
                             return value;
                         }
                     }
@@ -295,7 +296,7 @@ namespace OpsFlow.Core.Services
             catch
             {
             }
-            
+
             return Environment.GetEnvironmentVariable("AZURE_STORAGE_CONNECTION_STRING");
         }
     }

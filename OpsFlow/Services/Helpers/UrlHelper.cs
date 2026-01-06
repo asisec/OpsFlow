@@ -7,7 +7,7 @@ namespace OpsFlow.Services.Helpers
             if (string.IsNullOrWhiteSpace(filePath))
                 return string.Empty;
 
-            if (Uri.TryCreate(filePath, UriKind.Absolute, out Uri? uri) && 
+            if (Uri.TryCreate(filePath, UriKind.Absolute, out Uri? uri) &&
                 (uri.Scheme == Uri.UriSchemeHttp || uri.Scheme == Uri.UriSchemeHttps))
             {
                 return filePath;
@@ -45,10 +45,9 @@ namespace OpsFlow.Services.Helpers
                 return false;
 
             return Uri.TryCreate(url, UriKind.Absolute, out Uri? uri) &&
-                   (uri.Scheme == Uri.UriSchemeHttp || 
-                    uri.Scheme == Uri.UriSchemeHttps || 
+                   (uri.Scheme == Uri.UriSchemeHttp ||
+                    uri.Scheme == Uri.UriSchemeHttps ||
                     uri.Scheme == Uri.UriSchemeFile);
         }
     }
 }
-

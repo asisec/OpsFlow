@@ -8,4 +8,3 @@ namespace OpsFlow.Services.Interfaces
         string GetFullPath(string relativePath);
     }
 }
-
