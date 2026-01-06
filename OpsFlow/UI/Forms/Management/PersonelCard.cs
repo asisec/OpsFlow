@@ -128,7 +128,6 @@ public partial class PersonelCard : UserControl
         }
         catch
         {
-            // Hata durumunda sessizce devam et
         }
     }
 }

@@ -285,6 +285,16 @@ public partial class PersonelListForm : BaseForm
         }
     }
 
+    private void pnlHeader_Paint(object sender, PaintEventArgs e)
+    {
+
+    }
+
+    private void guna2HtmlLabel3_Click(object sender, EventArgs e)
+    {
+
+    }
+
     private async Task UpdateStatistics(int totalPersonel, int activePersonel, int totalDepartments)
     {
         await Task.Delay(300);
@@ -298,15 +308,6 @@ public partial class PersonelListForm : BaseForm
         txtDep.Text = totalDepartments.ToString();
     }
 
-    private void pnlHeader_Paint(object sender, PaintEventArgs e)
-    {
-
-    }
-
-    private void guna2HtmlLabel3_Click(object sender, EventArgs e)
-    {
-
-    }
 
     private void ScrollTimer_Tick(object? sender, EventArgs e)
     {
